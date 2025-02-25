@@ -1,9 +1,11 @@
 import './App.css'
-import { Header } from './components/Header'
+import { Cabeca } from "./components/Cabeca"
 
 function App() {
   return (
-    <Header/>
+    <>
+      <Cabeca />
+    </>
   )
 
 }

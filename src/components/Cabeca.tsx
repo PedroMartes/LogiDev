@@ -1,11 +1,11 @@
-import React from 'react'
+import style from "./cabeca.module.css"
 
-function Header() {
+export function Cabeca() {
     return (
-        <div>
+        <header>
             <nav>
-                <div className="headerContainer">
-                        <div className="logo">
+                <div className={style.headerContainer}>
+                        <div className={style.logo}>
 
                             <h1>LOGIDEV</h1>
                             <p>Tecnologia e Logistica em um só lugar!</p>
@@ -23,14 +23,13 @@ function Header() {
                                 <a href="">Contato</a>
                             </li>
                             <li>
-                                <a href="" className="servico-button">Serviços</a>
+                                <a href="" className={style.servico}>Serviços</a>
                             </li>
                         </ul>
 
                 </div>
             </nav>
-        </div>
+        </header>
     )
 }
 
-export default Header

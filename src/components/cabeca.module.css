@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    height: 100px;
+    width: 100%;
+    /* background-color: black; */
+   display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    
+}
+
+header {
+    height: 100px;
+    background: whitesmoke
+    
+}
+
+.headerContainer {
+  
+    max-width: 1000px;
+    height: 100%;
+    display: flex;
+}
+
+.headerContainer a {
+    display: flex;
+    margin-left: 500px;
+ 
+}
+
+ul {
+    text-decoration: none;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 40px;
+}
+ .logo h1 {
+    margin-right: 500px;
+    color: black;
+    /* font-size: 4dvh; */
+ }
+.container {
+    margin: 0 auto;
+    max-width: 1000px;
+}
+
+li {
+    width: 100px ;
+}
+
+nav {
+ display: flex;
+ margin-left: 100px;
+}
+
+.logo h1 {
+    color: black;
+    margin-top: 3vh;
+}
+
+.logo, a {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+.servico {
+    width: 110px;
+    background-color: #5795cf;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+#imgLogo {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-content: center;
+}
+
+/* .teste {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
