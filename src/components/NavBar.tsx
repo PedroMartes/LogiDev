@@ -1,7 +1,7 @@
-import style from "./cabeca.module.css"
+import style from "./NavBar.module.css"
 import Logo from "../assets/img/img-1.png"
 
-export function Cabeca() {
+export function NavBar() {
     return (
         <header>
             <nav>
@@ -17,13 +17,13 @@ export function Cabeca() {
 
                         <ul>
                             <li>
-                                <a href="">Home</a>
+                                <a href={'/'}>Home</a>
                             </li>
                             <li>
                                 <a href="">Sobre</a>
                             </li>
                             <li>
-                                <a href="">Contato</a>
+                                <a href={'/contato'}>Contato</a>
                             </li>
                             <li>
                                 <a href="" className={style.servico}>Serviços</a>

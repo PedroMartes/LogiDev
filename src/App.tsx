@@ -1,13 +1,12 @@
 import './App.css'
-import { Cabeca } from "./components/Cabeca"
-import { Slider } from './components/home'
+import Router from './Router';
 
 function App() {
+
   return (
     <>
-      <Cabeca />
-      <Slider />
-    </>
+      <Router />
+    </> 
   )
 
 }
