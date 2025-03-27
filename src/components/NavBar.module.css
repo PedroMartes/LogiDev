@@ -49,6 +49,7 @@ nav {
 
 .logo {
     display: flex;
+    align-items: center;
 }
 
 .logo h1 {
@@ -78,3 +79,6 @@ nav {
     display: flex;
     align-content: center;
 }
+
+.logoText {
+}   
