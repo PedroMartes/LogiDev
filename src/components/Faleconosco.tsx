@@ -1,13 +1,10 @@
-import style from './falaconosco.module.css'
+import style from './Falaconosco.module.css'
 import logo from '../assets/img/img-1.png'
 import { NavBar } from './NavBar'
 
 export function Faleconosco() {
     return (
         <>
-            <body>
-
-                <NavBar />
 
                 <div className={style.container}>
 
@@ -61,8 +58,6 @@ export function Faleconosco() {
 
 
                 </div >
-
-            </body >
         </>
     )
 }

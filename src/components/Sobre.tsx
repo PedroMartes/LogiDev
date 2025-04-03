@@ -1,5 +1,4 @@
 import Style from './Sobre.module.css'
-import { NavBar } from './NavBar'
 import MissaoIcon from '../assets/img/missao-icon.png'
 import VisaoIcon from '../assets/img/visao-icon.png'
 import ValoresIcon from '../assets/img/valores-icon.png'
@@ -7,8 +6,6 @@ import ValoresIcon from '../assets/img/valores-icon.png'
 export function Sobre() {
     return (
         <>
-        <NavBar />
-
             <div className={Style.inicial}>
                 <h2>Sobre nós</h2>
                 <br />

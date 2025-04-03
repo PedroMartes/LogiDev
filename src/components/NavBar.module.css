@@ -2,12 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-body {
     font-family: 'Roboto', sans-serif;
 }
-
 
 header {
     width: 100%;
@@ -15,9 +11,11 @@ header {
 }
 
 .headerContainer {
-    width: 100%;
+    width: 90%;
     height: 100px;
     display: flex;
+    justify-content: space-between;
+    background: whitesmoke
 }
 
 .headerContainer a {
@@ -33,18 +31,16 @@ ul {
 }
 
 .logo h1 {
-    margin-right: 500px;
     color: black;
-    /* font-size: 4dvh; */
 }
 
 li {
-    width: 100px;
+    width: 10vh;
 }
 
 nav {
     display: flex;
-    margin-left: 100px;
+    margin-left: 10vh;
 }
 
 .logo {
@@ -52,33 +48,25 @@ nav {
     align-items: center;
 }
 
-.logo h1 {
-    color: black;
-    margin-top: 3vh;
-}
-
-.logo, a {
+.logo a {
     text-decoration: none;
     color: black;
     cursor: pointer;
 }
 
 .servico {
-    width: 110px;
     background-color: #5795cf;
     color: white;
-    padding: 10px 20px;
+    padding: 1vh;
     border-radius: 20px;
-    margin-left: 20px;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
 }
 
 .imgLogo {
-    width: 80px;
-    height: 80px;
+    width: 8vh;
+    height: 7vh;
     display: flex;
     align-content: center;
 }
-
-.logoText {
-}   

@@ -1,200 +1,107 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
-body {
-    font-family: 'Roboto', sans-serif;
+.mainTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15vh;
 }
 
-.container {
-    height: 100px;
+.tableMain {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.table {
+    width: 80%;
+}
+
+.tableItemsMain {
     width: 100%;
-    /* background-color: black; */
-   display: flex;
-    flex-wrap: wrap;
-    margin: 0 auto;
-    
+    height: 7vh;
+    display: flex;
 }
 
-header {
-    height: 100px;
-    background: whitesmoke
-    
+.tableItem {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px black;
 }
 
-.headerContainer {
-  
-    max-width: 1000px;
+.tableItem p {
+    margin: 0;
     height: 100%;
     display: flex;
-}
-
-.headerContainer a {
-    display: flex;
-    margin-left: 500px;
- 
-}
-
-ul {
-    text-decoration: none;
-    list-style: none;
-    display: flex;
-    align-items: center;
-    margin: 40px;
-}
- .logo h1 {
-    margin-right: 500px;
-    color: black;
-    /* font-size: 4dvh; */
- }
-.container {
-    margin: 0 auto;
-    max-width: 1000px;
-}
-
-li {
-    width: 100px ;
-}
-
-nav {
- display: flex;
- margin-left: 100px;
-}
-
-.logo h1 {
-    color: black;
-    margin-top: 3vh;
-}
-
-.logo, a {
-    text-decoration: none;
-    color: black;
-    cursor: pointer;
-}
-
-.servico-button {
-    width: 110px;
-    background-color: #3bb4d1;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 20px;
-    margin-left: 20px;
-    cursor: pointer;
-}
-
-#imgLogo {
-    width: 80px;
-    height: 80px;
-    display: flex;
-    align-content: center;
-}
-
-
-
-/*Main*/
-
-
-/*form*/
-.forms-main {
-    width: 45%;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-form {
-    width: 100%;
-    margin-top: 10vh;
-    background: #1e91a0;
-    border-radius: 30px;
-    color: #ffff;
-    padding: 1vh;
-}
-
-.form-control {
-    height: 5vh;
-    margin: 0 auto;
-    margin-top: 2vh;
-    display: flex;
-    justify-content: space-between;
     align-items: center;
 }
 
-.form-control-button {
-    height: 5vh;
-    margin: 0 auto;
-    margin-top: 2vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.form-control input {
-    height: 70%;
-    width: 60%;
-    border-radius: 10px;
-    border: 1 solid black;
-    outline: none;
-}
-
-.form-control-button button {
-    height: 80%;
-    width: 40%;
-    border-radius: 10px;
-    outline: 0;
-    transition: 0.2s;
-}
-
-.form-control-button button:hover {
-    height: 85%;
-    width: 45%;
-    border-radius: 10px;
-    background: #437d85;
-    color: #ffff;
-}
-
-
-
-
-
-
-.items-main {
-    margin-top: 10vh;
-}
-
-.items-main-title {
+.enterExitTitle {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 20px;
+    margin-top: 20vh;
 }
 
-.item-card {
-    background: #f3f4f3f4;
-    width: 60%;
-    max-height: 320px;
-    min-height: 100px;
-    margin: 0 auto;
-    margin-top: 25px;
+.enterExitTopMonths {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 10vh;
+}
+
+.enterExitMonths {
+    margin-top: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 20px;
-    border: 1px solid black;
+    background: #5795cf;
+    border: solid 1px black;
+    width: 7%;
+    padding: 2vh;
 }
 
-.item-card img {
+.enterExitMonths p {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.enterExitTable {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.enterExitLeft {
     width: 20%;
-    height: 20%;
-    margin-right: 2%;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
 }
 
-.item-card-text {
+.enterExitLeftItem {
+    width: 100%;
+}
+
+.enterExitTableInformations {
     width: 80%;
+}
+
+.enterExitTableInformationsTop, .enterExitTableInformationsBotton {
+    display: flex;
+    align-items: center;
+}
+
+.enterExitInformation {
+    border: solid 1px black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
 }

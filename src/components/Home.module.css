@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1336px;
+    margin: 0 auto;
+}
+ 
+.container {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    max-width: 100%;
+    justify-content: space-evenly;
+    padding-top: 150px;
+}
+ 
+.beneficios {
+    margin-top: 50px;
+    text-align: center;
+    color: #1e7a99;
+    display: block;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+ 
+}
+ 
+.subTitulo {
+    color: black;
+    padding-top: 50px;
+    display: block;
+    text-align: center;
+    font-weight: 30px;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+ 
+}
+ 
+.card1:hover {
+    transform: translateY(-10px);
+}
+ 
+.card2:hover {
+    transform: translateY(-10px);
+}
+ 
+.card3:hover {
+    transform: translateY(-10px);
+}
+ 
+.card1,
+.card2,
+.card3 {
+    background: #067992;
+    width: 20rem;
+    padding-top: 25px;
+    padding: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: none;
+    box-shadow: 0 6px 10px rgba(207, 212, 222, 1);
+    border-radius: 10px;
+    text-align: center;
+    color: #fff;
+    transition: all 0.3s ease;
+    font-family: Arial, Helvetica, sans-serif;
+}
+ 
+.card1 h5,
+.card2 h5,
+.card3 h5 {
+    text-decoration: none;
+    font-weight: 250;
+    font-size: 18px;
+    padding-top: 20px;
+}
+ 
+.userPicture img, .user-picture svg {
+    width: 100px; 
+    height: 100px;
+    color: #fff;
+}

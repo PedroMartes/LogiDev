@@ -1,59 +1,97 @@
-
+import Style from './Controller.module.css'
 
 export function Controller() {
     return (
         <>
-            <main>
-                <section className={Style.formsMain}>
-                    <form>
-                        <div className={Style.formControl}>
-                            <label for="name">Nome do produto </label>
-                            <input type="text" name="name" id="name" required />
-                        </div>
+            <section className={Style.mainTitle}>
+                <h1>Controle de estoque</h1>
+            </section>
+            <section className={Style.tableMain}>
+                <div className={Style.table}>
 
-                        <div className={Style.formControl}>
-                            <label for="descricao">Descrição do produto </label>
-                            <input type="text" name="descricao" id="descricao" required />
-                        </div>
-
-                        <div className={Style.formControl}>
-                            <label for="img">Adicione a url da imagem </label>
-                            <input type="text" name="img" id="img" required />
-                        </div>
-
-                        <div className={Style.formControlButton}>
-                            <button onclick="elemento(event)">Adicionar produto</button>
-                        </div>
-                    </form>
-
-                </section>
-
-                <section className={Style.itemsMain} id="items-main">
-
-                    <div className={Style.items-main-title}>
-                        <p>Estoque</p>
+                    <div className={Style.tableItemsMain}>
+                        <div className={Style.tableItem} id='itemName'><p>Lorem Ipsun</p></div>
+                        <div className={Style.tableItem} id='itemCategoria'><p>Lorem Lorem</p></div>
+                        <div className={Style.tableItem} id='itemQuantidade'><p>10</p></div>
+                        <div className={Style.tableItem} id='itemStatusEstoque'><p><p>No limite</p></p></div>
+                        <div className={Style.tableItem} id='itemDescription'><p>Lorem ipsum dolor sit amet consectetur.</p></div>
                     </div>
 
-                    <div className={Style.item-card}>
+                </div>
+            </section>
 
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKIrf6lY5Y3Mi5ACQw3TkM-P3c2OTnT-WOkg&s">
 
-                            <div className={Style.item-card-text}>
+            <div className={Style.enterExitTitle}>
+                <h2>Entradas e saidas dos produtos</h2>
+            </div>
 
-                                <h1>Nome do item</h1>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem tenetur fuga rerum dolores assumenda
-                                    exercitationem debitis sapiente odit.</p>
+            <section className={Style.enterExitTableMain}>
 
-                            </div>
+                <div className={Style.enterExitTopMonths}>
+                    <div className={Style.enterExitMonths}><p>Janeiro</p></div>
+                    <div className={Style.enterExitMonths}><p>Fevereiro</p></div>
+                    <div className={Style.enterExitMonths}><p>Março</p></div>
+                    <div className={Style.enterExitMonths}><p>Abril</p></div>
+                    <div className={Style.enterExitMonths}><p>Maio</p></div>
+                    <div className={Style.enterExitMonths}><p>Junho</p></div>
+                    <div className={Style.enterExitMonths}><p>Julho</p></div>
+                    <div className={Style.enterExitMonths}><p>Agosto</p></div>
+                    <div className={Style.enterExitMonths}><p>Setembro</p></div>
+                    <div className={Style.enterExitMonths}><p>Outubro</p></div>
+                    <div className={Style.enterExitMonths}><p>Novembro</p></div>
+                    <div className={Style.enterExitMonths}><p>Desembro</p></div>
+                </div>
 
-                            <div className={Style.delete-button}>
-                                <button onclick=""><img src="../public/img/trash-can.png" alt=""></button>
-                            </div>
+
+                <div className={Style.enterExitTable}>
+
+                    <div className={Style.enterExitLeft}>
+
+                        <div className={Style.enterExitLeftTop}>
+                            <div className={Style.enterExitLeftItem}><p>Entrada</p></div>
+                        </div>
+                        <div className={Style.enterExitLeftBotton}>
+                            <div className={Style.enterExitLeftItem}><p>Saida</p></div>
+                        </div>
+                    </div>
+
+                    <div className={Style.enterExitTableInformations}>
+                        <div className={Style.enterExitTableInformationsTop}>
+                            <div className={Style.enterExitInformation}><p>Janeiro</p></div>
+                            <div className={Style.enterExitInformation}><p>Fevereiro</p></div>
+                            <div className={Style.enterExitInformation}><p>Março</p></div>
+                            <div className={Style.enterExitInformation}><p>Abril</p></div>
+                            <div className={Style.enterExitInformation}><p>Maio</p></div>
+                            <div className={Style.enterExitInformation}><p>Junho</p></div>
+                            <div className={Style.enterExitInformation}><p>Julho</p></div>
+                            <div className={Style.enterExitInformation}><p>Agosto</p></div>
+                            <div className={Style.enterExitInformation}><p>Setembro</p></div>
+                            <div className={Style.enterExitInformation}><p>Outubro</p></div>
+                            <div className={Style.enterExitInformation}><p>Novembro</p></div>
+                            <div className={Style.enterExitInformation}><p>Desembro</p></div>
+                        </div>
+
+                        <div className={Style.enterExitTableInformationsBotton}>
+                            <div className={Style.enterExitInformation}><p>Janeiro</p></div>
+                            <div className={Style.enterExitInformation}><p>Fevereiro</p></div>
+                            <div className={Style.enterExitInformation}><p>Março</p></div>
+                            <div className={Style.enterExitInformation}><p>Abril</p></div>
+                            <div className={Style.enterExitInformation}><p>Maio</p></div>
+                            <div className={Style.enterExitInformation}><p>Junho</p></div>
+                            <div className={Style.enterExitInformation}><p>Julho</p></div>
+                            <div className={Style.enterExitInformation}><p>Agosto</p></div>
+                            <div className={Style.enterExitInformation}><p>Setembro</p></div>
+                            <div className={Style.enterExitInformation}><p>Outubro</p></div>
+                            <div className={Style.enterExitInformation}><p>Novembro</p></div>
+                            <div className={Style.enterExitInformation}><p>Desembro</p></div>
+                        </div>
 
                     </div>
 
-                </section>
-            </main>
+                </div>
+
+
+            </section>
         </>
     )
 }
