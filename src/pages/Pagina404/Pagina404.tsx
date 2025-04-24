@@ -1,5 +1,5 @@
 import Style from './Pagina404.module.css'
-import lupa from '../assets/img/notFound.png'
+import lupa from '../../assets/img/notFound.png'
 
 export function Page404() {
     return (

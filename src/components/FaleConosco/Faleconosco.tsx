@@ -1,6 +1,6 @@
 import style from './Falaconosco.module.css'
 import logo from '../assets/img/img-1.png'
-import { NavBar } from './NavBar'
+import { NavBar } from '../NavBar/NavBar'
 
 export function Faleconosco() {
     return (

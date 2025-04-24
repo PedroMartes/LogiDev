@@ -1,7 +1,7 @@
 import Style from './Home.module.css'
-import graficoLogistica from '../assets/img/graphic-logistic.png'
-import armazenamento from '../assets/img/armazenamento.png'
-import nuvemPasta from '../assets/img/nuvem-pasta.png'
+import graficoLogistica from '../../assets/img/graphic-logistic.png'
+import armazenamento from '../../assets/img/armazenamento.png'
+import nuvemPasta from '../../assets/img/nuvem-pasta.png'
 
 export function Home() {
     return (
@@ -37,6 +37,8 @@ export function Home() {
                         </h5>
                     </div>
                 </div>
+
+                <a href={"/controle"}>Página de controle</a>
         </>
     )
 }

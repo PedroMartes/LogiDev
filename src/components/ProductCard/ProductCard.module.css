@@ -1,0 +1,23 @@
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.produtoCardMain {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    height: 10vh;
+    width: 100%;
+}
+
+.produtoCardItem {
+    border: solid 1px #000;
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,5 +1,5 @@
 import Style from "./NavBar.module.css"
-import Logo from "../assets/img/img-1.png"
+import Logo from "../../assets/img/img-1.png"
 
 export function NavBar() {
     return (
@@ -18,8 +18,8 @@ export function NavBar() {
 
 
 
-                    <ul>
-                        <li>
+                    <ul className={Style.navbarList}>
+                        <li className={Style.navbarItem}>
                             <a href={'/'}>Home</a>
                         </li>
                         <li>

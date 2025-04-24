@@ -18,11 +18,11 @@ header {
     background: whitesmoke
 }
 
-.headerContainer a {
+.headerContainer a { 
     display: flex;
 }
 
-ul {
+.navbarList {
     text-decoration: none;
     list-style: none;
     display: flex;
@@ -34,7 +34,7 @@ ul {
     color: black;
 }
 
-li {
+.navbarItem {
     width: 10vh;
 }
 

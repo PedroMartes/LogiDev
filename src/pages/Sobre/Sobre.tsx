@@ -1,7 +1,7 @@
 import Style from './Sobre.module.css'
-import MissaoIcon from '../assets/img/missao-icon.png'
-import VisaoIcon from '../assets/img/visao-icon.png'
-import ValoresIcon from '../assets/img/valores-icon.png'
+import MissaoIcon from '../../assets/img/missao-icon.png'
+import VisaoIcon from '../../assets/img/visao-icon.png'
+import ValoresIcon from '../../assets/img/valores-icon.png'
 
 export function Sobre() {
     return (
