@@ -1,4 +1,5 @@
 import Style from './Sobre.module.css'
+import sobre from '../../assets/img/sobre.png'
 import MissaoIcon from '../../assets/img/missao-icon.png'
 import VisaoIcon from '../../assets/img/visao-icon.png'
 import ValoresIcon from '../../assets/img/valores-icon.png'
@@ -7,11 +8,10 @@ export function Sobre() {
     return (
         <>
             <div className={Style.inicial}>
-                <h2>Sobre nós</h2>
-                <br />
+                <h2>Sobre nós</h2> 
             </div>
 
-            <div className={Style.container}>
+            <div className={Style.containerSobrePage}>
                 <div className={Style.cardMissao}>
 
                     <div className={Style.userPicture}>

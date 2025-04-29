@@ -10,7 +10,7 @@ generator client {
 
 datasource db {
   provider = "mysql"
-  url      = env("DATABASE_URL")
+  url      = "mysql://root:root@localhost:3306/LogiDev"
 }
 
 model Categorias {
@@ -21,17 +21,15 @@ model Categorias {
 }
 
 model Produtos {
-  id           Int          @id @default(autoincrement())
-  nome         String
-  descricao    String
-  preco        Float
-  quantidade   Int
-  fornecedorId Int
-  fornecedor   Fornecedores @relation(fields: [fornecedorId], references: [id])
-  categoriaId  Int
-  categoriaName String
-  categoria    Categorias   @relation(fields: [categoriaId], references: [id])
-
+  id            Int          @id @default(autoincrement())
+  nome          String
+  descricao     String
+  preco         Float
+  quantidade    Int
+  fornecedorId  Int
+  fornecedor    Fornecedores @relation(fields: [fornecedorId], references: [id])
+  categoriaId   Int
+  categoria     Categorias   @relation(fields: [categoriaId], references: [id])
 }
 
 model Fornecedores {

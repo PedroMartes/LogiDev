@@ -17,10 +17,12 @@ export function ControleCadastros() {
             .then(response => setData(response.data))
             .catch(error => console.error("Erro ao buscar dados:", error));
     }, []);
+    
 
 
     return (
         <>
+
 
             {data.length > 0 ? (
                 data.map(categoria => (
@@ -33,6 +35,7 @@ export function ControleCadastros() {
             ) : (
                 <p>Não há categorias cadastradas</p>
             )}
+        
         </>
 
     )

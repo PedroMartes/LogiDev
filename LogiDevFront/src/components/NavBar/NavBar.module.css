@@ -7,7 +7,7 @@
 
 header {
     width: 100%;
-    background: whitesmoke
+    background: whitesmoke;
 }
 
 .headerContainer {
@@ -27,7 +27,10 @@ header {
     list-style: none;
     display: flex;
     align-items: center;
-    margin-left: 30%;
+}
+
+.navbarList a {
+    margin-right: 4vh;
 }
 
 .logo h1 {

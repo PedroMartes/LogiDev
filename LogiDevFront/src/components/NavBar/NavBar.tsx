@@ -4,7 +4,7 @@ import Logo from "../../assets/img/img-1.png"
 export function NavBar() {
     return (
         <header>
-            <nav>
+            <nav className={Style.navbar}>
                 <div className={Style.headerContainer}>
                     <div className={Style.logo}>
                         <a href={'/'}>
@@ -29,7 +29,7 @@ export function NavBar() {
                             <a href={'/contato'}>Contato</a>
                         </li>
                         <li>
-                            <a href="" className={Style.servico}>Serviços</a>
+                            <a href={''} className={Style.servico}>Serviços</a>
                         </li>
                     </ul>
 
