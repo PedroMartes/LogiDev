@@ -7,7 +7,6 @@ import { CarrosselHome } from '../../components/CarrosselHome/Carrosselhome'
 export function Home() {
     return (
         <>
-
             <div className={Style.TopHome}>
                 <CarrosselHome />
             </div>

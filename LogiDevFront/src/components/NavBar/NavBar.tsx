@@ -29,13 +29,14 @@ export function NavBar() {
                             <a href={'/contato'}>Contato</a>
                         </li>
                         <li>
-                            <a href={''} className={Style.servico}>Serviços</a>
+                            <a href={'/controle'} className={Style.servico}>Serviços</a>
                         </li>
                     </ul>
 
                 </div>
             </nav>
         </header>
+
     )
 }
 

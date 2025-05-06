@@ -4,8 +4,8 @@ import lupa from '../../assets/img/notFound.png'
 export function Page404() {
     return (
         <>
-        <main>
-            <img src={lupa} />
+        <main className={Style.page404main}>
+            <img src={lupa} className={Style.page404img} />
             <div className={Style.text}>
                 <p>404, Page not found</p>
             </div>

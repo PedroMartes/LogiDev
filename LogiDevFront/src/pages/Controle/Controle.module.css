@@ -2,22 +2,3 @@
     margin: 0;
     padding: 0;
 }
-
-.controleTableTopUl {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    list-style: none;
-    height: 10vh;
-    width: 100%;
-}
-
-.controleTableTopLi {
-    border: solid 1px #000;
-    width: 30%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgb(86, 163, 199);
-}

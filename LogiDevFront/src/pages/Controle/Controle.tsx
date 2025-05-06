@@ -34,35 +34,6 @@ export function Controle() {
 
 
             <div className={styles.container}>
-                <h1 className={styles.title}>Produtos</h1>
-                <div className={styles.controleTableTop}>
-
-                    <ul className={styles.controleTableTopUl}>
-                        <li className={styles.controleTableTopLi}>
-                            <p>Nome</p>
-                        </li>
-
-                        <li className={styles.controleTableTopLi}>
-                            <p>descrição</p>
-                        </li>
-
-                        <li className={styles.controleTableTopLi}>
-                            <p>Preço</p>
-                        </li>
-
-                        <li className={styles.controleTableTopLi}>
-                            <p>Categoria</p>
-                        </li>
-
-                        <li className={styles.controleTableTopLi}>
-                            <p>fornecedor</p>
-                        </li>
-                        
-                        <li className={styles.controleTableTopLi}>
-                            <p>Quantidade</p>
-                        </li>
-                    </ul>
-                </div>
 
                 {data.length > 0 ? (
                     <ul className={styles.produtoList}>
@@ -80,20 +51,10 @@ export function Controle() {
                     <p>Erro ao carregar os produtos</p>
                 )}
             </div>
+
+
         </>
 
     )
 }
 
-/* 
-
-<li key={produtos.id}> 
-                        <p className={styles.produtoItem}>{produtos.nome}</p> 
-                        <p className={styles.produtoItem}>{produtos.descricao}</p> 
-                        <p className={styles.produtoItem}>{produtos.preco}</p> 
-                        <p className={styles.produtoItem}>{produtos.categoria.nome}</p> 
-                        <p className={styles.produtoItem}>{produtos.fornecedor.nome}</p> 
-                        <p className={styles.produtoItem}>{produtos.quantidade}</p>
-                        </li>
-
-*/

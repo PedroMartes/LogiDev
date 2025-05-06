@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -8,6 +10,7 @@
 header {
     width: 100%;
     background: whitesmoke;
+    cursor: pointer;
 }
 
 .headerContainer {
@@ -27,14 +30,22 @@ header {
     list-style: none;
     display: flex;
     align-items: center;
+
 }
 
 .navbarList a {
     margin-right: 4vh;
+    text-decoration: none;
+    color: #000;
 }
 
 .logo h1 {
-    color: black;
+    font-size: 15;
+    font-weight: 200;
+}
+.logo h4 {
+    font-size: 5;
+    font-weight: 100;
 }
 
 .navbarItem {
@@ -53,23 +64,23 @@ nav {
 
 .logo a {
     text-decoration: none;
-    color: black;
-    cursor: pointer;
+    color: #000;
+    
 }
-
 .servico {
-    background-color: #5795cf;
+    background-color: #067992;
     color: white;
     padding: 1vh;
     border-radius: 20px;
-    cursor: pointer;
     display: flex;
     justify-content: center;
 }
 
 .imgLogo {
-    width: 8vh;
-    height: 7vh;
+    width: 6vh;
+    height: 5vh;
     display: flex;
     align-content: center;
+    margin-right: 2vh;
 }
+

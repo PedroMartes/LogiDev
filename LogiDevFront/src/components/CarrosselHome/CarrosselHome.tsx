@@ -18,11 +18,11 @@ export function CarrosselHome() {
     }
   }, [currentIndex]);
 
-  // Configura o auto slide a cada 4 segundos
+  // Configura o auto slide a cada 5 segundos
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentIndex(prevIndex => (prevIndex + 1) % itemsCount);
-    }, 4000);
+    }, 5000);
     return () => clearInterval(intervalId);
   }, [itemsCount]);
 

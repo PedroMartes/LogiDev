@@ -1,5 +1,4 @@
 import Style from './Sobre.module.css'
-import Sobre from '../../assets/img/sobre.png'
 import MissaoIcon from '../../assets/img/missao-icon.png'
 import VisaoIcon from '../../assets/img/visao-icon.png'
 import ValoresIcon from '../../assets/img/valores-icon.png'

@@ -8,15 +8,25 @@ ChartJS.register(
     LinearScale
 );
 
+interface IProduto {
+  id: number;
+  nome: string;
+  descricao: string;
+  preco: number;
+  categoria: {
+      id: number;
+      nome: string;
+  };
+  fornecedor: {
+      id: number;
+      nome: string;
+  };
+  quantidade: number;
+}
+
 export const GraficoProdutos = () => {
 
-    return
-
-
-
-
-
-    const [chart, setChart] = useState([]);
+    const [chart, setChart] = useState<IProduto[]>([]);
 
     const baseUrl = "http://localhost:8080/produtos";
     const url = `${baseUrl}/api/chartjs`;
@@ -24,7 +34,7 @@ export const GraficoProdutos = () => {
 
     useEffect(() => {
         const fetchCoins = async () => {
-            await fetch(`${proxyUrl}, ${url}`, {
+            await fetch(`${proxyUrl}, ${url}, ${baseUrl}`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
