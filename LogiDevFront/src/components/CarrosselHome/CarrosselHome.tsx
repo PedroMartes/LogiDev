@@ -3,7 +3,7 @@ import styles from './Carrosselhome.module.css';
 
 import imagem3 from '../../assets/img/sobre.png'; // Imagem do logo
 import imagem1 from '../../assets/img/log.png'; // Imagem 1 do carrossel
-import imagem2 from '../../assets/img/notFound.png'; // Imagem 2 do carrossel
+import imagem2 from '../../assets/img/home1.jpg'; // Imagem 2 do carrossel
 
 export function CarrosselHome() {
   const carouselRef = useRef(null);
