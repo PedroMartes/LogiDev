@@ -1,4 +1,6 @@
-
+* {
+  /* overflow: hidden; */
+}
 
 .contato {
     color: #085399;

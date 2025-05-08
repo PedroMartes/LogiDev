@@ -1,5 +1,7 @@
 import Style from "./NavBar.module.css"
 import Logo from "../../assets/img/img-1.png"
+// import { useLocation } from "react-router";
+// import { useEffect, useState } from "react";
 
 export function NavBar() {
     return (
@@ -20,13 +22,13 @@ export function NavBar() {
 
                     <ul className={Style.navbarList}>
                         <li className={Style.navbarItem}>
-                            <a href={'/'}>Home</a>
+                            <a href={'/'} className={Style.home}>Home</a>
                         </li>
                         <li>
-                            <a href={'/sobre'}>Sobre</a>
+                            <a href={'/sobre'} className={Style.sobre}>Sobre</a>
                         </li>
                         <li>
-                            <a href={'/contato'}>Contato</a>
+                            <a href={'/contato'} className={Style.contato}>Contato</a>
                         </li>
                         <li>
                             <a href={'/controle'} className={Style.servico}>Serviços</a>
@@ -38,5 +40,7 @@ export function NavBar() {
         </header>
 
     )
+
+
 }
 
