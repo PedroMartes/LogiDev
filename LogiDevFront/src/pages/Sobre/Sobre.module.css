@@ -33,7 +33,7 @@
 }
 
 .inicial {
-    background: url('../../assets/img/sobre.png');;
+    /* background: url('../../assets/img/sobre.png');; */
     background-size: cover;
     height: 45vh;
     width: 100%;
@@ -43,16 +43,22 @@
 }
 
 .inicial img {
-    height: 100%;
     width: 100%;
+    object-fit: cover;
+    filter: brightness(0.5); /* Ajusta o brilho da imagem de fundo */
+    height: 45vh;
+    object-position: top;
 }
 
 .inicial h2 {
     font-size: 46px;
     margin: 2%;
-    text-align: center;
+    display: flex;
+    margin-left: 45%;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif2;
-    color: #fff;
+    color: #ffffff;
+    z-index: 10;
+    position: absolute;
 }
 
 .userPicture img {

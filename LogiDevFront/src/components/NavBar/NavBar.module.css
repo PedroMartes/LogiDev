@@ -8,7 +8,6 @@
 
 header {
     width: 100%;
-    background: transparent;
 }
 
 .headerContainer {
@@ -16,14 +15,14 @@ header {
     height: 100px;
     display: flex;
     justify-content: space-between;
-    
-        /* Referente a transparencia, preciso arrumar!! */
-         /* position: fixed; 
-        top: 0;
-        z-index: 100;
-        transition: background-color 0.3s ease;
-        background-color: transparent;  */
-    }
+    position: fixed;
+    z-index: 100;
+}
+/* header:hover {
+    background-color: #000;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+} */
 
 .headerContainer a { 
     display: flex;
@@ -36,41 +35,48 @@ header {
     align-items: center;
     
 }
-
+.navbarList .home:hover, .navbarList .contato:hover, .navbarList .sobre:hover {
+    opacity: 0.8;
+    transition: all 0.3s ease-in-out;
+    color: #0481a4;
+  }
+  .navbarList .servico:hover {
+    opacity: 0.8;
+    transition: all 0.3s ease-in-out;
+    transform: all 0.3s ease-in-out;
+  }
 .home {
     margin-right: 4vh;
     text-decoration: none;
-    color: #000;
+    color: #fff;
     font-weight: bold;
 }
 .sobre {
     margin-right: 4vh;
     text-decoration: none;
-    color: #000;
+    color: #fff;
     font-weight: bold;
 }
 .contato {
     margin-right: 4vh;
     text-decoration: none;
-    color: #000;
+    color: #fff;
     font-weight: bold;
 }
 
-.logo h1 {
-    font-size: 15;
-    font-weight: 200;
-}
-.logo h4 {
-    font-size: 5;
-    font-weight: 100;
+.logoText {
+    color: #fff;
 }
 .logoText h1 {
     margin-left: 1.5vh;
-   margin-bottom: 0.4vh;
+    margin-bottom: 0.4vh;
+    font-size: 15;
+    font-weight: 200;
 }
 .logoText h4 {
     margin-left: 0.5vh;
-    color: #000;
+    font-size: 5;
+    font-weight: 100;
 }
 
 .navbarItem {
@@ -86,11 +92,11 @@ nav {
     display: flex;
     align-items: center;
     cursor: pointer;
+    color: #fff;
 }
 
 .logo a {
     text-decoration: none;
-    color: #000;
     
 }
 .servico {

@@ -29,7 +29,7 @@ export const GraficoProdutos = () => {
     const [chart, setChart] = useState<IProduto[]>([]);
 
     const baseUrl = "http://localhost:8080/produtos";
-    const url = `${baseUrl}/api/chartjs`;
+    const url = `${baseUrl}/http://localhost:8080/chartjs`;
     const proxyUrl = "https://cors-anywhere.herokuapp.com/";
 
     useEffect(() => {

@@ -1,12 +1,19 @@
 import Style from "./NavBar.module.css"
 import Logo from "../../assets/img/img-1.png"
-// import { useLocation } from "react-router";
-// import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export function NavBar() {
+
+    const [scrolled, setScrolled] = useState(false);
+
+    
+
+   
+
+
     return (
         <header>
-            <nav className={Style.navbar}>
+            <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
                 <div className={Style.headerContainer}>
                     <div className={Style.logo}>
                         <a href={'/'}>
