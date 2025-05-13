@@ -5,6 +5,11 @@
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
 }
+
+header {
+    width: 100%;
+}
+
 .headerContainer {
     width: 100%;
     height: 100px;
@@ -12,6 +17,7 @@
     justify-content: space-between;
     position: fixed;
     z-index: 100;
+    
 }
 /* header:hover {
     background-color: #000;
@@ -28,7 +34,7 @@
     list-style: none;
     display: flex;
     align-items: center;
-    margin-right: 15vh;
+    margin-right: 20vh;
     
 }
 .navbarList .home:hover, .navbarList .contato:hover, .navbarList .sobre:hover {
@@ -113,8 +119,3 @@ nav {
     height: 6vh;
 }
 
-@media (height: 5vh) {
-    .navbar {
-        background-color: #000;
-    }
-}
