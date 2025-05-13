@@ -1,19 +1,12 @@
 import Style from "./NavBar.module.css"
 import Logo from "../../assets/img/img-1.png"
-import React, { useEffect, useState } from "react";
+
 
 export function NavBar() {
-
-    const [scrolled, setScrolled] = useState(false);
-
-    
-
-   
-
-
-    return (
+    return (        // Adiciona a classe navbarClass ao elemento nav
         <header>
-            <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+            <nav className={Style.navbar}>
+
                 <div className={Style.headerContainer}>
                     <div className={Style.logo}>
                         <a href={'/'}>
@@ -46,8 +39,5 @@ export function NavBar() {
             </nav>
         </header>
 
-    )
-
-
-}
+)}
 

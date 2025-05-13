@@ -42,7 +42,7 @@ export function Home() {
                 </div>
             </div>
 
-            <a href={"/controle"}>Página de controle</a>
+            {/* <a href={"/controle"}>Página de controle</a> */}
         </>
     )
 }

@@ -7,9 +7,10 @@ import SobreImg from '../../assets/img/sobre.png'
 export function Sobre() {
     return (
         <>
+            
             <div className={Style.inicial}>
                 <img src={SobreImg} />
-                <h2>Sobre nós</h2> 
+                <h2>Sobre nós</h2>
             </div>
 
             <div className={Style.containerSobrePage}>

@@ -1,5 +1,5 @@
 .carouselRef{
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;
@@ -33,6 +33,7 @@
     align-items: center;
     color: white;
     font-family: "montserrat", sans-serif;
+    position: relative;
 }
 
 .carouselItem img {
@@ -41,13 +42,33 @@
     object-fit: cover;
     filter: brightness(0.5); 
 }
-
-.carouselItem h3 {
-    margin: 0;
-    padding: 0;
+.carouselItem h1 {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 400;
+    font-size: 3rem;
 }
-
-/* Reset básico */
+.carouselItem button {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25vh;
+    background-color:#067992;
+    color: white;
+    border: none;
+    padding: 2vh 4vh;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border-radius: 3vh;
+}
+.carouselItem button:hover {
+    background-color: #0a5f7d;
+    transition: all 0.3s ease-in-out;
+    transform: all 0.3s ease-in-out;
+}
  
 footer {
     background-color: #333;
