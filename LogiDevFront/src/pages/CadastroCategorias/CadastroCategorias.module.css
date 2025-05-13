@@ -13,7 +13,7 @@
   transform: translate(-50%, -50%);
 }
 
-h1 {
+.cadastroCategoriasTitle {
   text-align: center;
   font-family: 'Poppins', sans-serif;
   color: #333;

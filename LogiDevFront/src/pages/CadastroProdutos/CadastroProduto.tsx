@@ -65,7 +65,7 @@ export const CadastroProdutos: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <h1>Cadastro de Produtos</h1>
+      <h1 className={styles.cadastroProdutosTitle}>Cadastro de Produtos</h1>
       <form onSubmit={handleSubmit} className={styles.form}>
         <div className={styles.formGroup}>
           <label htmlFor="nome">Nome:</label>
