@@ -1,4 +1,71 @@
-*{
+* {
     margin: 0;
     padding: 0;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.produtoCardMain {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    height: 10vh;
+    width: 100%;
+}
+
+.produtoCardItem {
+    border: solid 1px #000;
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.table {
+    width: 90%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mainTitle {
+    text-align: center;
+    color: #000;
+    font-size: 50px;
+    margin: 20px 0;
+    font-weight: 100;
+}
+
+.mainSubtitle {
+    text-align: center;
+    color: #13698b;
+    font-size: 20px;
+    font-weight: 100;
+
+}
+
+.tableHead {
+    background-color: #067992;
+    color: #fff;
+    width: 90%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tableHeader {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    width: 16%;
 }

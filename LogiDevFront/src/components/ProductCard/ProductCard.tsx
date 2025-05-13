@@ -14,23 +14,10 @@ const ProductCard: React.FC<CardProps> = ({ nome, descricao, preco, categoriaNom
     return (
         <>
 
-            <main className={styles.main}>
-                <div className={styles.container}>
-                    <h1 className={styles.mainTitle}>Controle de Estoque</h1>
-                    <h2 className={styles.mainSubtitle}>Principal</h2>
 
                     <div className={styles.tableContainer}>
                         <table className={styles.table}>
-                            <thead className={styles.tableHead}>
-                                <tr className={styles.tableRow}>
-                                    <th className={styles.tableHeader}>Produto</th>
-                                    <th className={styles.tableHeader}>Descricao</th>
-                                    <th className={styles.tableHeader}>Preço</th>
-                                    <th className={styles.tableHeader}>categoria</th>
-                                    <th className={styles.tableHeader}>fornecedor</th>
-                                    <th className={styles.tableHeader}>quantidade</th>
-                                </tr>
-                            </thead>
+                            
 
                             <tbody className={styles.tableBody}>
                                 <tr className={styles.tableRow}>
@@ -44,8 +31,7 @@ const ProductCard: React.FC<CardProps> = ({ nome, descricao, preco, categoriaNom
                             </tbody>
                         </table>
                     </div>
-                </div>
-            </main >
+
         </>
     );
 }
