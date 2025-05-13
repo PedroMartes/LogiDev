@@ -23,7 +23,7 @@ export function Controle() {
     const [data, setData] = useState<IProduto[]>([]);
 
     useEffect(() => {
-        axios.get("http://localhost:8080/produtos")
+        axios.get("http://localhost:8080/produtos/get")
             .then(response => setData(response.data))
             .catch(error => console.error("Erro ao buscar dados:", error));
     }, []);
@@ -32,8 +32,24 @@ export function Controle() {
     return (
         <>
 
+            <h1 className={styles.mainTitle}>Controle de Estoque</h1>
+            <h2 className={styles.mainSubtitle}>Principal</h2>
 
-            <div className={styles.container}>
+
+            <table className={styles.table}>
+                <thead className={styles.tableHead}>
+                    <tr className={styles.tableRow}>
+                        <th className={styles.tableHeader}>Produto</th>
+                        <th className={styles.tableHeader}>Descricao</th>
+                        <th className={styles.tableHeader}>Preço</th>
+                        <th className={styles.tableHeader}>categoria</th>
+                        <th className={styles.tableHeader}>fornecedor</th>
+                        <th className={styles.tableHeader}>quantidade</th>
+                    </tr>
+                </thead>
+            </table>
+
+            <div>
 
                 {data.length > 0 ? (
                     <ul className={styles.produtoList}>
@@ -51,7 +67,6 @@ export function Controle() {
                     <p>Erro ao carregar os produtos</p>
                 )}
             </div>
-
 
         </>
 
