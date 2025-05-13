@@ -17,7 +17,7 @@ export function Home() {
 
             <div className={Style.container}>
                 <div className={Style.card1}>
-                    <div className={Style.userpicture}>
+                    <div className={Style.userPicture}>
                         <img src={graficoLogistica} />
                     </div>
                     <h5>Oferecemos soluções de gerenciamento de estoque que facilitam o controle de mercadorias, permitindo monitorar entradas, saídas e níveis de estoque em tempo real. Isso evita desperdícios e garante a disponibilidade dos produtos.
@@ -25,7 +25,7 @@ export function Home() {
                 </div>
 
                 <div className={Style.card2}>
-                    <div className={Style.userpicture}>
+                    <div className={Style.userPicture}>
                         <img src={armazenamento} />
                     </div>
                     <h5>Possuímos estrutura moderna e estratégica para armazenar seus produtos com segurança e eficiência.
@@ -34,7 +34,7 @@ export function Home() {
                 </div>
 
                 <div className={Style.card3}>
-                    <div className={Style.userpicture}>
+                    <div className={Style.userPicture}>
                         <img src={nuvemPasta} />
                     </div>
                     <h5>Priorizamos a segurança da informação na logística, protegendo dados dos clientes e operações com sistemas criptografados e protocolos robustos, garantindo confidencialidade e integridade.

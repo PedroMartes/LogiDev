@@ -8,6 +8,8 @@ import { Controle } from './pages/Controle/Controle'
 import { ControleCadastros } from './pages/ControleCadastros/ControleCadastros'
 import { GraficoProdutos} from './pages/GraficoProdutos/GraficoProdutos'
 import { CadastroProdutos  } from './pages/CadastroProdutos/CadastroProduto'
+import { CadastroFornecedores  } from './pages/CadastroFornecedores/CadastroFornecedores'
+import { CadastroCategorias  } from './pages/CadastroCategorias/CadastroCategorias'
 
 const Router = () => {
 
@@ -16,7 +18,9 @@ const Router = () => {
             <NavBar />
             <BrowserRouter>
                 <Routes>
-                    <Route path='/cadastroprodutos' element={<CadastroProdutos />} />
+                    <Route path='/cadastro/produtos' element={<CadastroProdutos />} />
+                    <Route path='/cadastro/fornecedores' element={<CadastroFornecedores />} />
+                    <Route path='/cadastro/categorias' element={<CadastroCategorias />} />
                     <Route path='/' element={<Home />} />
                     <Route path='/home' element={<Home />} />
                     <Route path='/contato' element={<Faleconosco />} />
