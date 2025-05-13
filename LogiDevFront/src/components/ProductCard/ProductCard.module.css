@@ -1,3 +1,8 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
 .card {
     display: flex;
     justify-content: center;
@@ -26,27 +31,7 @@
 
 
 
-.mainTitle {
-    text-align: center;
-    color: #000;
-    font-size: 50px;
-    margin: 20px 0;
-    font-weight:100;
-}
- 
-.mainSubtitle {
-    text-align: center;
-    color: #13698b;
-    font-size: 20px;
-    font-weight: 100;
- 
-}
- 
-.tableSontainer {
-    margin: 60px auto;
-    overflow-x: auto;
-}
- 
+
 .table {
     width: 90%;
     border-collapse: collapse;
@@ -80,4 +65,5 @@
     text-align: center;
     border: 1px solid #ddd;
     font-size: 16px;
-}
+    width: 16%;
+}   
