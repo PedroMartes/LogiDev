@@ -28,13 +28,13 @@ export const GraficoProdutos = () => {
 
     const [chart, setChart] = useState<IProduto[]>([]);
 
-    const baseUrl = "http://localhost:8080/produtos";
-    const url = `${baseUrl}/http://localhost:8080/chartjs`;
+    const baseUrl = "http://localhost:8080/produtos/get";
+    const url = `${baseUrl}`;
     const proxyUrl = "https://cors-anywhere.herokuapp.com/";
 
     useEffect(() => {
         const fetchCoins = async () => {
-            await fetch(`${proxyUrl}, ${url}, ${baseUrl}`, {
+            await fetch(`${baseUrl}`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
@@ -44,7 +44,7 @@ export const GraficoProdutos = () => {
             }).then((res) => {
                 res.json().then((json) => {
                     console.log(json)
-                    setChart(json.data)
+                    setChart(json)
                 })
             }).catch(error => {
                 console.log(error);

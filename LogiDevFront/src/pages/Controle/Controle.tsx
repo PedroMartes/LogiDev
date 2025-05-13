@@ -24,7 +24,7 @@ export function Controle() {
 
     useEffect(() => {
         axios.get("http://localhost:8080/produtos/get")
-            .then(response => setData(response.data))
+            .then(  response => setData(response.data))
             .catch(error => console.error("Erro ao buscar dados:", error));
     }, []);
 
@@ -64,7 +64,7 @@ export function Controle() {
                         ))}
                     </ul>
                 ) : (
-                    <p>Erro ao carregar os produtos</p>
+                    <p>Erro ao carregar os produtos...</p>
                 )}
             </div>
 
