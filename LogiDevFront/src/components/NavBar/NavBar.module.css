@@ -45,7 +45,8 @@ header {
     transition: all 0.3s ease-in-out;
     transform: all 0.3s ease-in-out;
   }
-.home {
+.home { 
+    
     margin-right: 4vh;
     text-decoration: none;
     color: #fff;
