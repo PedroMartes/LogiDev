@@ -7,6 +7,7 @@ import { Page404 } from './pages/Pagina404/Pagina404'
 import { Controle } from './pages/Controle/Controle'
 import { ControleCadastros } from './pages/ControleCadastros/ControleCadastros'
 import { GraficoProdutos} from './pages/GraficoProdutos/GraficoProdutos'
+import { Historico } from './pages/Historico/historico'
 
 const Router = () => {
 
@@ -15,6 +16,7 @@ const Router = () => {
             <NavBar />
             <BrowserRouter>
                 <Routes>
+                    <Route path='/historico' element={<Historico />} />
                     <Route path='/' element={<Home />} />
                     <Route path='/home' element={<Home />} />
                     <Route path='/contato' element={<Faleconosco />} />
