@@ -113,6 +113,7 @@ export const CadastroProdutos: React.FC = () => {
             value={fornecedor}
             onChange={(e) => setFornecedor(e.target.value)}
             required
+            className={styles.selectCadastroProdutos}
           >
             <option value="">Selecione</option>
             {fornecedores.map((f) => (
@@ -127,6 +128,7 @@ export const CadastroProdutos: React.FC = () => {
             value={categoria}
             onChange={(e) => setCategoria(e.target.value)}
             required
+            className={styles.selectCadastroProdutos}
           >
             <option value="">Selecione</option>
             {categorias.map((c) => (
