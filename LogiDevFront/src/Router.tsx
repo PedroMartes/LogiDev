@@ -7,7 +7,9 @@ import { Page404 } from './pages/Pagina404/Pagina404'
 import { Controle } from './pages/Controle/Controle'
 import { ControleCadastros } from './pages/ControleCadastros/ControleCadastros'
 import { GraficoProdutos} from './pages/GraficoProdutos/GraficoProdutos'
-import { Historico } from './pages/Historico/historico'
+import { CadastroProdutos  } from './pages/CadastroProdutos/CadastroProduto'
+import { CadastroFornecedores  } from './pages/CadastroFornecedores/CadastroFornecedores'
+import { CadastroCategorias  } from './pages/CadastroCategorias/CadastroCategorias'
 
 const Router = () => {
 
@@ -16,7 +18,9 @@ const Router = () => {
             <NavBar />
             <BrowserRouter>
                 <Routes>
-                    <Route path='/historico' element={<Historico />} />
+                    <Route path='/cadastro/produtos' element={<CadastroProdutos />} />
+                    <Route path='/cadastro/fornecedores' element={<CadastroFornecedores />} />
+                    <Route path='/cadastro/categorias' element={<CadastroCategorias />} />
                     <Route path='/' element={<Home />} />
                     <Route path='/home' element={<Home />} />
                     <Route path='/contato' element={<Faleconosco />} />
