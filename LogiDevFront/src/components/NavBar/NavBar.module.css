@@ -17,13 +17,25 @@ header {
     justify-content: space-between;
     position: fixed;
     z-index: 100;
+}
+.headerContainer.scrolled {
+    background-color: whitesmoke;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     
 }
-/* header:hover {
-    background-color: #000;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease-in-out;
-} */
+
+.headerContainer.scrolled .navbarList .home,
+.headerContainer.scrolled .navbarList .sobre,
+.headerContainer.scrolled .navbarList .contato,
+.headerContainer.scrolled .logoText {
+    color: #000; /* Ajuste a cor dos textos para combinar com o fundo branco */
+}
+
+.headerContainer.scrolled {
+    background-color: whitesmoke;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
 
 .headerContainer a { 
     display: flex;
@@ -84,12 +96,6 @@ header {
 .navbarItem {
     width: 10vh;
 }
-
-nav {
-    display: flex;
-    margin-left: 10vh;
-}
-
 .logo {
     display: flex;
     align-items: center;
@@ -117,5 +123,6 @@ nav {
 .imgLogo {
     width: 7vh;
     height: 6vh;
+    margin-left: 10vh;
 }
 

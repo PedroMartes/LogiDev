@@ -10,6 +10,7 @@ import { GraficoProdutos} from './pages/GraficoProdutos/GraficoProdutos'
 import { CadastroProdutos  } from './pages/CadastroProdutos/CadastroProduto'
 import { CadastroFornecedores  } from './pages/CadastroFornecedores/CadastroFornecedores'
 import { CadastroCategorias  } from './pages/CadastroCategorias/CadastroCategorias'
+import { Footer } from './components/Footer/Footer'
 
 const Router = () => {
 
@@ -31,6 +32,7 @@ const Router = () => {
                     <Route path='/controle/grafico/produtos' element={< GraficoProdutos />}></Route>
                 </Routes>
             </BrowserRouter>
+            <Footer/>
         </div>
     )
 }
