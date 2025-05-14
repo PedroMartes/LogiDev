@@ -1,4 +1,5 @@
 import Style from "./NavBar.module.css";
+import Styles from "./NavBarGeral.module.css";
 import Logo from "../../assets/img/img-1.png";
 import { useEffect, useState } from "react";
 
@@ -56,6 +57,51 @@ export function NavBar() {
                         </li>
                         <li>
                             <a href={"/controle"} className={Style.servico}>
+                                Serviços
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+    );
+}
+
+export function NavBarGeral () {
+    return (
+        <header>
+            <nav className={Styles.navbar}>
+                <div
+                    className={Styles.headerContainer}
+                >
+                    <div className={Styles.logo}>
+                        <a href={"/"}>
+                            <img src={Logo} className={Styles.imgLogo} />
+                            <div className={Styles.logoText}>
+                                <h1>LOGIDEV</h1>
+                                <h4>Tecnologia e Logistica em um só lugar!</h4>
+                            </div>
+                        </a>
+                    </div>
+
+                    <ul className={Styles.navbarList}>
+                        <li className={Styles.navbarItem}>
+                            <a href={"/"} className={Styles.home}>
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href={"/sobre"} className={Styles.sobre}>
+                                Sobre
+                            </a>
+                        </li>
+                        <li>
+                            <a href={"/contato"} className={Styles.contato}>
+                                Contato
+                            </a>
+                        </li>
+                        <li>
+                            <a href={"/controle"} className={Styles.servico}>
                                 Serviços
                             </a>
                         </li>

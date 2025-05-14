@@ -3,10 +3,12 @@ import graficoLogistica from '../../assets/img/graphic-logistic.png'
 import armazenamento from '../../assets/img/armazenamento.png'
 import nuvemPasta from '../../assets/img/nuvem-pasta.png'
 import { CarrosselHome } from '../../components/CarrosselHome/Carrosselhome'
+import { NavBar } from '../../components/NavBar/NavBar'
 
 export function Home() {
     return (
         <>
+        <NavBar />
             <div className={Style.TopHome}>
                 <CarrosselHome />
             </div>
