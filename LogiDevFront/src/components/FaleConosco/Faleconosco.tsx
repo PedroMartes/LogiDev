@@ -1,11 +1,10 @@
 import style from './Falaconosco.module.css'
-import logo from '../assets/img/img-1.png'
-import { NavBar } from '../NavBar/NavBar'
+import { NavBarGeral } from '../NavBar/NavBar'
 
 export function Faleconosco() {
     return (
         <>
-
+            <NavBarGeral/>
                 <div className={style.container}>
 
                     <div className={style.faleConosco}>

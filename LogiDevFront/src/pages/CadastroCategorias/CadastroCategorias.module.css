@@ -13,7 +13,7 @@
   transform: translate(-50%, -50%);
 }
 
-.cadastroProdutosTitle {
+.cadastroCategoriasTitle {
   text-align: center;
   font-family: 'Poppins', sans-serif;
   color: #333;
@@ -42,10 +42,8 @@ textarea {
   padding: 12px;
   font-size: 16px;
   border: 1px solid #ddd;
-  border-radius: 5px;
+  border-radius: 6px;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  max-width: 40vh;
-  max-height: 50vh;
 }
 
 input:focus,
@@ -61,12 +59,7 @@ textarea:focus {
   border: none;
   padding: 14px;
   font-size: 16px;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
   transition: background-color
-}
-
-.selectCadastroProdutos {
-  height: 5vh;
-  border-radius: 5px;
 }

@@ -3,13 +3,16 @@ import MissaoIcon from '../../assets/img/missao-icon.png'
 import VisaoIcon from '../../assets/img/visao-icon.png'
 import ValoresIcon from '../../assets/img/valores-icon.png'
 import SobreImg from '../../assets/img/sobre.png'
+import { NavBar } from '../../components/NavBar/NavBar'
 
 export function Sobre() {
     return (
         <>
+        <NavBar />
+            
             <div className={Style.inicial}>
                 <img src={SobreImg} />
-                <h2>Sobre nós</h2> 
+                <h2>Sobre nós</h2>
             </div>
 
             <div className={Style.containerSobrePage}>

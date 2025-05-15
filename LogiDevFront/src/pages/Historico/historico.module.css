@@ -1,0 +1,139 @@
+/* Define o fundo cinza global para simular um sombreamento */
+:global(body) {
+  background-color: #d3d3d3;
+}
+
+/* Container principal da página de histórico */
+.pageContainer {
+  width: 80%;
+  margin: 100px auto 50px auto; /* 100px de margem superior para afastar da navbar global */
+  padding: 20px;
+}
+
+/* Mini Nav Bar */
+.miniNavbar {
+  display: flex;
+  justify-content: flex-start; /* Itens alinhados à esquerda */
+  background-color: #00566e; /* Tom de azul do site */
+  padding: 10px 20px;         /* Espaço interno para afastar o conteúdo da borda */
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.miniNavList {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  padding: 0;
+  margin: 0;
+}
+
+.miniNavItem {
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;           /* Texto branco para contraste */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.arrow {
+  margin-left: 5px;
+  font-size: 12px;
+}
+
+/* Título da página */
+.heading {
+  text-align: center;
+  color: #333;
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+/* Lista de cards */
+.lista {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Cada card individual - layout em grid para três colunas */
+.card {
+  display: grid;
+  grid-template-columns: 180px auto 180px; /* Colunas esquerda e direita fixas; coluna central flexível */
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  min-height: 110px;
+}
+
+/* Coluna esquerda: ícone, nome e NIF */
+.left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.icon {
+  color: #004d66;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.userName {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.userNif {
+  font-size: 16px;
+  color: #666;
+}
+
+/* Coluna central: rótulo "Produto:" centralizado */
+.center {
+  text-align: center;
+  font-weight: bold;
+  color: #333;
+  font-size: 18px;
+}
+
+/* Coluna direita: produto e detalhes */
+.right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-right: 15px; /* Espaço para não colar na borda direita */
+}
+
+.productName {
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.details {
+  display: flex;
+  align-items: center;
+  gap: 5px; /* Espaço pequeno entre ação e horário */
+  font-size: 16px;
+  color: #333;
+}
+
+.action {
+  font-weight: 600;
+  color: #004d61;
+}
+
+.time {
+  font-size: 14px;
+  color: #888;
+}

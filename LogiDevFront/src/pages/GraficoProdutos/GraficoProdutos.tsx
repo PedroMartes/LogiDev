@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { Chart as ChartJS, BarElement, CategoryScale, LinearScale } from "chart.js";
 import { Bar } from "react-chartjs-2";
+import { NavBarGeral } from "../../components/NavBar/NavBar";
 
 ChartJS.register(
-    BarElement,
-    CategoryScale,
-    LinearScale
+  BarElement,
+  CategoryScale,
+  LinearScale
 );
 
 interface IProduto {
@@ -14,79 +15,85 @@ interface IProduto {
   descricao: string;
   preco: number;
   categoria: {
-      id: number;
-      nome: string;
+    id: number;
+    nome: string;
   };
   fornecedor: {
-      id: number;
-      nome: string;
+    id: number;
+    nome: string;
   };
   quantidade: number;
 }
 
 export const GraficoProdutos = () => {
 
-    const [chart, setChart] = useState<IProduto[]>([]);
+  const [chart, setChart] = useState<IProduto[]>([]);
 
-    const baseUrl = "http://localhost:8080/produtos";
-    const url = `${baseUrl}/http://localhost:8080/chartjs`;
-    const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+  const baseUrl = "http://localhost:8080/produtos/get";
+  const url = `${baseUrl}`;
+  const proxyUrl = "https://cors-anywhere.herokuapp.com/";
 
-    useEffect(() => {
-        const fetchCoins = async () => {
-            await fetch(`${proxyUrl}, ${url}, ${baseUrl}`, {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Access-Control-Allow-Origin": "*",
-                    "Access-Control-Allow-Methods": "GET"
-                }
-            }).then((res) => {
-                res.json().then((json) => {
-                    console.log(json)
-                    setChart(json.data)
-                })
-            }).catch(error => {
-                console.log(error);
-
-            })
+  useEffect(() => {
+    const fetchCoins = async () => {
+      await fetch(`${baseUrl}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "GET"
         }
-        fetchCoins()
-    }, [baseUrl, url, proxyUrl])
+      }).then((res) => {
+        res.json().then((json) => {
+          console.log(json)
+          setChart(json)
+        })
+      }).catch(error => {
+        console.log(error);
 
-    console.log(chart)
-
-    const data = {
-        labels: chart?.map(x => x.nome),
-        datasets: [{
-                label: `${chart?.length} Available`,
-                data: chart?.map(x => x.quantidade),
-                borderWidth: 1
-            }],
+      })
     }
+    fetchCoins()
+  }, [baseUrl, url, proxyUrl])
 
-    const options = {
-        maintainAspectRatio: false,
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        },
-        legend: {
-          labels: {
-            fontSize: 26
-          }
-        }
+  console.log(chart)
+
+  const data = {
+    labels: chart?.map(x => x.nome),
+    datasets: [{
+      label: `${chart?.length} Available`,
+      data: chart?.map(x => x.quantidade),
+      borderWidth: 1
+    }],
+  }
+
+  const options = {
+    maintainAspectRatio: false,
+    scales: {
+      y: {
+        beginAtZero: true
       }
-    
-      return (
-        <div>
-          <Bar
-            data={data}
-            height={400}
-            options={options}
-          />
-        </div>
-      )
+    },
+    legend: {
+      labels: {
+        fontSize: 26
+      }
     }
-    export default GraficoProdutos
+  }
+
+  return (
+
+    <div>
+      <NavBarGeral />
+      <h1 className="title">Gráfico de Produtos</h1>
+      <h2 className="subtitle">Quantidade de produtos disponíveis</h2>
+      <div>
+        <Bar
+          data={data}
+          height={400}
+          options={options}
+        />
+      </div>
+    </div>
+  )
+}
+export default GraficoProdutos

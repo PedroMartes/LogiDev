@@ -7,13 +7,13 @@ const app = express()
 const prisma = new PrismaClient()
 
 
-const corsOptions = {
-	origin: 'http://localhost:5173', 
-	methods: 'GET,POST,PUT,DELETE',
-	allowedHeaders: 'Content-Type,Authorization'
-  };
+// const corsOptions = {
+// 	origin: 'http://localhost:5173', 
+// 	methods: 'GET,POST,PUT,DELETE',
+// 	allowedHeaders: 'Content-Type,Authorization'
+//   };
   
-  app.use(cors(corsOptions));
+  app.use(cors());
 
 // Middleware para processar JSON
 app.use(express.json())

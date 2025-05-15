@@ -15,28 +15,10 @@ header {
     height: 100px;
     display: flex;
     justify-content: space-between;
-    position: fixed;
+    position: relative;
     z-index: 100;
-}
-.headerContainer.scrolled {
     background-color: whitesmoke;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    
 }
-
-.headerContainer.scrolled .navbarList .home,
-.headerContainer.scrolled .navbarList .sobre,
-.headerContainer.scrolled .navbarList .contato,
-.headerContainer.scrolled .logoText {
-    color: #000; /* Ajuste a cor dos textos para combinar com o fundo branco */
-}
-
-.headerContainer.scrolled {
-    background-color: whitesmoke;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
 .headerContainer a { 
     display: flex;
 }
@@ -62,24 +44,24 @@ header {
 .home {
     margin-right: 4vh;
     text-decoration: none;
-    color: #fff;
+    color: #000;
     font-weight: bold;
 }
 .sobre {
     margin-right: 4vh;
     text-decoration: none;
-    color: #fff;
+    color: #000;
     font-weight: bold;
 }
 .contato {
     margin-right: 4vh;
     text-decoration: none;
-    color: #fff;
+    color: #000;
     font-weight: bold;
 }
 
 .logoText {
-    color: #fff;
+    color: #000
 }
 .logoText h1 {
     margin-left: 1.5vh;
@@ -125,4 +107,3 @@ header {
     height: 6vh;
     margin-left: 10vh;
 }
-

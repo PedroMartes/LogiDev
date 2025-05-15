@@ -75,8 +75,8 @@
     padding-top: 20px;
 }
  
-.userPicture img, .user-picture svg {
-    width: 100px; 
-    height: 100px;
+.userPicture img {
     color: #fff;
+    width: 12vh;      
+    height: auto;
 }
