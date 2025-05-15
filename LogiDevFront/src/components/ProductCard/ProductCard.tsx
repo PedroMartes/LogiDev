@@ -1,5 +1,7 @@
 import React from "react";
 import styles from "./ProductCard.module.css";
+import { MdDelete } from "react-icons/md";
+import { PiNotePencilFill } from "react-icons/pi";
 
 interface CardProps {
     nome: string;
@@ -19,7 +21,7 @@ const ProductCard: React.FC<CardProps> = ({ nome, descricao, preco, categoriaNom
 
 
             <div className={styles.tableContainer}>
-                <table className={styles.table}>
+                <table className={styles.tableProductCard}>
 
 
                     <tbody className={styles.tableBody}>
@@ -30,14 +32,18 @@ const ProductCard: React.FC<CardProps> = ({ nome, descricao, preco, categoriaNom
                             <td className={styles.tableData}>{categoriaNome}</td>
                             <td className={styles.tableData}>{fornecedorNome}</td>
                             <td className={styles.tableData}>{quantidade}</td>
-                            <td>
-                                <button onClick={onDelete} className={styles.deleteButton}>
-                                    Apagar
-                                </button>
-                            </td>
                         </tr>
                     </tbody>
+
                 </table>
+                <button onClick={onDelete} className={styles.deleteButton}>
+                    <MdDelete className={styles.deleteIcon} />
+                </button>
+                <button className={styles.editButton}>
+                    <a href="/">
+                        <PiNotePencilFill className={styles.editIcon} />
+                    </a>
+                </button>
             </div>
 
         </>

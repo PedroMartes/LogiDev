@@ -50,16 +50,14 @@ export function Controle() {
 
 
             <table className={styles.table}>
-                <thead className={styles.tableHead}>
-                    <tr className={styles.tableRow}>
-                        <th className={styles.tableHeader}>Produto</th>
-                        <th className={styles.tableHeader}>Descricao</th>
-                        <th className={styles.tableHeader}>Preço</th>
-                        <th className={styles.tableHeader}>categoria</th>
-                        <th className={styles.tableHeader}>fornecedor</th>
-                        <th className={styles.tableHeader}>quantidade</th>
-                    </tr>
-                </thead>
+                <ul className={styles.tableHead}>
+                        <li className={styles.tableHeader}>Produto</li>
+                        <li className={styles.tableHeader}>Descricao</li>
+                        <li className={styles.tableHeader}>Preço</li>
+                        <li className={styles.tableHeader}>categoria</li>
+                        <li className={styles.tableHeader}>fornecedor</li>
+                        <li className={styles.tableHeader}>quantidade</li>
+                </ul>
             </table>
 
             <div>

@@ -31,9 +31,15 @@
 
 
 
-
-.table {
+.tableContainer {
+    display: flex;
+    justify-content: center;
     width: 90%;
+    margin: 0 auto;
+}
+
+.tableProductCard {
+    width: 100%;
     border-collapse: collapse;
     margin: 0 auto;
     background-color: #fff;
@@ -67,3 +73,13 @@
     font-size: 16px;
     width: 16%;
 }   
+
+.deleteButton, .editButton {
+    width:2%;
+}
+
+.deleteIcon, .editIcon {
+    width: 100%;
+    height: 100%;
+    color: #067992;
+}
