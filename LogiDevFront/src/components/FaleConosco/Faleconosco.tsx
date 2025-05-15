@@ -1,15 +1,28 @@
+import { useState } from 'react';
 import style from './Falaconosco.module.css'
-import { NavBarGeral } from '../NavBar/NavBar'
+import * as Icon from 'react-bootstrap-icons'
 
 export function Faleconosco() {
+
+     const [isOpen, setIsOpen] = useState(true);
+
+    const handleClose = () => {
+        setIsOpen(false);
+    };
+
+    if (!isOpen) {
+        return null; // Isso faz com que o componente não seja renderizado
+    }
+
+
+
     return (
         <>
-            <NavBarGeral/>
                 <div className={style.container}>
 
                     <div className={style.faleConosco}>
                         <form>
-                            <h1>Fale conosco</h1>
+                            <h1>Fale conosco</h1> <Icon.XLg className={style.iconX} onClick={handleClose}/>
                             <hr/>
                             <p>Tire suas dúvidas, envie a sua mensagem e nós responderemos o mais breve possível. Obrigado!</p>
                             <input className={style.input} placeholder=" Nome da Empresa:" />
@@ -30,7 +43,7 @@ export function Faleconosco() {
                                     </svg>
                                 </a>
                             </li>
-                            <li className={style.iconContent}>
+                            <li className={style.iconContent2}>
                                 <a data-social="facebook" aria-label="Facebook" href="https://www.facebook.com/">
                                     <div className={style.filled}></div>
                                     <svg viewBox="0 0 24 24" fill="currentColor" height="24"
@@ -41,7 +54,7 @@ export function Faleconosco() {
                                     </svg>
                                 </a>
                             </li>
-                            <li className={style.iconContent}>
+                            <li className={style.iconContent3}>
                                 <a data-social="instagram" aria-label="Instagram" href="https://www.instagram.com/">
                                     <div className={style.filled}></div>
                                     <svg viewBox="0 0 16 16" fill="currentColor" height="16"
