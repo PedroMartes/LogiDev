@@ -80,7 +80,7 @@ export function Controle() {
                         ))}
                     </ul>
                 ) : (
-                    <p>Erro ao carregar os produtos...</p>
+                    <p></p>
                 )}
             </div>
 
