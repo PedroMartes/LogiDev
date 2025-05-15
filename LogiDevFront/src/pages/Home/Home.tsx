@@ -43,8 +43,6 @@ export function Home() {
                     </h5>
                 </div>
             </div>
-
-            {/* <a href={"/controle"}>Página de controle</a> */}
         </>
     )
 }
