@@ -2,12 +2,13 @@ import { useState } from 'react';
 import style from './Falaconosco.module.css'
 import * as Icon from 'react-bootstrap-icons'
 
-export function Faleconosco() {
+export function Faleconosco({ onClose }: { onClose: () => void }) {
 
      const [isOpen, setIsOpen] = useState(true);
 
     const handleClose = () => {
         setIsOpen(false);
+        onClose(); // Chama a função de fechamento passada como prop
     };
 
     if (!isOpen) {

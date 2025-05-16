@@ -4,13 +4,11 @@ import armazenamento from '../../assets/img/armazenamento.png'
 import nuvemPasta from '../../assets/img/nuvem-pasta.png'
 import { CarrosselHome } from '../../components/CarrosselHome/Carrosselhome'
 import { NavBar } from '../../components/NavBar/NavBar'
-import { Faleconosco } from '../../components/FaleConosco/Faleconosco'
 
 export function Home() {
     return (
         <>
         <NavBar />
-        <Faleconosco />
             <div className={Style.TopHome}>
                 <CarrosselHome />
             </div>

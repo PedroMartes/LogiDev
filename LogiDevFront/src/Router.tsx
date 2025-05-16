@@ -1,4 +1,3 @@
-import { Faleconosco } from './components/FaleConosco/Faleconosco'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Sobre } from './pages/Sobre/Sobre'
 import { Home } from './pages/Home/Home'
@@ -23,7 +22,6 @@ const Router = () => {
                     <Route path='/cadastro/categorias' element={<CadastroCategorias />} />
                     <Route path='/' element={<Home />} />
                     <Route path='/home' element={<Home />} />
-                    <Route path='/contato' element={<Faleconosco />} />
                     <Route path='/sobre' element={<Sobre />} />
                     <Route path='/controle' element={<Controle />} />
                     <Route path='/controle/cadastros' element={<ControleCadastros />} />

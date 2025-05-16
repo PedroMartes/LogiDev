@@ -41,6 +41,10 @@ header {
     transition: all 0.3s ease-in-out;
     transform: all 0.3s ease-in-out;
   }
+  .contato:hover {
+   opacity: 0.8;
+    color: #0481a4;
+  }
 .home {
     margin-right: 4vh;
     text-decoration: none;
@@ -58,6 +62,7 @@ header {
     text-decoration: none;
     color: #000;
     font-weight: bold;
+     cursor: pointer;
 }
 
 .logoText {
