@@ -1,38 +1,64 @@
 import { useState } from 'react';
-import style from './Falaconosco.module.css'
+import style from './cadastro.module.css';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import * as Icon from 'react-bootstrap-icons'
+import { useNavigate } from "react-router-dom";
 
-export function Faleconosco({ onClose }: { onClose: () => void }) {
+export function Cadastro({ onClose }: { onClose: () => void }) {
+  const [showPassword, setShowPassword] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
+   const navigate = useNavigate();
 
-     const [isOpen, setIsOpen] = useState(true);
-
-    const handleClose = () => {
+  const handleClose = () => {
         setIsOpen(false);
-        onClose();
+        onClose(); // Chama a função de fechamento passada como prop
     };
 
     if (!isOpen) {
         return null; // Isso faz com que o componente não seja renderizado
     }
 
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        navigate("/controle");
+    }
 
+  return (
+    <>
+      <div className={style.container}>
+        <div className={style.cadastro}>
 
-    return (
-        <>
-                <div className={style.container}>
+          <form onSubmit={handleSubmit}>
+            <h1>Cadastrar</h1><Icon.XLg className={style.iconX} onClick={handleClose}/>
+            <hr/>
+            <p>
+              Preencha os campos abaixo com seus dados para criar sua conta e aproveitar
+              todos os benefícios que oferecemos!
+            </p>
+            <input className={style.input} placeholder=" Nome da Empresa:" />
+            <input className={style.input} placeholder="CNPJ/CPF:" />
+            <input className={style.input} placeholder=" E-mail:" />
 
-                    <div className={style.faleConosco}>
-                        <form>
-                            <h1>Fale conosco</h1> <Icon.XLg className={style.iconX} onClick={handleClose}/>
-                            <hr/>
-                            <p>Tire suas dúvidas, envie a sua mensagem e nós responderemos o mais breve possível. Obrigado!</p>
-                            <input className={style.input} placeholder=" Nome da Empresa:" />
-                            <input className={style.input} placeholder="CNPJ/CPF:" />
-                            <input className={style.input} placeholder=" E-mail:" />
-                            <textarea className={style.inputMensagem} placeholder=" Sua Mensagem:"></textarea>
-                            <button type="submit" className={style.botaoEnviar}>Enviar</button>
-                        </form>
+            {/* Campo de senha com ícone para mostrar/ocultar */}
+            <div className={style.passwordWrapper}>
+              <input
+                type={showPassword ? 'text' : 'password'}
+                className={style.input}
+                placeholder="Senha:"
+              />
+              <span
+                className={style.toggleIcon}
+                onClick={() => setShowPassword(!showPassword)}
+                aria-label={showPassword ? 'Ocultar senha' : 'Mostrar senha'}
+              >
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </span>
+            </div>
 
+            <button type="submit" className={style.botaoEnviar} >Enviar</button>
+          </form>
+
+          
                         <ul className={style.example2}>
                             <li className={style.iconContent}>
                                 <a  data-social="whatsapp" aria-label="Whatsapp" href="https://api.whatsapp.com/send?phone=+112067101079&amp;text=Save%20this%20to%20your%20Favorites%20-%20@wilsondesouza">
@@ -67,9 +93,8 @@ export function Faleconosco({ onClose }: { onClose: () => void }) {
                                 </a>
                             </li>
                         </ul>
-                    </div >
-                </div >
-        </>
-    )
+        </div>
+      </div>
+    </>
+  );
 }
-

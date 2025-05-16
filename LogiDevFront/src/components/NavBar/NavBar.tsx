@@ -3,11 +3,12 @@ import Styles from "./NavBarGeral.module.css";
 import Logo from "../../assets/img/img-1.png";
 import { useEffect, useState } from "react";
 import { Faleconosco } from "../FaleConosco/Faleconosco";
+import { Cadastro } from "../Cadastro/cadastro";
 
 export function NavBar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [showFaleConosco, setShowFaleConosco] = useState(false);
-
+    const [showCadastro, setShowCadastro] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -63,7 +64,7 @@ export function NavBar() {
                                 </a>
                             </li>
                             <li>
-                                <a href={"/controle"} className={Style.servico}>
+                                <a className={Style.servico}  style={{ cursor: "pointer" }} onClick={() => setShowCadastro(true)}>
                                     Serviços
                                 </a>
                             </li>
@@ -72,12 +73,14 @@ export function NavBar() {
                 </nav>
             </header>
             {showFaleConosco && <Faleconosco onClose={() => setShowFaleConosco(false)} />}
+            {showCadastro && <Cadastro onClose={() => setShowCadastro(false)} />}
         </>
     );
 }
 
 export function NavBarGeral() {
     const [showFaleConosco, setShowFaleConosco] = useState(false);
+     const [showCadastro, setShowCadastro] = useState(false);
 
     return (
         <>
@@ -124,8 +127,8 @@ export function NavBarGeral() {
                 </div>
             </nav>
         </header >
-            { showFaleConosco && <Faleconosco onClose={() => setShowFaleConosco(false)} />
-}
+            { showFaleConosco && <Faleconosco onClose={() => setShowFaleConosco(false)} />}
+            {showCadastro && <Cadastro onClose={() => setShowCadastro(false)} />}
         </>
     );
 }
