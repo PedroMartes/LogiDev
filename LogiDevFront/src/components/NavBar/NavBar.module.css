@@ -58,7 +58,6 @@ header {
     margin-right: 20vh;
     
 }
-
 .navbarList .home:hover, .navbarList .contato:hover, .navbarList .sobre:hover {
     opacity: 0.8;
     transition: all 0.3s ease-in-out;

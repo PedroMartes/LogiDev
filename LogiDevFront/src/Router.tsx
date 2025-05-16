@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Sobre } from './pages/Sobre/Sobre'
 import { Home } from './pages/Home/Home'
-// import { NavBar } from './components/NavBar/NavBar'
 import { Page404 } from './pages/Pagina404/Pagina404'
 import { Controle } from './pages/Controle/Controle'
 import { ControleCadastros } from './pages/ControleCadastros/ControleCadastros'

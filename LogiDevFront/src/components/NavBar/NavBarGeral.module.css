@@ -41,6 +41,13 @@ header {
     transition: all 0.3s ease-in-out;
     transform: all 0.3s ease-in-out;
   }
+  .iconSaida {
+    font-size: 4vh;
+    color: #067992;
+    margin-right: -15vh;
+    margin-left: 14vh;
+    cursor: pointer;
+}
   .contato:hover {
    opacity: 0.8;
     color: #0481a4;

@@ -1,14 +1,15 @@
-import { useState } from 'react';
-import style from './cadastro.module.css';
+import style from './login.module.css';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import * as Icon from 'react-bootstrap-icons'
+import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
-export function Cadastro({ onClose, onOpenLogin }: { onClose: () => void, onOpenLogin: () => void }) {
-  const [showPassword, setShowPassword] = useState(false);
-  const [isOpen, setIsOpen] = useState(true);
+export function Login({ onClose, onOpenCadastro }: { onClose: () => void, onOpenCadastro: () => void }) {
+     const [showPassword, setShowPassword] = useState(false);
+     const [isOpen, setIsOpen] = useState(true);
+        const navigate = useNavigate();
 
-  const handleClose = () => {
+       const handleClose = () => {
     setIsOpen(false);
     onClose(); // Chama a função de fechamento passada como prop
   };
@@ -19,23 +20,21 @@ export function Cadastro({ onClose, onOpenLogin }: { onClose: () => void, onOpen
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onOpenLogin(); // Chama a função de abertura do login
+    navigate("/controle");
   }
 
-  return (
-    <>
+    return (
+         <>
       <div className={style.container}>
         <div className={style.cadastro}>
 
           <form onSubmit={handleSubmit}>
-            <h1>Cadastrar</h1><Icon.XLg className={style.iconX} onClick={handleClose} />
+            <h1>Login</h1><Icon.XLg className={style.iconX} onClick={handleClose} />
             <hr />
             <p>
-              Preencha os campos abaixo com seus dados para criar sua conta e aproveitar
-              todos os benefícios que oferecemos!
+              Entre na sua conta e tenha uma experiência 
+              feita especialmente para você.
             </p>
-            <input className={style.input} placeholder=" Nome da Empresa:" />
-            <input className={style.input} placeholder="CNPJ/CPF:" />
             <input className={style.input} placeholder=" E-mail:" />
 
             {/* Campo de senha com ícone para mostrar/ocultar */}
@@ -57,12 +56,16 @@ export function Cadastro({ onClose, onOpenLogin }: { onClose: () => void, onOpen
             <button type="submit" className={style.botaoEnviar} >Enviar</button>
           </form>
 
-          <div className={style.abrirLogin}>
-            <p>Já tem uma conta?
-              <a style={{cursor: "pointer"}} onClick={onOpenLogin}> Faça Login</a>
-            </p>
+          <div className={style.abrirEsqueciSenha}>
+              <a href={"/esqueciSenha"} onClick={handleClose}>Esqueceu sua senha?</a>
           </div>
 
+            <div className={style.abrirCadastro}>
+              <p>Não tem uma conta?
+
+              <a onClick={onOpenCadastro} style={{cursor: "pointer"}}>Faça seu cadastro</a>
+              </p>
+            </div>
 
 
           <ul className={style.example2}>
@@ -102,5 +105,5 @@ export function Cadastro({ onClose, onOpenLogin }: { onClose: () => void, onOpen
         </div>
       </div>
     </>
-  );
+    )
 }

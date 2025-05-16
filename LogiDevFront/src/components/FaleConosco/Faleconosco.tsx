@@ -35,7 +35,7 @@ export function Faleconosco({ onClose }: { onClose: () => void }) {
 
                         <ul className={style.example2}>
                             <li className={style.iconContent}>
-                                <a  data-social="whatsapp" aria-label="Whatsapp" href="https://api.whatsapp.com/send?phone=+112067101079&amp;text=Save%20this%20to%20your%20Favorites%20-%20@wilsondesouza">
+                                <a  data-social="whatsapp"  target="_blank" aria-label="Whatsapp" href="https://api.whatsapp.com/send?phone=+112067101079&amp;text=Save%20this%20to%20your%20Favorites%20-%20@wilsondesouza">
                                     <div className={style.filled}></div>
                                     <svg  viewBox="0 0 24 24" fill="currentColor" height="24" width="24" xmlns="http://www.w3.org/2000/svg">
                                         <path fill="currentColor"
@@ -45,7 +45,7 @@ export function Faleconosco({ onClose }: { onClose: () => void }) {
                                 </a>
                             </li>
                             <li className={style.iconContent2}>
-                                <a data-social="facebook" aria-label="Facebook" href="https://www.facebook.com/">
+                                <a data-social="facebook"  target="_blank" aria-label="Facebook" href="https://www.facebook.com/">
                                     <div className={style.filled}></div>
                                     <svg viewBox="0 0 24 24" fill="currentColor" height="24"
                                         width="24" xmlns="http://www.w3.org/2000/svg">
@@ -56,7 +56,7 @@ export function Faleconosco({ onClose }: { onClose: () => void }) {
                                 </a>
                             </li>
                             <li className={style.iconContent3}>
-                                <a data-social="instagram" aria-label="Instagram" href="https://www.instagram.com/">
+                                <a data-social="instagram"  target="_blank" aria-label="Instagram" href="https://www.instagram.com/">
                                     <div className={style.filled}></div>
                                     <svg viewBox="0 0 16 16" fill="currentColor" height="16"
                                         width="16" xmlns="http://www.w3.org/2000/svg">
