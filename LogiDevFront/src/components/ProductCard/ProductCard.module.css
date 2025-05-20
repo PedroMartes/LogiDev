@@ -1,7 +1,3 @@
-*{
-    margin: 0;
-    padding: 0;
-}
 
 .card {
     display: flex;
@@ -31,53 +27,29 @@
 
 
 
-.tableContainer {
+.controleTableContainer {
     display: flex;
-    justify-content: center;
     width: 90%;
     margin: 0 auto;
 }
 
 .tableProductCard {
-    width: 100%;
     border-collapse: collapse;
-    margin: 0 auto;
     background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
- 
-.tableHead {
-    background-color: #067992;
-    color: #fff;
-}
- 
-.tableHeader {
-    padding: 15px;
-    text-align: center;
-    border: 1px solid #ddd;
-    font-size: 16px;
-}
- 
-.tableBody .table-row:nth-child(even) {
-    background-color: #f2f2f2;
-}
- 
-.tableBody .table-row:hover {
-    background-color: #e0f7fa;
 }
  
 .tableData {
     padding: 15px;
     text-align: center;
     border: 1px solid #ddd;
-    font-size: 16px;
     width: 100%;
-    max-width: 16%;
-    min-width: 16%;
-}  
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
 .deleteButton, .editButton {
-    width:2%;
+    width: 3.6vh;
 }
 
 .deleteIcon, .editIcon {

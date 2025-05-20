@@ -48,39 +48,41 @@ export function Controle() {
             <h1 className={styles.mainTitle}>Controle de Estoque</h1>
             <h2 className={styles.mainSubtitle}>Principal</h2>
 
+            <div className={styles.controleTabeMain}>
+                <table className={styles.controleTable}>
+                    <thead className={styles.controleTableableHead}>
+                        <th className={styles.controleTableableHeaderText}>Produto</th>
+                        <th className={styles.controleTableableHeaderText}>Descricao</th>
+                        <th className={styles.controleTableableHeaderText}>Preço</th>
+                        <th className={styles.controleTableableHeaderText}>categoria</th>
+                        <th className={styles.controleTableableHeaderText}>fornecedor</th>
+                        <th className={styles.controleTableableHeaderText}>quantidade</th>
+                    </thead>
 
-            <table className={styles.table}>
-                <thead className={styles.tableHead}>
-                        <th className={styles.tableHeader}>Produto</th>
-                        <th className={styles.tableHeader}>Descricao</th>
-                        <th className={styles.tableHeader}>Preço</th>
-                        <th className={styles.tableHeader}>categoria</th>
-                        <th className={styles.tableHeader}>fornecedor</th>
-                        <th className={styles.tableHeader}>quantidade</th>
-                </thead>
-            </table>
 
-            <div>
-                {data.length > 0 ? (
-                    <ul className={styles.produtoList}>
-                        {data.map(produtos => (
-                            <li key={produtos.id}>
-                                <ProductCard
-                                    id={produtos.id}
-                                    onDelete={() => handleDelete(produtos.id)}
-                                    nome={produtos.nome}
-                                    preco={produtos.preco}
-                                    descricao={produtos.descricao}
-                                    categoriaNome={produtos.categoria.nome}
-                                    fornecedorNome={produtos.fornecedor.nome}
-                                    quantidade={produtos.quantidade}
-                                />
-                            </li>
-                        ))}
-                    </ul>
-                ) : (
-                    <p></p>
-                )}
+                    <tbody>
+                        {data.length > 0 ? (
+                            <ul className={styles.produtoList}>
+                                {data.map(produtos => (
+                                    <li key={produtos.id}>
+                                        <ProductCard
+                                            id={produtos.id}
+                                            onDelete={() => handleDelete(produtos.id)}
+                                            nome={produtos.nome}
+                                            preco={produtos.preco}
+                                            descricao={produtos.descricao}
+                                            categoriaNome={produtos.categoria.nome}
+                                            fornecedorNome={produtos.fornecedor.nome}
+                                            quantidade={produtos.quantidade}
+                                        />
+                                    </li>
+                                ))}
+                            </ul>
+                        ) : (
+                            <p></p>
+                        )}
+                    </tbody>
+                </table>
             </div>
 
         </>
