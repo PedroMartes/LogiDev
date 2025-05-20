@@ -1,147 +1,141 @@
-/* Estilos globais podem ser carregados em um arquivo index.css; 
-   aqui usamos classes específicas para este layout */
+/* Alerta.module.css */
 
-/* --- Layout Geral --- */
-.body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-}
-
+/* Se desejar incluir estilos globais, faça isso em outro arquivo */
 .cardGrande {
-    background: #ebebeb;
-    border-radius: 0.5rem;
-    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
-    padding: 2rem;
-    width: 90%;
-    max-width: 80rem;
-    margin: 10vh auto 2rem;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 60vh;
-    justify-content: center;
+  background: #ebebeb;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  width: 90%;
+  max-width: 80rem;
+  margin: 10vh auto 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 60vh;
+  justify-content: center;
 }
 
 .cardGrandeTitulo {
-    font-size: 2rem;
-    color: #00566e;
-    margin-bottom: 3rem;
+  font-size: 2rem;
+  color: #00566e;
+  margin-bottom: 3rem;
 }
 
-/* --- Cards Menores --- */
+/* Layout do container de cards – grid responsivo */
 .cardMenoresContainer {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    width: 100%;
-    max-width: 56.25rem;
-    position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  width: 100%;
+  max-width: 56.25rem;
+  position: relative;
 }
 
-.cardMenor {
-    background: #ffffff;
-    border-radius: 0.5rem;
-    padding: 1rem;
-    text-align: left;
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
-    min-height: 15vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-    z-index: 2;
-}
-
-.cardMenorTitulo {
-    font-size: 1rem;
-    color: #00566e;
-    margin-bottom: 1rem;
-    text-align: center;
-    font-weight: bold;
-}
-
-.cardMenorLista {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-.cardMenorItem {
-    font-size: 1rem;
-    color: #555;
-    margin-bottom: 0.5rem;
-    line-height: 1.5;
-}
-
-.cardMenorItem strong {
-    color: #000;
-}
-
-/* Ajusta o posicionamento dos cards no grid */
-.cardMenoresContainer > .cardMenor:nth-child(3),
-.cardMenoresContainer > .cardMenor:nth-child(4) {
-    margin-top: 2rem;
-}
-
-/* --- Botão Check dos Cards --- */
-.cardMenorCheck {
-    position: absolute;
-    top: 11.5rem;
-    right: 1.2rem;
-    width: 1.8rem;
-    height: 1.8rem;
-    border: 2px solid #bbb;
-    border-radius: 50%;
-    background: #fff;
-    color: #fff;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    outline: none;
-}
-
-.checkIcone {
-    opacity: 0;
-    transition: opacity 0.2s;
-    font-size: 1.2rem;
-}
-
-/* Classe para o estado "checked" */
-.checked {
-    background: #4caf50;
-    border-color: #4caf50;
-    color: #fff;
-}
-.checked .checkIcone {
-    opacity: 1;
-}
-
-/* --- Separadores no Grid de Cards --- */
+/* Separadores no grid */
 .cardMenoresContainer::before,
 .cardMenoresContainer::after {
-    content: '';
-    position: absolute;
-    background-color: #dfdbdb;
-    z-index: 1;
+  content: '';
+  position: absolute;
+  background-color: #dfdbdb;
+  z-index: 1;
 }
 
 .cardMenoresContainer::before {
-    width: 0.1rem;
-    height: 100%;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
+  width: 0.1rem;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .cardMenoresContainer::after {
-    width: 100%;
-    height: 0.1rem;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
+  width: 100%;
+  height: 0.1rem;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+/* Cartões individuais */
+.cardMenor {
+  background: #ffffff;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  text-align: left;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+  min-height: 15vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.cardMenorTitulo {
+  font-size: 1rem;
+  color: #00566e;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.cardMenorLista {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cardMenorItem {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.cardMenorItem strong {
+  color: #000;
+}
+
+/* Ajusta o espaçamento dos cartões 3 e 4 */
+.cardMenoresContainer > .cardMenor:nth-child(3),
+.cardMenoresContainer > .cardMenor:nth-child(4) {
+  margin-top: 2rem;
+}
+
+/* Botão de check */
+.cardMenorCheck {
+  position: absolute;
+  top: 11rem;
+  right: 1.2rem;
+  width: 1.8rem;
+  height: 1.8rem;
+  border: 2px solid #bbb;
+  border-radius: 50%;
+  background: #fff;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  outline: none;
+}
+
+.checkIcone {
+  opacity: 0;
+  transition: opacity 0.2s;
+  font-size: 1.2rem;
+}
+
+/* Estado checked no botão */
+.checked {
+  background: #4caf50;
+  border-color: #4caf50;
+  color: #fff;
+}
+
+.checked .checkIcone {
+  opacity: 1;
 }
