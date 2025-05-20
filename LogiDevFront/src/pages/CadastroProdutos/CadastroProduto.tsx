@@ -69,7 +69,7 @@ export const CadastroProdutos: React.FC = () => {
         
         {/* Campo Nome ocupa toda a largura no topo */}
         <div className={styles.formGroup}>
-          <label htmlFor="nome">Nome:</label>
+          <label htmlFor="nome">Nome:</label> 
           <input
             type="text"
             id="nome"
