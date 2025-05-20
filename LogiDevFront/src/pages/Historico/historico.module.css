@@ -31,7 +31,7 @@
 .miniNavItem {
   font-size: 16px;
   font-weight: bold;
-  color: #fff;           /* Texto branco para contraste */
+  color: #fff;         
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -60,7 +60,7 @@
 /* Cada card individual - layout em grid para três colunas */
 .card {
   display: grid;
-  grid-template-columns: 180px auto 180px; /* Colunas esquerda e direita fixas; coluna central flexível */
+  grid-template-columns: 180px auto 180px; /* Colunas da esquerda e da direita fixas, coluna central flexível */
   align-items: center;
   gap: 10px;
   padding: 20px;
@@ -70,7 +70,7 @@
   min-height: 110px;
 }
 
-/* Coluna esquerda: ícone, nome e NIF */
+/* Coluna da esquerda: ícone, nome e NIF */
 .left {
   display: flex;
   align-items: center;

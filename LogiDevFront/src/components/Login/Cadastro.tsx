@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import style from './login.module.css';
+import style from './Cadastro.module.css';
 import { NavBarGeral } from '../NavBar/NavBar';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 

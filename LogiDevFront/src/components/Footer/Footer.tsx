@@ -1,31 +1,94 @@
-import Style from "./Footer.module.css"
-import Logo from "../../assets/img/img-1.png"
-
+import React from 'react';
+import styles from './Footer.module.css';
+import logo from '../../assets/img/img-1.png';
+import { 
+  FaEnvelope, 
+  FaPhone, 
+  FaMapMarkerAlt, 
+  FaWhatsapp, 
+  FaInstagram, 
+  FaFacebook 
+} from 'react-icons/fa';
 
 export function Footer() {
-    return (
-        <footer>
-            <div className={Style.footerContainer}>
-                <div className={Style.logo}>
-                    <a href={'/'}>
-                        <img src={Logo} className={Style.imgLogo} />
+  return (
+    <footer className={styles.footer}>
+      <div className={styles.logoWrapper}>
+        <img src={logo} alt="LogiDev Logo" className={styles.logo} />
+        <div className={styles.logoContainer}>
+          <div className={styles.siteName}>LOGIDEV</div>
+          <div className={styles.tagline}>Tecnologia e logística em um só lugar!</div>
+        </div>
+      </div>
 
-                        <div className={Style.logoText}>
-                            <h1>LOGIDEV</h1>
-                            <h4>Tecnologia e Logistica em um só lugar!</h4>
-                        </div>
-                    </a>
-                </div>
-            </div>
+      {/* Seção principal com colunas */}
+      <div className={styles.container}>
+        <div className={styles.column}>
+          <h3>Sobre a LogiDev</h3>
+          <p>
+            Fornecemos soluções tecnológicas e logísticas para o gerenciamento de estoques e fornecedores.
+          </p>
+        </div>
 
-            <div className={Style.infosFooter}>
-                <button className={Style.buttonTop}>
-                    <svg className={Style.svgIcon} viewBox="0 0 384 512">
-                        <path d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z" />
-                    </svg>
-                </button>
-            </div>
+        <div className={styles.column}>
+          <h3>Contato</h3>
+          <p>
+            <FaEnvelope className={styles.contactIcon} />
+            contato@logidev.com.br
+          </p>
+          <p>
+            <FaPhone className={styles.contactIcon} />
+            (11) 99999-9999
+          </p>
+          <p>
+            <FaMapMarkerAlt className={styles.contactIcon} />
+            Rua Exemplo, 123, São Paulo/SP
+          </p>
+        </div>
 
-        </footer>
-    )
+        <div className={styles.column}>
+          <h3>Redes Sociais</h3>
+          <ul className={styles.socialList}>
+            <li>
+              <a 
+                href="https://api.whatsapp.com/send?phone=+559999999999"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp"
+              >
+                <FaWhatsapp className={styles.socialIcon} />
+              </a>
+            </li>
+            <li>
+              <a 
+                href="https://instagram.com/logidev" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+              >
+                <FaInstagram className={styles.socialIcon} />
+              </a>
+            </li>
+            <li>
+              <a 
+                href="https://facebook.com/logidev" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+              >
+                <FaFacebook className={styles.socialIcon} />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      {/* Área de créditos */}
+      <div className={styles.copy}>
+        <p>
+          © {new Date().getFullYear()} LogiDev. Todos os direitos reservados. | Termos de Uso | Política de Privacidade
+        </p>
+      </div>
+    </footer>
+  );
 }
