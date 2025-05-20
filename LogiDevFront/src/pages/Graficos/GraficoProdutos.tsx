@@ -3,6 +3,7 @@ import { Chart as ChartJS, BarElement, CategoryScale, LinearScale } from "chart.
 import { Bar } from "react-chartjs-2";
 import { NavBarGeral } from "../../components/NavBar/NavBar";
 import style from "./GraficoProduto.module.css"
+import { Menu } from "../../components/Menu/Menu";
 
 ChartJS.register(
   BarElement,
@@ -105,6 +106,7 @@ export const GraficoProdutos = () => {
     <div className={style.containergrafico}>
 
       <NavBarGeral />
+            <Menu />
     <div className={style.grafico}>
       <h1 className={style.tituloProdutos}>Produtos</h1>
       {/* <h2 className={style.subtituloProdutos}>Quantidade de produtos disponíveis</h2> */}
