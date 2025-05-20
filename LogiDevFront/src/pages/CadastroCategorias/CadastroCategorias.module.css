@@ -51,14 +51,14 @@ textarea {
 
 input:focus,
 textarea:focus {
-  border-color: #00566e;
+  border-color: #067992;
   outline: none;
   box-shadow: 0 0 0.5rem rgba(0, 87, 183, 0.2);
 }
 
 /* Botão */
 .button {
-  background-color: #00566e;
+  background-color: #067992;
   color: #fff;
   border: none;
   padding: 0.875rem;            /* 14px em rem */
@@ -70,7 +70,7 @@ textarea:focus {
 }
 
 .button:hover {
-  background-color: #00566e;
+  background-color: #067992;
 }
 
 /* Responsividade */
