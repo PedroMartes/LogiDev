@@ -1,0 +1,26 @@
+.containerGrafico {
+    background-color: #fff;
+}
+
+.grafico {
+    background-color: #ebebeb;
+    margin-left: 10vh;
+    margin-right: 10vh;
+    margin-top: 5vh;
+    padding-left: 7vh;
+    padding-right: 7vh;
+    padding-top: 3vh;
+    padding-bottom: 7vh;
+    border-radius: 1.5vh;
+}
+.tituloProdutos {
+    display: flex;
+    justify-content: center;
+    color: #067992;
+    font-weight: 520;
+    margin-bottom: 6vh;
+
+}
+.apiGrafico {
+    
+}
