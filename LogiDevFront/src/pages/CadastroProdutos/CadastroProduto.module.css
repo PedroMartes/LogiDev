@@ -1,72 +1,91 @@
+/* Container principal (card) */
 .container {
-  max-width: 600px;
-  margin: auto;
-  padding: 40px;
-  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-
-  /* Centralizar na tela */
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  max-width: 37.5rem;           /* Ex: 600px convertido para rem */
+  width: 90%;
+  margin: 2.5rem auto;
+  padding: 2.5rem;
+  background-color: #fff;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.625rem 1.5625rem rgba(0.1, 0.1, 0.1, 0.1);
 }
 
+/* Título */
 .cadastroProdutosTitle {
   text-align: center;
-  font-family: 'Poppins', sans-serif;
+  font-size: 2em;
+  font-weight: 600;
   color: #333;
-  margin-bottom: 30px;
+  margin-bottom: 1.875rem;
 }
 
+/* Formulário geral */
 .form {
   display: flex;
   flex-direction: column;
+  gap: 1.25rem;
 }
 
+/* Grupo único de formulário */
 .formGroup {
-  margin-bottom: 20px;
   display: flex;
   flex-direction: column;
 }
 
+/* Linha para campos lado a lado */
+.formRow {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Meia largura para campos em linha */
+.halfFormGroup {
+  flex: 1;
+  min-width: 10rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Rótulos */
 label {
-  margin-bottom: 8px;
+  margin-bottom: 0.5rem;
   font-weight: bold;
   color: #555;
 }
 
+/* Inputs, textarea e selects */
 input,
-textarea {
-  padding: 12px;
-  font-size: 16px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+textarea,
+.selectCadastroProdutos {
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 0.0625rem solid #ddd;
+  border-radius: 0.3125rem;
+  width: 100%;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  max-width: 40vh;
-  max-height: 50vh;
 }
 
 input:focus,
-textarea:focus {
-  border-color: #0057b7;
+textarea:focus,
+.selectCadastroProdutos:focus {
+  border-color: #00566e;
   outline: none;
-  box-shadow: 0 0 8px rgba(0, 87, 183, 0.2);
+  box-shadow: 0 0 0.5rem rgba(0, 87, 183, 0.2);
 }
 
+/* Botão */
 .button {
-  background-color: #0057b7;
+  background-color: #00566e;
   color: #fff;
   border: none;
-  padding: 14px;
-  font-size: 16px;
-  border-radius: 5px;
+  padding: 0.875rem;
+  font-size: 1rem;
+  border-radius: 0.3125rem;
   cursor: pointer;
-  transition: background-color
+  width: 100%;
+  transition: background-color 0.3s ease;
 }
 
-.selectCadastroProdutos {
-  height: 5vh;
-  border-radius: 5px;
+.button:hover {
+  background-color: #00566e;
 }
