@@ -28,4 +28,8 @@ const fornecedoresRouter = require("./fornecedoresRouter")
 router.use("/fornecedores", fornecedoresRouter)
 
 
+const userRouter = require("./userRouter");
+
+router.use("/usuarios", userRouter);
+
 module.exports = router

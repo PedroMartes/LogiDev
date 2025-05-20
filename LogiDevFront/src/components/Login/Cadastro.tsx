@@ -1,20 +1,21 @@
-import { use, useState } from 'react';
-import style from './cadastro.module.css';
+// <<<<<<< HEAD:LogiDevFront/src/components/Login/Cadastro.tsx
+import React, { useState } from 'react';
+import style from './Cadastro.module.css';
+import { NavBarGeral } from '../NavBar/NavBar';
+// =======
+import style from './login.module.css';
+// >>>>>>> a1cc33c8835247c0470f2855c22cc3bc94a8e06c:LogiDevFront/src/components/Login/login.tsx
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import * as Icon from 'react-bootstrap-icons'
+import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import axios from 'axios';
 
-export function Cadastro({ onClose, onOpenLogin }: { onClose: () => void, onOpenLogin: () => void }) {
-  const [showPassword, setShowPassword] = useState(false);
-  const [isOpen, setIsOpen] = useState(true);
-  const [nome, setNome] = useState('');
-  const [cpfcnpj, setCpfCnpj] = useState('');
-  const [email, setEmail] = useState('');
-  const [senha, setSenha] = useState('');
+export function Login({ onClose, onOpenCadastro }: { onClose: () => void, onOpenCadastro: () => void }) {
+     const [showPassword, setShowPassword] = useState(false);
+     const [isOpen, setIsOpen] = useState(true);
+        const navigate = useNavigate();
 
-
-  const handleClose = () => {
+       const handleClose = () => {
     setIsOpen(false);
     onClose(); // Chama a função de fechamento passada como prop
   };
@@ -23,63 +24,24 @@ export function Cadastro({ onClose, onOpenLogin }: { onClose: () => void, onOpen
     return null; // Isso faz com que o componente não seja renderizado
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onOpenLogin(); // Chama a função de abertura do login
+    navigate("/controle");
+  }
 
-    const usuario = {
-      nome,
-      cpfcnpj,
-      email,
-      senha
-    };
-
-    try {
-      console.log(usuario);
-      // Aqui você pode fazer a chamada para a API para cadastrar o usuário
-      await axios.post('http://localhost:8080/usuarios/cadastro', usuario);
-      alert('Usuário cadastrado com sucesso!');
-      setNome('');
-      setCnpj('');
-      setEmail('');
-      setSenha('');
-    } catch (error) {
-      alert('Erro ao cadastrar usuario!');
-      console.error(error);
-    }
-
-  };
-
-  return (
-    <>
+    return (
+         <>
       <div className={style.container}>
         <div className={style.cadastro}>
 
           <form onSubmit={handleSubmit}>
-            <h1>Cadastrar</h1><Icon.XLg className={style.iconX} onClick={handleClose} />
+            <h1>Login</h1><Icon.XLg className={style.iconX} onClick={handleClose} />
             <hr />
             <p>
-              Preencha os campos abaixo com seus dados para criar sua conta e aproveitar
-              todos os benefícios que oferecemos!
+              Entre na sua conta e tenha uma experiência 
+              feita especialmente para você.
             </p>
-            <input
-              className={style.input}
-              placeholder=" Nome:"
-              value={nome}
-              onChange={e => setNome(e.target.value)}
-            />
-            <input
-              className={style.input}
-              placeholder="CNPJ/CPF:"
-              value={cpfcnpj}
-              onChange={e => setCpfCnpj(e.target.value)}
-            />
-            <input
-              className={style.input}
-              placeholder=" E-mail:"
-              value={email}
-              onChange={e => setEmail(e.target.value)}
-            />
+            <input className={style.input} placeholder=" E-mail:" />
 
             {/* Campo de senha com ícone para mostrar/ocultar */}
             <div className={style.passwordWrapper}>
@@ -87,8 +49,6 @@ export function Cadastro({ onClose, onOpenLogin }: { onClose: () => void, onOpen
                 type={showPassword ? 'text' : 'password'}
                 className={style.input}
                 placeholder="Senha:"
-                value={senha}
-                onChange={e => setSenha(e.target.value)}
               />
               <span
                 className={style.toggleIcon}
@@ -102,12 +62,16 @@ export function Cadastro({ onClose, onOpenLogin }: { onClose: () => void, onOpen
             <button type="submit" className={style.botaoEnviar} >Enviar</button>
           </form>
 
-          <div className={style.abrirLogin}>
-            <p>Já tem uma conta?
-              <a style={{ cursor: "pointer" }} onClick={onOpenLogin}> Faça Login</a>
-            </p>
+          <div className={style.abrirEsqueciSenha}>
+              <a href={"/esqueciSenha"} onClick={handleClose}>Esqueceu sua senha?</a>
           </div>
 
+            <div className={style.abrirCadastro}>
+              <p>Não tem uma conta?
+
+              <a onClick={onOpenCadastro} style={{cursor: "pointer"}}>Faça seu cadastro</a>
+              </p>
+            </div>
 
 
           <ul className={style.example2}>
@@ -133,7 +97,7 @@ export function Cadastro({ onClose, onOpenLogin }: { onClose: () => void, onOpen
               </a>
             </li>
             <li className={style.iconContent3}>
-              <a data-social="instagram" target="_blank" aria-label="Instagram" href="https://www.instagram.com/">
+              <a data-social="instagram"  target="_blank" aria-label="Instagram" href="https://www.instagram.com/">
                 <div className={style.filled}></div>
                 <svg viewBox="0 0 16 16" fill="currentColor" height="16"
                   width="16" xmlns="http://www.w3.org/2000/svg">
@@ -147,5 +111,5 @@ export function Cadastro({ onClose, onOpenLogin }: { onClose: () => void, onOpen
         </div>
       </div>
     </>
-  );
+    )
 }

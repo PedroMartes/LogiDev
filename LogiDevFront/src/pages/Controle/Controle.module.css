@@ -32,6 +32,8 @@
     padding: 10px;
     text-align: center;
     border: 1px solid #ddd;
-    width: 16%;
+    width: 100%;
+    max-width: 29.5vh;
+    min-width: 29.5vh;
     background-color: #067992;
 }
