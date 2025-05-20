@@ -1,53 +1,30 @@
-/* Define o fundo cinza global para simular um sombreamento */
-:global(body) {
-  background-color: #d3d3d3;
-}
 
 /* Container principal da página de histórico */
 .pageContainer {
-  width: 80%;
+  width: 100%;
   margin: 100px auto 50px auto; /* 100px de margem superior para afastar da navbar global */
   padding: 20px;
-}
-
-/* Mini Nav Bar */
-.miniNavbar {
   display: flex;
-  justify-content: flex-start; /* Itens alinhados à esquerda */
-  background-color: #00566e; /* Tom de azul do site */
-  padding: 10px 20px;         /* Espaço interno para afastar o conteúdo da borda */
-  border-radius: 8px;
-  margin-bottom: 20px;
-}
-
-.miniNavList {
-  list-style: none;
-  display: flex;
-  gap: 30px;
-  padding: 0;
-  margin: 0;
-}
-
-.miniNavItem {
-  font-size: 16px;
-  font-weight: bold;
-  color: #fff;           /* Texto branco para contraste */
-  cursor: pointer;
-  display: flex;
+  justify-content: center;
   align-items: center;
 }
+.historicoMain {
+  background-color: #ebebeb;
+  padding: 7vh;
+  border-radius: 2vh;
+  width: 80%;
 
-.arrow {
-  margin-left: 5px;
-  font-size: 12px;
 }
-
 /* Título da página */
 .heading {
+  display: flex;
+  justify-content: center;
   text-align: center;
-  color: #333;
-  font-size: 26px;
-  margin-bottom: 20px;
+  color: #067992;
+  font-weight: 400;
+  font-size: 3.5vh;
+  margin-top: -3vh;
+  margin-bottom: 5vh;
 }
 
 /* Lista de cards */
@@ -63,7 +40,7 @@
   grid-template-columns: 180px auto 180px; /* Colunas esquerda e direita fixas; coluna central flexível */
   align-items: center;
   gap: 10px;
-  padding: 20px;
+  padding-left: 2vh;
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -84,56 +61,70 @@
 .userInfo {
   display: flex;
   flex-direction: column;
+  margin-left: 1vh;
+  gap: 1vh;
 }
 
 .userName {
+  justify-content: center;
+  align-items: center;
   font-size: 18px;
-  font-weight: bold;
-  color: #333;
+  font-weight: 500;
+  color: #000;
+  height: -1vh;
+  
 }
 
 .userNif {
   font-size: 16px;
-  color: #666;
+  color: #8b8b8b;
+  margin-bottom: -2vh;
 }
 
 /* Coluna central: rótulo "Produto:" centralizado */
 .center {
   text-align: center;
-  font-weight: bold;
-  color: #333;
+  font-weight: 500;
+  color: #8b8b8b;
   font-size: 18px;
+  margin-left: 10vh;
 }
 
 /* Coluna direita: produto e detalhes */
 .right {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  padding-right: 15px; /* Espaço para não colar na borda direita */
+  position: absolute;
+  margin-left: 100vh;
+
 }
 
 .productName {
   font-size: 18px;
   font-weight: 500;
   color: #333;
-  margin-bottom: 8px;
+  margin-bottom: 2vh;
+  white-space: nowrap; /* Impede quebra de linha */
 }
 
 .details {
+  gap: 10vh;
   display: flex;
-  align-items: center;
-  gap: 5px; /* Espaço pequeno entre ação e horário */
   font-size: 16px;
   color: #333;
+  margin-bottom: -1vh;
+  white-space: nowrap; /* Impede quebra de linha */
+  right: 40vh;
 }
 
 .action {
   font-weight: 600;
   color: #004d61;
+
 }
 
 .time {
   font-size: 14px;
   color: #888;
+  align-items: end;
+
+  
 }
