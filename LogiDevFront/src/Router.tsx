@@ -11,6 +11,9 @@ import { CadastroCategorias  } from './pages/CadastroCategorias/CadastroCategori
 import { Footer } from './components/Footer/Footer'
 import GraficoFornecedores from './pages/Graficos/GraficoFornecedor'
 import { Historico } from './pages/Historico/historico'
+import CurvaABC from './pages/CurvaABC/CurvaABC'
+import { Alerta } from './pages/Alerta/alerta'
+import { Produto } from './pages/Controle/ControleProduto'
 
 
 const Router = () => {
@@ -31,6 +34,9 @@ const Router = () => {
                     <Route path='/controle/grafico/produtos' element={< GraficoProdutos />}/>
                      <Route path='/controle/grafico/fornecedores' element={< GraficoFornecedores />}/>
                      <Route path='/historico' element={< Historico/>}/>
+                      <Route path='/curvaABC' element={< CurvaABC/>}/>
+                      <Route path='/alertas' element={< Alerta/>}/>
+                      <Route path='/controle/produtos' element={<Produto />} />
                 </Routes>
             </BrowserRouter>
             <Footer/>
