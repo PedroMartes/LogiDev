@@ -1,12 +1,18 @@
-import { useState } from 'react';
+import { use, useState } from 'react';
 import style from './cadastro.module.css';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import * as Icon from 'react-bootstrap-icons'
 import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 
 export function Cadastro({ onClose, onOpenLogin }: { onClose: () => void, onOpenLogin: () => void }) {
   const [showPassword, setShowPassword] = useState(false);
   const [isOpen, setIsOpen] = useState(true);
+  const [nome, setNome] = useState('');
+  const [cpfcnpj, setCpfCnpj] = useState('');
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
+
 
   const handleClose = () => {
     setIsOpen(false);
@@ -17,10 +23,32 @@ export function Cadastro({ onClose, onOpenLogin }: { onClose: () => void, onOpen
     return null; // Isso faz com que o componente não seja renderizado
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     onOpenLogin(); // Chama a função de abertura do login
-  }
+
+    const usuario = {
+      nome,
+      cpfcnpj,
+      email,
+      senha
+    };
+
+    try {
+      console.log(usuario);
+      // Aqui você pode fazer a chamada para a API para cadastrar o usuário
+      await axios.post('http://localhost:8080/usuarios/cadastro', usuario);
+      alert('Usuário cadastrado com sucesso!');
+      setNome('');
+      setCnpj('');
+      setEmail('');
+      setSenha('');
+    } catch (error) {
+      alert('Erro ao cadastrar usuario!');
+      console.error(error);
+    }
+
+  };
 
   return (
     <>
@@ -34,9 +62,24 @@ export function Cadastro({ onClose, onOpenLogin }: { onClose: () => void, onOpen
               Preencha os campos abaixo com seus dados para criar sua conta e aproveitar
               todos os benefícios que oferecemos!
             </p>
-            <input className={style.input} placeholder=" Nome da Empresa:" />
-            <input className={style.input} placeholder="CNPJ/CPF:" />
-            <input className={style.input} placeholder=" E-mail:" />
+            <input
+              className={style.input}
+              placeholder=" Nome:"
+              value={nome}
+              onChange={e => setNome(e.target.value)}
+            />
+            <input
+              className={style.input}
+              placeholder="CNPJ/CPF:"
+              value={cpfcnpj}
+              onChange={e => setCpfCnpj(e.target.value)}
+            />
+            <input
+              className={style.input}
+              placeholder=" E-mail:"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+            />
 
             {/* Campo de senha com ícone para mostrar/ocultar */}
             <div className={style.passwordWrapper}>
@@ -44,6 +87,8 @@ export function Cadastro({ onClose, onOpenLogin }: { onClose: () => void, onOpen
                 type={showPassword ? 'text' : 'password'}
                 className={style.input}
                 placeholder="Senha:"
+                value={senha}
+                onChange={e => setSenha(e.target.value)}
               />
               <span
                 className={style.toggleIcon}
@@ -59,7 +104,7 @@ export function Cadastro({ onClose, onOpenLogin }: { onClose: () => void, onOpen
 
           <div className={style.abrirLogin}>
             <p>Já tem uma conta?
-              <a style={{cursor: "pointer"}} onClick={onOpenLogin}> Faça Login</a>
+              <a style={{ cursor: "pointer" }} onClick={onOpenLogin}> Faça Login</a>
             </p>
           </div>
 
@@ -88,7 +133,7 @@ export function Cadastro({ onClose, onOpenLogin }: { onClose: () => void, onOpen
               </a>
             </li>
             <li className={style.iconContent3}>
-              <a data-social="instagram"  target="_blank" aria-label="Instagram" href="https://www.instagram.com/">
+              <a data-social="instagram" target="_blank" aria-label="Instagram" href="https://www.instagram.com/">
                 <div className={style.filled}></div>
                 <svg viewBox="0 0 16 16" fill="currentColor" height="16"
                   width="16" xmlns="http://www.w3.org/2000/svg">

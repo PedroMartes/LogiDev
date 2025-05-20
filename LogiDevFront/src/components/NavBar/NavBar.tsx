@@ -3,7 +3,6 @@ import Styles from "./NavBarGeral.module.css";
 import Logo from "../../assets/img/img-1.png";
 import { useEffect, useState } from "react";
 import { Faleconosco } from "../FaleConosco/Faleconosco";
-// import { Cadastro } from "../Cadastro/cadastro";
 import { Login } from "../Login/Login";
 import { Cadastro } from "../Cadastro/cadastro";
 import * as Icon from 'react-bootstrap-icons'
