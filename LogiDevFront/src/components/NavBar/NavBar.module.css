@@ -32,6 +32,15 @@ header {
     color: #000; /* Ajuste a cor dos textos para combinar com o fundo branco */
 }
 
+.headerContainer.scrolled .navbarList .home:hover,
+.headerContainer.scrolled .navbarList .sobre:hover,
+.headerContainer.scrolled .navbarList .contato:hover {
+    opacity: 0.8;
+    transition: all 0.3s ease-in-out;
+    color: #0481a4;
+}
+
+
 .headerContainer.scrolled {
     background-color: whitesmoke;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
@@ -59,6 +68,8 @@ header {
     transition: all 0.3s ease-in-out;
     transform: all 0.3s ease-in-out;
   }
+
+
 .home {
     margin-right: 4vh;
     text-decoration: none;

@@ -51,14 +51,12 @@ export function Controle() {
 
             <table className={styles.table}>
                 <thead className={styles.tableHead}>
-                    <tr className={styles.tableRow}>
                         <th className={styles.tableHeader}>Produto</th>
                         <th className={styles.tableHeader}>Descricao</th>
                         <th className={styles.tableHeader}>Preço</th>
                         <th className={styles.tableHeader}>categoria</th>
                         <th className={styles.tableHeader}>fornecedor</th>
                         <th className={styles.tableHeader}>quantidade</th>
-                    </tr>
                 </thead>
             </table>
 
@@ -68,6 +66,7 @@ export function Controle() {
                         {data.map(produtos => (
                             <li key={produtos.id}>
                                 <ProductCard
+                                    id={produtos.id}
                                     onDelete={() => handleDelete(produtos.id)}
                                     nome={produtos.nome}
                                     preco={produtos.preco}
@@ -80,7 +79,7 @@ export function Controle() {
                         ))}
                     </ul>
                 ) : (
-                    <p>Erro ao carregar os produtos...</p>
+                    <p></p>
                 )}
             </div>
 
