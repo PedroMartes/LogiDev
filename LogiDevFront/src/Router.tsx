@@ -10,6 +10,7 @@ import { CadastroFornecedores  } from './pages/CadastroFornecedores/CadastroForn
 import { CadastroCategorias  } from './pages/CadastroCategorias/CadastroCategorias'
 import { Footer } from './components/Footer/Footer'
 import GraficoFornecedores from './pages/Graficos/GraficoFornecedor'
+import { Historico } from './pages/Historico/historico'
 
 const Router = () => {
 
@@ -28,6 +29,7 @@ const Router = () => {
                     <Route path="*" element={<Page404 />} />
                     <Route path='/controle/grafico/produtos' element={< GraficoProdutos />}/>
                      <Route path='/controle/grafico/fornecedores' element={< GraficoFornecedores />}/>
+                     <Route path='/historico' element={< Historico/>}/>
                 </Routes>
             </BrowserRouter>
             <Footer/>
