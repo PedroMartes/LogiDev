@@ -9,7 +9,7 @@ import { CadastroProdutos  } from './pages/CadastroProdutos/CadastroProduto'
 import { CadastroFornecedores  } from './pages/CadastroFornecedores/CadastroFornecedores'
 import { CadastroCategorias  } from './pages/CadastroCategorias/CadastroCategorias'
 import { Footer } from './components/Footer/Footer'
-import GraficoFornecedores from './pages/Graficos/GraficoFornecedor'
+import { GraficoFornecedores } from './pages/Graficos/GraficoFornecedor'
 
 const Router = () => {
 
