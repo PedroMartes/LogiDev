@@ -4,6 +4,31 @@
   width: 100%;
   margin: 100px auto 50px auto; /* 100px de margem superior para afastar da navbar global */
   padding: 20px;
+}
+
+/* Mini Nav Bar */
+.miniNavbar {
+  display: flex;
+  justify-content: flex-start; /* Itens alinhados à esquerda */
+  background-color: #00566e; /* Tom de azul do site */
+  padding: 10px 20px;         /* Espaço interno para afastar o conteúdo da borda */
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.miniNavList {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  padding: 0;
+  margin: 0;
+}
+
+.miniNavItem {
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;         
+  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -37,7 +62,7 @@
 /* Cada card individual - layout em grid para três colunas */
 .card {
   display: grid;
-  grid-template-columns: 180px auto 180px; /* Colunas esquerda e direita fixas; coluna central flexível */
+  grid-template-columns: 180px auto 180px; /* Colunas da esquerda e da direita fixas, coluna central flexível */
   align-items: center;
   gap: 10px;
   padding-left: 2vh;
@@ -47,7 +72,7 @@
   min-height: 110px;
 }
 
-/* Coluna esquerda: ícone, nome e NIF */
+/* Coluna da esquerda: ícone, nome e NIF */
 .left {
   display: flex;
   align-items: center;

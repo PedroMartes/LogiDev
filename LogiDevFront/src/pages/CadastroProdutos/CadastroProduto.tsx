@@ -1,6 +1,7 @@
+// CadastroProdutos.tsx
 import React, { useState, useEffect } from 'react';
 import styles from './CadastroProduto.module.css';
-import axios from "axios";
+import axios from 'axios';
 
 interface ICategoria {
   id: number;
@@ -23,20 +24,18 @@ export const CadastroProdutos: React.FC = () => {
   const [categorias, setCategorias] = useState<ICategoria[]>([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8080/categorias/get")
+    axios
+      .get("http://localhost:8080/categorias/get")
       .then(response => setCategorias(response.data))
       .catch(error => console.error("Erro ao buscar categorias:", error));
-    axios.get("http://localhost:8080/fornecedores/get")
+    axios
+      .get("http://localhost:8080/fornecedores/get")
       .then(response => setFornecedores(response.data))
       .catch(error => console.error("Erro ao buscar fornecedores:", error));
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    // Busca os objetos completos pelo id selecionado
-    const fornecedorObj = fornecedores.find(f => f.id === Number(fornecedor));
-    const categoriaObj = categorias.find(c => c.id === Number(categoria));
 
     const produto = {
       nome,
@@ -67,6 +66,8 @@ export const CadastroProdutos: React.FC = () => {
     <div className={styles.container}>
       <h1 className={styles.cadastroProdutosTitle}>Cadastro de Produtos</h1>
       <form onSubmit={handleSubmit} className={styles.form}>
+        
+        {/* Campo Nome ocupa toda a largura no topo */}
         <div className={styles.formGroup}>
           <label htmlFor="nome">Nome:</label>
           <input
@@ -77,6 +78,66 @@ export const CadastroProdutos: React.FC = () => {
             required
           />
         </div>
+
+        {/* Linha 1: Fornecedor e Categoria lado a lado */}
+        <div className={styles.formRow}>
+          <div className={styles.halfFormGroup}>
+            <label htmlFor="fornecedor">Fornecedor:</label>
+            <select
+              id="fornecedor"
+              value={fornecedor}
+              onChange={(e) => setFornecedor(e.target.value)}
+              required
+              className={styles.selectCadastroProdutos}
+            >
+              <option value="">Selecione</option>
+              {fornecedores.map((f) => (
+                <option key={f.id} value={f.id}>{f.nome}</option>
+              ))}
+            </select>
+          </div>
+          <div className={styles.halfFormGroup}>
+            <label htmlFor="categoria">Categoria:</label>
+            <select
+              id="categoria"
+              value={categoria}
+              onChange={(e) => setCategoria(e.target.value)}
+              required
+              className={styles.selectCadastroProdutos}
+            >
+              <option value="">Selecione</option>
+              {categorias.map((c) => (
+                <option key={c.id} value={c.id}>{c.nome}</option>
+              ))}
+            </select>
+          </div>
+        </div>
+
+        {/* Linha 2: Preço e Quantidade lado a lado */}
+        <div className={styles.formRow}>
+          <div className={styles.halfFormGroup}>
+            <label htmlFor="preco">Preço:</label>
+            <input
+              type="number"
+              id="preco"
+              value={preco}
+              onChange={(e) => setPreco(e.target.value)}
+              required
+            />
+          </div>
+          <div className={styles.halfFormGroup}>
+            <label htmlFor="quantidade">Quantidade:</label>
+            <input
+              type="number"
+              id="quantidade"
+              value={quantidade}
+              onChange={(e) => setQuantidade(e.target.value)}
+              required
+            />
+          </div>
+        </div>
+
+        {/* Campo Descrição ocupa toda a largura no meio ou em baixo */}
         <div className={styles.formGroup}>
           <label htmlFor="descricao">Descrição:</label>
           <textarea
@@ -86,56 +147,7 @@ export const CadastroProdutos: React.FC = () => {
             required
           />
         </div>
-        <div className={styles.formGroup}>
-          <label htmlFor="preco">Preço:</label>
-          <input
-            type="number"
-            id="preco"
-            value={preco}
-            onChange={(e) => setPreco(e.target.value)}
-            required
-          />
-        </div>
-        <div className={styles.formGroup}>
-          <label htmlFor="quantidade">Quantidade:</label>
-          <input
-            type="number"
-            id="quantidade"
-            value={quantidade}
-            onChange={(e) => setQuantidade(e.target.value)}
-            required
-          />
-        </div>
-        <div className={styles.formGroup}>
-          <label htmlFor="fornecedor">Fornecedor:</label>
-          <select
-            id="fornecedor"
-            value={fornecedor}
-            onChange={(e) => setFornecedor(e.target.value)}
-            required
-            className={styles.selectCadastroProdutos}
-          >
-            <option value="">Selecione</option>
-            {fornecedores.map((f) => (
-              <option key={f.id} value={f.id}>{f.nome}</option>
-            ))}
-          </select>
-        </div>
-        <div className={styles.formGroup}>
-          <label htmlFor="categoria">Categoria:</label>
-          <select
-            id="categoria"
-            value={categoria}
-            onChange={(e) => setCategoria(e.target.value)}
-            required
-            className={styles.selectCadastroProdutos}
-          >
-            <option value="">Selecione</option>
-            {categorias.map((c) => (
-              <option key={c.id} value={c.id}>{c.nome}</option>
-            ))}
-          </select>
-        </div>
+
         <button type="submit" className={styles.button}>
           Cadastrar Produto
         </button>
