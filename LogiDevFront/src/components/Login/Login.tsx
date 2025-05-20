@@ -1,13 +1,8 @@
-<<<<<<< HEAD:LogiDevFront/src/components/Login/Cadastro.tsx
-import React, { useState } from 'react';
-import style from './Cadastro.module.css';
+import { useState } from 'react';
+import style from './Login.module.css';
 import { NavBarGeral } from '../NavBar/NavBar';
-=======
-import style from './login.module.css';
->>>>>>> a1cc33c8835247c0470f2855c22cc3bc94a8e06c:LogiDevFront/src/components/Login/login.tsx
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import * as Icon from 'react-bootstrap-icons'
-import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
 export function Login({ onClose, onOpenCadastro }: { onClose: () => void, onOpenCadastro: () => void }) {

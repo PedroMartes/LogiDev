@@ -1,33 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
-.card {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.produtoCardMain {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    list-style: none;
-    height: 10vh;
-    width: 100%;
-}
-
-.produtoCardItem {
-    border: solid 1px #000;
-    width: 30%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
 .mainTitle {
     text-align: center;
     color: #000;
@@ -44,25 +14,24 @@
 
 }
 
-.table {
+.controleTable {
     width: 100%;
     border-collapse: collapse;
     margin: 0 auto;
     background-color: #fff;
 }
 
-.tableHead {
-    background-color: #067992;
+.controleTableableHead {
     color: #fff;
     margin: 0 auto;
     width: 90%;
     display: flex;
-    list-style: none;
 }
 
-.tableHeader {
-    border: 1px solid #ddd;
-    font-size: 2vh;
-    width: 16.03%;
+.controleTableableHeaderText {
+    padding: 10px;
     text-align: center;
+    border: 1px solid #ddd;
+    width: 16%;
+    background-color: #067992;
 }

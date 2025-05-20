@@ -22,7 +22,7 @@ const ProductCard: React.FC<CardProps> = ({ id, nome, descricao, preco, categori
         <>
 
 
-            <div className={styles.tableContainer}>
+            <div className={styles.controleTableContainer}>
                 <table className={styles.tableProductCard}>
 
 
