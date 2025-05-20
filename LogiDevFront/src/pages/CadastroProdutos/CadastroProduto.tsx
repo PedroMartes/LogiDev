@@ -65,14 +65,14 @@ export const CadastroProdutos: React.FC = () => {
   };
 
   return (
-<<<<<<< HEAD
     <div className={styles.container}>
+      <NavBarGeral />
+      <Menu />
       <h1 className={styles.cadastroProdutosTitle}>Cadastro de Produtos</h1>
       <form onSubmit={handleSubmit} className={styles.form}>
-        
         {/* Campo Nome ocupa toda a largura no topo */}
         <div className={styles.formGroup}>
-          <label htmlFor="nome">Nome:</label> 
+          <label htmlFor="nome">Nome:</label>
           <input
             type="text"
             id="nome"
@@ -81,102 +81,76 @@ export const CadastroProdutos: React.FC = () => {
             required
           />
         </div>
-=======
-    <div>
->>>>>>> e7befd865e94c1ef0f325759ba7f209bbbcf4009
-
-      <NavBarGeral />
-      <Menu />
-      <div className={styles.container}>
-        <h1 className={styles.cadastroProdutosTitle}>Cadastro de Produtos</h1>
-        <form onSubmit={handleSubmit} className={styles.form}>
-
-          {/* Campo Nome ocupa toda a largura no topo */}
-          <div className={styles.formGroup}>
-            <label htmlFor="nome">Nome:</label>
+        {/* Linha 1: Fornecedor e Categoria lado a lado */}
+        <div className={styles.formRow}>
+          <div className={styles.halfFormGroup}>
+            <label htmlFor="fornecedor">Fornecedor:</label>
+            <select
+              id="fornecedor"
+              value={fornecedor}
+              onChange={(e) => setFornecedor(e.target.value)}
+              required
+              className={styles.selectCadastroProdutos}
+            >
+              <option value="">Selecione</option>
+              {fornecedores.map((f) => (
+                <option key={f.id} value={f.id}>{f.nome}</option>
+              ))}
+            </select>
+          </div>
+          <div className={styles.halfFormGroup}>
+            <label htmlFor="categoria">Categoria:</label>
+            <select
+              id="categoria"
+              value={categoria}
+              onChange={(e) => setCategoria(e.target.value)}
+              required
+              className={styles.selectCadastroProdutos}
+            >
+              <option value="">Selecione</option>
+              {categorias.map((c) => (
+                <option key={c.id} value={c.id}>{c.nome}</option>
+              ))}
+            </select>
+          </div>
+        </div>
+        {/* Linha 2: Preço e Quantidade lado a lado */}
+        <div className={styles.formRow}>
+          <div className={styles.halfFormGroup}>
+            <label htmlFor="preco">Preço:</label>
             <input
-              type="text"
-              id="nome"
-              value={nome}
-              onChange={(e) => setNome(e.target.value)}
+              type="number"
+              id="preco"
+              value={preco}
+              onChange={(e) => setPreco(e.target.value)}
               required
             />
           </div>
-
-          {/* Linha 1: Fornecedor e Categoria lado a lado */}
-          <div className={styles.formRow}>
-            <div className={styles.halfFormGroup}>
-              <label htmlFor="fornecedor">Fornecedor:</label>
-              <select
-                id="fornecedor"
-                value={fornecedor}
-                onChange={(e) => setFornecedor(e.target.value)}
-                required
-                className={styles.selectCadastroProdutos}
-              >
-                <option value="">Selecione</option>
-                {fornecedores.map((f) => (
-                  <option key={f.id} value={f.id}>{f.nome}</option>
-                ))}
-              </select>
-            </div>
-            <div className={styles.halfFormGroup}>
-              <label htmlFor="categoria">Categoria:</label>
-              <select
-                id="categoria"
-                value={categoria}
-                onChange={(e) => setCategoria(e.target.value)}
-                required
-                className={styles.selectCadastroProdutos}
-              >
-                <option value="">Selecione</option>
-                {categorias.map((c) => (
-                  <option key={c.id} value={c.id}>{c.nome}</option>
-                ))}
-              </select>
-            </div>
-          </div>
-
-          {/* Linha 2: Preço e Quantidade lado a lado */}
-          <div className={styles.formRow}>
-            <div className={styles.halfFormGroup}>
-              <label htmlFor="preco">Preço:</label>
-              <input
-                type="number"
-                id="preco"
-                value={preco}
-                onChange={(e) => setPreco(e.target.value)}
-                required
-              />
-            </div>
-            <div className={styles.halfFormGroup}>
-              <label htmlFor="quantidade">Quantidade:</label>
-              <input
-                type="number"
-                id="quantidade"
-                value={quantidade}
-                onChange={(e) => setQuantidade(e.target.value)}
-                required
-              />
-            </div>
-          </div>
-
-          {/* Campo Descrição ocupa toda a largura no meio ou em baixo */}
-          <div className={styles.formGroup}>
-            <label htmlFor="descricao">Descrição:</label>
-            <textarea
-              id="descricao"
-              value={descricao}
-              onChange={(e) => setDescricao(e.target.value)}
+          <div className={styles.halfFormGroup}>
+            <label htmlFor="quantidade">Quantidade:</label>
+            <input
+              type="number"
+              id="quantidade"
+              value={quantidade}
+              onChange={(e) => setQuantidade(e.target.value)}
               required
             />
           </div>
-
-          <button type="submit" className={styles.button}>
-            Cadastrar Produto
-          </button>
-        </form>
-      </div>
+        </div>
+        {/* Campo Descrição ocupa toda a largura no meio ou em baixo */}
+        <div className={styles.formGroup}>
+          <label htmlFor="descricao">Descrição:</label>
+          <textarea
+            id="descricao"
+            value={descricao}
+            onChange={(e) => setDescricao(e.target.value)}
+            required
+          />
+        </div>
+        <button type="submit" className={styles.button}>
+          Cadastrar Produto
+        </button>
+      </form>
     </div>
   );
 };
