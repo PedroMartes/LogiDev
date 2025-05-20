@@ -1,9 +1,11 @@
 import React from "react";
 import styles from "./ProductCard.module.css";
+import { Link } from "react-router-dom";
 import { MdDelete } from "react-icons/md";
 import { PiNotePencilFill } from "react-icons/pi";
 
 interface CardProps {
+    id: number;
     nome: string;
     descricao: string;
     preco: number;
@@ -13,7 +15,7 @@ interface CardProps {
     onDelete: () => void;
 }
 
-const ProductCard: React.FC<CardProps> = ({ nome, descricao, preco, categoriaNome, fornecedorNome, quantidade, onDelete }) => {
+const ProductCard: React.FC<CardProps> = ({ id, nome, descricao, preco, categoriaNome, fornecedorNome, quantidade, onDelete }) => {
 
     return (
 
@@ -40,9 +42,9 @@ const ProductCard: React.FC<CardProps> = ({ nome, descricao, preco, categoriaNom
                     <MdDelete className={styles.deleteIcon} />
                 </button>
                 <button className={styles.editButton}>
-                    <a href="/">
+                    <Link to={`/produtos/${id}`}>
                         <PiNotePencilFill className={styles.editIcon} />
-                    </a>
+                    </Link>
                 </button>
             </div>
 

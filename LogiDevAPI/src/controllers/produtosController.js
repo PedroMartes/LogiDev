@@ -23,8 +23,12 @@ const produtosController = {
         try {
             const produtos = await prisma.produtos.findMany({
                 include: {
-                    categoria: true,
-                    fornecedor: true,
+                    categoria: {
+                        select: { nome: true }
+                    },
+                    fornecedor: {
+                        select: { nome: true }
+                    },
                 },
 
             })
@@ -42,13 +46,22 @@ const produtosController = {
             const { id } = req.params
 
             const produto = await prisma.produtos.findUnique({
-                where: { id: Number(id) }
+                where: { id: Number(id) },
+                include: {
+                    categoria: {
+                        select: { nome: true }
+                    },
+                    fornecedor: {
+                        select: { nome: true }
+                    },
+                },
+
             })
-        
+
             if (!produto) {
                 return res.status(404).json({ error: "Produto não encontrado" })
             }
-        
+
             return res.status(200).json(produto)
 
         } catch (error) {
@@ -61,12 +74,12 @@ const produtosController = {
 
             const { id } = req.params
             const { nome, descricao, preco, quantidade, categoriaId } = req.body
-        
+
             const produto = await prisma.produtos.update({
                 where: { id: Number(id) },
                 data: { nome, descricao, preco: parseFloat(preco), quantidade, categoriaId }
             })
-        
+
             return res.json(produto)
 
         } catch (error) {
@@ -82,7 +95,7 @@ const produtosController = {
             await prisma.produtos.delete({
                 where: { id: Number(id) }
             })
-        
+
             return res.status(204).send()
 
         } catch (error) {

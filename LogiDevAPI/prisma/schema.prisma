@@ -40,3 +40,12 @@ model Fornecedores {
   email    String     @unique
   Produtos Produtos[]
 }
+
+model Usuarios {
+  id             Int       @id @default(autoincrement())
+  nome           String
+  email          String    @unique
+  senha          String
+  dataCadastro   DateTime  @default(now())
+  dataAtualizacao DateTime @updatedAt
+}

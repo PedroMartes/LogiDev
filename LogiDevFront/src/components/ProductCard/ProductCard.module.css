@@ -71,8 +71,10 @@
     text-align: center;
     border: 1px solid #ddd;
     font-size: 16px;
-    width: 16%;
-}   
+    width: 100%;
+    max-width: 16%;
+    min-width: 16%;
+}  
 
 .deleteButton, .editButton {
     width:2%;
