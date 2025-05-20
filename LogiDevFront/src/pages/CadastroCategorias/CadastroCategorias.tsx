@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './CadastroCategorias.module.css';
-import axios from "axios";
+import axios from 'axios';
 
 export const CadastroCategorias: React.FC = () => {
   const [nome, setNome] = useState('');

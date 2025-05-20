@@ -1,65 +1,124 @@
+/* Container principal (card) */
 .container {
-  max-width: 600px;
-  margin: auto;
-  padding: 40px;
-  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-
-  /* Centralizar na tela */
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  max-width: 37.5rem;           /* 600px convertido para rem, considerando base 16px */
+  width: 90%;
+  margin: 2.5rem auto;
+  padding: 2.5rem;
+  background-color: #fff;
+  border-radius: 0.75rem;       /* 12px em rem */
+  box-shadow: 0 0.625rem 1.5625rem rgba(0, 0, 0, 0.1);
 }
 
+/* Título centralizado */
 .cadastroCategoriasTitle {
   text-align: center;
-  font-family: 'Poppins', sans-serif;
+  font-size: 2em;
+  font-weight: 600;
   color: #333;
-  margin-bottom: 30px;
+  margin-bottom: 1.875rem;      /* 30px em rem */
 }
 
+/* Formulário com layout em coluna e espaçamento */
 .form {
   display: flex;
   flex-direction: column;
+  gap: 1.25rem;
 }
 
+/* Grupo individual do formulário */
 .formGroup {
-  margin-bottom: 20px;
   display: flex;
   flex-direction: column;
 }
 
+/* Rótulos */
 label {
-  margin-bottom: 8px;
+  margin-bottom: 0.5rem;        /* 8px em rem */
   font-weight: bold;
   color: #555;
 }
 
+/* Inputs e textareas */
 input,
 textarea {
-  padding: 12px;
-  font-size: 16px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
+  padding: 0.75rem;             /* 12px em rem */
+  font-size: 1rem;
+  border: 0.0625rem solid #ddd;  /* Aproximadamente 1px */
+  border-radius: 0.3125rem;       /* 5px em rem */
+  width: 100%;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 input:focus,
 textarea:focus {
-  border-color: #0057b7;
+  border-color: #00566e;
   outline: none;
-  box-shadow: 0 0 8px rgba(0, 87, 183, 0.2);
+  box-shadow: 0 0 0.5rem rgba(0, 87, 183, 0.2);
 }
 
+/* Botão */
 .button {
-  background-color: #0057b7;
+  background-color: #00566e;
   color: #fff;
   border: none;
-  padding: 14px;
-  font-size: 16px;
-  border-radius: 6px;
+  padding: 0.875rem;            /* 14px em rem */
+  font-size: 1rem;
+  border-radius: 0.3125rem;
   cursor: pointer;
-  transition: background-color
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #00566e;
+}
+
+/* Responsividade */
+
+/* Para telas até 48rem (768px) */
+@media (max-width: 48rem) {
+  .container {
+    width: 95%;
+    padding: 1.875rem;
+  }
+  
+  .cadastroCategoriasTitle {
+    font-size: 1.8em;
+    margin-bottom: 1.5625rem;
+  }
+  
+  input,
+  textarea {
+    font-size: 0.9375rem;
+    padding: 0.625rem;
+  }
+  
+  .button {
+    font-size: 0.9375rem;
+    padding: 0.75rem;
+  }
+}
+
+/* Para telas até 30rem (480px) */
+@media (max-width: 30rem) {
+  .container {
+    width: 100%;
+    padding: 1.25rem;
+  }
+  
+  .cadastroCategoriasTitle {
+    font-size: 1.6em;
+    margin-bottom: 1.25rem;
+  }
+  
+  input,
+  textarea {
+    font-size: 0.875rem;
+    padding: 0.5rem;
+  }
+  
+  .button {
+    font-size: 0.875rem;
+    padding: 0.625rem;
+  }
 }

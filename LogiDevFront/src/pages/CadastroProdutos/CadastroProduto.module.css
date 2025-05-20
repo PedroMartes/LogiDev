@@ -1,3 +1,15 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, hsl(192, 4%, 55%), #bdbfc4);
+}
+
+
+
+
 /* Container principal (card) */
 .container {
   max-width: 37.5rem;           /* Ex: 600px convertido para rem */

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './CadastroFornecedores.module.css';
-import axios from "axios";
+import axios from 'axios';
 
 export const CadastroFornecedores: React.FC = () => {
   const [nome, setNome] = useState('');
@@ -28,8 +28,11 @@ export const CadastroFornecedores: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.cadastroFornecedoresTitle}>Cadastro de Fornecedores</h1>
+      <h1 className={styles.cadastroFornecedoresTitle}>
+        Cadastro de Fornecedores
+      </h1>
       <form onSubmit={handleSubmit} className={styles.form}>
+        {/* Campo Nome (linha inteira) */}
         <div className={styles.formGroup}>
           <label htmlFor="nome">Nome:</label>
           <input
@@ -40,26 +43,32 @@ export const CadastroFornecedores: React.FC = () => {
             required
           />
         </div>
-        <div className={styles.formGroup}>
-          <label htmlFor="contato">Contato:</label>
-          <input
-            type="text"
-            id="contato"
-            value={contato}
-            onChange={(e) => setContato(e.target.value)}
-            required
-          />
+
+        {/* Linha única: Contato e Telefone lado a lado */}
+        <div className={styles.formRow}>
+          <div className={styles.halfFormGroup}>
+            <label htmlFor="contato">Contato:</label>
+            <input
+              type="text"
+              id="contato"
+              value={contato}
+              onChange={(e) => setContato(e.target.value)}
+              required
+            />
+          </div>
+          <div className={styles.halfFormGroup}>
+            <label htmlFor="telefone">Telefone:</label>
+            <input
+              type="text"
+              id="telefone"
+              value={telefone}
+              onChange={(e) => setTelefone(e.target.value)}
+              required
+            />
+          </div>
         </div>
-        <div className={styles.formGroup}>
-          <label htmlFor="telefone">Telefone:</label>
-          <input
-            type="text"
-            id="telefone"
-            value={telefone}
-            onChange={(e) => setTelefone(e.target.value)}
-            required
-          />
-        </div>
+
+        {/* Campo Email (linha inteira) */}
         <div className={styles.formGroup}>
           <label htmlFor="email">Email:</label>
           <input
@@ -70,6 +79,7 @@ export const CadastroFornecedores: React.FC = () => {
             required
           />
         </div>
+
         <button type="submit" className={styles.button}>
           Cadastrar Fornecedor
         </button>
