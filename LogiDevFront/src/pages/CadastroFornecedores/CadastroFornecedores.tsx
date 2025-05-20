@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import styles from './CadastroFornecedores.module.css';
 import axios from "axios";
+import { NavBarGeral } from '../../components/NavBar/NavBar';
+import { Menu } from '../../components/Menu/Menu';
 
 export const CadastroFornecedores: React.FC = () => {
   const [nome, setNome] = useState('');
@@ -27,53 +29,57 @@ export const CadastroFornecedores: React.FC = () => {
   };
 
   return (
-    <div className={styles.container}>
-      <h1 className={styles.cadastroFornecedoresTitle}>Cadastro de Fornecedores</h1>
-      <form onSubmit={handleSubmit} className={styles.form}>
-        <div className={styles.formGroup}>
-          <label htmlFor="nome">Nome:</label>
-          <input
-            type="text"
-            id="nome"
-            value={nome}
-            onChange={(e) => setNome(e.target.value)}
-            required
-          />
-        </div>
-        <div className={styles.formGroup}>
-          <label htmlFor="contato">Contato:</label>
-          <input
-            type="text"
-            id="contato"
-            value={contato}
-            onChange={(e) => setContato(e.target.value)}
-            required
-          />
-        </div>
-        <div className={styles.formGroup}>
-          <label htmlFor="telefone">Telefone:</label>
-          <input
-            type="text"
-            id="telefone"
-            value={telefone}
-            onChange={(e) => setTelefone(e.target.value)}
-            required
-          />
-        </div>
-        <div className={styles.formGroup}>
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit" className={styles.button}>
-          Cadastrar Fornecedor
-        </button>
-      </form>
+    <div>
+      <NavBarGeral />
+            <Menu />
+      <div className={styles.container}>
+        <h1 className={styles.cadastroFornecedoresTitle}>Cadastro de Fornecedores</h1>
+        <form onSubmit={handleSubmit} className={styles.form}>
+          <div className={styles.formGroup}>
+            <label htmlFor="nome">Nome:</label>
+            <input
+              type="text"
+              id="nome"
+              value={nome}
+              onChange={(e) => setNome(e.target.value)}
+              required
+            />
+          </div>
+          <div className={styles.formGroup}>
+            <label htmlFor="contato">Contato:</label>
+            <input
+              type="text"
+              id="contato"
+              value={contato}
+              onChange={(e) => setContato(e.target.value)}
+              required
+            />
+          </div>
+          <div className={styles.formGroup}>
+            <label htmlFor="telefone">Telefone:</label>
+            <input
+              type="text"
+              id="telefone"
+              value={telefone}
+              onChange={(e) => setTelefone(e.target.value)}
+              required
+            />
+          </div>
+          <div className={styles.formGroup}>
+            <label htmlFor="email">Email:</label>
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+          <button type="submit" className={styles.button}>
+            Cadastrar Fornecedor
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

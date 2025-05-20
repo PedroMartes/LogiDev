@@ -9,7 +9,9 @@ import { CadastroProdutos  } from './pages/CadastroProdutos/CadastroProduto'
 import { CadastroFornecedores  } from './pages/CadastroFornecedores/CadastroFornecedores'
 import { CadastroCategorias  } from './pages/CadastroCategorias/CadastroCategorias'
 import { Footer } from './components/Footer/Footer'
-import { GraficoFornecedores } from './pages/Graficos/GraficoFornecedor'
+import GraficoFornecedores from './pages/Graficos/GraficoFornecedor'
+import { Historico } from './pages/Historico/historico'
+
 
 const Router = () => {
 
@@ -17,6 +19,7 @@ const Router = () => {
         <div>
             <BrowserRouter>
                 <Routes>
+                 
                     <Route path='/cadastro/produtos' element={<CadastroProdutos />} />
                     <Route path='/cadastro/fornecedores' element={<CadastroFornecedores />} />
                     <Route path='/cadastro/categorias' element={<CadastroCategorias />} />
@@ -28,6 +31,7 @@ const Router = () => {
                     <Route path="*" element={<Page404 />} />
                     <Route path='/controle/grafico/produtos' element={< GraficoProdutos />}/>
                      <Route path='/controle/grafico/fornecedores' element={< GraficoFornecedores />}/>
+                     <Route path='/historico' element={< Historico/>}/>
                 </Routes>
             </BrowserRouter>
             <Footer/>

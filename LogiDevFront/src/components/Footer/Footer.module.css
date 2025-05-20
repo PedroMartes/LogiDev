@@ -1,3 +1,11 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+
 .footer {
   background-color: #e9e8e8;  /* Fundo cinza igual ao da imagem */
   margin-top: 3.125rem;       /* 50px */
@@ -18,7 +26,8 @@
 .logo {
   width: 3.75rem;             /* 60px */
   height: auto;
-  margin-right: 0.625rem;     /* 10px */
+  margin-right: 0.625rem;
+     cursor: pointer;
 }
 
 .logoContainer {
@@ -31,6 +40,7 @@
   color: #000000;
   margin: 0;
      font-family: 'Roboto', sans-serif;
+      cursor: pointer;
 }
 
 .tagline {
@@ -38,6 +48,7 @@
   color: #000000;
   margin-top: 0.3125rem;      /* 5px */
      font-family: 'Roboto', sans-serif;
+ cursor: pointer;
 }
 
 .container {
@@ -97,7 +108,7 @@
 }
 
 .copy {
-  border-top: 0.0625rem solid #ccc;  /* 1px */
+ 
   margin-top: 1.25rem;         /* 20px */
   padding-top: 1.25rem;        /* 20px */
   font-size: 0.875rem;         /* 14px */

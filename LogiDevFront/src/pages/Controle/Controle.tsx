@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import ProductCard from '../../components/ProductCard/ProductCard';
 import { NavBarGeral } from '../../components/NavBar/NavBar';
+import { Menu } from '../../components/Menu/Menu';
 
 interface IProduto {
     id: number;
@@ -45,6 +46,7 @@ export function Controle() {
     return (
         <>
             <NavBarGeral />
+            <Menu/>
             <h1 className={styles.mainTitle}>Controle de Estoque</h1>
             <h2 className={styles.mainSubtitle}>Principal</h2>
 
