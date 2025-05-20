@@ -12,7 +12,9 @@ import {
 
 export function Footer() {
   return (
+      
     <footer className={styles.footer}>
+        <a href={"/"}>
       <div className={styles.logoWrapper}>
         <img src={logo} alt="LogiDev Logo" className={styles.logo} />
         <div className={styles.logoContainer}>
@@ -20,7 +22,8 @@ export function Footer() {
           <div className={styles.tagline}>Tecnologia e logística em um só lugar!</div>
         </div>
       </div>
-
+      </a>
+      
       {/* Seção principal com colunas */}
       <div className={styles.container}>
         <div className={styles.column}>
@@ -90,5 +93,6 @@ export function Footer() {
         </p>
       </div>
     </footer>
+    
   );
 }
