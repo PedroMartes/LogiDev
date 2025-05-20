@@ -25,7 +25,6 @@ export function Cadastro({ onClose, onOpenLogin }: { onClose: () => void, onOpen
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    onOpenLogin(); // Chama a função de abertura do login
 
     const usuario = {
       nome,
@@ -40,14 +39,14 @@ export function Cadastro({ onClose, onOpenLogin }: { onClose: () => void, onOpen
       await axios.post('http://localhost:8080/usuarios/cadastro', usuario);
       alert('Usuário cadastrado com sucesso!');
       setNome('');
-      setCnpj('');
+      setCpfCnpj('');
       setEmail('');
       setSenha('');
+      onOpenLogin(); // Chama a função de abertura do login APÓS o cadastro ser bem-sucedido
     } catch (error) {
       alert('Erro ao cadastrar usuario!');
       console.error(error);
     }
-
   };
 
   return (

@@ -4,13 +4,16 @@ import { NavBarGeral } from '../NavBar/NavBar';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import * as Icon from 'react-bootstrap-icons'
 import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 
 export function Login({ onClose, onOpenCadastro }: { onClose: () => void, onOpenCadastro: () => void }) {
-     const [showPassword, setShowPassword] = useState(false);
-     const [isOpen, setIsOpen] = useState(true);
-        const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
+  const navigate = useNavigate();
 
-       const handleClose = () => {
+  const handleClose = () => {
     setIsOpen(false);
     onClose(); // Chama a função de fechamento passada como prop
   };
@@ -19,13 +22,22 @@ export function Login({ onClose, onOpenCadastro }: { onClose: () => void, onOpen
     return null; // Isso faz com que o componente não seja renderizado
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    navigate("/controle");
-  }
+    try {
+      // Envia email e senha para a API
+      const response = await axios.post('http://localhost:8080/usuarios/login', {
+        email: email,
+        senha: senha
+      });
+      navigate("/controle");
+    } catch (error) {
+      alert('Email ou senha incorretos');
+    }
+  };
 
-    return (
-         <>
+  return (
+    <>
       <div className={style.container}>
         <div className={style.cadastro}>
 
@@ -33,10 +45,16 @@ export function Login({ onClose, onOpenCadastro }: { onClose: () => void, onOpen
             <h1>Login</h1><Icon.XLg className={style.iconX} onClick={handleClose} />
             <hr />
             <p>
-              Entre na sua conta e tenha uma experiência 
+              Entre na sua conta e tenha uma experiência
               feita especialmente para você.
             </p>
-            <input className={style.input} placeholder=" E-mail:" />
+            <input
+              className={style.input}
+              placeholder="E-mail:"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+              required
+            />
 
             {/* Campo de senha com ícone para mostrar/ocultar */}
             <div className={style.passwordWrapper}>
@@ -44,6 +62,9 @@ export function Login({ onClose, onOpenCadastro }: { onClose: () => void, onOpen
                 type={showPassword ? 'text' : 'password'}
                 className={style.input}
                 placeholder="Senha:"
+                value={senha}
+                onChange={e => setSenha(e.target.value)}
+                required
               />
               <span
                 className={style.toggleIcon}
@@ -58,15 +79,15 @@ export function Login({ onClose, onOpenCadastro }: { onClose: () => void, onOpen
           </form>
 
           <div className={style.abrirEsqueciSenha}>
-              <a href={"/esqueciSenha"} onClick={handleClose}>Esqueceu sua senha?</a>
+            <a href={"/esqueciSenha"} onClick={handleClose}>Esqueceu sua senha?</a>
           </div>
 
-            <div className={style.abrirCadastro}>
-              <p>Não tem uma conta?
+          <div className={style.abrirCadastro}>
+            <p>Não tem uma conta?
 
-              <a onClick={onOpenCadastro} style={{cursor: "pointer"}}>Faça seu cadastro</a>
-              </p>
-            </div>
+              <a onClick={onOpenCadastro} style={{ cursor: "pointer" }}>Faça seu cadastro</a>
+            </p>
+          </div>
 
 
           <ul className={style.example2}>
@@ -92,7 +113,7 @@ export function Login({ onClose, onOpenCadastro }: { onClose: () => void, onOpen
               </a>
             </li>
             <li className={style.iconContent3}>
-              <a data-social="instagram"  target="_blank" aria-label="Instagram" href="https://www.instagram.com/">
+              <a data-social="instagram" target="_blank" aria-label="Instagram" href="https://www.instagram.com/">
                 <div className={style.filled}></div>
                 <svg viewBox="0 0 16 16" fill="currentColor" height="16"
                   width="16" xmlns="http://www.w3.org/2000/svg">
@@ -106,5 +127,5 @@ export function Login({ onClose, onOpenCadastro }: { onClose: () => void, onOpen
         </div>
       </div>
     </>
-    )
+  )
 }
