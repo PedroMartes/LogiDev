@@ -3,6 +3,8 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+    
 }
 
 
@@ -31,7 +33,8 @@
 }
 
 .logoContainer {
-  text-align: left;
+    text-align: left;
+  
 }
 
 .siteName {
@@ -41,6 +44,7 @@
   margin: 0;
      font-family: 'Roboto', sans-serif;
       cursor: pointer;
+ 
 }
 
 .tagline {
@@ -49,6 +53,7 @@
   margin-top: 0.3125rem;      /* 5px */
      font-family: 'Roboto', sans-serif;
  cursor: pointer;
+
 }
 
 .container {
