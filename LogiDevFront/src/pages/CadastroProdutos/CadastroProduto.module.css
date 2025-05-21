@@ -1,94 +1,149 @@
-
-
-
-/* Container principal (card) */
 .container {
-  max-width: 37.5rem;           /* Ex: 600px convertido para rem */
-  width: 90%;
-  margin: 2.5rem auto;
-  padding: 2.5rem;
-  background-color: #fff;
-  border-radius: 0.75rem;
-  box-shadow: 0 0.625rem 1.5625rem rgba(0.1, 0.1, 0.1, 0.1);
+ display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100vw; /* ocupa toda a largura da tela */
+  min-height: 100vh;
+  background: #fff;
+  position: relative;
 }
 
-/* Título */
+.card {
+  background: #ebebeb;
+  border-radius: 16px;
+  padding: 2.5em 2em 2em 2em;
+  width: 120vh;
+  margin-top: 2em;
+  box-shadow: 0 0 8px #0001;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .cadastroProdutosTitle {
   text-align: center;
+  color: #187187;
   font-size: 2em;
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 1.875rem;
+  margin-bottom: 1em;
+  font-weight: 500;
 }
 
-/* Formulário geral */
 .form {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1em;
 }
 
-/* Grupo único de formulário */
-.formGroup {
-  display: flex;
-  flex-direction: column;
-}
-
-/* Linha para campos lado a lado */
 .formRow {
   display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
+  gap: 1em;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.formGroup {
+  display: flex;
+  justify-content: center;
 }
 
-/* Meia largura para campos em linha */
 .halfFormGroup {
   flex: 1;
-  min-width: 10rem;
   display: flex;
   flex-direction: column;
 }
 
-/* Rótulos */
-label {
-  margin-bottom: 0.5rem;
-  font-weight: bold;
-  color: #555;
-}
-
-/* Inputs, textarea e selects */
-input,
-textarea,
-.selectCadastroProdutos {
-  padding: 0.75rem;
-  font-size: 1rem;
-  border: 0.0625rem solid #ddd;
-  border-radius: 0.3125rem;
-  width: 100%;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-input:focus,
-textarea:focus,
-.selectCadastroProdutos:focus {
-  border-color: #00566e;
+.halfFormGroup input,
+.formGroup input,
+select,
+textarea {
+  border: none;
+  border-radius: 10px;
+  padding: 0.7em 1em;
+  background: #fff;
+  font-size: 1em;
+  margin-top: 0.3em;
+  color: #444;
+  font-style: italic;
+  font-family: inherit;
   outline: none;
-  box-shadow: 0 0 0.5rem rgba(0, 87, 183, 0.2);
+  box-shadow: none;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  
 }
 
-/* Botão */
+textarea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0;
+  width: 20em;
+  height: 10em;
+  outline: none;
+  overflow: hidden;
+  background-color: #fff;
+  resize: none;
+  font-style: italic;
+  font-size: 1em;
+}
+
+/* Centraliza o placeholder horizontalmente */
+textarea::placeholder {
+  color: #bdbdbd;
+  text-align: center;
+  line-height: 7em; /* igual à altura do textarea */
+  font-style: italic;
+  font-size: 1em;
+  display: block;
+}
+
+.halfFormGroup input::placeholder,
+.formGroup input::placeholder,
+select:invalid,
+textarea::placeholder {
+  color: #bdbdbd;
+  text-align: center;
+}
+.idCategoria {
+ border-radius: 10vh;
+}
+
 .button {
-  background-color: #067992;
+  width: 100%;
+  background: #178ca4;
   color: #fff;
   border: none;
-  padding: 0.875rem;
-  font-size: 1rem;
-  border-radius: 0.3125rem;
+  border-radius: 10px;
+  padding: 0.8em 0;
+  font-size: 1.1em;
+  font-weight: 500;
   cursor: pointer;
-  width: 100%;
-  transition: background-color 0.3s ease;
+  margin-top: 0.5em;
+  transition: background 0.2s;
 }
 
 .button:hover {
-  background-color: #00566e;
+  background: #11687d;
+}
+
+.verificarWrapper {
+  position: absolute;
+  right: 4vw;
+  top: 20em;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100vw;
+  pointer-events: none; /* para não bloquear o card */
+}
+
+.verificarEstoque {
+  color:#11687d ;
+  display: flex;
+   align-items: center;
+  text-decoration: underline;
+   pointer-events: auto; /* permite clicar no link */
 }

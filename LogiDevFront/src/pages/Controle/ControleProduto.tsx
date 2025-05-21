@@ -11,7 +11,7 @@ export function Produto() {
       <NavBarGeral/>
       <Menu/>
       <div className={styles.body}>
-        {showModal && (
+        {/* {showModal && (
           <div className={styles["fullscreen-shadow"]}>
             <div className={styles["input-container"]}>
               <span
@@ -33,7 +33,7 @@ export function Produto() {
               </button>
             </div>
           </div>
-        )}
+        )} */}
 
         <main className={styles.main}>
           <div className={styles.container}>
