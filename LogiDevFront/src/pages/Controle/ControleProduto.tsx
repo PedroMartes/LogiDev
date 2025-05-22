@@ -48,7 +48,7 @@ export function ControleProdutos() {
             <NavBarGeral />
             <Menu/>
             <h1 className={styles.mainTitle}>Controle de Estoque</h1>
-            <h2 className={styles.mainSubtitle}>Produto</h2>
+            <h2 className={styles.mainSubtitle}>Produtos</h2>
 
             <div className={styles.controleTabeMain}>
                 <table className={styles.controleTable}>
