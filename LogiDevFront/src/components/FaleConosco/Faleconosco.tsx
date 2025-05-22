@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import style from './Falaconosco.module.css'
+import style from './falaconosco.module.css'
 import * as Icon from 'react-bootstrap-icons'
 
 export function Faleconosco({ onClose }: { onClose: () => void }) {
