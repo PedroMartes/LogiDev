@@ -27,7 +27,7 @@ const handleDelete = async (id: number) => {
   if (window.confirm("Tem certeza que deseja apagar este fornecedor?")) {
       try {
           await axios.delete(`http://localhost:8080/fornecedores/delete/${id}`);
-          setData(data.filter(produto => produto.id !== id));
+          setData(data.filter(fornecedor => fornecedor.id !== id));
       } catch (error) {
           alert("Erro ao apagar fornecedor!");
           console.error(error);
