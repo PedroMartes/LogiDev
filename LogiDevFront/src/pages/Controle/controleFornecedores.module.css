@@ -14,19 +14,11 @@
 
 }
 
-.controleTabeMain {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
 .controleTable {
-    width: 90%;
+    width: 100%;
     border-collapse: collapse;
     margin: 0 auto;
     background-color: #fff;
-    margin-left: 15.5vh;
     margin-top: 3vh;
 }
 
@@ -42,7 +34,7 @@
     text-align: center;
     border: 1px solid #ddd;
     width: 100%;
-    max-width: 29.5vh;
-    min-width: 29.5vh;
+    max-width: 43vh;
+    min-width: 43vh;
     background-color: #067992;
 }

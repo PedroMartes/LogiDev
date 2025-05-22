@@ -1,43 +1,35 @@
 import styles from './controleFornecedores.module.css'
-import ProductCard from '../../components/ProductCard/ProductCard';
+import FornecedorCard from '../../components/FornecedorCard/FornecedorCard';
 import { NavBarGeral } from '../../components/NavBar/NavBar';
 import { Menu } from '../../components/Menu/Menu';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-interface IProduto {
+interface IFornecedores {
     id: number;
     nome: string;
-    descricao: string;
-    preco: number;
-    categoria: {
-        id: number;
-        nome: string;
-    };
-    fornecedor: {
-        id: number;
-        nome: string;
-    };
-    quantidade: number;
+    contato: string;
+    telefone: string;
+    email: string;
 }
 
 
 export function ControleFornecedores() {
-    const [data, setData] = useState<IProduto[]>([]);
+    const [data, setData] = useState<IFornecedores[]>([]);
 
 useEffect(() => {
-  axios.get("http://localhost:8080/produtos/get")
+  axios.get("http://localhost:8080/fornecedores/get")
       .then(response => setData(response.data))
       .catch(error => console.error("Erro ao buscar dados:", error));
 }, []);
 
 const handleDelete = async (id: number) => {
-  if (window.confirm("Tem certeza que deseja apagar este produto?")) {
+  if (window.confirm("Tem certeza que deseja apagar este fornecedor?")) {
       try {
-          await axios.delete(`http://localhost:8080/produtos/delete/${id}`);
+          await axios.delete(`http://localhost:8080/fornecedores/delete/${id}`);
           setData(data.filter(produto => produto.id !== id));
       } catch (error) {
-          alert("Erro ao apagar produto!");
+          alert("Erro ao apagar fornecedor!");
           console.error(error);
       }
   }
@@ -54,7 +46,6 @@ const handleDelete = async (id: number) => {
                     <thead className={styles.controleTableableHead}>
                         <th className={styles.controleTableableHeaderText}>Fornecedor</th>
                         <th className={styles.controleTableableHeaderText}>Contato</th>
-                        <th className={styles.controleTableableHeaderText}>Preço</th>
                         <th className={styles.controleTableableHeaderText}>Telefone</th>
                         <th className={styles.controleTableableHeaderText}>E-mail</th>
                     </thead>
@@ -62,18 +53,16 @@ const handleDelete = async (id: number) => {
 
                     <tbody>
                         {data.length > 0 ? (
-                            <ul className={styles.produtoList}>
-                                {data.map(produtos => (
-                                    <li key={produtos.id}>
-                                        <ProductCard
-                                            id={produtos.id}
-                                            onDelete={() => handleDelete(produtos.id)}
-                                            nome={produtos.nome}
-                                            preco={produtos.preco}
-                                            descricao={produtos.descricao}
-                                            categoriaNome={produtos.categoria.nome}
-                                            fornecedorNome={produtos.fornecedor.nome}
-                                            quantidade={produtos.quantidade}
+                            <ul className={styles.FornecedorList}>
+                                {data.map(fornecedores => (
+                                    <li key={fornecedores.id}>
+                                        <FornecedorCard
+                                            id={fornecedores.id}
+                                            onDelete={() => handleDelete(fornecedores.id)}
+                                            nome={fornecedores.nome}
+                                            contato={fornecedores.contato}
+                                            telefone={fornecedores.telefone}
+                                            email={fornecedores.email}
                                         />
                                     </li>
                                 ))}
