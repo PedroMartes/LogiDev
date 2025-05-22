@@ -14,11 +14,19 @@
 
 }
 
-.controleTable {
+.controleTabeMain {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
+}
+
+.controleTable {
+    width: 90%;
     border-collapse: collapse;
     margin: 0 auto;
     background-color: #fff;
+    margin-left: 32vh;
     margin-top: 3vh;
 }
 
@@ -34,7 +42,7 @@
     text-align: center;
     border: 1px solid #ddd;
     width: 100%;
-    max-width: 29.53vh;
-    min-width: 29.53vh;
+    max-width: 29.5vh;
+    min-width: 29.5vh;
     background-color: #067992;
 }

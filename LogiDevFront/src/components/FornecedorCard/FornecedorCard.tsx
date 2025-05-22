@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./ProductCard.module.css";
+import styles from "./FornecedorCard.module.css";
 import { Link } from "react-router-dom";
 import { MdDelete } from "react-icons/md";
 import { PiNotePencilFill } from "react-icons/pi";
@@ -7,15 +7,13 @@ import { PiNotePencilFill } from "react-icons/pi";
 interface CardProps {
     id: number;
     nome: string;
-    descricao: string;
-    preco: number;
-    categoriaNome: string;
-    fornecedorNome: string;
-    quantidade: number;
+    contato: string;
+    telefone: string;
+    email: string;
     onDelete: () => void;
 }
 
-const ProductCard: React.FC<CardProps> = ({ id, nome, descricao, preco, categoriaNome, fornecedorNome, quantidade, onDelete }) => {
+const FornecedorCard: React.FC<CardProps> = ({ id, nome, contato, telefone, email, onDelete }) => {
 
     return (
 
@@ -23,17 +21,15 @@ const ProductCard: React.FC<CardProps> = ({ id, nome, descricao, preco, categori
 
 
             <div className={styles.controleTableContainer}>
-                <table className={styles.tableProductCard}>
+                <table className={styles.tableFornecedorCard}>
 
 
                     <tbody className={styles.tableBody}>
                         <tr className={styles.tableRow}>
                             <td className={styles.tableData}>{nome}</td>
-                            <td className={styles.tableData}>{descricao}</td>
-                            <td className={styles.tableData}>{preco}</td>
-                            <td className={styles.tableData}>{categoriaNome}</td>
-                            <td className={styles.tableData}>{fornecedorNome}</td>
-                            <td className={styles.tableData}>{quantidade}</td>
+                            <td className={styles.tableData}>{contato}</td>
+                            <td className={styles.tableData}>{telefone}</td>
+                            <td className={styles.tableData}>{email}</td>
                         </tr>
                     </tbody>
 
@@ -41,7 +37,7 @@ const ProductCard: React.FC<CardProps> = ({ id, nome, descricao, preco, categori
                 <button onClick={onDelete} className={styles.deleteButton}>
                     <MdDelete className={styles.deleteIcon} />
                 </button>
-                
+
                 <button className={styles.editButton}>
                     <Link to={`/detalhe/produtos/${id}`}>
                         <PiNotePencilFill className={styles.editIcon} />
@@ -53,4 +49,4 @@ const ProductCard: React.FC<CardProps> = ({ id, nome, descricao, preco, categori
     );
 }
 
-export default ProductCard;
+export default FornecedorCard;
