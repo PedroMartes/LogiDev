@@ -5,7 +5,7 @@ import * as Icon from 'react-bootstrap-icons'
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 
-export function Login({ onClose, onOpenCadastro, onOpenEsqueciSenha}: { onClose: () => void; onOpenCadastro: () => void; onOpenEsqueciSenha: () => void; }) {
+export function Login({ onClose, onOpenCadastro, onOpenEsqueciSenha}: { onClose: () => void; onOpenCadastro: () => void; onOpenEsqueciSenha?: () => void; }) {
   const [showPassword, setShowPassword] = useState(false);
   const [isOpen, setIsOpen] = useState(true);
   const [email, setEmail] = useState('');
@@ -25,7 +25,7 @@ export function Login({ onClose, onOpenCadastro, onOpenEsqueciSenha}: { onClose:
     e.preventDefault();
     try {
       // Envia email e senha para a API
-      const response = await axios.post('http://localhost:8080/usuarios/login', {
+      await axios.post('http://localhost:8080/usuarios/login', {
         email: email,
         senha: senha
       });

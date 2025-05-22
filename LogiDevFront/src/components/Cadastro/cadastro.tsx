@@ -1,4 +1,4 @@
-import { use, useState } from 'react';
+import { useState } from 'react';
 import style from './cadastro.module.css';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import * as Icon from 'react-bootstrap-icons'

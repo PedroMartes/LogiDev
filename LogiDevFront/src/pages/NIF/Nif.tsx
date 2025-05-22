@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './Nif.module.css';
 
 export function Nif() {
