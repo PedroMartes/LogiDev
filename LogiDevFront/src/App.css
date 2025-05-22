@@ -34,3 +34,13 @@
 .read-the-docs {
   color: #888;
 }
+
+.pageWrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.pageContent {
+  flex: 1;
+}

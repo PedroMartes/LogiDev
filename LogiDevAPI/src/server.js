@@ -19,6 +19,8 @@ const prisma = new PrismaClient()
 app.use(express.json())
 app.use(routes)
 
+
+
 app.use((req, res, next) => {
 	res.header('Access-Control-Allow-Origin', 'http://localhost:5173/');
 	res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
@@ -31,12 +33,13 @@ app.use((req, res, next) => {
 	next();
 });
 
+app.get('/', (req, res) => {
+	res.send('Hello World!')
+})
+
 app.listen(8080, () => {
 	console.log("Servidor rodando na porta", 8080)
 })
 
-app.get('/', (req, res) => {
-	res.send('Hello World!')
-}	
-)
+
 
