@@ -1,0 +1,199 @@
+.contato {
+    color: #085399;
+}
+
+.cadastro {
+    background-color: rgb(233, 232, 232);
+    width: 25%;
+    float: right;
+    position: absolute;
+    top: 0%; 
+    right: 0%;
+    height: 100%;
+    z-index: 1000;
+    position: fixed;
+
+}
+
+.cadastro h1 {
+    font-size: 5vh;
+    font-weight: 450;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    padding-top: 4vh;
+    height: 13vh;
+    color: #067992;
+
+}
+.iconX {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 2vh 2vh;
+    cursor: pointer;
+    color: #000;
+    font-size: 2.5vh;
+}
+
+.cadastro hr {
+     background-color: rgb(255, 255, 255);
+    height: 0.1vh;
+    border: none;
+}
+
+.cadastro p {
+ padding: 1vh;
+    margin-left: 5vh;
+    margin-right: 2vh;
+    font-size: 1.8vh;
+    margin-top: 2vh;
+    margin-bottom: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input {
+    display: flex;
+    align-items: center;
+    margin: 2vh 0vh 3vh 9vh;
+    border: 2px solid transparent;
+    width: 20em;
+    height: 3.5em;
+    padding-left: 0.8em;
+    outline: none;
+    overflow: hidden;
+    background-color: #F3F3F3;
+    border-radius: 2em;
+    transition: all 0.5s;
+    resize: none;
+}
+
+.input:hover,
+.input:focus {
+      border: 2px solid #0c9bb5;
+    box-shadow: 0vh 0vh 0vh 1vh rgb(74, 157, 236, 20%);
+    background-color: white;
+}
+/* Atualize o container do campo de senha para abranger o input de senha */
+.passwordWrapper {
+  position: relative;
+  width: 20em;
+}
+
+/* Novo estilo para o ícone do "olhinho" */
+.toggleIcon {
+  position: absolute;
+  left: 15em;
+  top: 55%;          /* Centraliza verticalmente */
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #46575a;    /* Valor compatível com o hover/foco dos seus inputs */
+  font-size: 1.5em;  /* Ajuste o tamanho conforme o desejado */
+}
+
+.inputSenha {
+      display: flex;
+    align-items: center;
+    margin: 2vh 0vh 3vh 9vh;
+    border: 2px solid transparent;
+    width: 20em;
+    height: 3.5em;
+    padding-left: 0.8em;
+    outline: none;
+    overflow: hidden;
+    background-color: #F3F3F3;
+    border-radius: 2em;
+    transition: all 0.5s;
+    resize: none;
+}
+.botaoEnviar {
+   display: block;
+    margin: 1.5em auto;
+    /* Centraliza o botão */
+    margin-top: 5vh;
+    margin-bottom: 2vh;
+    padding: 1em 3em;
+    font-size: 2vh;
+    font-weight: 500;
+    color: white;
+    background-color: #067992;
+    border: none;
+    border-radius: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.botaoEnviar:hover {
+    background-color: #0c9bb5;
+}
+.abrirLogin { 
+   margin-bottom: -6vh;
+    font-size: 1.8vh;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.abrirLogin a {
+    text-decoration: none;
+    color: #067992;
+    margin-left: 0.5vh;
+}
+.example2 {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+}
+
+.example2 .iconContent, .example2 .iconContent2, .example2 .iconContent3 {
+    margin: 0 1vh;
+    position: relative;
+}
+
+.example2 .iconContent a, .example2 .iconContent2 a, .example2 .iconContent3 a   {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: #4b4a4a;
+    background-color: #F3F3F3;
+    transition: all 0.3s ease-n-ut;
+}
+
+.example2 .iconContent a:hover {
+    background-color: #128c7e;;
+    color: #fff;
+    
+}
+.example2 .iconContent2 a:hover {
+    background-color: #3b5998;
+    color: #fff;
+}
+.example2 .iconContent3 a:hover {
+    background: linear-gradient(
+    45deg,
+    #405de6,
+    #5b51db,
+    #b33ab4,
+    #c135b4,
+    #e1306c,
+    #fd1f1f
+    );
+    color: #fff;
+}
+
+.example2 .iconContent a svg, .example2 .iconContent2 a svg, .example2 .iconContent3 a svg{
+    position: relative;
+    z-index: 1;
+    width: 30px;
+    height: 30px;
+}
+.example2 .iconContent a.filled, .example2 .iconContent2 a.filled, .example2 .iconContent3 a.filled {
+    transition: all 0.3s ease-in-out;
+}

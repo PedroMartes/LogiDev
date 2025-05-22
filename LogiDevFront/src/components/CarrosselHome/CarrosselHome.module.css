@@ -1,0 +1,94 @@
+.carouselRef{
+     width: 100%;
+    height: 40vh; /* Defina a altura desejada, ex: 40vh */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinha ao topo */
+    position: relative;
+    
+}
+.carouselContainer {  
+    width: 100%; /* Proporção do carrossel */
+    height:auto; /* height: 82vh; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+.carousel {
+    display: flex;
+    /* transition: 5s ease; /* Transição suave */
+    /* position: relative; */ 
+    width: 300%;
+}
+
+.carouselItem {
+     flex: 1;
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinha ao topo */
+    color: white;
+    font-family: "montserrat", sans-serif;
+    position: relative;
+    height: 92vh; /* Mesma altura do container */
+}
+
+.carouselItem img {
+     width: 100%;
+    height: 92vh; /* Mesma altura do container */
+    object-fit: cover;
+    object-position: top; /* Sempre mostra o topo da imagem */
+    filter: brightness(0.5);
+
+}
+.carouselItem h1 {
+     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+    font-weight: 400;
+    font-size: 3rem;
+    color: #fff;
+    margin: 0;
+    z-index: 2;
+}
+.carouselItem button {
+  position: absolute;
+    top: 65%; /* Ajuste conforme necessário para a distância do h1 */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #067992;
+    color: white;
+    border: none;
+    padding: 2vh 4vh;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border-radius: 3vh;
+    z-index: 2;
+    margin-top: 0; /* Remova o margin-top antigo */
+}
+.carouselItem button:hover {
+    background-color: #0a5f7d;
+    transition: all 0.3s ease-in-out;
+    transform: all 0.3s ease-in-out;
+}
+ 
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 1rem;
+    font-family: "montserrat", sans-serif;
+}
+
+@media (height: 13vh) {
+   
+}

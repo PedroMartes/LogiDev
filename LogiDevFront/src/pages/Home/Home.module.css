@@ -1,0 +1,64 @@
+.container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    max-width: 100%;
+    justify-content: space-evenly;
+    padding-top: 10vh;
+}
+ 
+.beneficios {
+    text-align: center;
+    display: block;
+    margin-top: 12vh;
+}
+.beneficios h1 {
+    font-size: 5.2vh;
+    font-weight: 200;
+    color: #067992;
+}
+.subTitulo {
+    color: black;
+    padding-top: 4vh;
+    display: block;
+    text-align: center;
+    font-size: 2.5vh;
+    font-weight: 100;
+ 
+}
+ 
+.card1:hover, .card2:hover, .card3:hover {
+    transform: translateY(-10px);
+}
+.card1,
+.card2,
+.card3 {
+    background: #067992;
+    width: 22rem;
+    padding-left: 2vh;
+    padding-right: 2vh;
+    padding-top: 6vh;
+    height: 45vh;
+    border: none;
+    border-radius: 2vh;
+    text-align: center;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+ 
+.card1 h5,
+.card2 h5,
+.card3 h5 {
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 1.9vh;
+    padding-top: 3vh;
+}
+ 
+.userPicture img {
+    color: #fff;
+    width: 12vh;      
+    height: auto;
+}

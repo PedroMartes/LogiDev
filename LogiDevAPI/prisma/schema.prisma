@@ -1,0 +1,58 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = "mysql://root:root@localhost:3306/LogiDev"
+}
+
+model Categorias {
+  id              Int        @id @default(autoincrement())
+  nome            String
+  descricao       String
+  produtos        Produtos[]
+  dataCadastro    DateTime   @default(now())
+  dataAtualizacao DateTime   @updatedAt
+}
+
+model Produtos {
+  id              Int          @id @default(autoincrement())
+  nome            String
+  descricao       String
+  preco           Float
+  quantidade      Int
+  fornecedorId    Int
+  fornecedor      Fornecedores @relation(fields: [fornecedorId], references: [id])
+  categoriaId     Int
+  categoria       Categorias   @relation(fields: [categoriaId], references: [id])
+  dataCadastro    DateTime     @default(now())
+  dataAtualizacao DateTime     @updatedAt
+}
+
+model Fornecedores {
+  id              Int        @id @default(autoincrement())
+  nome            String
+  contato         String
+  telefone        String
+  email           String     @unique
+  Produtos        Produtos[]
+  dataCadastro    DateTime   @default(now())
+  dataAtualizacao DateTime   @updatedAt
+}
+
+model Usuarios {
+  id              Int      @id @default(autoincrement())
+  nome            String
+  email           String   @unique
+  senha           String
+  cpfcnpj         String   @unique
+  dataCadastro    DateTime @default(now())
+  dataAtualizacao DateTime @updatedAt
+}

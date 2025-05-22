@@ -1,0 +1,182 @@
+.curvaBody {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+ 
+ 
+.curvaAbcContainer {
+    margin-top: 2rem; /* Reduzido para evitar sobreposição */
+    background-color: #eeeeeec5;
+    padding: 50px 100px;
+    gap: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    width: 150vh;
+    height: 70vh;
+    position: relative; /* Garante que o conteúdo respeite o fluxo */
+    z-index: 1; /* Mantém o conteúdo abaixo do menuSecundario */
+}
+.curvaAbcTitle {
+    font-size: 28px;
+    color: #343a40;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+ 
+.curvaSubtitle {
+    font-size: 20px;
+    color: #6c757d;
+    margin-bottom: 30px;
+}
+ 
+.curvaCardsWrapper {
+    display: flex;
+    justify-content: center;
+    gap: 15vh;
+    flex-wrap: wrap;
+    height: 50vh;
+}
+ 
+.curvaCard {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+ 
+.curvaCardHeader {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+ 
+.curvaCardHeader h3 {
+    font-size: 22px;
+    color: #067992;
+    font-weight: 500;
+    padding-left: 1vh;
+}
+ 
+.curvaBadge {
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 11px;
+    font-weight: 500;
+    color: #212529;
+    margin-left: 10vh;
+}
+ 
+.curvaBadge.curvaAltaPrioridade {
+    background-color: #ff0000;
+}
+ 
+.curvaBadge.curvaMediaPrioridade {
+    background-color: #ffc800;
+}
+ 
+.curvaBadge.curvaBaixaPrioridade {
+    background-color: #00da33;
+}
+ 
+.curvaDescription {
+    font-size: 20px;
+    color: #000;
+    margin-top: 7vh;
+    margin-bottom: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+ 
+.curvaHighlight {
+    font-size: 20px;
+    font-weight: 500;
+    color: #067992;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+ 
+.curvaExampleItem {
+    font-size: 18px;
+    color: #6c757d;
+     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+ 
+.curvaExampleItem:last-of-type {
+    margin-bottom: 20px;
+}
+.curvaCardFooter {
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 4vh;
+}
+ 
+.curvaStatsItem {
+    text-align: center;
+}
+ 
+.curvaStatsItem .curvaCount,
+.curvaStatsItem .curvaPercentage {
+    display: block;
+    font-size: 35px;
+    font-weight: 700;
+}
+ 
+.curvaStatsItem .curvaLabel {
+    font-size: 17px;
+    color: #000000;
+}
+ 
+.curvaArrow {
+    font-size: 40px;
+    font-weight: bold;
+    color: #067992;
+}
+ 
+@media (max-width: 992px) {
+    .curvaCardsWrapper {
+        flex-direction: column;
+    }
+    .curvaCard {
+        width: 100%;
+        max-width: 450px;
+    }
+}
+ 
+@media (max-width: 768px) {
+    .curvaAbcTitle {
+        font-size: 24px;
+    }
+    .curvaSubtitle {
+        font-size: 14px;
+    }
+    .curvaCardHeader h3 {
+        font-size: 18px;
+    }
+    .curvaStatsItem .curvaCount,
+    .curvaStatsItem .curvaPercentage {
+        font-size: 24px;
+    }
+    .curvaArrow {
+        font-size: 20px;
+    }
+}
+ 
