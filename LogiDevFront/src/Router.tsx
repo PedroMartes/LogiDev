@@ -16,10 +16,6 @@ import { NovoAlerta } from './pages/Alerta/novoAlerta'
 import { ControleFornecedores } from './pages/Controle/controleFornecedores'
 import { ControleCategorias } from './pages/Controle/ControleCategorias'
 
-
-
-
-
 const Router = () => {
 
     return (
@@ -37,22 +33,22 @@ const Router = () => {
                     <Route path='/controle/categorias' element={<ControleCategorias />} />
                     <Route path='/controle/cadastros' element={<ControleCadastros />} />
                     <Route path="*" element={<Page404 />} />
-
-                    <Route path='/controle/grafico/produtos' element={< GraficoProdutos />}/>
-                     <Route path='/controle/grafico/fornecedores' element={< GraficoFornecedores />}/>
-                     <Route path='/historico' element={< Historico/>}/>
-                      <Route path='/curvaABC' element={< CurvaABC/>}/>
-                      <Route path='/alertas' element={< Alerta/>}/>
-                       <Route path='/alertas/novoAlerta' element={< NovoAlerta/>}/>
                     <Route path='/controle/grafico/produtos' element={< GraficoProdutos />} />
                     <Route path='/controle/grafico/fornecedores' element={< GraficoFornecedores />} />
                     <Route path='/historico' element={< Historico />} />
                     <Route path='/curvaABC' element={< CurvaABC />} />
                     <Route path='/alertas' element={< Alerta />} />
+                    <Route path='/alertas/novoAlerta' element={< NovoAlerta />} />
+                    <Route path='/controle/grafico/produtos' element={< GraficoProdutos />} />
+                    <Route path='/controle/grafico/fornecedores' element={< GraficoFornecedores />} />
+                    <Route path='/historico' element={< Historico />} />
+                    <Route path='/curvaABC' element={< CurvaABC />} />
+                    <Route path='/alertas/novoAlerta' element={< NovoAlerta />} />
                     
+
                 </Routes>
             </BrowserRouter>
-            
+
         </div>
     )
 }
