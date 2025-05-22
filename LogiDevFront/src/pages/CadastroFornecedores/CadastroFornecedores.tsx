@@ -41,45 +41,53 @@ export const CadastroFornecedores: React.FC = () => {
                 type="text"
                 id="nome"
                 value={nome}
-                onChange={(e) => setNome(e.target.value)}
-                placeholder='Nome do fornecedor'
+                onChange={e => setNome(e.target.value)}
+                placeholder="Nome do fornecedor"
                 required
               />
             </div>
-            <div className={styles.formGroup}>
-              <input
-                type="text"
-                id="contato"
-                value={contato}
-                onChange={(e) => setContato(e.target.value)}
-                placeholder='Contato'
-                required
-              />
-            </div>
-            <div className={styles.formGroup}>
-              <input
-                type="text"
-                id="telefone"
-                value={telefone}
-                onChange={(e) => setTelefone(e.target.value)}
-                placeholder='Telefone'
-                required
-              />
+            <div className={styles.formRow}>
+              <div className={styles.halfFormGroup}>
+                <input
+                  type="text"
+                  id="contato"
+                  value={contato}
+                  onChange={e => setContato(e.target.value)}
+                  placeholder="Contato"
+                  required
+                />
+              </div>
+              <div className={styles.halfFormGroup}>
+                <input
+                  type="text"
+                  id="telefone"
+                  value={telefone}
+                  onChange={e => setTelefone(e.target.value)}
+                  placeholder="Telefone"
+                  required
+                />
+              </div>
             </div>
             <div className={styles.formGroup}>
               <input
                 type="email"
                 id="email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder='E-mail'
+                onChange={e => setEmail(e.target.value)}
+                placeholder="E-mail"
                 required
               />
             </div>
             <button type="submit" className={styles.button}>
-              Cadastrar Fornecedor
+              Enviar
             </button>
           </form>
+
+          <div className={styles.verificarWrapper}>
+            <a href="/controle/produtos" className={styles.verificarEstoque}>
+              Verificar no estoque &rarr;
+            </a>
+          </div>
         </div>
       </div>
     </div>
