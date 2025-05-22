@@ -12,27 +12,29 @@
 .cardValores {
     background: #067992; 
     width: 20rem;
-    padding: 70px;
-    padding-top: 25px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 7vh;
+    padding-top: 2vh;
+    padding-left: 2vh;
+    padding-right: 2vh;
     border: none;
-    box-shadow: 0 6px 10px rgba(207, 212, 222, 1);
-    border-radius: 10px;
+    box-shadow: 0 6vh 10vh rgba(207, 212, 222, 1);
+    border-radius: 1vh;
     text-align: center;
     color: #fff;
     font-family: Arial, Helvetica, sans-serif;
     transition: all 0.3s ease;
     flex-wrap: wrap;
-    box-shadow: 10px 5px 5px lightgrey;
+    box-shadow: 1vh 2vh 2vh lightgrey;
     margin-top: 5%;
-    margin-bottom: 5vh;
+   
+    
+    
 }
 
 .cardMissao:hover,
 .cardVisao:hover,
 .cardValores:hover {
-    transform: translateY(-10px);
+    transform: translateY(-1vh);
 }
 
 .inicial {
@@ -54,7 +56,6 @@
 }
 
 .inicial h2 {
-    font-size: 46px;
     margin: 2%;
     display: flex;
     margin-left: 45%;
@@ -67,4 +68,30 @@
 .userPicture img {
     width: 10vh;
     height: 10vh;
+}
+
+.cardTitulo {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    
+}
+
+
+.missao p, .valores p, .visao p {
+    position: static;
+    transform: none;
+    font-size: 1.5rem;
+    color: #fff;
+    margin: 0 0 1vh 0;
+    text-align: center;
+}
+
+
+.missao span, .valores span, .visao span {
+    font-size: 1rem;
+    color: #fff;
+    margin: 0;
+    display: block;
+    margin-bottom: 1vh;
 }

@@ -21,7 +21,8 @@ export function Sobre() {
                     <div className={Style.userPicture}>
                         <img src={MissaoIcon} />
                     </div>
-                    <p className={Style.missao}> Missão
+                    <p className={Style.missao}> 
+                        <p>Missão</p>
                         <span>Oferecer soluções inteligentes e integradas em logística e controle de estoque, utilizando
                             tecnologia de ponta para otimizar operações.</span>
                     </p>
@@ -34,7 +35,8 @@ export function Sobre() {
                         <img src={VisaoIcon} />
                     </div>
 
-                    <p className={Style.visao}> Visão
+                    <p className={Style.visao}> 
+                        <p>Visão</p>
                         <span>
                             Ser reconhecida como a principal parceira tecnológica para gestão de estoques, liderando a
                             transformação digital na logística.
@@ -49,7 +51,8 @@ export function Sobre() {
                         <img src={ValoresIcon} />
                     </div>
 
-                    <p className={Style.valores}> Valores
+                    <p className={Style.valores}> 
+                        <p>Valores</p>
                         <span>
                             Inovação, Transparência, Sustentabilidade, Eficiência, Parceria e Qualidade.
                         </span>

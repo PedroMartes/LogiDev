@@ -1,0 +1,32 @@
+.controleTableContainer {
+    display: flex;
+    width: 60%;
+    margin: 0 auto;
+}
+
+.tableFornecedorCard {
+    border-collapse: collapse;
+    background-color: #fff;
+}
+ 
+.tableData {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+    width: 100%;
+    max-width: 55vh;
+    min-width: 55vh;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.deleteButton, .editButton {
+    width: 3.6vh;
+}
+
+.deleteIcon, .editIcon {
+    width: 100%;
+    height: 100%;
+    color: #067992;
+}
