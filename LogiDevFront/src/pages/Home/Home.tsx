@@ -5,6 +5,7 @@ import nuvemPasta from '../../assets/img/nuvem-pasta.png'
 import { CarrosselHome } from '../../components/CarrosselHome/Carrosselhome'
 import { NavBar } from '../../components/NavBar/NavBar'
 
+
 export function Home() {
     return (
         <>

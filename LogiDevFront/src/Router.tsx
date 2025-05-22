@@ -13,6 +13,8 @@ import GraficoFornecedores from './pages/Graficos/GraficoFornecedor'
 import { Historico } from './pages/Historico/historico'
 import CurvaABC from './pages/CurvaABC/CurvaABC'
 import { Alerta } from './pages/Alerta/alerta'
+import { NovoAlerta } from './pages/Alerta/novoAlerta'
+
 
 
 
@@ -37,6 +39,8 @@ const Router = () => {
                      <Route path='/historico' element={< Historico/>}/>
                       <Route path='/curvaABC' element={< CurvaABC/>}/>
                       <Route path='/alertas' element={< Alerta/>}/>
+                       <Route path='/alertas/novoAlerta' element={< NovoAlerta/>}/>
+  
   
                 </Routes>
             </BrowserRouter>
