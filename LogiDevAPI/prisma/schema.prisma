@@ -14,31 +14,37 @@ datasource db {
 }
 
 model Categorias {
-  id        Int        @id @default(autoincrement())
-  nome      String
-  descricao String
-  produtos  Produtos[]
+  id              Int        @id @default(autoincrement())
+  nome            String
+  descricao       String
+  produtos        Produtos[]
+  dataCadastro    DateTime   @default(now())
+  dataAtualizacao DateTime   @updatedAt
 }
 
 model Produtos {
-  id           Int          @id @default(autoincrement())
-  nome         String
-  descricao    String
-  preco        Float
-  quantidade   Int
-  fornecedorId Int
-  fornecedor   Fornecedores @relation(fields: [fornecedorId], references: [id])
-  categoriaId  Int
-  categoria    Categorias   @relation(fields: [categoriaId], references: [id])
+  id              Int          @id @default(autoincrement())
+  nome            String
+  descricao       String
+  preco           Float
+  quantidade      Int
+  fornecedorId    Int
+  fornecedor      Fornecedores @relation(fields: [fornecedorId], references: [id])
+  categoriaId     Int
+  categoria       Categorias   @relation(fields: [categoriaId], references: [id])
+  dataCadastro    DateTime     @default(now())
+  dataAtualizacao DateTime     @updatedAt
 }
 
 model Fornecedores {
-  id       Int        @id @default(autoincrement())
-  nome     String
-  contato  String
-  telefone String
-  email    String     @unique
-  Produtos Produtos[]
+  id              Int        @id @default(autoincrement())
+  nome            String
+  contato         String
+  telefone        String
+  email           String     @unique
+  Produtos        Produtos[]
+  dataCadastro    DateTime   @default(now())
+  dataAtualizacao DateTime   @updatedAt
 }
 
 model Usuarios {
