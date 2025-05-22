@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from 'react';
-import styles from './Carrosselhome.module.css';
+import styles from './CarrosselHome.module.css';
 import imagem1 from '../../assets/img/home2.jpg'; // Imagem 1 do carrossel
 import imagem2 from '../../assets/img/home3.jpg'; // Imagem 2 do carrossel
 import imagem3 from '../../assets/img/home1.jpg'; // Imagem 2 do carrossel
