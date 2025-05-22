@@ -85,7 +85,7 @@
 /* Novo estilo para o ícone do "olhinho" */
 .toggleIcon {
   position: absolute;
-  left: 13em;
+  left: 15em;
   top: 55%;          /* Centraliza verticalmente */
   transform: translateY(-50%);
   cursor: pointer;

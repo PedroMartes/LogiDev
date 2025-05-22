@@ -109,6 +109,6 @@ export function Alerta() {
             </ul>
           </div>
         </div>
-      </div>
+      </div>   
   );
 }
