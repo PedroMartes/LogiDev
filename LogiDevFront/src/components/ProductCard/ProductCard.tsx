@@ -41,6 +41,7 @@ const ProductCard: React.FC<CardProps> = ({ id, nome, descricao, preco, categori
                 <button onClick={onDelete} className={styles.deleteButton}>
                     <MdDelete className={styles.deleteIcon} />
                 </button>
+                
                 <button className={styles.editButton}>
                     <Link to={`/detalhe/produtos/${id}`}>
                         <PiNotePencilFill className={styles.editIcon} />

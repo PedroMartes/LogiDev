@@ -1,9 +1,9 @@
-import styles from './ControleProduto.module.css'
-import { useEffect, useState } from "react";
-import axios from "axios";
+import styles from './controleFornecedores.module.css'
 import ProductCard from '../../components/ProductCard/ProductCard';
 import { NavBarGeral } from '../../components/NavBar/NavBar';
 import { Menu } from '../../components/Menu/Menu';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 interface IProduto {
     id: number;
@@ -21,44 +21,42 @@ interface IProduto {
     quantidade: number;
 }
 
-export function ControleProdutos() {
+
+export function ControleFornecedores() {
     const [data, setData] = useState<IProduto[]>([]);
 
-    useEffect(() => {
-        axios.get("http://localhost:8080/produtos/get")
-            .then(response => setData(response.data))
-            .catch(error => console.error("Erro ao buscar dados:", error));
-    }, []);
+useEffect(() => {
+  axios.get("http://localhost:8080/produtos/get")
+      .then(response => setData(response.data))
+      .catch(error => console.error("Erro ao buscar dados:", error));
+}, []);
 
-    const handleDelete = async (id: number) => {
-        if (window.confirm("Tem certeza que deseja apagar este produto?")) {
-            try {
-                await axios.delete(`http://localhost:8080/produtos/delete/${id}`);
-                setData(data.filter(produto => produto.id !== id));
-            } catch (error) {
-                alert("Erro ao apagar produto!");
-                console.error(error);
-            }
-        }
-    };
-
-
+const handleDelete = async (id: number) => {
+  if (window.confirm("Tem certeza que deseja apagar este produto?")) {
+      try {
+          await axios.delete(`http://localhost:8080/produtos/delete/${id}`);
+          setData(data.filter(produto => produto.id !== id));
+      } catch (error) {
+          alert("Erro ao apagar produto!");
+          console.error(error);
+      }
+  }
+};
     return (
         <>
             <NavBarGeral />
             <Menu/>
             <h1 className={styles.mainTitle}>Controle de Estoque</h1>
-            <h2 className={styles.mainSubtitle}>Produto</h2>
+            <h2 className={styles.mainSubtitle}>Fornecedores</h2>
 
             <div className={styles.controleTabeMain}>
                 <table className={styles.controleTable}>
                     <thead className={styles.controleTableableHead}>
-                        <th className={styles.controleTableableHeaderText}>Produto</th>
-                        <th className={styles.controleTableableHeaderText}>Descricao</th>
+                        <th className={styles.controleTableableHeaderText}>Fornecedor</th>
+                        <th className={styles.controleTableableHeaderText}>Contato</th>
                         <th className={styles.controleTableableHeaderText}>Preço</th>
-                        <th className={styles.controleTableableHeaderText}>categoria</th>
-                        <th className={styles.controleTableableHeaderText}>fornecedor</th>
-                        <th className={styles.controleTableableHeaderText}>quantidade</th>
+                        <th className={styles.controleTableableHeaderText}>Telefone</th>
+                        <th className={styles.controleTableableHeaderText}>E-mail</th>
                     </thead>
 
 
