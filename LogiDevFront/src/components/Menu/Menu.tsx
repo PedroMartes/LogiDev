@@ -98,6 +98,10 @@ export function Menu() {
                             <li>
                                 <a  href="/controle/fornecedores"  className={styles.submenuLink}>Fornecedor</a>
                             </li>
+                            <hr style={{ border: '1px solid #045a6e', margin: 0 }} />
+                            <li>
+                                <a  href="/controle/categorias"  className={styles.submenuLink}>Categoria</a>
+                            </li>
                         </ul>
                     </li>
                 </ul>

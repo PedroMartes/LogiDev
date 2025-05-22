@@ -1,0 +1,48 @@
+.mainTitle {
+    text-align: center;
+    color: #000;
+    font-size: 50px;
+    margin: 20px 0;
+    font-weight: 100;
+}
+
+.mainSubtitle {
+    text-align: center;
+    color: #13698b;
+    font-size: 20px;
+    font-weight: 100;
+
+}
+
+.controleTabeMain {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.controleTable {
+    width: 90%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    background-color: #fff;
+    margin-left: 32vh;
+    margin-top: 3vh;
+}
+
+.controleTableableHead {
+    color: #fff;
+    margin: 0 auto;
+    width: 90%;
+    display: flex;
+}
+
+.controleTableableHeaderText {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+    width: 100%;
+    max-width: 29.5vh;
+    min-width: 29.5vh;
+    background-color: #067992;
+}
