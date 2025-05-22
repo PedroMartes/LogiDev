@@ -7,12 +7,16 @@ import { Login } from "../Login/Login";
 import { Cadastro } from "../Cadastro/cadastro";
 import * as Icon from 'react-bootstrap-icons'
 import { useNavigate } from "react-router";
+import { EsqueciSenha } from "../EsqueciSenha/EsqueciSenha";
+import { RenovarSenha } from "../EsqueciSenha/RenovarSenha";
 
 export function NavBar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [showFaleConosco, setShowFaleConosco] = useState(false);
     const [showLogin, setShowLogin] = useState(false);
     const [showCadastro, setShowCadastro] = useState(false);
+    const [showEsqueciSenha, setShowEsqueciSenha] = useState(false);
+    const [showRenovarSenha, setShowRenovarSenha] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -71,7 +75,7 @@ export function NavBar() {
                                 <a
                                     className={Style.contato}
                                     style={{ cursor: "pointer" }}
-                                   onClick={() => setShowLogin(true)}
+                                    onClick={() => setShowLogin(true)}
                                 >
                                     Login
                                 </a>
@@ -87,13 +91,17 @@ export function NavBar() {
             </header>
             {showFaleConosco && <Faleconosco onClose={() => setShowFaleConosco(false)} />}
             {showLogin && (
-            <Login
-                onClose={() => setShowLogin(false)}
-                onOpenCadastro={() => {
-                    setShowLogin(false);
-                    setShowCadastro(true);
-                }}
-            />
+                <Login
+                    onClose={() => setShowLogin(false)}
+                    onOpenCadastro={() => {
+                        setShowLogin(false);
+                        setShowCadastro(true);
+                    }}
+                    onOpenEsqueciSenha={() => {
+                        setShowLogin(false);
+                        setShowEsqueciSenha(true);
+                    }}
+                />
             )}
             {showCadastro && (
                 <Cadastro
@@ -104,6 +112,27 @@ export function NavBar() {
                     }}
                 />
             )}
+            {showEsqueciSenha && (
+                <EsqueciSenha
+                    onClose={() => {
+                        setShowEsqueciSenha(false);
+                        setShowLogin(true);
+                    }}
+                    onEnviar={() => {
+                        setShowEsqueciSenha(false);
+                        setShowRenovarSenha(true);
+                    }}
+                />
+            )}
+            {showRenovarSenha && (
+                <RenovarSenha
+                    onClose={() => {
+                        setShowRenovarSenha(false);
+                        setShowLogin(true);
+                    }}
+                />
+            )}
+
         </>
     );
 }
@@ -113,14 +142,14 @@ export function NavBarGeral() {
     const [isOpen, setIsOpen] = useState(true);
     const navigate = useNavigate();
 
-      const handleClose = () => {
-    setIsOpen(false);
-    navigate("/"); // Chama a função de fechamento passada como prop
-  };
+    const handleClose = () => {
+        setIsOpen(false);
+        navigate("/"); // Chama a função de fechamento passada como prop
+    };
 
-  if (!isOpen) {
-    return null; // Isso faz com que o componente não seja renderizado
-  }
+    if (!isOpen) {
+        return null; // Isso faz com que o componente não seja renderizado
+    }
 
     return (
         <>
@@ -130,11 +159,11 @@ export function NavBarGeral() {
                         className={Styles.headerContainer}
                     >
                         <div className={Styles.logo}>
-                                <img src={Logo} className={Styles.imgLogo} />
-                                <div className={Styles.logoText}>
-                                    <h1>LOGIDEV</h1>
-                                    <h4>Tecnologia e Logistica em um só lugar!</h4>
-                                </div>
+                            <img src={Logo} className={Styles.imgLogo} />
+                            <div className={Styles.logoText}>
+                                <h1>LOGIDEV</h1>
+                                <h4>Tecnologia e Logistica em um só lugar!</h4>
+                            </div>
                         </div>
 
                         <ul className={Styles.navbarList}>
@@ -151,7 +180,7 @@ export function NavBarGeral() {
                                     Serviços
                                 </a>
                             </li>
-                        <Icon.BoxArrowRight className={Styles.iconSaida} onClick={handleClose}/>
+                            <Icon.BoxArrowRight className={Styles.iconSaida} onClick={handleClose} />
                         </ul>
                     </div>
                 </nav>
