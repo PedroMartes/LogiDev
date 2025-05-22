@@ -1,6 +1,6 @@
 /* Alerta.module.css */
 
-/* Se desejar incluir estilos globais, faça isso em outro arquivo */
+/* Container principal - adicionamos position: relative para posicionar elementos absolutos */
 .cardGrande {
   background: #ebebeb;
   border-radius: 0.5rem;
@@ -15,12 +15,33 @@
   align-items: center;
   min-height: 60vh;
   justify-content: center;
+  position: relative; /* Necessário para posicionar o botão no canto */
 }
 
 .cardGrandeTitulo {
   font-size: 2rem;
   color: #00566e;
   margin-bottom: 3rem;
+}
+
+/* Exemplo de estilo para o botão "Adicionar Alerta" */
+.adicionarAlerta {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: #00566e;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s ease;
+}
+
+.adicionarAlerta:hover {
+  background-color: #004057;
 }
 
 /* Layout do container de cards – grid responsivo */

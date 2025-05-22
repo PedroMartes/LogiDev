@@ -3,8 +3,7 @@ import styles from './Alerta.module.css';
 
 // Função para alternar o check (a classe "checked") no botão do cartão
 function toggleCheck(e: React.MouseEvent<HTMLButtonElement>) {
-  // Como estamos usando módulos CSS, para a classe "checked" precisamos ter
-  // uma definição igual a ".cardMenorCheck.checked" dentro do módulo. Assim:
+  // Alterna a classe de "checked" para aplicar as estilizações definidas no CSS Modules.
   e.currentTarget.classList.toggle(styles.checked);
 }
 
@@ -12,6 +11,11 @@ export function Alerta() {
   return (
     <div className={styles.cardGrande}>
       <h1 className={styles.cardGrandeTitulo}>Alertas</h1>
+      {/* Botão "Adicionar Alerta" com sinal de + incluído */}
+      <button className={styles.adicionarAlerta}>
+        + Adicionar Alerta
+      </button>
+      
       <div className={styles.cardMenoresContainer}>
         <div className={styles.cardMenor}>
           <button
