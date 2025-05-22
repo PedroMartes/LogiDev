@@ -13,6 +13,7 @@ import GraficoFornecedores from './pages/Graficos/GraficoFornecedor'
 import { Historico } from './pages/Historico/historico'
 import CurvaABC from './pages/CurvaABC/CurvaABC'
 import { Alerta } from './pages/Alerta/alerta'
+import { DetalheProduto } from './pages/DetalheProduto/DetalheProduto'
 
 
 
@@ -22,7 +23,7 @@ const Router = () => {
         <div>
             <BrowserRouter>
                 <Routes>
-                   
+                   <Route path='/detalhe/produtos/:id' element={<DetalheProduto />} />
                     <Route path='/cadastro/produtos' element={<CadastroProdutos />} />
                     <Route path='/cadastro/fornecedores' element={<CadastroFornecedores />} />
                     <Route path='/cadastro/categorias' element={<CadastroCategorias />} />
