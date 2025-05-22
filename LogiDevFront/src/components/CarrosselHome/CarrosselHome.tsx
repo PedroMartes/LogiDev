@@ -1,16 +1,16 @@
-import { useRef, useState, useEffect, use } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import styles from './Carrosselhome.module.css';
 import imagem1 from '../../assets/img/home2.jpg'; // Imagem 1 do carrossel
 import imagem2 from '../../assets/img/home3.jpg'; // Imagem 2 do carrossel
 import imagem3 from '../../assets/img/home1.jpg'; // Imagem 2 do carrossel
 import imagem4 from '../../assets/img/home4.png' // Imagem 3 do carrossel
 import imagem5 from '../../assets/img/home5.jpg'; // Imagem 4 do carrossel
-import { Login } from '../Login/login';
+import { Login } from '../Login/Login';
 import { Cadastro } from '../Cadastro/cadastro';
 
 
 export function CarrosselHome() {
-  const carouselRef = useRef(null);
+  const carouselRef = useRef<any>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const itemsCount = 5;
   const [showLogin, setShowLogin] = useState(false);

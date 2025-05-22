@@ -2,7 +2,7 @@ import Style from './Home.module.css'
 import graficoLogistica from '../../assets/img/graphic-logistic.png'
 import armazenamento from '../../assets/img/armazenamento.png'
 import nuvemPasta from '../../assets/img/nuvem-pasta.png'
-import { CarrosselHome } from '../../components/CarrosselHome/Carrosselhome'
+import { CarrosselHome } from '../../components/CarrosselHome/CarrosselHome'
 import { NavBar } from '../../components/NavBar/NavBar'
 
 
