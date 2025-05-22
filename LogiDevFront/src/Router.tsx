@@ -16,13 +16,14 @@ import { Alerta } from './pages/Alerta/alerta'
 
 
 
+
 const Router = () => {
 
     return (
         <div>
             <BrowserRouter>
                 <Routes>
-                   
+                  
                     <Route path='/cadastro/produtos' element={<CadastroProdutos />} />
                     <Route path='/cadastro/fornecedores' element={<CadastroFornecedores />} />
                     <Route path='/cadastro/categorias' element={<CadastroCategorias />} />
