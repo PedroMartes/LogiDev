@@ -16,11 +16,6 @@ import { NovoAlerta } from './pages/Alerta/novoAlerta'
 import { ControleFornecedores } from './pages/Controle/controleFornecedores'
 import { ControleCategorias } from './pages/Controle/ControleCategorias'
 
-
-
-
-
-
 const Router = () => {
 
     return (
@@ -43,7 +38,7 @@ const Router = () => {
                     <Route path='/historico' element={< Historico />} />
                     <Route path='/curvaABC' element={< CurvaABC />} />
                     <Route path='/alertas' element={< Alerta />} />
-
+                    <Route path='/alertas/novoAlerta' element={< NovoAlerta />} />
                 </Routes>
             </BrowserRouter>
             
