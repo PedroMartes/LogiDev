@@ -33,52 +33,54 @@ export const CadastroFornecedores: React.FC = () => {
       <NavBarGeral />
       <Menu />
       <div className={styles.container}>
-        <h1 className={styles.cadastroFornecedoresTitle}>Cadastro de Fornecedores</h1>
-        <form onSubmit={handleSubmit} className={styles.form}>
-          <div className={styles.formGroup}>
-            <label htmlFor="nome">Nome:</label>
-            <input
-              type="text"
-              id="nome"
-              value={nome}
-              onChange={(e) => setNome(e.target.value)}
-              required
-            />
-          </div>
-          <div className={styles.formGroup}>
-            <label htmlFor="contato">Contato:</label>
-            <input
-              type="text"
-              id="contato"
-              value={contato}
-              onChange={(e) => setContato(e.target.value)}
-              required
-            />
-          </div>
-          <div className={styles.formGroup}>
-            <label htmlFor="telefone">Telefone:</label>
-            <input
-              type="text"
-              id="telefone"
-              value={telefone}
-              onChange={(e) => setTelefone(e.target.value)}
-              required
-            />
-          </div>
-          <div className={styles.formGroup}>
-            <label htmlFor="email">Email:</label>
-            <input
-              type="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </div>
-          <button type="submit" className={styles.button}>
-            Cadastrar Fornecedor
-          </button>
-        </form>
+        <div className={styles.card}>
+          <h1 className={styles.cadastroFornecedoresTitle}>Cadastrar Fornecedor</h1>
+          <form onSubmit={handleSubmit} className={styles.form}>
+            <div className={styles.formGroup}>
+              <input
+                type="text"
+                id="nome"
+                value={nome}
+                onChange={(e) => setNome(e.target.value)}
+                placeholder='Nome do fornecedor'
+                required
+              />
+            </div>
+            <div className={styles.formGroup}>
+              <input
+                type="text"
+                id="contato"
+                value={contato}
+                onChange={(e) => setContato(e.target.value)}
+                placeholder='Contato'
+                required
+              />
+            </div>
+            <div className={styles.formGroup}>
+              <input
+                type="text"
+                id="telefone"
+                value={telefone}
+                onChange={(e) => setTelefone(e.target.value)}
+                placeholder='Telefone'
+                required
+              />
+            </div>
+            <div className={styles.formGroup}>
+              <input
+                type="email"
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder='E-mail'
+                required
+              />
+            </div>
+            <button type="submit" className={styles.button}>
+              Cadastrar Fornecedor
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   );
