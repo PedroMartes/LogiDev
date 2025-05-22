@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Sobre } from './pages/Sobre/Sobre'
 import { Home } from './pages/Home/Home'
 import { Page404 } from './pages/Pagina404/Pagina404'
-import { Controle } from './pages/Controle/Controle'
+import { ControleProdutos } from './pages/Controle/ControleProduto'
 import { ControleCadastros } from './pages/ControleCadastros/ControleCadastros'
 import { GraficoProdutos} from './pages/Graficos/GraficoProdutos'
 import { CadastroProdutos  } from './pages/CadastroProdutos/CadastroProduto'
@@ -13,7 +13,7 @@ import GraficoFornecedores from './pages/Graficos/GraficoFornecedor'
 import { Historico } from './pages/Historico/historico'
 import CurvaABC from './pages/CurvaABC/CurvaABC'
 import { Alerta } from './pages/Alerta/alerta'
-import { Produto } from './pages/Controle/ControleProduto'
+
 
 
 const Router = () => {
@@ -29,7 +29,7 @@ const Router = () => {
                     <Route path='/' element={<Home />} />
                     <Route path='/home' element={<Home />} />
                     <Route path='/sobre' element={<Sobre />} />
-                    <Route path='/controle' element={<Controle />} />
+                    <Route path='/controle/produtos' element={<ControleProdutos />} />
                     <Route path='/controle/cadastros' element={<ControleCadastros />} />
                     <Route path="*" element={<Page404 />} />
                     <Route path='/controle/grafico/produtos' element={< GraficoProdutos />}/>
@@ -37,7 +37,7 @@ const Router = () => {
                      <Route path='/historico' element={< Historico/>}/>
                       <Route path='/curvaABC' element={< CurvaABC/>}/>
                       <Route path='/alertas' element={< Alerta/>}/>
-                      <Route path='/controle/produtos' element={<Produto />} />
+  
                 </Routes>
             </BrowserRouter>
             <Footer/>

@@ -1,73 +1,93 @@
-import React, { useState } from "react";
-import styles from "../Controle/ControleProduto.module.css";
-import { NavBarGeral } from "../../components/NavBar/NavBar";
-import { Menu } from "../../components/Menu/Menu";
+import styles from './ControleProduto.module.css'
+import { useEffect, useState } from "react";
+import axios from "axios";
+import ProductCard from '../../components/ProductCard/ProductCard';
+import { NavBarGeral } from '../../components/NavBar/NavBar';
+import { Menu } from '../../components/Menu/Menu';
 
-export function Produto() {
-  const [showModal, setShowModal] = useState(true);
+interface IProduto {
+    id: number;
+    nome: string;
+    descricao: string;
+    preco: number;
+    categoria: {
+        id: number;
+        nome: string;
+    };
+    fornecedor: {
+        id: number;
+        nome: string;
+    };
+    quantidade: number;
+}
 
-  return (
-    <div>
-      <NavBarGeral/>
-      <Menu/>
-      <div className={styles.body}>
-        {/* {showModal && (
-          <div className={styles["fullscreen-shadow"]}>
-            <div className={styles["input-container"]}>
-              <span
-                className={styles["botao-x"]}
-                onClick={() => setShowModal(false)}
-                style={{ userSelect: "none" }}
-              >
-                &times;
-              </span>
-              <label className={styles["input-label1"]}>Confirmação</label>
-              <label className={styles["input-label"]}>
-                Você tem certeza que deseja excluir esse registro definitivamente?
-              </label>
-              <button className={styles.buttonSim}>
-                <a className={styles.textSim} href="/estoque">Sim</a>
-              </button>
-              <button className={styles.buttonNao}>
-                <a className={styles.textNao} href="/estoque">Não</a>
-              </button>
-            </div>
-          </div>
-        )} */}
+export function ControleProdutos() {
+    const [data, setData] = useState<IProduto[]>([]);
 
-        <main className={styles.main}>
-          <div className={styles.container}>
+    useEffect(() => {
+        axios.get("http://localhost:8080/produtos/get")
+            .then(response => setData(response.data))
+            .catch(error => console.error("Erro ao buscar dados:", error));
+    }, []);
+
+    const handleDelete = async (id: number) => {
+        if (window.confirm("Tem certeza que deseja apagar este produto?")) {
+            try {
+                await axios.delete(`http://localhost:8080/produtos/delete/${id}`);
+                setData(data.filter(produto => produto.id !== id));
+            } catch (error) {
+                alert("Erro ao apagar produto!");
+                console.error(error);
+            }
+        }
+    };
+
+
+    return (
+        <>
+            <NavBarGeral />
+            <Menu/>
             <h1 className={styles.mainTitle}>Controle de Estoque</h1>
-            <h2 className={styles.mainSubtitle}>Produto</h2>
-            <div className={styles.tableContainer}>
-              <table className={styles.table}>
-                <thead className={styles.tableHead}>
-                  <tr className={styles.tableRow}>
-                    <th className={styles.tableHeader}>Produto</th>
-                    <th className={styles.tableHeader}>Descrição</th>
-                    <th className={styles.tableHeader}>Categoria</th>
-                    <th className={styles.tableHeader}>Preço</th>
-                    <th className={styles.tableHeader}>Quantidade</th>
-                    <th className={styles.tableHeader}>Total - R$</th>
-                  </tr>
-                </thead>
-                <tbody className={styles.tableBody}>
-                  {Array.from({ length: 12 }).map((_, idx) => (
-                    <tr className={styles.tableRow} key={idx}>
-                      <td className={styles.tableData}></td>
-                      <td className={styles.tableData}></td>
-                      <td className={styles.tableData}></td>
-                      <td className={styles.tableData}></td>
-                      <td className={styles.tableData}></td>
-                      <td className={styles.tableData}></td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+            <h2 className={styles.mainSubtitle}>Principal</h2>
+
+            <div className={styles.controleTabeMain}>
+                <table className={styles.controleTable}>
+                    <thead className={styles.controleTableableHead}>
+                        <th className={styles.controleTableableHeaderText}>Produto</th>
+                        <th className={styles.controleTableableHeaderText}>Descricao</th>
+                        <th className={styles.controleTableableHeaderText}>Preço</th>
+                        <th className={styles.controleTableableHeaderText}>categoria</th>
+                        <th className={styles.controleTableableHeaderText}>fornecedor</th>
+                        <th className={styles.controleTableableHeaderText}>quantidade</th>
+                    </thead>
+
+
+                    <tbody>
+                        {data.length > 0 ? (
+                            <ul className={styles.produtoList}>
+                                {data.map(produtos => (
+                                    <li key={produtos.id}>
+                                        <ProductCard
+                                            id={produtos.id}
+                                            onDelete={() => handleDelete(produtos.id)}
+                                            nome={produtos.nome}
+                                            preco={produtos.preco}
+                                            descricao={produtos.descricao}
+                                            categoriaNome={produtos.categoria.nome}
+                                            fornecedorNome={produtos.fornecedor.nome}
+                                            quantidade={produtos.quantidade}
+                                        />
+                                    </li>
+                                ))}
+                            </ul>
+                        ) : (
+                            <p></p>
+                        )}
+                    </tbody>
+                </table>
             </div>
-          </div>
-        </main>
-      </div>
-    </div>
-  );
+
+        </>
+
+    )
 }
