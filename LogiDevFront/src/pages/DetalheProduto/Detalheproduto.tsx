@@ -1,132 +1,132 @@
-import React, { useState } from "react";
-import styles from "./DetalheProduto.module.css"; // Importando o CSS para estilização
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import styles from "./DetalheProduto.module.css";
+import axios from "axios";
+import { NavBarGeral } from "../../components/NavBar/NavBar";
+import { Menu } from "../../components/Menu/Menu";
+
+interface IProduto {
+  id: number;
+  nome: string;
+  descricao: string;
+  preco: number;
+  categoria: {
+    id: number;
+    nome: string;
+  };
+  fornecedor: {
+    id: number;
+    nome: string;
+  };
+  quantidade: number;
+}
 
 export function DetalheProduto() {
-  // Valores iniciais (simulados) para o produto
-  const initialData = {
-    productName: "Detergente Ypê 18L",
-    description: "Limpeza de louças e superfícies",
-    category: "Limpeza geral",
-    supplier: "Ypê Produtos de Limpeza",
-    productCode: "00123",
-    quantity: "85"
-  };
+  const { id } = useParams<{ id: string }>();
+  const [produto, setProduto] = useState<IProduto | null>(null);
 
-  const [productName, setProductName] = useState(initialData.productName);
-  const [description, setDescription] = useState(initialData.description);
-  const [category, setCategory] = useState(initialData.category);
-  const [supplier, setSupplier] = useState(initialData.supplier);
-  const [productCode, setProductCode] = useState(initialData.productCode);
-  const [quantity, setQuantity] = useState(initialData.quantity);
+  useEffect(() => {
+    if (id) {
+      axios.get(`http://localhost:8080/produtos/getUnique/${id}`)
+        .then(response => setProduto(response.data))
+        .catch(error => console.error("Erro ao buscar produto:", error));
+    }
+  }, [id]);
 
-  const handleCancel = () => {
-    // Restaura os valores iniciais
-    setProductName(initialData.productName);
-    setDescription(initialData.description);
-    setCategory(initialData.category);
-    setSupplier(initialData.supplier);
-    setProductCode(initialData.productCode);
-    setQuantity(initialData.quantity);
-  };
-
-  const handleSave = (e) => {
+  const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!produto) return;
     const updatedDetails = {
-      productName,
-      description,
-      category,
-      supplier,
-      productCode,
-      quantity
+      nome: produto.nome,
+      descricao: produto.descricao,
+      preco: produto.preco,
+      categoria: produto.categoria,
+      fornecedor: produto.fornecedor,
+      quantidade: produto.quantidade
     };
-    console.log("Detalhes atualizados:", updatedDetails);
-    alert("Detalhes salvos com sucesso!");
+    try {
+      await axios.put(`http://localhost:8080/produtos/update/${id}`, updatedDetails);
+      alert("Produto atualizado com sucesso!");
+    } catch (error) {
+      alert("Erro ao atualizar produto!");
+      console.error(error);
+    }
   };
+
+  if (!produto) return <div><p>Erro ao pegar produto</p></div>;
 
   return (
-    <div className={styles.container}>
-      <h1 className={styles.title}>Detalhes do Produto</h1>
-      <form onSubmit={handleSave} className={styles.form}>
-        {/* Linha 1: Nome do Produto (input em largura total) */}
-        <div className={styles.formGroup}>
-          <label htmlFor="productName">Nome do Produto:</label>
-          <input
-            type="text"
-            id="productName"
-            value={productName}
-            onChange={(e) => setProductName(e.target.value)}
-          />
-        </div>
-
-        {/* Linha 2: Descrição (textarea em largura total) */}
-        <div className={styles.formGroup}>
-          <label htmlFor="description">Descrição:</label>
-          <textarea
-            id="description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            rows="3"
-          />
-        </div>
-
-        {/* Linha 3: Categoria e Fornecedor lado a lado */}
-        <div className={styles.formRow}>
-          <div className={styles.halfFormGroup}>
-            <label htmlFor="category">Categoria:</label>
+    <>
+      <NavBarGeral />
+      <Menu />
+      <div className={styles.container}>
+        <h1 className={styles.title}>Detalhes do Produto</h1>
+        <form onSubmit={handleSave} className={styles.form}>
+          <div className={styles.formGroup}>
+            <label htmlFor="nome">Nome do Produto:</label>
             <input
               type="text"
-              id="category"
-              value={category}
-              onChange={(e) => setCategory(e.target.value)}
+              id="nome"
+              value={produto.nome}
+              onChange={e => setProduto({ ...produto, nome: e.target.value })}
             />
           </div>
-          <div className={styles.halfFormGroup}>
-            <label htmlFor="supplier">Fornecedor:</label>
-            <input
-              type="text"
-              id="supplier"
-              value={supplier}
-              onChange={(e) => setSupplier(e.target.value)}
+          <div className={styles.formGroup}>
+            <label htmlFor="descricao">Descrição:</label>
+            <textarea
+              id="descricao"
+              value={produto.descricao}
+              onChange={e => setProduto({ ...produto, descricao: e.target.value })}
+              rows={3}
             />
           </div>
-        </div>
-
-        {/* Linha 4: Código do Produto e Quantidade lado a lado */}
-        <div className={styles.formRow}>
-          <div className={styles.halfFormGroup}>
-            <label htmlFor="productCode">Código do Produto:</label>
-            <input
-              type="text"
-              id="productCode"
-              value={productCode}
-              onChange={(e) => setProductCode(e.target.value)}
-            />
+          <div className={styles.formRow}>
+            <div className={styles.halfFormGroup}>
+              <label htmlFor="categoria">Categoria:</label>
+              <input
+                type="text"
+                id="categoria"
+                value={produto.categoria.nome}
+                onChange={e => setProduto({ ...produto, categoria: { ...produto.categoria, nome: e.target.value } })}
+              />
+            </div>
+            <div className={styles.halfFormGroup}>
+              <label htmlFor="fornecedor">Fornecedor:</label>
+              <input
+                type="text"
+                id="fornecedor"
+                value={produto.fornecedor.nome}
+                onChange={e => setProduto({ ...produto, fornecedor: { ...produto.fornecedor, nome: e.target.value } })}
+              />
+            </div>
           </div>
-          <div className={styles.halfFormGroup}>
-            <label htmlFor="quantity">Quantidade:</label>
-            <input
-              type="number"
-              id="quantity"
-              value={quantity}
-              onChange={(e) => setQuantity(e.target.value)}
-            />
+          <div className={styles.formRow}>
+            <div className={styles.halfFormGroup}>
+              <label htmlFor="preco">Preço:</label>
+              <input
+                type="number"
+                id="preco"
+                value={produto.preco}
+                onChange={e => setProduto({ ...produto, preco: Number(e.target.value) })}
+              />
+            </div>
+            <div className={styles.halfFormGroup}>
+              <label htmlFor="quantidade">Quantidade:</label>
+              <input
+                type="number"
+                id="quantidade"
+                value={produto.quantidade}
+                onChange={e => setProduto({ ...produto, quantidade: Number(e.target.value) })}
+              />
+            </div>
           </div>
-        </div>
-
-        {/* Botões para Cancelar e Salvar */}
-        <div className={styles.buttonGroup}>
-          <button
-            type="button"
-            className={styles.cancelButton}
-            onClick={handleCancel}
-          >
-            Cancelar
-          </button>
-          <button type="submit" className={styles.saveButton}>
-            Salvar Alterações
-          </button>
-        </div>
-      </form>
-    </div>
+          <div className={styles.buttonGroup}>
+            <button type="submit" className={styles.saveButton}>
+              Salvar Alterações
+            </button>
+          </div>
+        </form>
+      </div>
+    </>
   );
 }
