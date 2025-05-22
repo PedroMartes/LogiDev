@@ -26,6 +26,7 @@
     flex-wrap: wrap;
     box-shadow: 10px 5px 5px lightgrey;
     margin-top: 5%;
+    margin-bottom: 5vh;
 }
 
 .cardMissao:hover,

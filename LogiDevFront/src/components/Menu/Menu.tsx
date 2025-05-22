@@ -1,5 +1,4 @@
 import setaParaBaixo from '../../assets/img/setaParaBaixo.png';
-import { Link } from 'react-router-dom';
 import styles from './Menu.module.css';
 import { useState } from 'react';
 
@@ -49,7 +48,7 @@ export function Menu() {
                         <ul className={styles.submenu}>
                             <hr style={{ border: '1px solid #045a6e', margin: 0 }} />
                             <li>
-                                <a href="/controle/grafico/curvaABC" className={styles.submenuLink}>Curva ABC</a>
+                                <a href="/curvaABC" className={styles.submenuLink}>Curva ABC</a>
                             </li>
                             <hr style={{ border: '1px solid #045a6e', margin: 0 }} />
                             <li><a href="/controle/grafico/fornecedores" className={styles.submenuLink}>Fornecedor</a></li>

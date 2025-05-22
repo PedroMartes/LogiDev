@@ -68,6 +68,15 @@ export function NavBar() {
                                 </a>
                             </li>
                             <li>
+                                <a
+                                    className={Style.contato}
+                                    style={{ cursor: "pointer" }}
+                                   onClick={() => setShowLogin(true)}
+                                >
+                                    Login
+                                </a>
+                            </li>
+                            <li>
                                 <a className={Style.servico} style={{ cursor: "pointer" }} onClick={() => setShowLogin(true)}>
                                     Serviços
                                 </a>
