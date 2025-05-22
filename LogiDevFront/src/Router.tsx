@@ -12,12 +12,8 @@ import GraficoFornecedores from './pages/Graficos/GraficoFornecedor'
 import { Historico } from './pages/Historico/historico'
 import CurvaABC from './pages/CurvaABC/CurvaABC'
 import { Alerta } from './pages/Alerta/alerta'
-<<<<<<< HEAD
-import { NovoAlerta } from './pages/Alerta/novoAlerta'
-=======
 import { ControleFornecedores } from './pages/Controle/controleFornecedores'
 import { ControleCategorias } from './pages/Controle/ControleCategorias'
->>>>>>> e8520fc427a4c9d021fb5f191809ca54d3af7f2a
 
 
 
@@ -39,23 +35,14 @@ const Router = () => {
                     <Route path='/controle/categorias' element={<ControleCategorias />} />
                     <Route path='/controle/cadastros' element={<ControleCadastros />} />
                     <Route path="*" element={<Page404 />} />
-<<<<<<< HEAD
-                    <Route path='/controle/grafico/produtos' element={< GraficoProdutos />}/>
-                     <Route path='/controle/grafico/fornecedores' element={< GraficoFornecedores />}/>
-                     <Route path='/historico' element={< Historico/>}/>
-                      <Route path='/curvaABC' element={< CurvaABC/>}/>
-                      <Route path='/alertas' element={< Alerta/>}/>
-                       <Route path='/alertas/novoAlerta' element={< NovoAlerta/>}/>
-  
-  
-=======
+
                     <Route path='/controle/grafico/produtos' element={< GraficoProdutos />} />
                     <Route path='/controle/grafico/fornecedores' element={< GraficoFornecedores />} />
                     <Route path='/historico' element={< Historico />} />
                     <Route path='/curvaABC' element={< CurvaABC />} />
                     <Route path='/alertas' element={< Alerta />} />
 
->>>>>>> e8520fc427a4c9d021fb5f191809ca54d3af7f2a
+
                 </Routes>
             </BrowserRouter>
             
