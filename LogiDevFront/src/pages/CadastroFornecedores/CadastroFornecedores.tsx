@@ -85,8 +85,7 @@ export const CadastroFornecedores: React.FC = () => {
                 required
               />
             </div>
-
-            <button type="submit" onClick={handleNif} className={styles.buttonEnviar}>
+            <button type="submit" onClick={handleNif} className={styles.button}>
               Enviar
             </button>
           </form>
