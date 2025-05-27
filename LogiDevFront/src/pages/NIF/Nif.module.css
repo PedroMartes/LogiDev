@@ -1,4 +1,4 @@
-/* Identificacao.module.css */
+
 
 /* Geral – pode ser movido para um global.css */
 body {
@@ -11,9 +11,9 @@ body {
 /* Wrapper principal centralizado vertical e horizontalmente */
 .content-wrapper {
   width: 100%;
-  max-width: 60rem; /* aumentado de 37.5rem para 40rem (aproximadamente 640px) */
-  margin: 10vh auto; /* 10% da altura da viewport para espaçamento superior */
-  padding: 10rem; /* aumentamos de 1.25rem para 1.5rem */
+  max-width: 60rem; 
+  margin: 10vh auto; 
+  padding: 10rem; 
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,9 +32,9 @@ body {
 
 /* Título da página */
 .identification-title {
-  font-size: 2.25rem; /* aumentado */
+  font-size: 2.25rem; 
   color: #2c6777;
-  margin-bottom: 1.5rem; /* aumentado */
+  margin-bottom: 1.5rem; 
   font-weight: 200;
   text-align: center;
 }
@@ -42,18 +42,18 @@ body {
 /* Caixa que envolve o input */
 .identification-box {
   background: whitesmoke;
-  padding: 3.75rem; /* aumentado de 2.5rem para 3.75rem (de 40px para 60px) */
+  padding: 3.75rem;
   border-radius: 1.125rem;
   width: 125%;
   text-align: center;
-  margin-bottom: 2.5rem; /* aumentado de 1.875rem para 2.5rem */
+  margin-bottom: 2.5rem; 
   position: relative;
 }
 
 /* Rótulo do campo de entrada */
 .input-label {
     font-weight: 300;
-  font-size: 1.5rem; /* aumentado um pouco */
+  font-size: 1.5rem; 
   color: #444;
   display: block;
   margin-bottom: 2rem;
@@ -64,11 +64,11 @@ body {
 
 /* Estilo do input de texto */
 .inputText {
-  margin: 0 auto 1.5rem; /* aumentado de 1.25rem para 1.5rem */
-  padding: 1.25rem; /* aumentado de 0.9375rem para 1rem */
+  margin: 0 auto 1.5rem; 
+  padding: 1.25rem; 
   width: 90%;
-  border-radius: 0.75rem; /* aumentado de 0.625rem para 0.75rem */
-  font-size: 1.125rem; /* aumentado um pouco */
+  border-radius: 0.75rem; 
+  font-size: 1.125rem; 
   border: 0.0625rem solid #ccc;
   background-color: #e8e7e7;
   display: block;
@@ -79,14 +79,14 @@ body {
   background: #067992;
     color: #fff;
   border: none;
-  padding: 1rem 0; /* aumentado de 0.9375rem para 1rem */
+  padding: 1rem 0; 
   width: 100%;
   border-radius: 1.125rem;
   cursor: pointer;
   font-size: 1.5rem;
   font-weight: 300;
   transition: background-color 0.3s;
-  margin-top: 0.75rem; /* aumentado de 0.625rem para 0.75rem */
+  margin-top: 0.75rem; 
 }
 
 .confirm-button:hover {

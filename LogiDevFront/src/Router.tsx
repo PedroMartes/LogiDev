@@ -17,13 +17,13 @@ import { ControleFornecedores } from './pages/Controle/controleFornecedores'
 import { ControleCategorias } from './pages/Controle/ControleCategorias'
 import { Nif } from './pages/NIF/Nif'
 
+
 const Router = () => {
 
     return (
         <div>
             <BrowserRouter>
-                <Routes>
-                   
+                <Routes>  
                     <Route path='/cadastro/produtos' element={<CadastroProdutos />} />
                     <Route path='/cadastro/fornecedores' element={<CadastroFornecedores />} />
                     <Route path='/cadastro/categorias' element={<CadastroCategorias />} />
