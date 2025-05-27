@@ -86,7 +86,7 @@ export function Menu() {
                                 handleMenuClick(3);
                             }}
                         >
-                            Estoques
+                            Controles
                             <img src={setaParaBaixo} alt="Seta para baixo" className={styles.menuIcon} />
                         </a>
                         <ul className={styles.submenu}>
