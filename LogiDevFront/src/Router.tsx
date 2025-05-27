@@ -16,6 +16,7 @@ import { NovoAlerta } from './pages/Alerta/novoAlerta'
 import { ControleFornecedores } from './pages/Controle/controleFornecedores'
 import { ControleCategorias } from './pages/Controle/ControleCategorias'
 import { Nif } from './pages/NIF/Nif'
+import { DetalheProduto } from './pages/DetalheProduto/DetalheProduto'
 
 
 const Router = () => {
@@ -24,6 +25,7 @@ const Router = () => {
         <div>
             <BrowserRouter>
                 <Routes>  
+                    <Route path='/detalhe/produtos/:id' element={<DetalheProduto />} />
                     <Route path='/cadastro/produtos' element={<CadastroProdutos />} />
                     <Route path='/cadastro/fornecedores' element={<CadastroFornecedores />} />
                     <Route path='/cadastro/categorias' element={<CadastroCategorias />} />
