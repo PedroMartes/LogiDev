@@ -10,11 +10,11 @@
 
 .card {
   background: #ebebeb;
-  border-radius: 16px;
+  border-radius: 2.2vh;
   padding: 2.5em 2em 2em 2em;
-  width: 120vh;
-  margin-top: 2em;
-  box-shadow: 0 0 8px #0001;
+  width: 115vh;
+  margin-top: 3em;
+  box-shadow: 0 0 8vh rgba(187, 30, 30, 0.067);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -57,7 +57,7 @@
 select,
 .formGroup textarea {
   border: none;
-  border-radius: 10px;
+  border-radius: 1.5vh;
   padding: 0.7em 1em;
   background: #fff;
   font-size: 1em;
@@ -78,9 +78,10 @@ select,
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 0;
-  width: 70em;
-  height: 10em;
+  padding: 0.7em 1em;
+  width: 100%;         /* Ocupa a largura do card */
+  min-height: 6em;     /* Altura confortável */
+  /* max-width: 100%;      */
   outline: none;
   overflow: hidden;
   background-color: #fff;
@@ -88,6 +89,7 @@ select,
   font-style: italic;
   font-size: 1em;
 }
+
 
 /* Centraliza o placeholder horizontalmente */
 .formGroup textarea::placeholder {
@@ -115,7 +117,7 @@ select:invalid,
   background: #178ca4;
   color: #fff;
   border: none;
-  border-radius: 10px;
+  border-radius: 1vh;
   padding: 0.8em 0;
   font-size: 1.1em;
   font-weight: 500;
