@@ -92,3 +92,34 @@ body {
 .confirm-button:hover {
   background: #3a8b9e;
 }
+.floatingNotification {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: #e2e1e1;
+  color: #000;
+  padding: 1rem 3rem;
+  border-radius: 0.7rem;
+  font-size: 1.1rem;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  animation: slideIn 10s;
+  flex-direction: column;
+}
+.notificationHeader {
+    display: flex;
+  align-items: center;
+  gap: 0.1rem;
+  margin-bottom: 0.5rem;
+}
+.notificationContent {
+  text-align: center;
+  font-weight: 300;
+  font-size: 1.2rem
+}
+.notificationContent .autorizado {
+  font-weight: 400;
+  color: #25d316;
+}

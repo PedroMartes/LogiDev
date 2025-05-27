@@ -3,6 +3,7 @@ import styles from './CadastroCategorias.module.css';
 import axios from "axios";
 import { NavBarGeral } from '../../components/NavBar/NavBar';
 import { Menu } from '../../components/Menu/Menu';
+import { useNavigate } from 'react-router';
 
 export const CadastroCategorias: React.FC = () => {
   const [nome, setNome] = useState('');
@@ -22,6 +23,12 @@ export const CadastroCategorias: React.FC = () => {
       alert('Erro ao cadastrar categoria!');
       console.error(error);
     }
+  };
+
+  const navigate = useNavigate();
+  
+  const handleNif = () => {
+    navigate('/Nif');
   };
 
   return (
@@ -50,8 +57,8 @@ export const CadastroCategorias: React.FC = () => {
               required
             />
           </div>
-          <button type="submit" className={styles.button}>
-            Cadastrar Categoria
+          <button type="submit" onClick={handleNif} className={styles.button}>
+            Enviar
           </button>
         </form>
       </div>
