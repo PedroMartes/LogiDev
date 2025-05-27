@@ -96,7 +96,7 @@ body {
   position: fixed;
   bottom: 2rem;
   right: 2rem;
-  background: #e2e1e1;
+  background: #ebebeb;
   color: #000;
   padding: 1rem 3rem;
   border-radius: 0.7rem;
@@ -105,21 +105,33 @@ body {
   display: flex;
   align-items: center;
   gap: 1rem;
-  animation: slideIn 10s;
+  animation:0.10s;
   flex-direction: column;
 }
 .notificationHeader {
     display: flex;
-  align-items: center;
-  gap: 0.1rem;
-  margin-bottom: 0.5rem;
+   align-items: center;
+   justify-content: center;
+  gap: 0.01rem;
+  margin-left: -3vh;
+  margin-bottom: 0.01rem;
 }
 .notificationContent {
   text-align: center;
   font-weight: 300;
-  font-size: 1.2rem
+  font-size: 1.2rem;
 }
-.notificationContent .autorizado {
+.notificationContent .permissaoNotificacao {
   font-weight: 400;
+  margin-bottom: 1.5vh;
   color: #25d316;
+  font-size: 2vh;
+}
+.notificationContent .NomeNif {
+  font-weight: 400;
+  margin-bottom: 0.5vh;
+  font-size: 1.5vh;
+}
+.notificationContent .dataNotificacao {
+  font-size: 1.5vh;
 }

@@ -3,7 +3,6 @@ import styles from './CadastroCategorias.module.css';
 import axios from "axios";
 import { NavBarGeral } from '../../components/NavBar/NavBar';
 import { Menu } from '../../components/Menu/Menu';
-import { useNavigate } from 'react-router';
 
 export const CadastroCategorias: React.FC = () => {
   const [nome, setNome] = useState('');
@@ -21,47 +20,41 @@ export const CadastroCategorias: React.FC = () => {
       setDescricao('');
     } catch (error) {
       alert('Erro ao cadastrar categoria!');
-      console.error(error);
     }
   };
 
-  const navigate = useNavigate();
-  
-  const handleNif = () => {
-    navigate('/Nif');
-  };
-
   return (
-    <div>
+    <>
       <NavBarGeral />
-            <Menu/>
+      <Menu />
       <div className={styles.container}>
-        <h1 className={styles.cadastroCategoriasTitle}>Cadastro de Categorias</h1>
-        <form onSubmit={handleSubmit} className={styles.form}>
-          <div className={styles.formGroup}>
-            <label htmlFor="nome">Nome da Categoria:</label>
+        <div className={styles.card}>
+          <h1 className={styles.cadastroCategoriasTitle}>Cadastrar categoria</h1>
+          <form className={styles.form} onSubmit={handleSubmit}>
             <input
               type="text"
-              id="nome"
+              placeholder="Nome da categoria"
               value={nome}
-              onChange={(e) => setNome(e.target.value)}
+              onChange={e => setNome(e.target.value)}
               required
             />
-          </div>
-          <div className={styles.formGroup}>
-            <label htmlFor="descricao">Descrição:</label>
             <textarea
-              id="descricao"
+              placeholder="Descrição"
               value={descricao}
-              onChange={(e) => setDescricao(e.target.value)}
+              onChange={e => setDescricao(e.target.value)}
               required
             />
-          </div>
-          <button type="submit" onClick={handleNif} className={styles.button}>
-            Enviar
-          </button>
-        </form>
+            <button type="submit" className={styles.buttonEnviar}>
+              Enviar
+            </button>
+          </form>
+        </div>
+        <div className={styles.verificarWrapper}>
+          <a className={styles.verificarEstoque} href="/estoque">
+            Verificar no estoque &rarr;
+          </a>
+        </div>
       </div>
-    </div>
+    </>
   );
 };

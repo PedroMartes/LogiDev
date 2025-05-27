@@ -1,124 +1,106 @@
 /* Container principal (card) */
 .container {
-  max-width: 37.5rem;           /* 600px convertido para rem, considerando base 16px */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 125vh;
   width: 90%;
   margin: 2.5rem auto;
-  padding: 2.5rem;
-  background-color: #fff;
-  border-radius: 0.75rem;       /* 12px em rem */
-  box-shadow: 0 0.625rem 1.5625rem rgba(0, 0, 0, 0.1);
+  padding: 2.5rem 2rem 2rem 2rem;
+  background-color: #ededed;
+  border-radius: 16px;
+  box-shadow: none;
+  position: relative;
 }
 
 /* Título centralizado */
 .cadastroCategoriasTitle {
   text-align: center;
-  font-size: 2em;
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 1.875rem;      /* 30px em rem */
+  font-size: 3.5vh;
+  font-weight: 500;
+  color: #187187;
+  margin-bottom: 1.5em;
 }
 
-/* Formulário com layout em coluna e espaçamento */
+/* Formulário */
 .form {
+  width: 170%;
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1.5em;
 }
 
-/* Grupo individual do formulário */
+/* Grupo de campos */
 .formGroup {
+  width: 100%;
   display: flex;
   flex-direction: column;
+  margin-bottom: 1em;
 }
 
-/* Rótulos */
-label {
-  margin-bottom: 0.5rem;        /* 8px em rem */
-  font-weight: bold;
-  color: #555;
-}
-
-/* Inputs e textareas */
+/* Inputs e textarea */
 input,
 textarea {
-  padding: 0.75rem;             /* 12px em rem */
-  font-size: 1rem;
-  border: 0.0625rem solid #ddd;  /* Aproximadamente 1px */
-  border-radius: 0.3125rem;       /* 5px em rem */
   width: 100%;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  border-radius: 10vh;
+  padding: 1em 1.2em;
+  background: #fff;
+  font-size: 1em;
+  color: #444;
+  font-style: italic;
+  outline: none;
+  box-shadow: 0 0 0  #e0e0e0 inset;
+  margin-top: 0.5em;
+  transition: box-shadow 0.2s, border-color 0.2s;
 }
 
 input:focus,
 textarea:focus {
-  border-color: #067992;
-  outline: none;
-  box-shadow: 0 0 0.5rem rgba(0, 87, 183, 0.2);
+  box-shadow: 0 0 0 2vh #178ca4 inset;
+  border-color: #178ca4;
+  background: #f7fafd;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #bdbdbd;
+  font-style: italic;
+  text-align: center;
+}
+
+textarea {
+  min-height: 100vh;
+  resize: none;
+  text-align: center;
+  display: block;
 }
 
 /* Botão */
-.button {
-  background-color: #067992;
+.button,
+.buttonEnviar {
+  width: 100%;
+  background: #178ca4;
   color: #fff;
   border: none;
-  padding: 0.875rem;            /* 14px em rem */
-  font-size: 1rem;
-  border-radius: 0.3125rem;
+  border-radius: 10vh;
+  padding: 0.9em 0;
+  font-size: 1.1em;
+  font-weight: 500;
   cursor: pointer;
-  width: 100%;
-  transition: background-color 0.3s ease;
+  margin-top: 0.5em;
+  transition: background 0.2s;
 }
 
-.button:hover {
-  background-color: #067992;
+.button:hover,
+.buttonEnviar:hover {
+  background: #11687d;
 }
 
 /* Responsividade */
-
-/* Para telas até 48rem (768px) */
-@media (max-width: 48rem) {
+@media (max-width: 80vh) {
   .container {
-    width: 95%;
-    padding: 1.875rem;
-  }
-  
-  .cadastroCategoriasTitle {
-    font-size: 1.8em;
-    margin-bottom: 1.5625rem;
-  }
-  
-  input,
-  textarea {
-    font-size: 0.9375rem;
-    padding: 0.625rem;
-  }
-  
-  .button {
-    font-size: 0.9375rem;
-    padding: 0.75rem;
-  }
-}
-
-/* Para telas até 30rem (480px) */
-@media (max-width: 30rem) {
-  .container {
-    width: 100%;
-    padding: 1.25rem;
-  }
-  
-  .cadastroCategoriasTitle {
-    font-size: 1.6em;
-    margin-bottom: 1.25rem;
-  }
-  
-  input,
-  textarea {
-    font-size: 0.875rem;
-    padding: 0.5rem;
-  }
-  
-  .button {
-    font-size: 0.875rem;
-    padding: 0.625rem;
+    max-width: 98vw;
+    padding: 1em;
   }
 }
