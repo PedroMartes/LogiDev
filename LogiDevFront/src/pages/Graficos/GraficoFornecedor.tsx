@@ -11,25 +11,20 @@ ChartJS.register(
   LinearScale
 );
 
-interface IProduto {
+interface IFornecedores {
   id: number;
   nome: string;
-  descricao: string;
-  preco: number;
-  categoria: {
-    id: number;
-    nome: string;
-  };
-  fornecedor: {
-    id: number;
-    nome: string;
-  };
-  quantidade: number;
+  contato: string;
+  telefone: string;
+  email: string;
+  produto: { 
+    id: number; 
+    quantidade: number }[];
 }
 
 export const GraficoFornecedores = () => {
 
-  const [chart, setChart] = useState<IProduto[]>([]);
+  const [chart, setChart] = useState<IFornecedores[]>([]);
 
   const baseUrl = "http://localhost:8080/produtos/get";
   const url = `${baseUrl}`;
@@ -78,14 +73,18 @@ export const GraficoFornecedores = () => {
 ]; 
 
   const data = {
-    labels: chart?.map(x => x.nome),
-    datasets: [{
-      label: `${chart?.length} Available`,
-      data: chart?.map(x => x.quantidade),
-      borderWidth: 1,
-         backgroundColor: chart?.map((_, i) => barColors[i % barColors.length]), // Cores diferentes
-    }],
-  }
+  labels: chart?.map(x => x.nome),
+  datasets: [{
+    label: `${chart?.length} Fornecedores`,
+    data: chart?.map(x =>
+      Array.isArray(x.produto)
+        ? x.produto.reduce((sum, p) => sum + (p.quantidade || 0), 0)
+        : x.produto?.quantidade || 0
+    ),
+    borderWidth: 1,
+    backgroundColor: chart?.map((_, i) => barColors[i % barColors.length]),
+  }],
+};
 
   const options = {
     maintainAspectRatio: false,

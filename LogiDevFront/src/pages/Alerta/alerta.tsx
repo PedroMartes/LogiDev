@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './Alerta.module.css';
 import { NavBarGeral } from '../../components/NavBar/NavBar';
@@ -74,6 +74,7 @@ export function Alerta() {
               >
                 <span className={styles.checkIcone}>&#10003;</span>
               </button>
+              
               <h2 className={styles.cardMenorTitulo}>{card.titulo}</h2>
               <ul className={styles.cardMenorLista}>
                 {card.itens.map((item, i) => (
