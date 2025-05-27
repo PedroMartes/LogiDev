@@ -46,7 +46,7 @@
  padding: 1vh;
     margin-left: 5vh;
     margin-right: 2vh;
-    font-size: 1.8vh;
+    font-size: 2.2vh;
     margin-top: 2vh;
     margin-bottom: 8vh;
     display: flex;
@@ -130,7 +130,7 @@
 }
 .abrirEsqueciSenha {
     margin-top: 5vh;
-   margin-bottom: 5vh;
+    margin-bottom: 5vh;
     font-size: 2vh;
     display: flex;
     justify-content: center;
@@ -140,6 +140,7 @@
     text-decoration: none;
     color: #067992;
     margin-left: 0.5vh;
+    
 }
 .abrirCadastro {
     margin-top: -6vh;

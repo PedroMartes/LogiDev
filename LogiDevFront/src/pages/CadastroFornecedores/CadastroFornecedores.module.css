@@ -15,9 +15,9 @@
   border-radius: 16px;
   padding: 2.5em 2em 2em 2em;
   width: 100vh;
-  height: 50vh;
+  height: 60vh;
   margin-top: 4em;
-  box-shadow: 0 0 8px #0001;
+  /* box-shadow: 0 0 8px #0001; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -84,7 +84,7 @@
   font-style: italic;
 }
 /* Botão de envio */
-.button {
+.buttonEnviar {
   background-color: #187187;
   color: #fff;
   border: none;
@@ -115,9 +115,9 @@
 .verificarEstoque {
   color:#11687d ;
   display: flex;
-   align-items: center;
+  align-items: center;
   text-decoration: underline;
-   pointer-events: auto; /* permite clicar no link */
+  pointer-events: auto; /* permite clicar no link */
 }
 
 

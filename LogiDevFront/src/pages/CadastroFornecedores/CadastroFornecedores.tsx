@@ -78,7 +78,7 @@ export const CadastroFornecedores: React.FC = () => {
                 required
               />
             </div>
-            <button type="submit" className={styles.button}>
+            <button type="submit" className={styles.buttonEnviar}>
               Enviar
             </button>
           </form>
