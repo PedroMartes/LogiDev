@@ -15,6 +15,7 @@ import { Alerta } from './pages/Alerta/alerta'
 import { NovoAlerta } from './pages/Alerta/novoAlerta'
 import { ControleFornecedores } from './pages/Controle/controleFornecedores'
 import { ControleCategorias } from './pages/Controle/ControleCategorias'
+import { Nif } from './pages/NIF/Nif'
 
 const Router = () => {
 
@@ -44,7 +45,8 @@ const Router = () => {
                     <Route path='/controle/grafico/fornecedores' element={< GraficoFornecedores />} />
                     <Route path='/historico' element={< Historico />} />
                     <Route path='/curvaABC' element={< CurvaABC />} />
-                    <Route path='/alertas/novoAlerta' element={< NovoAlerta />} />
+                    <Route path='/nif' element={< Nif />} />
+
                 </Routes>
             </BrowserRouter>
         </div>
