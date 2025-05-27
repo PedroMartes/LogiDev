@@ -4,18 +4,26 @@ import { NavBarGeral } from '../../components/NavBar/NavBar';
 import styles from './Nif.module.css';
 import logo from '../../assets/img/img-1.png';
 import * as Icon from 'react-bootstrap-icons'
-import { useNavigate } from 'react-router';
+import { useNavigate, useLocation } from 'react-router';
 
 export function Nif() {
+  const location = useLocation();
   const [showNotification, setShowNotification] = useState(false);
+  const [nif, setNif] = useState('');
     const navigate = useNavigate();
   
-  
+ const handleConfirm = () => {
+  setShowNotification(true);
+  setTimeout(() => {
+    setShowNotification(false);
+    navigate(location.state?.from ); // volta para a origem 
+  }, 2000);
+};
 
-  const handleConfirm = () => {
-    setShowNotification(true);
-    setTimeout(() => setShowNotification(false), 5000); // Esconde após 5s
-    navigate('/cadastro');
+  // Permite apenas números no input
+  const handleNifChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value.replace(/\D/g, '');
+    setNif(value);
   };
 
   return (
@@ -29,7 +37,12 @@ export function Nif() {
             <label className={styles["input-label"]}>
               Número de identificação Fiscal
             </label>
-            <input type="text" placeholder="NIF:" className={styles.inputText} />
+            <input type="text" placeholder="NIF:" className={styles.inputText}  value={nif}
+              onChange={handleNifChange}
+              inputMode="numeric"
+              pattern="[0-9]*"
+              maxLength={20}
+            />
           </div>
           <button className={styles["confirm-button"]}  onClick={handleConfirm}>
             Confirmar

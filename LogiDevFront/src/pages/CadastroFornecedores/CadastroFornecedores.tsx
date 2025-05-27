@@ -32,7 +32,7 @@ export const CadastroFornecedores: React.FC = () => {
   const navigate = useNavigate();
 
   const handleNif = () => {
-    navigate('/Nif');
+    navigate('/nif')
   };
 
   return (
