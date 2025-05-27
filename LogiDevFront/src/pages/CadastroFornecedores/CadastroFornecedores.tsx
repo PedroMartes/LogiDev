@@ -3,6 +3,7 @@ import styles from './CadastroFornecedores.module.css';
 import axios from "axios";
 import { NavBarGeral } from '../../components/NavBar/NavBar';
 import { Menu } from '../../components/Menu/Menu';
+import { useNavigate } from 'react-router';
 
 export const CadastroFornecedores: React.FC = () => {
   const [nome, setNome] = useState('');
@@ -26,6 +27,12 @@ export const CadastroFornecedores: React.FC = () => {
       alert('Erro ao cadastrar fornecedor!');
       console.error(error);
     }
+  };
+
+  const navigate = useNavigate();
+
+  const handleNif = () => {
+    navigate('/Nif');
   };
 
   return (
@@ -78,7 +85,8 @@ export const CadastroFornecedores: React.FC = () => {
                 required
               />
             </div>
-            <button type="submit" className={styles.buttonEnviar}>
+
+            <button type="submit" onClick={handleNif} className={styles.buttonEnviar}>
               Enviar
             </button>
           </form>
