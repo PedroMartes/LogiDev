@@ -57,7 +57,7 @@
 .input {
     display: flex;
     align-items: center;
-    margin: 2vh 0vh 3vh 9vh;
+    margin: 2vh 10vh 3vh 5vh;
     border: 2px solid transparent;
     width: 20em;
     height: 3.5em;
@@ -85,7 +85,7 @@
 /* Novo estilo para o ícone do "olhinho" */
 .toggleIcon {
   position: absolute;
-  left: 15em;
+  left: 13em;
   top: 55%;          /* Centraliza verticalmente */
   transform: translateY(-50%);
   cursor: pointer;
@@ -94,9 +94,9 @@
 }
 
 .inputSenha {
-      display: flex;
+    display: flex;
     align-items: center;
-    margin: 2vh 0vh 3vh 9vh;
+    margin: 2vh 10vh 3vh 5vh;
     border: 2px solid transparent;
     width: 20em;
     height: 3.5em;
@@ -109,11 +109,12 @@
     resize: none;
 }
 .botaoEnviar {
-   display: block;
+   display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 1.5em auto;
-    /* Centraliza o botão */
     margin-top: 5vh;
-    margin-bottom: 2vh;
+    margin-bottom: 0.5vh;
     padding: 1em 3em;
     font-size: 2vh;
     font-weight: 500;
