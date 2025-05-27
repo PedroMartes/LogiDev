@@ -18,12 +18,11 @@
     width: 100%;
     border-collapse: collapse;
     margin: 0 auto;
-    background-color: #fff;
     margin-top: 3vh;
 }
 
 .controleTableableHead {
-    color: #fff;
+    color: #ddd;
     margin: 0 auto;
     width: 90%;
     display: flex;
