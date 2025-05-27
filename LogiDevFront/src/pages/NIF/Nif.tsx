@@ -10,15 +10,7 @@ export function Nif() {
   const location = useLocation();
   const [showNotification, setShowNotification] = useState(false);
   const [nif, setNif] = useState('');
-    const navigate = useNavigate();
-  
- const handleConfirm = () => {
-  setShowNotification(true);
-  setTimeout(() => {
-    setShowNotification(false);
-    navigate(location.state?.from ); // volta para a origem 
-  }, 2000);
-};
+  const navigate = useNavigate();
 
   // Permite apenas números no input
   const handleNifChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -26,40 +18,58 @@ export function Nif() {
     setNif(value);
   };
 
+  // Handler do botão Confirmar
+  const handleConfirm = (e?: React.MouseEvent<HTMLButtonElement>) => {
+    if (e) e.preventDefault();
+    console.log('Botão clicado!');
+    setShowNotification(true);
+    setTimeout(() => {
+      setShowNotification(false);
+      navigate(location.state?.from);
+    }, 2000);
+  };
+
   return (
     <div>
       <NavBarGeral />
       <Menu />
-      <div className={styles["content-wrapper"]}>
+      <div className={styles.contentWrapper}>
         <div className={styles.card}>
-          <h1 className={styles["identification-title"]}>Identificação</h1>
-          <div className={styles["identification-box"]}>
-            <label className={styles["input-label"]}>
+          <h1 className={styles.identificationTitle}>Identificação</h1>
+          <div className={styles.identificationBox}>
+            <label className={styles.inputLabel}>
               Número de identificação Fiscal
             </label>
-            <input type="text" placeholder="NIF:" className={styles.inputText}  value={nif}
+            <input
+              type="text"
+              placeholder="NIF:"
+              className={styles.inputText}
+              value={nif}
               onChange={handleNifChange}
               inputMode="numeric"
               pattern="[0-9]*"
               maxLength={20}
+              autoComplete="off"
             />
           </div>
-          <button className={styles["confirm-button"]}  onClick={handleConfirm}>
+          <button
+            className={styles.confirmButton}
+            type="button"
+            onClick={handleConfirm}
+          >
             Confirmar
           </button>
-
 
           {showNotification && (
             <div className={styles.floatingNotification}>
               <div className={styles.notificationHeader}>
-              <img src={logo} alt="Logo" style={{ height: '32px', marginRight: '12px', verticalAlign: 'middle' }} />
-              <p>LogiDev</p>
+                <img src={logo} alt="Logo" style={{ height: '32px', marginRight: '12px', verticalAlign: 'middle' }} />
+                <p>LogiDev</p>
               </div>
-
               <div className={styles.notificationContent}>
-                <p className={styles.permissaoNotificacao}>Autorizado <Icon.CheckCircleFill/></p>
-              <p className={styles.NomeNif}>Marcos Fernando</p>
-              <p className={styles.dataNotificacao}>08:54 26/05/2025</p>
+                <p className={styles.permissaoNotificacao}>Autorizado <Icon.CheckCircleFill /></p>
+                <p className={styles.nomeNif}>Marcos Fernando</p>
+                <p className={styles.dataNotificacao}>08:54 26/05/2025</p>
               </div>
             </div>
           )}
