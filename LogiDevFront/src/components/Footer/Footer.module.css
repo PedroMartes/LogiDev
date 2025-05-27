@@ -116,10 +116,19 @@
   font-size: 0.875rem;         /* 14px */
 }
 
+/* Outras classes já existentes... */
+
+/* Espaço entre ícone e texto aplicado a todos os ícones de contato */
 .contactIcon {
-  margin-right: 0.5rem;        /* 8px */
-  vertical-align: middle;
+  margin-right: 0.5rem;
+  /* Você pode incluir outras propriedades de estilo para garantir a uniformidade */
 }
+
+
+
+
+
+
 
 .socialList {
   list-style: none;
