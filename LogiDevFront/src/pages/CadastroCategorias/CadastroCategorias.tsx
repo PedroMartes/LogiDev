@@ -32,6 +32,8 @@ export const CadastroCategorias: React.FC = () => {
           <h1 className={styles.cadastroCategoriasTitle}>Cadastrar categoria</h1>
           <form className={styles.form} onSubmit={handleSubmit}>
             <input
+              id='nome'
+              className={styles.inputCategoria}
               type="text"
               placeholder="Nome da categoria"
               value={nome}
@@ -39,6 +41,8 @@ export const CadastroCategorias: React.FC = () => {
               required
             />
             <textarea
+              id='descricao'
+              className={styles.inputDescricao}
               placeholder="Descrição"
               value={descricao}
               onChange={e => setDescricao(e.target.value)}

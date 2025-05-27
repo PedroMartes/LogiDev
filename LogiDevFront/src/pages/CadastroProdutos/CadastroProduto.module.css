@@ -94,8 +94,8 @@ select,
 /* Centraliza o placeholder horizontalmente */
 .formGroup textarea::placeholder {
   color: #bdbdbd;
-  text-align: center;
-  line-height: 7em; /* igual à altura do textarea */
+  text-align: left;
+  line-height: normal;
   font-style: italic;
   font-size: 1em;
   display: block;
@@ -108,9 +108,11 @@ select:invalid,
   color: #bdbdbd;
   text-align: center;
 }
+
 .idCategoria {
  border-radius: 10vh;
 }
+
 
 .button {
   width: 100%;

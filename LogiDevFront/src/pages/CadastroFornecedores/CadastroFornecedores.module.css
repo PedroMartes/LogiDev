@@ -12,10 +12,10 @@
 /* Card do formulário */
 .card {
   background: #ebebeb;
-  border-radius: 16px;
+  border-radius: 1vh;
   padding: 2.5em 2em 2em 2em;
   width: 100vh;
-  height: 65vh;
+  height: 62vh;
   margin-top: 4em;
   /* box-shadow: 0 0 8px #0001; */
   display: flex;
@@ -58,7 +58,7 @@
 
 /* Cada campo da linha, metade da largura */
 .halfFormGroup {
-    flex: 1;
+  flex: 1;
   display: flex;
   flex-direction: column;
 }
@@ -71,7 +71,7 @@
   border: none;
   border-radius: 0.75rem;
   width: 100%;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: border-color 0.3s ease;
   background: #fff;
   color: #444;
   text-align: center;
