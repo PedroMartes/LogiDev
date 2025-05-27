@@ -38,12 +38,11 @@ const ProductCard: React.FC<CardProps> = ({ id, nome, descricao, preco, categori
                     </tbody>
 
                 </table>
-                <button onClick={onDelete} className={styles.deleteButton}>
+                <button onClick={onDelete} className={styles.deleteButton} type="button">
                     <MdDelete className={styles.deleteIcon} />
                 </button>
-                
                 <button className={styles.editButton}>
-                    <Link to={`/detalhe/produtos/${id}`}>
+                    <Link to={`/detalhe/produtos/${id}`} tabIndex={0}>
                         <PiNotePencilFill className={styles.editIcon} />
                     </Link>
                 </button>

@@ -35,7 +35,7 @@ const FornecedorCard: React.FC<CardProps> = ({ id, nome, descricao, onDelete }) 
                 </button>
 
                 <button className={styles.editButton}>
-                    <Link to={`/detalhe/produtos/${id}`}>
+                    <Link to={`/detalhe/categorias/${id}`}>
                         <PiNotePencilFill className={styles.editIcon} />
                     </Link>
                 </button>
