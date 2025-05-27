@@ -20,41 +20,41 @@ export const CadastroCategorias: React.FC = () => {
       setDescricao('');
     } catch (error) {
       alert('Erro ao cadastrar categoria!');
-      console.error(error);
     }
   };
 
   return (
-    <div>
+    <>
       <NavBarGeral />
-            <Menu/>
+      <Menu />
       <div className={styles.container}>
-        <h1 className={styles.cadastroCategoriasTitle}>Cadastro de Categorias</h1>
-        <form onSubmit={handleSubmit} className={styles.form}>
-          <div className={styles.formGroup}>
-            <label htmlFor="nome">Nome da Categoria:</label>
+        <div className={styles.card}>
+          <h1 className={styles.cadastroCategoriasTitle}>Cadastrar categoria</h1>
+          <form className={styles.form} onSubmit={handleSubmit}>
             <input
               type="text"
-              id="nome"
+              placeholder="Nome da categoria"
               value={nome}
-              onChange={(e) => setNome(e.target.value)}
+              onChange={e => setNome(e.target.value)}
               required
             />
-          </div>
-          <div className={styles.formGroup}>
-            <label htmlFor="descricao">Descrição:</label>
             <textarea
-              id="descricao"
+              placeholder="Descrição"
               value={descricao}
-              onChange={(e) => setDescricao(e.target.value)}
+              onChange={e => setDescricao(e.target.value)}
               required
             />
-          </div>
-          <button type="submit" className={styles.button}>
-            Cadastrar Categoria
-          </button>
-        </form>
+            <button type="submit" className={styles.buttonEnviar}>
+              Enviar
+            </button>
+          </form>
+        </div>
+        <div className={styles.verificarWrapper}>
+          <a className={styles.verificarEstoque} href="/estoque">
+            Verificar no estoque &rarr;
+          </a>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
