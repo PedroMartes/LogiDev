@@ -1,0 +1,128 @@
+/* Container principal (card) */
+.container {
+  max-width: 37.5rem; /* 600px convertidos para 37.5rem */
+  width: 90%;
+  margin: 2.5rem auto;
+  padding: 2.5rem;
+  background-color: #fff;
+  border-radius: 0.75rem; /* 12px */
+  box-shadow: 0 0.625rem 1.5625rem rgba(0, 0, 0, 0.1);
+  font-family: "Poppins", sans-serif;
+}
+
+/* Título da página */
+.title {
+  font-size: 2em;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+  margin-bottom: 1.875rem; /* 30px */
+}
+
+/* Estilização geral do formulário */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Grupo de formulário full width */
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Rótulos */
+label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #555;
+}
+
+/* Inputs e textarea */
+input,
+textarea {
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 0.0625rem solid #ddd; /* Aproximadamente 1px */
+  border-radius: 0.3125rem; /* 5px */
+  width: 100%;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #00566e;
+  outline: none;
+  box-shadow: 0 0 0.5rem rgba(0, 87, 183, 0.2);
+}
+
+/* Grupo de botões */
+.buttonGroup {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+/* Botão Salvar Alterações */
+.saveButton {
+  padding: 0.875rem; /* 14px */
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.3125rem; /* 5px */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  background-color: #00566e;
+  color: #fff;
+}
+
+.saveButton:hover {
+  background-color: #004a59;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 48rem) {
+  .container {
+    width: 95%;
+    padding: 2rem;
+  }
+
+  .title {
+    font-size: 1.8em;
+    margin-bottom: 1.5625rem;
+  }
+
+  input,
+  textarea {
+    font-size: 0.9375rem;
+    padding: 0.625rem;
+  }
+
+  .saveButton {
+    font-size: 0.9375rem;
+    padding: 0.75rem;
+  }
+}
+
+@media (max-width: 30rem) {
+  .container {
+    width: 100%;
+    padding: 1.25rem;
+  }
+
+  .title {
+    font-size: 1.6em;
+    margin-bottom: 1.25rem;
+  }
+
+  input,
+  textarea {
+    font-size: 0.875rem;
+    padding: 0.5rem;
+  }
+
+  .saveButton {
+    font-size: 0.875rem;
+    padding: 0.625rem;
+  }
+}
