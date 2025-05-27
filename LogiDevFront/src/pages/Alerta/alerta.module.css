@@ -14,14 +14,15 @@
   align-items: center;
   min-height: 40vh;
   justify-content: center;
-  margin-top: 9vh;
+  margin-top: 5vh;
   position: relative; /* Necessário para posicionar o botão no canto */
 }
 
 .cardGrandeTitulo {
-  font-size: 2rem;
-  color: #00566e;
+  font-size: 3.5vh;
+  color: #067992;
   margin-bottom: 3rem;
+  font-weight: 400;
 }
 
 /* Exemplo de estilo para o botão "Adicionar Alerta" */
@@ -29,7 +30,7 @@
   position: absolute;
   top: 2rem;
   right: 2rem;
-  background-color: #055a6e;
+  background-color: #067992;
   color: #fff;
   border: none;
   padding: 0.5rem 1.5rem;
