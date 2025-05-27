@@ -12,14 +12,15 @@ ChartJS.register(
 );
 
 interface IFornecedores {
-  id: number;
-  nome: string;
-  contato: string;
-  telefone: string;
-  email: string;
-  produto: { 
-    id: number; 
-    quantidade: number }[];
+    id: number;
+    nome: string;
+    contato: string;
+    telefone: string;
+    email: string;
+    produto : {
+        id: number;
+        quantidade: number;
+};
 }
 
 export const GraficoFornecedores = () => {
@@ -73,18 +74,14 @@ export const GraficoFornecedores = () => {
 ]; 
 
   const data = {
-  labels: chart?.map(x => x.nome),
-  datasets: [{
-    label: `${chart?.length} Fornecedores`,
-    data: chart?.map(x =>
-      Array.isArray(x.produto)
-        ? x.produto.reduce((sum, p) => sum + (p.quantidade || 0), 0)
-        : x.produto?.quantidade || 0
-    ),
-    borderWidth: 1,
-    backgroundColor: chart?.map((_, i) => barColors[i % barColors.length]),
-  }],
-};
+    labels: chart?.map(x => x.nome),
+    datasets: [{
+      label: `${chart?.length} Available`,
+      data: chart?.map(x => x.produto.quantidade),
+      borderWidth: 1,
+         backgroundColor: chart?.map((_, i) => barColors[i % barColors.length]), // Cores diferentes
+    }],
+  }
 
   const options = {
     maintainAspectRatio: false,

@@ -25,8 +25,13 @@ export function Nif() {
     setShowNotification(true);
     setTimeout(() => {
       setShowNotification(false);
-      navigate(location.state?.from);
-    }, 2000);
+      navigate(location.state?.from, {
+    state: {
+      ...location.state,
+      nifConfirmado: true
+    }
+  });
+}, 2000);
   };
 
   return (
@@ -56,6 +61,7 @@ export function Nif() {
             className={styles.confirmButton}
             type="button"
             onClick={handleConfirm}
+            disabled={nif.length === 0}
           >
             Confirmar
           </button>

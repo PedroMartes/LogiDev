@@ -3,13 +3,34 @@ import styles from './CadastroCategorias.module.css';
 import axios from "axios";
 import { NavBarGeral } from '../../components/NavBar/NavBar';
 import { Menu } from '../../components/Menu/Menu';
+import { useLocation, useNavigate } from 'react-router';
 
 export const CadastroCategorias: React.FC = () => {
   const [nome, setNome] = useState('');
   const [descricao, setDescricao] = useState('');
+   const location = useLocation();
+   const navigate = useNavigate();
+
+  React.useEffect(() => {
+    if (location.state?.categoria && location.state?.nifConfirmado) {
+      // Realiza o cadastro automaticamente
+      const cadastrar = async () => {
+        try {
+          await axios.post('http://localhost:8080/categorias/create', location.state.categoria);
+          alert('Categoria cadastrada com sucesso!');
+          setNome('');
+          setDescricao('');
+        } catch (error) {
+          alert('Erro ao cadastrar categoria!');
+        }
+      };
+      cadastrar();
+    }
+  }, [location.state]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+     navigate('/nif', { state: { from: '/cadastro/categorias', categoria: { nome, descricao } } });
 
     const categoria = { nome, descricao };
 
@@ -54,7 +75,7 @@ export const CadastroCategorias: React.FC = () => {
           </form>
         </div>
         <div className={styles.verificarWrapper}>
-          <a className={styles.verificarEstoque} href="/estoque">
+          <a className={styles.verificarEstoque} href="/controle/categorias">
             Verificar no estoque &rarr;
           </a>
         </div>
