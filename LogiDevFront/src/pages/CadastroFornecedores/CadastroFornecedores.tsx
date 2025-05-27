@@ -29,10 +29,10 @@ export const CadastroFornecedores: React.FC = () => {
     }
   };
 
-  const navigate = useNavigate();
+ const navigate = useNavigate();
 
   const handleNif = () => {
-    navigate('/nif')
+    navigate('/nif', { state: { from: '/cadastro/fornecedores' } }); // ou use window.location.pathname para pegar a página atual
   };
 
   return (
