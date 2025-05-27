@@ -4,13 +4,18 @@ import { NavBarGeral } from '../../components/NavBar/NavBar';
 import styles from './Nif.module.css';
 import logo from '../../assets/img/img-1.png';
 import * as Icon from 'react-bootstrap-icons'
+import { useNavigate } from 'react-router';
 
 export function Nif() {
   const [showNotification, setShowNotification] = useState(false);
+    const navigate = useNavigate();
+  
+  
 
   const handleConfirm = () => {
     setShowNotification(true);
-    setTimeout(() => setShowNotification(false), 3000); // Esconde após 3s
+    setTimeout(() => setShowNotification(false), 5000); // Esconde após 5s
+    navigate('/cadastro');
   };
 
   return (
@@ -26,9 +31,11 @@ export function Nif() {
             </label>
             <input type="text" placeholder="NIF:" className={styles.inputText} />
           </div>
-          <button className={styles["confirm-button"]} onClick={handleConfirm}>
+          <button className={styles["confirm-button"]}  onClick={handleConfirm}>
             Confirmar
           </button>
+
+
           {showNotification && (
             <div className={styles.floatingNotification}>
               <div className={styles.notificationHeader}>
@@ -37,7 +44,7 @@ export function Nif() {
               </div>
 
               <div className={styles.notificationContent}>
-                <p className={styles.autorizado}>Autorizado <Icon.Check/></p>
+                <p className={styles.permissaoNotificacao}>Autorizado <Icon.CheckCircleFill/></p>
               <p className={styles.NomeNif}>Marcos Fernando</p>
               <p className={styles.dataNotificacao}>08:54 26/05/2025</p>
               </div>
