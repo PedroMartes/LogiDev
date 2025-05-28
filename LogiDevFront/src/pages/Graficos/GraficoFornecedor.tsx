@@ -11,23 +11,25 @@ ChartJS.register(
   LinearScale
 );
 
+interface IProduto {
+  id: number;
+  quantidade: number;
+}
+
 interface IFornecedores {
-    id: number;
-    nome: string;
-    contato: string;
-    telefone: string;
-    email: string;
-    produto : {
-        id: number;
-        quantidade: number;
-};
+  id: number;
+  nome: string;
+  contato: string;
+  telefone: string;
+  email: string;
+  Produtos: IProduto[];
 }
 
 export const GraficoFornecedores = () => {
 
   const [chart, setChart] = useState<IFornecedores[]>([]);
 
-  const baseUrl = "http://localhost:8080/produtos/get";
+  const baseUrl = "http://localhost:8080/fornecedores/get";
   const url = `${baseUrl}`;
   const proxyUrl = "https://cors-anywhere.herokuapp.com/";
 
@@ -72,18 +74,32 @@ export const GraficoFornecedores = () => {
   "#48c9b0", 
   "#76d7c4" 
 ]; 
+const contatoCountMap: { [key: string]: number } = {};
 
-  const data = {
-    labels: chart?.map(x => x.nome),
-    datasets: [{
-      label: `${chart?.length} Available`,
-      data: chart?.map(x => x.produto.quantidade),
-      borderWidth: 1,
-         backgroundColor: chart?.map((_, i) => barColors[i % barColors.length]), // Cores diferentes
-    }],
+chart.forEach(fornecedor => {
+  const tipoContato = fornecedor.contato?.toLowerCase().trim();
+  if (tipoContato) {
+    contatoCountMap[tipoContato] = (contatoCountMap[tipoContato] || 0) + 1;
   }
+});
 
-  const options = {
+const contatoLabels = Object.keys(contatoCountMap);
+const contatoData = Object.values(contatoCountMap);
+
+const data = {
+  labels: contatoLabels,
+  datasets: [
+    {
+      label: "Fornecedores por tipo de contato",
+      data: contatoData,
+      backgroundColor: contatoLabels.map((_, i) => barColors[i % barColors.length]),
+      borderWidth: 1,
+    },
+  ],
+};
+
+
+const options = {
     maintainAspectRatio: false,
     scales: {
       y: {
@@ -96,9 +112,9 @@ export const GraficoFornecedores = () => {
       }
     }
   }
-
+  
   return (
-
+    
     <div className={style.containergrafico}>
 
       <NavBarGeral />
