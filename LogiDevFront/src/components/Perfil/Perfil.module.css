@@ -1,0 +1,214 @@
+.perfilPopup {
+    display: none;
+    position: absolute;
+    top: 6vw;
+    right: 4vw;
+    width: 22vw;
+    max-width: 96vw;
+    min-width: 15em;
+    background: #ededed;
+    border-radius: 1.2vw;
+    box-shadow: 0 0.15vw 1.2vw #0002;
+    z-index: 1000;
+    font-family: 'Montserrat', Arial, sans-serif;
+    transition: height 0.2s;
+}
+
+.perfilPopup.active {
+    display: block;
+}
+
+.perfilPopupHeader {
+    display: flex;
+    align-items: center;
+    padding: 2vw 2.2vw 0 2.2vw;
+}
+
+.perfilPopupAvatar {
+    width: 4vw;
+    height: 4vw;
+    min-width: 40px;
+    min-height: 40px;
+    border-radius: 50%;
+    background: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    margin-right: 1.2vw;
+}
+
+.perfilPopupNome {
+    font-size: 1.25em;
+    font-weight: 600;
+}
+
+.perfilPopupEmail {
+    font-size: 1em;
+    color: #444;
+}
+
+.perfilPopupOpcoes {
+    padding: 2vw 2.2vw 2.2vw 2.2vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2vw; 
+}
+
+.perfilPopupOpcao {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    font-size: 1.25em;
+    gap: 0;
+    cursor: pointer;
+    transition: background 0.2s;
+    padding: 0.8vw 1.2vw; 
+}
+
+.perfilPopupOpcao:hover {
+    background: #e0e0e0;
+    border-radius: 0.7vw;
+}
+
+.perfilPopupOpcao i {
+    font-size: 1.3em;
+    margin-right: 0.8vw;
+}
+
+.perfilPopupAlterarCampo {
+    display: flex;
+    align-items: center;
+    gap: 0.6vw;
+    margin-bottom: 2.5vw;
+    margin-left: 2vw;
+    margin-top: 0.2vw;
+    transition: all 0.2s;
+}
+
+.perfilPopupInput {
+    width: 16vw;
+    min-width: 8vw;
+    max-width: 70vw;
+    border-radius: 0.8vw;
+    border: 0.12vw solid #bbb;
+    padding: 0.5vw 0.6vw;
+    font-size: 1em;
+    outline: none;
+    background: #fff;
+}
+
+.perfilPopupBtnAlterar {
+    background: #067992;
+    color: #fff;
+    border: none;
+    border-radius: 0.6vw;
+    padding: 0.5vw 1vw;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.perfilPopupBtnAlterar:hover {
+    background: #055a6e;
+}
+
+.perfilPopupSair {
+    display: flex;
+    align-items: center;
+    font-size: 1.25em;
+    cursor: pointer;
+    gap: 0;
+    width: 100%;                
+    box-sizing: border-box;   
+    padding: 0.8vw 1.2vw;  
+}
+
+.perfilPopupSair i {
+    font-size: 1.3em;
+    margin-right: 0.8vw;
+}
+
+.perfilPopupSucesso {
+    display: flex;
+    align-items: center;
+    background: #43c37c;
+    color: #fff;
+    font-size: 1em;
+    padding: 0.7vw 0 0.7vw 3vw;
+    border-radius: 0 0 0 0;
+    margin: 0 0 0.7vw 0;
+    position: relative;
+    font-family: 'Montserrat', Arial, sans-serif;
+    min-height: 2.5vw;
+    gap: 1.2vw;
+}
+
+.perfilPopupSucesso i {
+    position: absolute;
+    left: 1.2vw;
+    top: 0.7vw; 
+    color: #fff;
+    font-size: 1.3em;
+}
+
+@media (max-width: 600px) {
+    .perfilPopup {
+        width: 98vw;
+        max-width: 98vw;
+        right: 1vw;
+        left: 1vw;
+        top: 10vw;
+    }
+
+    .perfilPopupHeader,
+    .perfilPopupOpcoes {
+        padding-left: 4vw;
+        padding-right: 4vw;
+    }
+
+    .perfilPopupInput {
+        max-width: 80vw;
+    }
+}
+
+.profileIcon {
+    width: 2.5vw;
+    height: 2.5vw;
+    min-width: 36px;
+    min-height: 36px;
+    border-radius: 50%;
+    background: #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.7vw;
+    cursor: pointer;
+}
+
+.profileIcon i {
+    color: #555;
+    font-size: 1.5em;
+}
+
+.fecharSucesso {
+    position: absolute;
+    right: 1.2vw;
+    top: 0.7vw;
+    font-size: 1.5em;
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+    background: none;
+    border: none;
+    line-height: 1;
+    padding: 0;
+    transition: color 0.2s;
+}
+
+.perfilPopupBtnAlterar:disabled {
+    background: #b5b5b5;
+    cursor: not-allowed;
+    color: #eee;
+}

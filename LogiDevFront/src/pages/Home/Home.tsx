@@ -4,14 +4,16 @@ import armazenamento from '../../assets/img/armazenamento.png'
 import nuvemPasta from '../../assets/img/nuvem-pasta.png'
 import { CarrosselHome } from '../../components/CarrosselHome/CarrosselHome'
 import { NavBar } from '../../components/NavBar/NavBar'
+import { Perfil } from '../../components/Perfil/Perfil'
 
 
 export function Home() {
     return (
         <>
-        <NavBar />
+        <NavBar /> 
             <div className={Style.TopHome}>
                 <CarrosselHome />
+        <Perfil />
             </div>
             <div className={Style.beneficios}>
                 <h1>Benefícios em Destaque</h1>
