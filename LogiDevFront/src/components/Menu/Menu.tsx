@@ -1,12 +1,30 @@
 import setaParaBaixo from '../../assets/img/setaParaBaixo.png';
 import styles from './Menu.module.css';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export function Menu() {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
+    const navigate = useNavigate();
 
     const handleMenuClick = (index: number) => {
         setOpenIndex(openIndex === index ? null : index);
+    };
+
+    const handleProtectedNavigation = (e: React.MouseEvent, path: string) => {
+        e.preventDefault();
+        const isNifValid = localStorage.getItem('nifValidated') === 'true';
+        
+        if (isNifValid) {
+            navigate(path);
+        } else {
+            navigate('/nif', { 
+                state: { 
+                    from: path,
+                    nifRequired: true 
+                } 
+            });
+        }
     };
 
     return (
@@ -26,11 +44,35 @@ export function Menu() {
                         </a>
                         <ul className={styles.submenu}>
                             <hr style={{ border: '1px solid #045a6e', margin: 0 }} />
-                            <li><a href="/cadastro/produtos" className={styles.submenuLink}>Produto</a></li>
+                            <li>
+                                <a 
+                                    href="/cadastro/produtos" 
+                                    className={styles.submenuLink}
+                                    onClick={(e) => handleProtectedNavigation(e, '/cadastro/produtos')}
+                                >
+                                    Produto
+                                </a>
+                            </li>
                             <hr style={{ border: '1px solid #045a6e', margin: 0 }} />
-                            <li><a href="/cadastro/fornecedores" className={styles.submenuLink}>Fornecedor</a></li>
+                            <li>
+                                <a 
+                                    href="/cadastro/fornecedores" 
+                                    className={styles.submenuLink}
+                                    onClick={(e) => handleProtectedNavigation(e, '/cadastro/fornecedores')}
+                                >
+                                    Fornecedor
+                                </a>
+                            </li>
                             <hr style={{ border: '1px solid #045a6e', margin: 0 }} />
-                            <li><a href="/cadastro/categorias" className={styles.submenuLink}>Categoria</a></li>
+                            <li>
+                                <a 
+                                    href="/cadastro/categorias" 
+                                    className={styles.submenuLink}
+                                    onClick={(e) => handleProtectedNavigation(e, '/cadastro/categorias')}
+                                >
+                                    Categoria
+                                </a>
+                            </li>
                         </ul>
                     </li>
 
@@ -96,11 +138,11 @@ export function Menu() {
                             </li>
                             <hr style={{ border: '1px solid #045a6e', margin: 0 }} />
                             <li>
-                                <a  href="/controle/fornecedores"  className={styles.submenuLink}>Fornecedor</a>
+                                <a href="/controle/fornecedores" className={styles.submenuLink}>Fornecedor</a>
                             </li>
                             <hr style={{ border: '1px solid #045a6e', margin: 0 }} />
                             <li>
-                                <a  href="/controle/categorias"  className={styles.submenuLink}>Categoria</a>
+                                <a href="/controle/categorias" className={styles.submenuLink}>Categoria</a>
                             </li>
                         </ul>
                     </li>

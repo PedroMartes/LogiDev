@@ -1,124 +1,182 @@
-/* Container principal (card) */
+/* Centraliza o card na tela */
 .container {
-  max-width: 37.5rem;           /* 600px convertido para rem, considerando base 16px */
-  width: 90%;
-  margin: 2.5rem auto;
-  padding: 2.5rem;
-  background-color: #fff;
-  border-radius: 0.75rem;       /* 12px em rem */
-  box-shadow: 0 0.625rem 1.5625rem rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  min-height: 100vh; /* Altura da tela */
+  background: #fff;
+  position: relative;
+}
+
+/* Card do formulário */
+.card {
+  background: #ebebeb;
+  border-radius: 16px;
+  padding: 2.5em 2em 2em 2em;
+  width: 100vh;
+  height: 65vh;
+  margin-top: 4em;
+  /* box-shadow: 0 0 8px #0001; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Título centralizado */
-.cadastroCategoriasTitle {
+.cadastroCategoriasTitle{
   text-align: center;
   font-size: 2em;
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 1.875rem;      /* 30px em rem */
+  font-weight: 500;
+  color: #187187;
+  margin-bottom: 1.5em;
 }
 
-/* Formulário com layout em coluna e espaçamento */
+/* Formulário */
 .form {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 2rem;
+  width: 100%;
+  margin-bottom: 2vh;
 }
 
-/* Grupo individual do formulário */
+/* Grupo de campo individual */
 .formGroup {
+   display: flex;
+  gap: 5rem;
+  width: 100%;
+}
+
+.form textarea{
+ display: flex;
+ justify-content: center;
+
+  }
+.halfFormGroup input,
+.formGroup input {
+  background: #f0f7ff; /* cor diferente */
+  border: 1px solid #187187;
+  color: #222;
+}
+
+/* Linha para campos lado a lado */
+.formRow {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+/* Cada campo da linha, metade da largura */
+.halfFormGroup {
+    flex: 1;
   display: flex;
   flex-direction: column;
 }
 
-/* Rótulos */
-label {
-  margin-bottom: 0.5rem;        /* 8px em rem */
-  font-weight: bold;
-  color: #555;
-}
-
-/* Inputs e textareas */
-input,
-textarea {
-  padding: 0.75rem;             /* 12px em rem */
-  font-size: 1rem;
-  border: 0.0625rem solid #ddd;  /* Aproximadamente 1px */
-  border-radius: 0.3125rem;       /* 5px em rem */
-  width: 100%;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-input:focus,
-textarea:focus {
-  border-color: #067992;
+.inputCategoria, .inputDescricao {
+  border: none;
+  border-radius: 1.5vh;
+  padding: 0.7em 1em;
+  background: #fff;
+  font-size: 1em;
+  margin-top: 0.3em;
+  color: #444;
+  font-style: italic;
+  font-family: inherit;
   outline: none;
-  box-shadow: 0 0 0.5rem rgba(0, 87, 183, 0.2);
+  box-shadow: none;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
-/* Botão */
-.button {
-  background-color: #067992;
+.inputDescricao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0.7em 1em;
+  width: 100%;         /* Ocupa a largura do card */
+  min-height: 6em;     /* Altura confortável */
+  /* max-width: 100%;      */
+  outline: none;
+  overflow: hidden;
+  background-color: #fff;
+  resize: none;
+  font-style: italic;
+  font-size: 1em;
+}
+
+.inputCategoria::placeholder {
+  color: #bdbdbd;
+  text-align: left;
+  line-height: normal;
+  font-style: italic;
+  font-size: 1em;
+  display: block;
+  text-align: center;
+}
+
+.inputDescricao::placeholder {
+  color: #bdbdbd;
+  text-align: center;
+}
+
+/* Inputs */
+/* .halfFormGroup input,
+.formGroup input {
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.75rem;
+  width: 100%;
+  transition: border-color 0.3s ease;
+  background: #fff;
+  color: #444;
+  text-align: center;
+}
+
+.halfFormGroup input::placeholder,
+.formGroup input::placeholder {
+  color: #bdbdbd;
+  text-align: center;
+  font-style: italic;
+} */
+/* Botão de envio */
+.buttonEnviar {
+  width: 100%;
+  background: #178ca4;
   color: #fff;
   border: none;
-  padding: 0.875rem;            /* 14px em rem */
-  font-size: 1rem;
-  border-radius: 0.3125rem;
+  border-radius: 1.5vh;
+  padding: 0.8em;
+  font-size: 1.1em;
   cursor: pointer;
-  width: 100%;
-  transition: background-color 0.3s ease;
+  margin-top: 0.5em;
+  transition: background 0.2s;
 }
 
-.button:hover {
-  background-color: #067992;
+.buttonEnviar:hover {
+  background-color: #0e5a6e;
+}
+.verificarWrapper {
+  position: absolute;
+  right: 4vw;
+  top: 20em;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100vw;
 }
 
-/* Responsividade */
-
-/* Para telas até 48rem (768px) */
-@media (max-width: 48rem) {
-  .container {
-    width: 95%;
-    padding: 1.875rem;
-  }
-  
-  .cadastroCategoriasTitle {
-    font-size: 1.8em;
-    margin-bottom: 1.5625rem;
-  }
-  
-  input,
-  textarea {
-    font-size: 0.9375rem;
-    padding: 0.625rem;
-  }
-  
-  .button {
-    font-size: 0.9375rem;
-    padding: 0.75rem;
-  }
+.verificarEstoque {
+  color:#11687d ;
+  display: flex;
+  align-items: center;
+  text-decoration: underline;
+  pointer-events: auto; /* permite clicar no link */
 }
 
-/* Para telas até 30rem (480px) */
-@media (max-width: 30rem) {
-  .container {
-    width: 100%;
-    padding: 1.25rem;
-  }
-  
-  .cadastroCategoriasTitle {
-    font-size: 1.6em;
-    margin-bottom: 1.25rem;
-  }
-  
-  input,
-  textarea {
-    font-size: 0.875rem;
-    padding: 0.5rem;
-  }
-  
-  .button {
-    font-size: 0.875rem;
-    padding: 0.625rem;
-  }
-}
+

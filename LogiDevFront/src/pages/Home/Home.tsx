@@ -4,12 +4,13 @@ import armazenamento from '../../assets/img/armazenamento.png'
 import nuvemPasta from '../../assets/img/nuvem-pasta.png'
 import { CarrosselHome } from '../../components/CarrosselHome/CarrosselHome'
 import { NavBar } from '../../components/NavBar/NavBar'
+import { Footer } from '../../components/Footer/Footer'
 
 
 export function Home() {
     return (
         <>
-        <NavBar />
+        <NavBar /> 
             <div className={Style.TopHome}>
                 <CarrosselHome />
             </div>
@@ -44,6 +45,7 @@ export function Home() {
                     </h5>
                 </div>
             </div>
+            <Footer/>
         </>
     )
 }

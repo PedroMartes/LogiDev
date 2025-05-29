@@ -26,10 +26,18 @@ export function Faleconosco({ onClose }: { onClose: () => void }) {
                             <h1>Fale conosco</h1> <Icon.XLg className={style.iconX} onClick={handleClose}/>
                             <hr/>
                             <p>Tire suas dúvidas, envie a sua mensagem e nós responderemos o mais breve possível. Obrigado!</p>
-                            <input className={style.input} placeholder=" Nome da Empresa:" />
-                            <input className={style.input} placeholder="CNPJ/CPF:" />
-                            <input className={style.input} placeholder=" E-mail:" />
-                            <textarea className={style.inputMensagem} placeholder=" Sua Mensagem:"></textarea>
+                            <input className={style.input}
+                            required                            
+                            placeholder=" Nome da Empresa:" />
+                            <input className={style.input}
+                            required
+                            placeholder="CNPJ/CPF:" />
+                            <input className={style.input}
+                            required
+                            placeholder=" E-mail:" />
+                            <textarea className={style.inputMensagem}
+                            required
+                            placeholder=" Sua Mensagem:"></textarea>
                             <button type="submit" className={style.botaoEnviar}>Enviar</button>
                         </form>
 

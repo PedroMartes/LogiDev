@@ -15,14 +15,21 @@ import { Alerta } from './pages/Alerta/alerta'
 import { NovoAlerta } from './pages/Alerta/novoAlerta'
 import { ControleFornecedores } from './pages/Controle/controleFornecedores'
 import { ControleCategorias } from './pages/Controle/ControleCategorias'
+import { Nif } from './pages/NIF/Nif'
+import { DetalheProduto } from './pages/DetalheProduto/DetalheProduto'
+import { DetalheCategoria } from './pages/DetalheCategoria/DetalheCategoria'
+import { DetalheFornecedor } from './pages/DetalheFornecedor/DetalheFornecedor'
+
 
 const Router = () => {
 
     return (
         <div>
             <BrowserRouter>
-                <Routes>
-                   
+                <Routes>  
+                    <Route path='/detalhe/fornecedores/:id' element={<DetalheFornecedor />} />
+                    <Route path='/detalhe/categorias/:id' element={<DetalheCategoria />} />
+                    <Route path='/detalhe/produtos/:id' element={<DetalheProduto />} />
                     <Route path='/cadastro/produtos' element={<CadastroProdutos />} />
                     <Route path='/cadastro/fornecedores' element={<CadastroFornecedores />} />
                     <Route path='/cadastro/categorias' element={<CadastroCategorias />} />
@@ -44,7 +51,8 @@ const Router = () => {
                     <Route path='/controle/grafico/fornecedores' element={< GraficoFornecedores />} />
                     <Route path='/historico' element={< Historico />} />
                     <Route path='/curvaABC' element={< CurvaABC />} />
-                    <Route path='/alertas/novoAlerta' element={< NovoAlerta />} />
+                    <Route path='/nif' element={< Nif />} />
+
                 </Routes>
             </BrowserRouter>
         </div>

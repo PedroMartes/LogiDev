@@ -4,6 +4,7 @@ import styles from './CadastroProduto.module.css';
 import axios from 'axios';
 import { NavBarGeral } from '../../components/NavBar/NavBar';
 import { Menu } from '../../components/Menu/Menu';
+import { useNavigate } from 'react-router';
 
 interface ICategoria {
   id: number;
@@ -64,6 +65,11 @@ export const CadastroProdutos: React.FC = () => {
     }
   };
 
+   const navigate = useNavigate();
+ 
+   const handleNif = () => {
+     navigate('/nif', { state: { from: '/cadastro/produtos' } }); // ou use window.location.pathname para pegar a página atual
+   };
   return (
     <>
       <div>

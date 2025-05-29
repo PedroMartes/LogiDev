@@ -1,0 +1,93 @@
+/* src/components/componentsPerfil.module.css */
+.profileComponent {
+  width: 300px;
+  padding: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  font-family: sans-serif;
+}
+
+.profileHeader {
+  display: flex;
+  align-items: center;
+}
+
+.profileIcon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 12px;
+}
+
+.profileInfo {
+  flex: 1;
+}
+
+.userName {
+  margin: 0 0 4px;
+}
+
+.emailText {
+  margin: 0;
+  font-size: 14px;
+}
+
+.updateSuccess {
+  display: flex;
+  align-items: center;
+  background-color: #d4edda;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  margin-top: 4px;
+  color: #155724;
+}
+
+.iconCheck {
+  margin-right: 4px;
+}
+
+.editEmail {
+  display: flex;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.inputEmail {
+  flex: 1;
+  padding: 4px 8px;
+  font-size: 14px;
+  margin-right: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.buttonSave {
+  padding: 4px 12px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.profileOptions {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid #eee;
+  margin-top: 16px;
+  padding-top: 12px;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+  cursor: pointer;
+}
+
+.iconEnvelope {
+  margin-right: 8px;
+}
+
+.iconLogout {
+  margin-right: 8px;
+}

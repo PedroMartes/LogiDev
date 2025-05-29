@@ -3,6 +3,8 @@ import styles from './CadastroFornecedores.module.css';
 import axios from "axios";
 import { NavBarGeral } from '../../components/NavBar/NavBar';
 import { Menu } from '../../components/Menu/Menu';
+import { useNavigate } from 'react-router';
+import { FooterGeral } from '../../components/Footer/Footer';
 
 export const CadastroFornecedores: React.FC = () => {
   const [nome, setNome] = useState('');
@@ -27,6 +29,9 @@ export const CadastroFornecedores: React.FC = () => {
       console.error(error);
     }
   };
+
+ const navigate = useNavigate();
+
 
   return (
     <div>
@@ -78,7 +83,7 @@ export const CadastroFornecedores: React.FC = () => {
                 required
               />
             </div>
-            <button type="submit" className={styles.button}>
+            <button type="submit" className={styles.buttonEnviar}>
               Enviar
             </button>
           </form>
@@ -90,6 +95,7 @@ export const CadastroFornecedores: React.FC = () => {
           </div>
         </div>
       </div>
+      <FooterGeral/>
     </div>
   );
 };

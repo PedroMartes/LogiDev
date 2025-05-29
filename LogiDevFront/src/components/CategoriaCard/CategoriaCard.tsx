@@ -30,15 +30,18 @@ const FornecedorCard: React.FC<CardProps> = ({ id, nome, descricao, onDelete }) 
                     </tbody>
 
                 </table>
-                <button onClick={onDelete} className={styles.deleteButton}>
-                    <MdDelete className={styles.deleteIcon} />
-                </button>
+                <div className={styles.alteracoes}>
 
-                <button className={styles.editButton}>
-                    <Link to={`/detalhe/produtos/${id}`}>
-                        <PiNotePencilFill className={styles.editIcon} />
-                    </Link>
-                </button>
+                    <button onClick={onDelete} className={styles.deleteButton}>
+                        <MdDelete className={styles.deleteIcon} />
+                    </button>
+
+                    <button className={styles.editButton}>
+                        <Link to={`/detalhe/categorias/${id}`}>
+                            <PiNotePencilFill className={styles.editIcon} />
+                        </Link>
+                    </button>
+                </div>
             </div>
 
         </>

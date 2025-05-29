@@ -17,7 +17,6 @@
     padding-left: 2vh;
     padding-right: 2vh;
     border: none;
-    box-shadow: 0 6vh 10vh rgba(207, 212, 222, 1);
     border-radius: 1vh;
     text-align: center;
     color: #fff;
@@ -71,6 +70,8 @@
 .userPicture img {
     width: 10vh;
     height: 10vh;
+    margin-top: 2vh;
+    
 }
 
 .cardTitulo {
@@ -97,4 +98,7 @@
     margin: 0;
     display: block;
     margin-bottom: 1vh;
+}
+.valores span {
+    margin-top: 1.5vh;
 }

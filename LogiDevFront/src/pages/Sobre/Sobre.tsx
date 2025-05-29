@@ -39,7 +39,7 @@ export function Sobre() {
                         <p>Visão</p>
                         <span>
                             Ser reconhecida como a principal parceira tecnológica para gestão de estoques, liderando a
-                            transformação digital na logística.
+                            transformação digital.
                         </span>
                     </p>
 

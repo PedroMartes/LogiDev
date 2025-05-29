@@ -55,4 +55,6 @@ model Usuarios {
   cpfcnpj         String   @unique
   dataCadastro    DateTime @default(now())
   dataAtualizacao DateTime @updatedAt
+  resetCode    String?
+  codeExpiry   DateTime?
 }

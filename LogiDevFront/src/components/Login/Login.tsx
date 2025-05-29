@@ -29,7 +29,7 @@ export function Login({ onClose, onOpenCadastro, onOpenEsqueciSenha}: { onClose:
         email: email,
         senha: senha
       });
-      navigate("/controle");
+      navigate("/controle/produtos");
     } catch (error) {
       alert('Email ou senha incorretos');
     }
