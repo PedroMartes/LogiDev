@@ -27,8 +27,6 @@ const Router = () => {
         <div>
             <BrowserRouter>
                 <Routes>  
-                    <Route path='/detalhe/fornecedores/:id' element={<DetalheFornecedor />} />
-                    <Route path='/detalhe/categorias/:id' element={<DetalheCategoria />} />
                     <Route path='/detalhe/produtos/:id' element={<DetalheProduto />} />
                     <Route path='/cadastro/produtos' element={<CadastroProdutos />} />
                     <Route path='/cadastro/fornecedores' element={<CadastroFornecedores />} />
