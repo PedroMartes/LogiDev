@@ -50,8 +50,10 @@ export function RenovarSenha({ email, onClose }: { email: string; onClose: () =>
                             className={style.input}
                             placeholder="Código:"
                             value={code}
-                            onChange={(e) => setCode(e.target.value)}
-
+                            type='tel'
+                            required
+                            maxLength={6}
+                            onChange={e => setCode(e.target.value.replace(/\D/g, ""))}
                         />
 
                         {/* Campo de senha com ícone para mostrar/ocultar */}
