@@ -71,19 +71,27 @@ const produtosController = {
 
     update: async (req, res) => {
         try {
-
             const { id } = req.params
-            const { nome, descricao, preco, quantidade, categoriaId } = req.body
+            const { nome, descricao, preco, quantidade, categoriaId, fornecedorId } = req.body
+
+            // Verifica se categoria e fornecedor existem
+            const categoria = await prisma.categorias.findUnique({ where: { id: Number(categoriaId) } });
+            const fornecedor = await prisma.fornecedores.findUnique({ where: { id: Number(fornecedorId) } });
+
+            if (!categoria || !fornecedor) {
+                return res.status(400).json({ error: "Categoria ou Fornecedor inválido." });
+            }
 
             const produto = await prisma.produtos.update({
                 where: { id: Number(id) },
-                data: { nome, descricao, preco: parseFloat(preco), quantidade, categoriaId }
+                data: { nome, descricao, preco: parseFloat(preco), quantidade, categoriaId, fornecedorId }
             })
 
             return res.json(produto)
 
         } catch (error) {
             console.log("Erro ao atualizar produto:", error)
+            res.status(500).json({ error: "Erro ao atualizar produto." });
         }
     },
 
