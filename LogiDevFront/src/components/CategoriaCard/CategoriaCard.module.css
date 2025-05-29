@@ -6,7 +6,6 @@
 
 .tableFornecedorCard {
     border-collapse: collapse;
-    background-color: #fff;
 }
  
 .tableData {
@@ -22,11 +21,27 @@
 }
 
 .deleteButton, .editButton {
-    width: 3.6vh;
+    width: 5vh;
+    height: 5vh;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.deleteButton:disabled, .editButton:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
 }
 
 .deleteIcon, .editIcon {
-    width: 100%;
-    height: 100%;
+    width: 3vh;
+    height: 3vh;
     color: #067992;
+    pointer-events: none;
 }

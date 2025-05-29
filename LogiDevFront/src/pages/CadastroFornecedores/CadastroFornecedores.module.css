@@ -12,12 +12,12 @@
 /* Card do formulário */
 .card {
   background: #ebebeb;
-  border-radius: 16px;
+  border-radius: 1vh;
   padding: 2.5em 2em 2em 2em;
   width: 100vh;
-  height: 50vh;
+  height: 62vh;
   margin-top: 4em;
-  box-shadow: 0 0 8px #0001;
+  /* box-shadow: 0 0 8px #0001; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -58,7 +58,7 @@
 
 /* Cada campo da linha, metade da largura */
 .halfFormGroup {
-    flex: 1;
+  flex: 1;
   display: flex;
   flex-direction: column;
 }
@@ -71,7 +71,7 @@
   border: none;
   border-radius: 0.75rem;
   width: 100%;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: border-color 0.3s ease;
   background: #fff;
   color: #444;
   text-align: center;
@@ -84,21 +84,20 @@
   font-style: italic;
 }
 /* Botão de envio */
-.button {
-  background-color: #187187;
+.buttonEnviar {
+  width: 100%;
+  background: #178ca4;
   color: #fff;
   border: none;
-  padding: 1rem 0;
-  font-size: 1rem;
-  border-radius: 0.75rem;
+  border-radius: 1.5vh;
+  padding: 0.8em;
+  font-size: 1.1em;
   cursor: pointer;
-  width: 100%;
-  transition: background-color 0.3s ease;
-  margin-top: 0.5rem;
-  margin-bottom: 10vh;
+  margin-top: 0.5em;
+  transition: background 0.2s;
 }
 
-.button:hover {
+.buttonEnviar:hover {
   background-color: #0e5a6e;
 }
 .verificarWrapper {
@@ -109,15 +108,14 @@
   align-items: center;
   justify-content: flex-end;
   width: 100vw;
-  pointer-events: none; 
 }
 
 .verificarEstoque {
   color:#11687d ;
   display: flex;
-   align-items: center;
+  align-items: center;
   text-decoration: underline;
-   pointer-events: auto; /* permite clicar no link */
+  pointer-events: auto; /* permite clicar no link */
 }
 
 

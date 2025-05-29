@@ -11,25 +11,21 @@ ChartJS.register(
   LinearScale
 );
 
-interface IProduto {
-  id: number;
-  nome: string;
-  descricao: string;
-  preco: number;
-  categoria: {
+interface IFornecedores {
     id: number;
     nome: string;
-  };
-  fornecedor: {
-    id: number;
-    nome: string;
-  };
-  quantidade: number;
+    contato: string;
+    telefone: string;
+    email: string;
+    produto : {
+        id: number;
+        quantidade: number;
+};
 }
 
 export const GraficoFornecedores = () => {
 
-  const [chart, setChart] = useState<IProduto[]>([]);
+  const [chart, setChart] = useState<IFornecedores[]>([]);
 
   const baseUrl = "http://localhost:8080/produtos/get";
   const url = `${baseUrl}`;
@@ -81,7 +77,7 @@ export const GraficoFornecedores = () => {
     labels: chart?.map(x => x.nome),
     datasets: [{
       label: `${chart?.length} Available`,
-      data: chart?.map(x => x.quantidade),
+      data: chart?.map(x => x.produto.quantidade),
       borderWidth: 1,
          backgroundColor: chart?.map((_, i) => barColors[i % barColors.length]), // Cores diferentes
     }],

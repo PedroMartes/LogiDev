@@ -39,7 +39,7 @@ const FornecedorCard: React.FC<CardProps> = ({ id, nome, contato, telefone, emai
                 </button>
 
                 <button className={styles.editButton}>
-                    <Link to={`/detalhe/produtos/${id}`}>
+                    <Link to={`/detalhe/fornecedores/${id}`}>
                         <PiNotePencilFill className={styles.editIcon} />
                     </Link>
                 </button>
