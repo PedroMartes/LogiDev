@@ -30,6 +30,14 @@ router.use("/fornecedores", fornecedoresRouter)
 
 const userRouter = require("./userRouter");
 
+
 router.use("/usuarios", userRouter);
+
+
+// Histórico de Produtos
+const historicoProdutosRouter = require("./historicoProdutosRouter")
+
+router.use("/historico_produtos", historicoProdutosRouter)
+
 
 module.exports = router

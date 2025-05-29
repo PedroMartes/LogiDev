@@ -47,9 +47,27 @@ CREATE TABLE `Usuarios` (
     `cpfcnpj` VARCHAR(191) NOT NULL,
     `dataCadastro` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
     `dataAtualizacao` DATETIME(3) NOT NULL,
+    `resetCode` VARCHAR(191) NULL,
+    `codeExpiry` DATETIME(3) NULL,
 
     UNIQUE INDEX `Usuarios_email_key`(`email`),
     UNIQUE INDEX `Usuarios_cpfcnpj_key`(`cpfcnpj`),
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `ProdutosHistorico` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `produtoId` INTEGER NOT NULL,
+    `nome` VARCHAR(191) NOT NULL,
+    `descricao` VARCHAR(191) NOT NULL,
+    `preco` DOUBLE NOT NULL,
+    `quantidade` INTEGER NOT NULL,
+    `categoriaId` INTEGER NOT NULL,
+    `fornecedorId` INTEGER NOT NULL,
+    `dataAlteracao` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `acao` VARCHAR(191) NOT NULL,
+
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 

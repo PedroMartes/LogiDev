@@ -1,80 +1,55 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaUserCircle } from 'react-icons/fa';
 import styles from './historico.module.css';
 import { NavBarGeral } from '../../components/NavBar/NavBar';
 import { Menu } from '../../components/Menu/Menu';
 import { FooterGeral } from '../../components/Footer/Footer';
+import { HistoricoCard } from '../../components/HistoricoCard/HistoricoCard';
+import axios from 'axios';
 
-export const Historico: React.FC = () => {
-  const registros = [
-    {
-      nome: '',
-      nif: '',
-      produto: '',
-      acao: ' ',
-      horario: '',
-    },
-    {
-      nome: '',
-      nif: '',
-      produto: '',
-      acao: '',
-      horario: '',
-    },
-    {
-      nome: '',
-      nif: '',
-      produto: '',
-      acao: '',
-      horario: '',
-    },
-    {
-      nome: '',
-      nif: '',
-      produto: '',
-      acao: '',
-      horario: '',
-    },
+interface IHistoricoProduto {
+  id: number;
+  nome: string;
+  dataAlteracao: string;
+  acao: string;
+}
 
-  ];
+export function Historico() {
+  const [historico, setHistorico] = useState<IHistoricoProduto[]>([]);
+
+  useEffect(() => {
+    axios.get("http://localhost:8080/historico_produtos")
+      .then(response => setHistorico(response.data))
+      .catch(error => console.error("Erro ao buscar histórico:", error));
+  }, []);
 
   return (
     <div>
-      <NavBarGeral/>
-      <Menu/>
+      <NavBarGeral />
+      <Menu />
       <div className={styles.pageContainer}>
         <div className={styles.historicoMain}>
-
           <h2 className={styles.heading}>Histórico</h2>
           <div className={styles.lista}>
-            {registros.map((r, index) => (
-              <div key={index} className={styles.card}>
-                {/* Coluna esquerda: ícone, nome e NIF */}
-                <div className={styles.left}>
-                  <FaUserCircle size={40} className={styles.icon} />
-                  <div className={styles.userInfo}>
-                    <span className={styles.userName}>{r.nome}</span>
-                    <span className={styles.userNif}>NIF: {r.nif}</span>
-                  </div>
-                </div>
-                {/* Coluna central: rótulo "Produto:" centralizado */}
-                <div className={styles.center}>
-                  <span className={styles.label}>Produto:</span>
-                </div>
-                {/* Coluna direita: nome do produto e detalhes */}
-                <div className={styles.right}>
-                  <div className={styles.productName}>{r.produto}</div>
-                  <div className={styles.details}>
-                    <span className={styles.action}>{r.acao}</span>
-                    <span className={styles.time}>{r.horario}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
+            {historico.length > 0 ? (
+              <ul style={{ listStyle: 'none', padding: 0 }}>
+                {historico.map((registro) => (
+                  <li key={registro.id}>
+                    <HistoricoCard
+                      nome={registro.nome}
+                      dataAtualizacao={new Date(registro.dataAlteracao)}
+                      acao={registro.acao}
+                    />
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p className={styles.noData}>Nenhum registro encontrado.</p>
+            )}
           </div>
         </div>
       </div>
-      <FooterGeral/>
+      <FooterGeral />
     </div>
   );
 };

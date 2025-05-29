@@ -1,0 +1,33 @@
+/* Card container */
+.cardHistorico {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 8px;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+  transition: box-shadow 0.2s;
+}
+.cardHistorico:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.tituloHistorico {
+  margin: 0 0 6px 0;
+  font-size: 1.2rem;
+  color: #067992;
+  font-weight: 600;
+}
+
+.dataHistorico {
+  margin: 0 0 4px 0;
+  color: #666;
+  font-size: 0.98rem;
+}
+
+.acaoHistorico {
+  margin: 0;
+  color: #067992;
+  font-weight: 500;
+  font-size: 1rem;
+}
