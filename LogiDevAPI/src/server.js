@@ -2,7 +2,10 @@ const express = require('express')
 const routes = require('./routers/routes')
 const { PrismaClient } = require("@prisma/client")
 const cors = require("cors");
+import dotenv from 'dotenv';
+import authRoutes from './src/routers/emailSenha.js';
 
+dotenv.config();
 const app = express()
 const prisma = new PrismaClient()
 
@@ -18,6 +21,8 @@ const prisma = new PrismaClient()
 // Middleware para processar JSON
 app.use(express.json())
 app.use(routes)
+
+app.use('/api/auth', authRoutes);
 
 
 
