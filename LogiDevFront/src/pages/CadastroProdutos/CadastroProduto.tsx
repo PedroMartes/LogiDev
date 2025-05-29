@@ -65,11 +65,8 @@ export const CadastroProdutos: React.FC = () => {
     }
   };
 
-   const navigate = useNavigate();
- 
-   const handleNif = () => {
-     navigate('/nif', { state: { from: '/cadastro/produtos' } }); // ou use window.location.pathname para pegar a página atual
-   };
+  const navigate = useNavigate();
+
   return (
     <>
       <div>

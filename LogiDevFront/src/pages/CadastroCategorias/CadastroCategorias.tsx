@@ -3,14 +3,13 @@ import styles from './CadastroCategorias.module.css';
 import axios from "axios";
 import { NavBarGeral } from '../../components/NavBar/NavBar';
 import { Menu } from '../../components/Menu/Menu';
-import { useLocation, useNavigate } from 'react-router';
+import { useLocation } from 'react-router';
 import { FooterGeral } from '../../components/Footer/Footer';
 
 export const CadastroCategorias: React.FC = () => {
   const [nome, setNome] = useState('');
   const [descricao, setDescricao] = useState('');
    const location = useLocation();
-   const navigate = useNavigate();
 
   React.useEffect(() => {
     if (location.state?.categoria && location.state?.nifConfirmado) {

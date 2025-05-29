@@ -3,7 +3,6 @@ import styles from './CadastroFornecedores.module.css';
 import axios from "axios";
 import { NavBarGeral } from '../../components/NavBar/NavBar';
 import { Menu } from '../../components/Menu/Menu';
-import { useNavigate } from 'react-router';
 import { FooterGeral } from '../../components/Footer/Footer';
 
 export const CadastroFornecedores: React.FC = () => {
@@ -29,8 +28,6 @@ export const CadastroFornecedores: React.FC = () => {
       console.error(error);
     }
   };
-
- const navigate = useNavigate();
 
 
   return (
