@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import styles from './novoAlerta.module.css';
 import { NavBarGeral } from '../../components/NavBar/NavBar';
 import { Menu } from '../../components/Menu/Menu';
+import { FooterGeral } from '../../components/Footer/Footer';
 
 export const NovoAlerta: React.FC = () => {
   const [titulo, setTitulo] = useState('');
@@ -232,6 +233,7 @@ export const NovoAlerta: React.FC = () => {
           </div>
         )}
       </div>
+      <FooterGeral/>
     </div>
   );
 };

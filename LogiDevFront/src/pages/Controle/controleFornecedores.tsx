@@ -4,6 +4,7 @@ import { NavBarGeral } from '../../components/NavBar/NavBar';
 import { Menu } from '../../components/Menu/Menu';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { FooterGeral } from '../../components/Footer/Footer';
 
 interface IFornecedores {
     id: number;
@@ -73,6 +74,7 @@ const handleDelete = async (id: number) => {
                     </tbody>
                 </table>
             </div>
+             <FooterGeral/>
 
         </>
 

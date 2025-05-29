@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import styles from './Alerta.module.css';
 import { NavBarGeral } from '../../components/NavBar/NavBar';
 import { Menu } from '../../components/Menu/Menu';
+import { FooterGeral } from '../../components/Footer/Footer';
 
 export function Alerta() {
   const navigate = useNavigate();
@@ -85,6 +86,7 @@ export function Alerta() {
           ))}
         </div>
       </div>
+      <FooterGeral/>
     </div>
   );
 }

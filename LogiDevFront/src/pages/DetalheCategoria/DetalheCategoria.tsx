@@ -4,6 +4,7 @@ import styles from "./DetalheCategoria.module.css";
 import axios from "axios";
 import { NavBarGeral } from "../../components/NavBar/NavBar";
 import { Menu } from "../../components/Menu/Menu";
+import { FooterGeral } from "../../components/Footer/Footer";
 
 interface ICategoria {
   id: number;
@@ -113,6 +114,7 @@ export function DetalheCategoria() {
           )}
         </div>
       </div>
+        <FooterGeral/>
     </>
   );
 }

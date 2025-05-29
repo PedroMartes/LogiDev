@@ -68,6 +68,8 @@ export function DetalheProduto() {
     fetchData();
   }, [id]);
 
+  
+
   const handleInputChange = (field: keyof IProduto, value: any) => {
     if (!produto) return;
     if (field === "categoria") {
@@ -155,11 +157,18 @@ export function DetalheProduto() {
                 className={styles.selectCadastroProdutos}
               >
                 <option value="" disabled hidden>Selecione uma categoria</option>
+                {/* Renderiza todas as categorias */}
                 {categorias.map((c) => (
                   <option key={c.id} value={c.id}>
                     {c.nome}
                   </option>
                 ))}
+                {/* Se a categoria do produto não está na lista, adiciona temporariamente */}
+                {!categorias.some(c => c.id === produto.categoria.id) && (
+                  <option value={produto.categoria.id} style={{ color: 'red' }}>
+                    {produto.categoria.nome || `Categoria ID ${produto.categoria.id}`} 
+                  </option>
+                )}
               </select>
             </div>
             <div className={styles.halfFormGroup}>
@@ -176,6 +185,12 @@ export function DetalheProduto() {
                     {f.nome}
                   </option>
                 ))}
+                {/* Se o fornecedor do produto não está na lista, adiciona temporariamente */}
+                {!fornecedores.some(f => f.id === produto.fornecedor.id) && (
+                  <option value={produto.fornecedor.id} style={{ color: 'red' }}>
+                    {produto.fornecedor.nome || `Fornecedor ID ${produto.fornecedor.id}`} 
+                  </option>
+                )}
               </select>
             </div>
           </div>
