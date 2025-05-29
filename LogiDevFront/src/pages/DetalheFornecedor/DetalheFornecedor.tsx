@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-import styles from "./DetalheFornecedor.module.css"; // novo módulo CSS para fornecedores
+import styles from "./DetalheFornecedor.module.css";
 import { NavBarGeral } from "../../components/NavBar/NavBar";
 import { Menu } from "../../components/Menu/Menu";
 
@@ -27,6 +27,7 @@ export function DetalheFornecedor() {
   const { id } = useParams<{ id: string }>();
   const [fornecedor, setFornecedor] = useState<IFornecedor | null>(null);
   const [produtos, setProdutos] = useState<IProduto[]>([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (id) {
@@ -34,7 +35,6 @@ export function DetalheFornecedor() {
         .get(`http://localhost:8080/fornecedores/getUnique/${id}`)
         .then(response => setFornecedor(response.data))
         .catch(error => console.error("Erro ao buscar fornecedor:", error));
-      // Busca todos os produtos
       axios
         .get("http://localhost:8080/produtos/get")
         .then(response => setProdutos(response.data))
@@ -65,67 +65,77 @@ export function DetalheFornecedor() {
     <>
       <NavBarGeral />
       <Menu />
-      <div className={styles.container}>
-        <h1 className={styles.title}>Detalhes do Fornecedor</h1>
-        <form onSubmit={handleSave} className={styles.form}>
-          {/* Nome */}
-          <div className={styles.formGroup}>
-            <label htmlFor="nome">Nome do Fornecedor:</label>
-            <input
-              type="text"
-              id="nome"
-              value={fornecedor.nome}
-              onChange={e => setFornecedor({ ...fornecedor, nome: e.target.value })}
-            />
-          </div>
-          {/* Contato */}
-          <div className={styles.formGroup}>
-            <label htmlFor="contato">Contato:</label>
-            <input
-              type="text"
-              id="contato"
-              value={fornecedor.contato}
-              onChange={e => setFornecedor({ ...fornecedor, contato: e.target.value })}
-            />
-          </div>
-          {/* Telefone e Email */}
-          <div className={styles.formRow}>
-            <div className={styles.halfFormGroup}>
-              <label htmlFor="telefone">Telefone:</label>
-              <input
-                type="text"
-                id="telefone"
-                value={fornecedor.telefone}
-                onChange={e => setFornecedor({ ...fornecedor, telefone: e.target.value })}
-              />
-            </div>
-            <div className={styles.halfFormGroup}>
-              <label htmlFor="email">Email:</label>
-              <input
-                type="email"
-                id="email"
-                value={fornecedor.email}
-                onChange={e => setFornecedor({ ...fornecedor, email: e.target.value })}
-              />
-            </div>
-          </div>
-          {/* Produtos Associados */}
-          <div className={styles.formGroup}>
-            <label>Produtos Associados:</label>
-            {produtos && produtos.filter(prod => prod.fornecedor && prod.fornecedor.id === fornecedor.id).length > 0 ? (
-              <ul className={styles.produtoList}>
-                {produtos.filter(prod => prod.fornecedor && prod.fornecedor.id === fornecedor.id).map(prod => (
-                  <li key={prod.id}>
-                    {prod.nome} - Quantidade: {prod.quantidade}
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <p>Nenhum produto associado.</p>
-            )}
-          </div>
-          {/* Botão de salvar */}
+      <div className={styles.infoContainer}>
+        <div className={styles.infoTitle}>Informações do Fornecedor</div>
+        <form onSubmit={handleSave}>
+          <table className={styles.infoTable}>
+            <tbody>
+              <tr>
+                <th>Nome</th>
+                <td>
+                  <input
+                    type="text"
+                    value={fornecedor.nome}
+                    onChange={e => setFornecedor({ ...fornecedor, nome: e.target.value })}
+                  />
+                </td>
+              </tr>
+              <tr>
+                <th>Contato</th>
+                <td>
+                  <input
+                    type="text"
+                    value={fornecedor.contato}
+                    onChange={e => setFornecedor({ ...fornecedor, contato: e.target.value })}
+                  />
+                </td>
+              </tr>
+              <tr>
+                <th>Telefone</th>
+                <td>
+                  <input
+                    type="text"
+                    value={fornecedor.telefone}
+                    onChange={e => setFornecedor({ ...fornecedor, telefone: e.target.value })}
+                  />
+                </td>
+              </tr>
+              <tr>
+                <th>Email</th>
+                <td>
+                  <input
+                    type="email"
+                    value={fornecedor.email}
+                    onChange={e => setFornecedor({ ...fornecedor, email: e.target.value })}
+                  />
+                </td>
+              </tr>
+              <tr>
+                <th>Produtos Associados</th>
+                <td>
+                  {produtos && produtos.filter(prod => prod.fornecedor && prod.fornecedor.id === fornecedor.id).length > 0 ? (
+                    <ul className={styles.produtoList}>
+                      {produtos.filter(prod => prod.fornecedor && prod.fornecedor.id === fornecedor.id).map(prod => (
+                        <li key={prod.id}>
+                          {prod.nome} - Quantidade: {prod.quantidade}
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <span>Nenhum produto associado.</span>
+                  )}
+                </td>
+              </tr>
+            </tbody>
+          </table>
           <div className={styles.buttonGroup}>
+            <button
+              type="button"
+              className={styles.cancelButton}
+              onClick={() => navigate(-1)}
+            >
+              Cancelar
+            </button>
             <button type="submit" className={styles.saveButton}>
               Salvar Alterações
             </button>

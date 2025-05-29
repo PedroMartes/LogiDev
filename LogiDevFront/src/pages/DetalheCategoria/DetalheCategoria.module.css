@@ -1,142 +1,182 @@
-/* Container principal (card) */
+/* Container da tabela */
 .container {
-  max-width: 37.5rem; /* 600px convertidos para 37.5rem */
-  width: 90%;
-  margin: 2.5rem auto;
-  padding: 2.5rem;
-  background-color: #fff;
-  border-radius: 0.75rem; /* 12px */
-  box-shadow: 0 0.625rem 1.5625rem rgba(0, 0, 0, 0.1);
+  max-width: 90vw;
+  margin: 2vw auto;
+  padding: 1vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  border: 0.15vw solid #ccc;
+  border-radius: 0.5vw;
+  box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
 
-/* Título da página */
+/* Título azul */
 .title {
-  font-size: 2em;
-  font-weight: 600;
-  color: #333;
+  font-size: 2.2vw;
+  font-weight: 500;
+  color: #4a6a85;
+  margin-bottom: 0.5vw;
   text-align: center;
-  margin-bottom: 1.875rem; /* 30px */
+  border-bottom: 0.08vw solid #ccc;
+  width: 100%;
+  padding: 1vw 0 0.5vw 0;
+  background: none;
 }
 
-/* Estilização geral do formulário */
+/* Formulário */
 .form {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1.5vw;
 }
 
-/* Grupo de formulário full width */
+/* Grupo de formulário */
 .formGroup {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  margin-bottom: 0.5vw;
 }
 
 /* Rótulos */
 label {
-  margin-bottom: 0.5rem;
-  font-weight: bold;
+  margin-bottom: 0.5vw;
+  font-weight: 500;
   color: #555;
+  font-size: 1.1vw;
 }
 
 /* Inputs e textarea */
 input,
 textarea {
-  padding: 0.75rem;
-  font-size: 1rem;
-  border: 0.0625rem solid #ddd; /* Aproximadamente 1px */
-  border-radius: 0.3125rem; /* 5px */
   width: 100%;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background: #fff;
+  border: 0.1vw solid #ccc;
+  border-radius: 0.7vw;
+  padding: 0.5vw 1vw;
+  font-size: 1vw;
+  color: #444;
+  outline: none;
+  transition: box-shadow 0.2s, border-color 0.2s;
+  box-sizing: border-box;
+  resize: none;
 }
 
 input:focus,
 textarea:focus {
-  border-color: #00566e;
-  outline: none;
-  box-shadow: 0 0 0.5rem rgba(0, 87, 183, 0.2);
+  border-color: #168399;
+  box-shadow: 0 0 0.2vw #b2e4ef;
+  background: #f3f7fa;
 }
 
-/* Grupo de botões */
+/* Lista de produtos associados */
+.produtoList {
+  margin: 0;
+  padding-left: 2vw;
+  font-size: 1vw;
+}
+
+.produtoList li {
+  margin-bottom: 0.3em;
+  padding: 0.5vw 0.8vw;
+  border: 0.08vw solid #eee;
+  border-radius: 0.5vw;
+  background: #fafbfc;
+}
+
+/* Grupo de botões centralizado */
 .buttonGroup {
   display: flex;
-  gap: 1rem;
   justify-content: center;
+  gap: 2vw;
+  padding: 1vw 2vw 1vw 2vw;
+  background: #fff;
+  margin-top: 1vw;
 }
 
-/* Botão Salvar Alterações */
+.cancelButton,
 .saveButton {
-  padding: 0.875rem; /* 14px */
-  font-size: 1rem;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 500;
+  font-size: 1vw;
   border: none;
-  border-radius: 0.3125rem; /* 5px */
+  border-radius: 2vw;
+  padding: 0.6vw 1.8vw;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  background-color: #00566e;
+  transition: background 0.2s;
+}
+
+.cancelButton {
+  background: #bbb;
+  color: #222;
+}
+
+.cancelButton:hover {
+  background: #999;
+}
+
+.saveButton {
+  background: #168399;
   color: #fff;
 }
 
 .saveButton:hover {
-  background-color: #004a59;
+  background: #11697a;
 }
 
-.produtoList {
-  list-style: none;
-  padding: 0;
-  margin: 0.5rem 0 0;
-}
-
-.produtoList li {
-  padding: 0.5rem;
-  border: 0.0625rem solid #ddd;
-  border-radius: 0.3125rem;
-  margin-bottom: 0.5rem;
-  font-size: 0.9rem;
-}
-
-/* Responsividade para telas menores */
-@media (max-width: 48rem) {
+@media (max-width: 600px) {
   .container {
-    width: 95%;
-    padding: 2rem;
+    max-width: 98vw;
+    padding: 2vw 1vw;
   }
 
   .title {
-    font-size: 1.8em;
-    margin-bottom: 1.5625rem;
+    font-size: 5vw;
+    margin-bottom: 2vw;
+    padding: 2vw 0 1vw 0;
+  }
+
+  .form {
+    gap: 3vw;
+  }
+
+  label {
+    font-size: 3vw;
+    margin-bottom: 1vw;
   }
 
   input,
   textarea {
-    font-size: 0.9375rem;
-    padding: 0.625rem;
+    font-size: 3vw;
+    padding: 2vw 2vw;
+    border-radius: 2vw;
+    height: 6vw;
   }
 
+  .produtoList {
+    font-size: 3vw;
+    padding-left: 3vw;
+  }
+
+  .produtoList li {
+    padding: 1vw 2vw;
+    border-radius: 2vw;
+  }
+
+  .buttonGroup {
+    flex-direction: column;
+    gap: 2vw;
+    align-items: stretch;
+    padding: 2vw 2vw;
+  }
+
+  .cancelButton,
   .saveButton {
-    font-size: 0.9375rem;
-    padding: 0.75rem;
-  }
-}
-
-@media (max-width: 30rem) {
-  .container {
-    width: 100%;
-    padding: 1.25rem;
-  }
-
-  .title {
-    font-size: 1.6em;
-    margin-bottom: 1.25rem;
-  }
-
-  input,
-  textarea {
-    font-size: 0.875rem;
-    padding: 0.5rem;
-  }
-
-  .saveButton {
-    font-size: 0.875rem;
-    padding: 0.625rem;
+    font-size: 3vw;
+    padding: 2vw 4vw;
   }
 }

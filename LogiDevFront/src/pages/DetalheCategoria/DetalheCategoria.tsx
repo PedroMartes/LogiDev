@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import styles from "./DetalheCategoria.module.css";
 import axios from "axios";
 import { NavBarGeral } from "../../components/NavBar/NavBar";
@@ -22,6 +22,7 @@ export function DetalheCategoria() {
   const { id } = useParams<{ id: string }>();
   const [categoria, setCategoria] = useState<ICategoria | null>(null);
   const [produtos, setProdutos] = useState<IProduto[]>([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (id) {
@@ -56,8 +57,6 @@ export function DetalheCategoria() {
       </div>
     );
 
-  console.log(produtos, categoria);
-
   return (
     <>
       <NavBarGeral />
@@ -88,6 +87,13 @@ export function DetalheCategoria() {
             />
           </div>
           <div className={styles.buttonGroup}>
+            <button
+              type="button"
+              className={styles.cancelButton}
+              onClick={() => navigate(-1)}
+            >
+              Cancelar
+            </button>
             <button type="submit" className={styles.saveButton}>
               Salvar Alterações
             </button>
