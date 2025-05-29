@@ -11,9 +11,17 @@ interface ICategoria {
   descricao: string;
 }
 
+interface IProduto {
+  id: number;
+  nome: string;
+  quantidade: number;
+  categoriaId: number;
+}
+
 export function DetalheCategoria() {
   const { id } = useParams<{ id: string }>();
   const [categoria, setCategoria] = useState<ICategoria | null>(null);
+  const [produtos, setProdutos] = useState<IProduto[]>([]);
 
   useEffect(() => {
     if (id) {
@@ -21,6 +29,11 @@ export function DetalheCategoria() {
         .get(`http://localhost:8080/categorias/getUnique/${id}`)
         .then(response => setCategoria(response.data))
         .catch(error => console.error("Erro ao buscar categoria:", error));
+
+      axios
+        .get("http://localhost:8080/produtos/get")
+        .then(response => setProdutos(response.data))
+        .catch(error => console.error("Erro ao buscar produtos:", error));
     }
   }, [id]);
 
@@ -42,6 +55,8 @@ export function DetalheCategoria() {
         <p>Erro ao pegar categoria</p>
       </div>
     );
+
+  console.log(produtos, categoria);
 
   return (
     <>
@@ -78,6 +93,25 @@ export function DetalheCategoria() {
             </button>
           </div>
         </form>
+        {/* Produtos Associados */}
+        <div className={styles.formGroup}>
+          <label>Produtos Associados:</label>
+          {produtos && produtos.filter(
+            prod => Number(prod.categoriaId) === Number(categoria.id)
+          ).length > 0 ? (
+            <ul className={styles.produtoList}>
+              {produtos
+                .filter(prod => Number(prod.categoriaId) === Number(categoria.id))
+                .map(prod => (
+                  <li key={prod.id}>
+                    {prod.nome} - Quantidade: {prod.quantidade}
+                  </li>
+                ))}
+            </ul>
+          ) : (
+            <p>Nenhum produto associado.</p>
+          )}
+        </div>
       </div>
     </>
   );
