@@ -35,17 +35,24 @@
 .card1,
 .card2,
 .card3 {
-    background: #067992;
-    width: 22rem;
+    background: #067992; 
+    width: 20rem;
+    padding: 7vh;
+    padding-top: 2vh;
     padding-left: 2vh;
     padding-right: 2vh;
-    padding-top: 6vh;
-    height: 45vh;
     border: none;
-    border-radius: 2vh;
+    box-shadow: 0 6vh 10vh rgba(207, 212, 222, 1);
+    border-radius: 1vh;
     text-align: center;
     color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
     transition: all 0.3s ease;
+    flex-wrap: wrap;
+    box-shadow: 1vh 2vh 5vh lightgrey;
+    margin-top: 5%;
+    transform: translateY(8px);
+    
 }
  
 .card1 h5,
@@ -53,12 +60,13 @@
 .card3 h5 {
     text-decoration: none;
     font-weight: 400;
-    font-size: 1.9vh;
-    padding-top: 3vh;
+    font-size: 2.3vh;
+    padding-top: 3vh; 
+    font-family: inherit;    
 }
  
 .userPicture img {
     color: #fff;
-    width: 12vh;      
+    width: 15vh;      
     height: auto;
 }
