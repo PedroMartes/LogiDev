@@ -9,6 +9,7 @@ import * as Icon from 'react-bootstrap-icons'
 import { useNavigate } from "react-router";
 import { EsqueciSenha } from "../EsqueciSenha/EsqueciSenha";
 import { RenovarSenha } from "../EsqueciSenha/RenovarSenha";
+import { FaUserCircle } from 'react-icons/fa';
 
 export function NavBar() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -174,6 +175,10 @@ export function NavBarGeral() {
                                 >
                                     Contato
                                 </a>
+                            </li>
+
+                            <li>
+                                 <FaUserCircle size={40} className={Styles.icon} />
                             </li>
                             <li>
                                 <a href={"/controle"} className={Styles.servico}>

@@ -5,7 +5,7 @@ import * as Icon from 'react-bootstrap-icons'
 import axios from 'axios';
 
 
-export function RenovarSenha({ email, onClose }: { email: string; onClose: () => void;}) {
+export function RenovarSenha({ onClose }: { onClose: () => void;}) {
     const [showPassword, setShowPassword] = useState(false);
     const [isOpen, setIsOpen] = useState(true);
     const [code, setCode] = useState('');
@@ -27,7 +27,7 @@ export function RenovarSenha({ email, onClose }: { email: string; onClose: () =>
       return;
     }
     try {
-      await axios.post('/api/auth/renovarSenha', { email, code });
+      await axios.post('/api/auth/renovarSenha', { code });
       // Se válido, redirecione para a página de nova senha
     } catch (err) {
       setError('Código inválido');
