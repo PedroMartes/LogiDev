@@ -80,6 +80,20 @@ textarea:focus {
   background-color: #004a59;
 }
 
+.produtoList {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0;
+}
+
+.produtoList li {
+  padding: 0.5rem;
+  border: 0.0625rem solid #ddd;
+  border-radius: 0.3125rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
 /* Responsividade para telas menores */
 @media (max-width: 48rem) {
   .container {
