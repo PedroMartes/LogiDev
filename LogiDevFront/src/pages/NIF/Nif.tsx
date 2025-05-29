@@ -56,6 +56,7 @@ export function Nif() {
               pattern="[0-9]*"
               maxLength={20}
               autoComplete="off"
+           
             />
           </div>
           <button
