@@ -4,8 +4,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
-    
+    min-height: 100vh;
+    box-sizing: border-box;
+    width: 100vw;
 }
 
 .curvaAbcContainer {
@@ -14,12 +15,15 @@
     padding: 5vh;
     gap: 5vh;
     border-radius: 3vh;
-    box-shadow: 5vh rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
     text-align: center;
-    width: 150vh;
-    height: 90vh;
+    width: 90vw;
+    max-width: 1500px;
+    min-width: 320px;
+    height: auto;
     position: relative;
     z-index: 1;
+    box-sizing: border-box;
 }
 
 .curvaAbcTitle {
@@ -41,7 +45,9 @@
     justify-content: center;
     gap: 3vh;
     flex-wrap: wrap;
-    height: 1vh;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
 }
 
 .curvaCard {
@@ -49,15 +55,15 @@
     border-radius: 8px;
     padding: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    flex: 1;
+    flex: 1 1 320px;
     display: flex;
     flex-direction: column;
     text-align: left;
-    min-width: 300px;
+    min-width: 260px;
     max-width: 350px;
-    height: 62vh;
+    height: auto;
     margin-top: 5vh;
-    
+    box-sizing: border-box;
 }
 
 .curvaCardHeader {
@@ -162,36 +168,94 @@
     color: #067992;
 }
 
-/* Remova o media query que força coluna! */
-/* Se quiser responsividade, pode ajustar para telas muito pequenas: */
-@media (max-width: 600px) {
+/* Responsividade para telas muito grandes */
+@media (min-width: 1600px) {
+    .curvaAbcContainer {
+        max-width: 1800px;
+        padding: 6vh 10vw;
+    }
+    .curvaCard {
+        max-width: 400px;
+        min-width: 320px;
+    }
+    .curvaAbcTitle {
+        font-size: 3.5vh;
+    }
+    .curvaSubtitle {
+        font-size: 24px;
+    }
+}
+
+/* Responsividade para tablets */
+@media (max-width: 1100px) {
+    .curvaAbcContainer {
+        width: 98vw;
+        max-width: 98vw;
+        padding: 3vh 1vw;
+    }
+    .curvaCardsWrapper {
+        gap: 2vh;
+    }
+}
+
+/* Responsividade para celulares */
+@media (max-width: 800px) {
+    .curvaAbcContainer {
+        width: 99vw;
+        max-width: 99vw;
+        padding: 2vh 0.5vw;
+    }
     .curvaCardsWrapper {
         flex-direction: column;
         gap: 2vh;
-        height: auto;
+        align-items: center;
     }
     .curvaCard {
-        max-width: 100%;
+        max-width: 98vw;
         min-width: 0;
+        width: 98vw;
+        margin-top: 2vh;
+        height: auto;
+    }
+    .curvaBadge,
+    .curvaBadge.curvaAltaPrioridade,
+    .curvaBadge.curvaMediaPrioridade,
+    .curvaBadge.curvaBaixaPrioridade {
+        margin-left: 2vw;
     }
 }
 
 /* Ajustes de fonte para telas pequenas */
-@media (max-width: 768px) {
+@media (max-width: 600px) {
     .curvaAbcTitle {
-        font-size: 24px;
+        font-size: 22px;
     }
     .curvaSubtitle {
         font-size: 14px;
     }
     .curvaCardHeader h3 {
-        font-size: 18px;
+        font-size: 16px;
     }
     .curvaStatsItem .curvaCount,
     .curvaStatsItem .curvaPercentage {
-        font-size: 24px;
+        font-size: 22px;
     }
     .curvaArrow {
-        font-size: 20px;
+        font-size: 18px;
+    }
+    .curvaDescription,
+    .curvaHighlight,
+    .curvaExampleItem {
+        font-size: 15px;
+    }
+    .curvaCardFooter {
+        flex-direction: column;
+        gap: 1vh;
+    }
+    .curvaAbcContainer {
+        padding: 1vh 0.5vw;
+    }
+    .curvaCard {
+        padding: 5px;
     }
 }
