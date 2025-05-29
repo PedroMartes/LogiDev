@@ -31,7 +31,6 @@ export const CadastroCategorias: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-     navigate('/nif', { state: { from: '/cadastro/categorias', categoria: { nome, descricao } } });
 
     const categoria = { nome, descricao };
 
