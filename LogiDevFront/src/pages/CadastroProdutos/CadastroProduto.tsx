@@ -4,7 +4,6 @@ import styles from './CadastroProduto.module.css';
 import axios from 'axios';
 import { NavBarGeral } from '../../components/NavBar/NavBar';
 import { Menu } from '../../components/Menu/Menu';
-import { useNavigate } from 'react-router';
 
 interface ICategoria {
   id: number;
@@ -64,8 +63,6 @@ export const CadastroProdutos: React.FC = () => {
       console.error(error);
     }
   };
-
-  const navigate = useNavigate();
 
   return (
     <>

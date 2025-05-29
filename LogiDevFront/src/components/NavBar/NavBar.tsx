@@ -17,7 +17,6 @@ export function NavBar() {
     const [showCadastro, setShowCadastro] = useState(false);
     const [showEsqueciSenha, setShowEsqueciSenha] = useState(false);
     const [showRenovarSenha, setShowRenovarSenha] = useState(false);
-    const [email, setEmail] = useState('');
 
     useEffect(() => {
         const handleScroll = () => {
@@ -127,7 +126,6 @@ export function NavBar() {
             )}
             {showRenovarSenha && (
                 <RenovarSenha
-                    email={email}
                     onClose={() => {
                         setShowRenovarSenha(false);
                         setShowLogin(true);
