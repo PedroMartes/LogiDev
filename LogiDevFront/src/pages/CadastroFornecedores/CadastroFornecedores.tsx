@@ -31,9 +31,6 @@ export const CadastroFornecedores: React.FC = () => {
 
  const navigate = useNavigate();
 
-  const handleNif = () => {
-    navigate('/nif', { state: { from: '/cadastro/fornecedores' } }); // ou use window.location.pathname para pegar a página atual
-  };
 
   return (
     <div>
@@ -85,7 +82,7 @@ export const CadastroFornecedores: React.FC = () => {
                 required
               />
             </div>
-            <button type="submit" onClick={handleNif} className={styles.buttonEnviar}>
+            <button type="submit" className={styles.buttonEnviar}>
               Enviar
             </button>
           </form>

@@ -153,7 +153,7 @@ export const CadastroProdutos: React.FC = () => {
                   />
                 </div>
               </div>
-              <button type="submit" onClick={handleNif} className={styles.button}>
+              <button type="submit" className={styles.button}>
                 Enviar
               </button>
             </form>
