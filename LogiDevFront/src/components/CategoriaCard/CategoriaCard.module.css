@@ -45,3 +45,8 @@
     pointer-events: none;
     background-color: #fff;
 }
+
+.alteracoes {
+    display: flex;
+    padding: 0;
+}

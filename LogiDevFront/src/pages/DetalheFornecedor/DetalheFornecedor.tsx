@@ -4,6 +4,7 @@ import axios from "axios";
 import styles from "./DetalheFornecedor.module.css";
 import { NavBarGeral } from "../../components/NavBar/NavBar";
 import { Menu } from "../../components/Menu/Menu";
+import { FooterGeral } from "../../components/Footer/Footer";
 
 interface IFornecedor {
   id: number;
@@ -142,6 +143,7 @@ export function DetalheFornecedor() {
           </div>
         </form>
       </div>
+        <FooterGeral/>
     </>
   );
 }

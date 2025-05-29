@@ -46,7 +46,7 @@
     padding: 1vh;
     margin-left: 5vh;
     margin-right: 2vh;
-    font-size: 1.8vh;
+    font-size: 2vh;
     margin-top: 2vh;
     margin-bottom: 8vh;
     display: flex;
@@ -57,7 +57,7 @@
 .input {
     display: flex;
     align-items: center;
-    margin: 2vh 0vh 3vh 9vh;
+    margin: 2vh 10vh 3vh 5vh;
     border: 2px solid transparent;
     width: 20em;
     height: 3.5em;
@@ -75,12 +75,13 @@
      border: 2px solid #0c9bb5;
     box-shadow: 0vh 0vh 0vh 1vh rgb(74, 157, 236, 20%);
     background-color: white;
+   
 }
 
 .inputMensagem {
     display: flex;
     align-items: center;
-    margin: 2vh 0vh 3vh 9vh;
+    margin: 2vh 10vh 3vh 5vh;
     border: 2px solid transparent;
     width: 20em;
     height: 10em;
@@ -119,64 +120,6 @@
 
 .botaoEnviar:hover {
     background-color: #0c9bb5;
-}
-
-
-.example2 {
-    list-style-type: none;
-    display: flex;
-    justify-content: center;
-}
-
-.example2 .iconContent, .example2 .iconContent2, .example2 .iconContent3 {
-    margin: 0 1vh;
-    position: relative;
-}
-
-.example2 .iconContent a, .example2 .iconContent2 a, .example2 .iconContent3 a   {
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    color: #4b4a4a;
-    background-color: #F3F3F3;
-    transition: all 0.3s ease-n-ut;
-}
-
-.example2 .iconContent a:hover {
-    background-color: #128c7e;;
-    color: #fff;
-    
-}
-.example2 .iconContent2 a:hover {
-    background-color: #3b5998;
-    color: #fff;
-}
-.example2 .iconContent3 a:hover {
-    background: linear-gradient(
-    45deg,
-    #405de6,
-    #5b51db,
-    #b33ab4,
-    #c135b4,
-    #e1306c,
-    #fd1f1f
-    );
-    color: #fff;
-}
-
-.example2 .iconContent a svg, .example2 .iconContent2 a svg, .example2 .iconContent3 a svg{
-    position: relative;
-    z-index: 1;
-    width: 30px;
-    height: 30px;
-}
-.example2 .iconContent a.filled, .example2 .iconContent2 a.filled, .example2 .iconContent3 a.filled {
-    transition: all 0.3s ease-in-out;
 }
 
 

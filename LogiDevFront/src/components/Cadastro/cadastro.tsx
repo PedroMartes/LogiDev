@@ -11,6 +11,7 @@ export function Cadastro({ onClose, onOpenLogin }: { onClose: () => void, onOpen
   const [cpfcnpj, setCpfCnpj] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
+  const [erro, setErro] = useState('');
 
 
   const handleClose = () => {
@@ -24,7 +25,7 @@ export function Cadastro({ onClose, onOpenLogin }: { onClose: () => void, onOpen
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
+  
     const usuario = {
       nome,
       cpfcnpj,
@@ -43,7 +44,7 @@ export function Cadastro({ onClose, onOpenLogin }: { onClose: () => void, onOpen
       setSenha('');
       onOpenLogin(); // Chama a função de abertura do login APÓS o cadastro ser bem-sucedido
     } catch (error) {
-      alert('Erro ao cadastrar usuario!');
+      setErro('Erro ao cadastrar usuario. Verifique os dados e tente novamente.');
       console.error(error);
     }
   };
@@ -60,23 +61,36 @@ export function Cadastro({ onClose, onOpenLogin }: { onClose: () => void, onOpen
               Preencha os campos abaixo com seus dados para criar sua conta e aproveitar
               todos os benefícios que oferecemos!
             </p>
+             {erro && (
+              <div style={{ color: '#cd2727', textAlign: 'center', marginTop: '2vh',  whiteSpace: 'normal',
+      maxWidth: '260px', // ajuste conforme o tamanho do seu modal
+      marginLeft: 'auto',
+      marginRight: 'auto',
+      wordBreak: 'break-word'}}>
+                {erro}
+              </div>
+            )}
             <input
               className={style.input}
               placeholder=" Nome:"
               value={nome}
               onChange={e => setNome(e.target.value)}
+              required
             />
             <input
               className={style.input}
               placeholder="CNPJ/CPF:"
               value={cpfcnpj}
-              onChange={e => setCpfCnpj(e.target.value)}
+              onChange={e => setCpfCnpj(e.target.value.replace(/\D/g, ""))}
+               required
             />
             <input
+            type='email'
               className={style.input}
               placeholder=" E-mail:"
               value={email}
               onChange={e => setEmail(e.target.value)}
+               required
             />
 
             {/* Campo de senha com ícone para mostrar/ocultar */}
@@ -87,6 +101,7 @@ export function Cadastro({ onClose, onOpenLogin }: { onClose: () => void, onOpen
                 placeholder="Senha:"
                 value={senha}
                 onChange={e => setSenha(e.target.value)}
+                 required
               />
               <span
                 className={style.toggleIcon}

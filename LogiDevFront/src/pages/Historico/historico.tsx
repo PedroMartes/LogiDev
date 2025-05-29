@@ -3,6 +3,7 @@ import { FaUserCircle } from 'react-icons/fa';
 import styles from './historico.module.css';
 import { NavBarGeral } from '../../components/NavBar/NavBar';
 import { Menu } from '../../components/Menu/Menu';
+import { FooterGeral } from '../../components/Footer/Footer';
 
 export const Historico: React.FC = () => {
   const registros = [
@@ -73,6 +74,7 @@ export const Historico: React.FC = () => {
           </div>
         </div>
       </div>
+      <FooterGeral/>
     </div>
   );
 };

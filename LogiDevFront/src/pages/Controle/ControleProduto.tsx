@@ -4,6 +4,7 @@ import axios from "axios";
 import ProductCard from '../../components/ProductCard/ProductCard';
 import { NavBarGeral } from '../../components/NavBar/NavBar';
 import { Menu } from '../../components/Menu/Menu';
+import { FooterGeral } from '../../components/Footer/Footer';
 
 interface IProduto {
     id: number;
@@ -85,9 +86,11 @@ export function ControleProdutos() {
                         )}
                     </tbody>
                 </table>
+               
             </div>
-
+              <FooterGeral/>
         </>
 
     )
+   
 }

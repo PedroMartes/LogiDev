@@ -86,6 +86,8 @@ export function DetalheProduto() {
     fetchData();
   }, [id]);
 
+  
+
   const handleInputChange = (field: keyof IProduto, value: any) => {
     if (!produto) return;
 
@@ -164,87 +166,95 @@ export function DetalheProduto() {
     <>
       <NavBarGeral />
       <Menu />
-      <div className={styles.infoContainer}>
-        <div className={styles.infoTitle}>Informações Gerais</div>
-        <form onSubmit={handleSave}>
-          <table className={styles.infoTable}>
-            <tbody>
-              <tr>
-                <th>Nome do produto</th>
-                <td>
-                  <input
-                    type="text"
-                    value={produto.nome}
-                    onChange={e => handleInputChange("nome", e.target.value)}
-                  />
-                </td>
-              </tr>
-              <tr>
-                <th>Descrição</th>
-                <td>
-                  <textarea
-                    value={produto.descricao}
-                    onChange={e => handleInputChange("descricao", e.target.value)}
-                    rows={2}
-                  />
-                </td>
-              </tr>
-              <tr>
-                <th>Categoria</th>
-                <td>
-                  <select
-                    value={produto.categoria.id}
-                    onChange={e => handleInputChange("categoria", e.target.value)}
-                    className={styles.selectCadastroProdutos}
-                  >
-                    <option value="" disabled hidden>Selecione uma categoria</option>
-                    {categorias.map((c) => (
-                      <option key={c.id} value={c.id}>
-                        {c.nome}
-                      </option>
-                    ))}
-                  </select>
-                </td>
-              </tr>
-              <tr>
-                <th>Fornecedor</th>
-                <td>
-                  <select
-                    value={produto.fornecedor.id}
-                    onChange={e => handleInputChange("fornecedor", e.target.value)}
-                    className={styles.selectCadastroProdutos}
-                  >
-                    <option value="" disabled hidden>Selecione um fornecedor</option>
-                    {fornecedores.map((f) => (
-                      <option key={f.id} value={f.id}>
-                        {f.nome}
-                      </option>
-                    ))}
-                  </select>
-                </td>
-              </tr>
-              <tr>
-                <th>Quantidade</th>
-                <td>
-                  <input
-                    type="number"
-                    value={produto.quantidade}
-                    onChange={e => handleInputChange("quantidade", e.target.value)}
-                  />
-                </td>
-              </tr>
-              <tr>
-                <th>Preço</th>
-                <td>
-                  <input
-                    type="number"
-                    value={produto.preco}
-                    onChange={e => handleInputChange("preco", e.target.value)}
-                  />
-                </td>
-              </tr>
-            </tbody>
-          </table>
+      <div className={styles.container}>
+        <h1 className={styles.title}>Detalhes do Produto</h1>
+        <form onSubmit={handleSave} className={styles.form}>
+          <div className={styles.formGroup}>
+            <label htmlFor="nome">Nome do Produto:</label>
+            <input
+              type="text"
+              id="nome"
+              value={produto.nome}
+              onChange={e => handleInputChange("nome", e.target.value)}
+            />
+          </div>
+          <div className={styles.formGroup}>
+            <label htmlFor="descricao">Descrição:</label>
+            <textarea
+              id="descricao"
+              value={produto.descricao}
+              onChange={e => handleInputChange("descricao", e.target.value)}
+              rows={3}
+            />
+          </div>
+          <div className={styles.formRow}>
+            <div className={styles.halfFormGroup}>
+              <label htmlFor="categoria">Categoria:</label>
+              <select
+                id="categoria"
+                value={produto.categoria.id}
+                onChange={e => handleInputChange("categoria", e.target.value)}
+                className={styles.selectCadastroProdutos}
+              >
+                <option value="" disabled hidden>Selecione uma categoria</option>
+                {/* Renderiza todas as categorias */}
+                {categorias.map((c) => (
+                  <option key={c.id} value={c.id}>
+                    {c.nome}
+                  </option>
+                ))}
+                {/* Se a categoria do produto não está na lista, adiciona temporariamente */}
+                {!categorias.some(c => c.id === produto.categoria.id) && (
+                  <option value={produto.categoria.id} style={{ color: 'red' }}>
+                    {produto.categoria.nome || `Categoria ID ${produto.categoria.id}`} 
+                  </option>
+                )}
+              </select>
+            </div>
+            <div className={styles.halfFormGroup}>
+              <label htmlFor="fornecedor">Fornecedor:</label>
+              <select
+                id="fornecedor"
+                value={produto.fornecedor.id}
+                onChange={e => handleInputChange("fornecedor", e.target.value)}
+                className={styles.selectCadastroProdutos}
+              >
+                <option value="" disabled hidden>Selecione um fornecedor</option>
+                {fornecedores.map((f) => (
+                  <option key={f.id} value={f.id}>
+                    {f.nome}
+                  </option>
+                ))}
+                {/* Se o fornecedor do produto não está na lista, adiciona temporariamente */}
+                {!fornecedores.some(f => f.id === produto.fornecedor.id) && (
+                  <option value={produto.fornecedor.id} style={{ color: 'red' }}>
+                    {produto.fornecedor.nome || `Fornecedor ID ${produto.fornecedor.id}`} 
+                  </option>
+                )}
+              </select>
+            </div>
+          </div>
+          <div className={styles.formRow}>
+            <div className={styles.halfFormGroup}>
+              <label htmlFor="preco">Preço:</label>
+              <input
+                type="number"
+                id="preco"
+                value={produto.preco}
+                onChange={e => handleInputChange("preco", e.target.value)}
+              />
+            </div>
+            <div className={styles.halfFormGroup}>
+              <label htmlFor="quantidade">Quantidade:</label>
+              <input
+                type="number"
+                id="quantidade"
+                value={produto.quantidade}
+                onChange={e => handleInputChange("quantidade", e.target.value)}
+              />
+            </div>
+          </div>
+          
           <div className={styles.buttonGroup}>
             <button
               type="button"

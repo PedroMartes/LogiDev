@@ -2,11 +2,14 @@ import { useState } from 'react';
 import style from './RenovarSenha.module.css';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import * as Icon from 'react-bootstrap-icons'
+import axios from 'axios';
 
 
-export function RenovarSenha({ onClose }: { onClose: () => void;}) {
+export function RenovarSenha({ email, onClose }: { email: string; onClose: () => void;}) {
     const [showPassword, setShowPassword] = useState(false);
     const [isOpen, setIsOpen] = useState(true);
+    const [code, setCode] = useState('');
+    const [error, setError] = useState('');
 
 
     const handleClose = () => {
@@ -18,12 +21,25 @@ export function RenovarSenha({ onClose }: { onClose: () => void;}) {
         return null; // Isso faz com que o componente não seja renderizado
     }
 
+     const handleValidate = async () => {
+    if (!code) {
+      setError('Por favor, insira o código enviado para o seu e-mail.');
+      return;
+    }
+    try {
+      await axios.post('/api/auth/renovarSenha', { email, code });
+      // Se válido, redirecione para a página de nova senha
+    } catch (err) {
+      setError('Código inválido');
+    }
+  };
+
     return (
         <>
             <div className={style.container}>
                 <div className={style.cadastro}>
 
-                    <form>
+                    <form onSubmit={handleValidate}>
                         <h1>Esqueci a senha</h1><Icon.XLg className={style.iconX} onClick={handleClose} />
                         <hr />
                         <p>
@@ -33,6 +49,11 @@ export function RenovarSenha({ onClose }: { onClose: () => void;}) {
                         <input
                             className={style.input}
                             placeholder="Código:"
+                            value={code}
+                            type='tel'
+                            required
+                            maxLength={6}
+                            onChange={e => setCode(e.target.value.replace(/\D/g, ""))}
                         />
 
                         {/* Campo de senha com ícone para mostrar/ocultar */}
@@ -66,7 +87,7 @@ export function RenovarSenha({ onClose }: { onClose: () => void;}) {
                                 {showPassword ? <FaEyeSlash /> : <FaEye />}
                             </span>
                         </div>
-
+                        {error && <p style={{ color: 'red' }}>{error}</p>}
                         <button type="submit" className={style.botaoEnviar} onClick={onClose} >Redefinir</button>
                     </form>
 
