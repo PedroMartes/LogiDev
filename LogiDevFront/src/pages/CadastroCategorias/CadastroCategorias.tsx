@@ -4,6 +4,7 @@ import axios from "axios";
 import { NavBarGeral } from '../../components/NavBar/NavBar';
 import { Menu } from '../../components/Menu/Menu';
 import { useLocation, useNavigate } from 'react-router';
+import { FooterGeral } from '../../components/Footer/Footer';
 
 export const CadastroCategorias: React.FC = () => {
   const [nome, setNome] = useState('');
@@ -80,6 +81,7 @@ export const CadastroCategorias: React.FC = () => {
           </a>
         </div>
       </div>
+      <FooterGeral/>
     </>
   );
 };

@@ -5,6 +5,7 @@ import styles from './Nif.module.css';
 import logo from '../../assets/img/img-1.png';
 import * as Icon from 'react-bootstrap-icons'
 import { useNavigate, useLocation } from 'react-router';
+import { FooterGeral } from '../../components/Footer/Footer';
 
 export function Nif() {
   const location = useLocation();
@@ -81,6 +82,8 @@ export function Nif() {
           )}
         </div>
       </div>
+       <FooterGeral/>
     </div>
+   
   );
 }
