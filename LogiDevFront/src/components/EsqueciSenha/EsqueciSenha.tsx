@@ -27,6 +27,7 @@ export function EsqueciSenha({ onClose, onEnviar }: { onClose: () => void; onEnv
               Informe seu e-mail cadastrado e enviaremos um código para recuperação de senha.
             </p>
             <input
+            required
               className={style.input}
               placeholder="E-mail:"
             />
