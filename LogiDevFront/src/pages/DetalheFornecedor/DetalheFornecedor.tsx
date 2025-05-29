@@ -11,15 +11,22 @@ interface IFornecedor {
   contato: string;
   telefone: string;
   email: string;
-  produto: { 
-    id: number; 
-    quantidade: number;
-  }[];
+}
+
+interface IProduto {
+  id: number;
+  nome: string;
+  quantidade: number;
+  fornecedor: {
+    id: number;
+    nome: string;
+  };
 }
 
 export function DetalheFornecedor() {
   const { id } = useParams<{ id: string }>();
   const [fornecedor, setFornecedor] = useState<IFornecedor | null>(null);
+  const [produtos, setProdutos] = useState<IProduto[]>([]);
 
   useEffect(() => {
     if (id) {
@@ -27,6 +34,11 @@ export function DetalheFornecedor() {
         .get(`http://localhost:8080/fornecedores/getUnique/${id}`)
         .then(response => setFornecedor(response.data))
         .catch(error => console.error("Erro ao buscar fornecedor:", error));
+      // Busca todos os produtos
+      axios
+        .get("http://localhost:8080/produtos/get")
+        .then(response => setProdutos(response.data))
+        .catch(error => console.error("Erro ao buscar produtos:", error));
     }
   }, [id]);
 
@@ -100,11 +112,11 @@ export function DetalheFornecedor() {
           {/* Produtos Associados */}
           <div className={styles.formGroup}>
             <label>Produtos Associados:</label>
-            {fornecedor.produto && fornecedor.produto.length > 0 ? (
+            {produtos && produtos.filter(prod => prod.fornecedor && prod.fornecedor.id === fornecedor.id).length > 0 ? (
               <ul className={styles.produtoList}>
-                {fornecedor.produto.map(prod => (
+                {produtos.filter(prod => prod.fornecedor && prod.fornecedor.id === fornecedor.id).map(prod => (
                   <li key={prod.id}>
-                    Produto ID: {prod.id} - Quantidade: {prod.quantidade}
+                    {prod.nome} - Quantidade: {prod.quantidade}
                   </li>
                 ))}
               </ul>

@@ -24,10 +24,10 @@ const produtosController = {
             const produtos = await prisma.produtos.findMany({
                 include: {
                     categoria: {
-                        select: { nome: true }
+                        select: { nome: true, id: true }
                     },
                     fornecedor: {
-                        select: { nome: true }
+                        select: { nome: true, id: true }
                     },
                 },
 
