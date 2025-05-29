@@ -41,7 +41,7 @@
     justify-content: center;
     gap: 3vh;
     flex-wrap: wrap;
-    height: 50vh;
+    height: 1vh;
 }
 
 .curvaCard {
@@ -53,14 +53,17 @@
     display: flex;
     flex-direction: column;
     text-align: left;
-    min-width: 250px;
+    min-width: 300px;
     max-width: 350px;
+    height: 62vh;
+    margin-top: 5vh;
+    
 }
 
 .curvaCardHeader {
     display: flex;
     align-items: center;
-    margin-bottom: 105px;
+    margin-bottom: 35px;
 }
 
 .curvaCardHeader h3 {
@@ -81,14 +84,17 @@
 
 .curvaBadge.curvaAltaPrioridade {
     background-color: #ff0000;
+    margin-left: 15vh;
 }
 
 .curvaBadge.curvaMediaPrioridade {
     background-color: #ffc800;
+    margin-left: 15vh;
 }
 
 .curvaBadge.curvaBaixaPrioridade {
     background-color: #00da33;
+    margin-left: 15vh;
 }
 
 .curvaDescription {
