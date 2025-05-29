@@ -126,6 +126,7 @@ export function NavBar() {
             )}
             {showRenovarSenha && (
                 <RenovarSenha
+                    email={''} // Passe o email correto do usuário aqui
                     onClose={() => {
                         setShowRenovarSenha(false);
                         setShowLogin(true);
