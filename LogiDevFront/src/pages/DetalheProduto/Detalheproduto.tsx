@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import styles from "./DetalheProduto.module.css";
+import styles from "./Detalheproduto.module.css";
 import axios from "axios";
 import { NavBarGeral } from "../../components/NavBar/NavBar";
 import { Menu } from "../../components/Menu/Menu";
