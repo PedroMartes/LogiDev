@@ -21,6 +21,7 @@ const ProductCard: React.FC<CardProps> = ({ id, nome, descricao, preco, categori
 
         <>
 
+         <div className={styles.mainInfo}>
 
             <div className={styles.controleTableContainer}>
                 <table className={styles.tableProductCard}>
@@ -47,6 +48,7 @@ const ProductCard: React.FC<CardProps> = ({ id, nome, descricao, preco, categori
                     </Link>
                 </button>
             </div>
+         </div>
 
         </>
     );

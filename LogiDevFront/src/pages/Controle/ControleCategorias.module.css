@@ -16,10 +16,13 @@
 
 .controleTable {
     width: 100%;
-    height: 25vh;
     border-collapse: collapse;
     margin: 0 auto;
     margin-top: 3vh;
+}
+
+.controleTabeMain {
+    margin-bottom: 10vh;
 }
 
 
