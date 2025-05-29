@@ -16,7 +16,7 @@ import { NovoAlerta } from './pages/Alerta/novoAlerta'
 import { ControleFornecedores } from './pages/Controle/controleFornecedores'
 import { ControleCategorias } from './pages/Controle/ControleCategorias'
 import { Nif } from './pages/NIF/Nif'
-import { DetalheProduto } from './pages/DetalheProduto/DetalheProduto'
+import { DetalheProduto } from './pages/DetalheProduto/Detalheproduto'
 import { DetalheCategoria } from './pages/DetalheCategoria/DetalheCategoria'
 import { DetalheFornecedor } from './pages/DetalheFornecedor/DetalheFornecedor'
 
