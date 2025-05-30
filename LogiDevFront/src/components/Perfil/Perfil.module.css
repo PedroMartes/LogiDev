@@ -1,21 +1,24 @@
 .perfilPopup {
-    display: none;
-    position: absolute;
-    top: 6vw;
-    right: 4vw;
-    width: 22vw;
-    max-width: 96vw;
-    min-width: 15em;
-    background: #ededed;
+    top: 20vw;
+    right: 20vw;
     border-radius: 1.2vw;
     box-shadow: 0 0.15vw 1.2vw #0002;
+     background-color: #ededed;
+    width: 25%;
+    float: right;
+    position: absolute;
+    top: 14%;
+    right: 0%;
+    height: 37%;
     z-index: 1000;
-    font-family: 'Montserrat', Arial, sans-serif;
-    transition: height 0.2s;
 }
-
 .perfilPopup.active {
     display: block;
+}
+.perfilPopupExpandido {
+    height: 53% !important;    /* ou outro valor maior */
+    min-height: 350px;
+    transition: height 0.3s;
 }
 
 .perfilPopupHeader {
@@ -212,3 +215,139 @@
     cursor: not-allowed;
     color: #eee;
 }
+.iconX {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 2vh 2vh;
+    cursor: pointer;
+    color: #000;
+    font-size: 2.5vh;
+}
+
+/* 
+.contato {
+    color: #085399;
+}
+
+.perfilPopup{
+    background-color: rgb(233, 232, 232);
+    width: 25%;
+    float: right;
+    position: absolute;
+    top: 14%;
+    right: 0%;
+    height: 30%;
+    z-index: 1000;
+    position: fixed;
+    border-radius: 2vh;
+}
+.faleConosco h1 {
+    font-size: 5vh;
+    font-weight: 450;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    padding-top: 4vh;
+    height: 13vh;
+    color: #067992;
+
+}
+
+.iconX {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 2vh 2vh;
+    cursor: pointer;
+    color: #000;
+    font-size: 2.5vh;
+}
+
+.faleConosco hr {
+    background-color: rgb(255, 255, 255);
+    height: 0.1vh;
+    border: none;
+}
+
+.faleConosco p {
+    padding: 1vh;
+    margin-left: 5vh;
+    margin-right: 2vh;
+    font-size: 2vh;
+    margin-top: 2vh;
+    margin-bottom: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input {
+    display: flex;
+    align-items: center;
+    margin: 2vh 10vh 3vh 5vh;
+    border: 2px solid transparent;
+    width: 20em;
+    height: 3.5em;
+    padding-left: 0.8em;
+    outline: none;
+    overflow: hidden;
+    background-color: #F3F3F3;
+    border-radius: 2em;
+    transition: all 0.5s;
+    resize: none;
+}
+
+.input:hover,
+.input:focus {
+     border: 2px solid #0c9bb5;
+    box-shadow: 0vh 0vh 0vh 1vh rgb(74, 157, 236, 20%);
+    background-color: white;
+   
+}
+
+.inputMensagem {
+    display: flex;
+    align-items: center;
+    margin: 2vh 10vh 3vh 5vh;
+    border: 2px solid transparent;
+    width: 20em;
+    height: 10em;
+    padding: 1em;
+    outline: none;
+    overflow: hidden;
+    background-color: #F3F3F3;
+    border-radius: 2em;
+    transition: all 0.5s;
+    font-family: Arial, Helvetica, sans-serif;
+    resize: none;
+}
+
+.inputMensagem:hover,
+.inputMensagem:focus {
+    border: 2px solid #0c9bb5;
+    box-shadow: 0vh 0vh 0vh 1vh rgb(74, 157, 236, 20%);
+    background-color: white;
+}
+
+.botaoEnviar {
+    display: block;
+    margin: 1.5em auto;
+    Centraliza o botão
+    margin-top: 5vh;
+    padding: 1em 3em;
+    font-size: 2vh;
+    font-weight: 500;
+    color: white;
+    background-color: #067992;
+    border: none;
+    border-radius: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.botaoEnviar:hover {
+    background-color: #0c9bb5;
+}
+
+ */

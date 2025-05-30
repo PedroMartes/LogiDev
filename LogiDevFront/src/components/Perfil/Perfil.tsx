@@ -1,7 +1,12 @@
 import React, { useRef, useState } from "react";
 import styles from "./Perfil.module.css";
+import * as Icon from 'react-bootstrap-icons'
 
-export const Perfil: React.FC = () => {
+interface PerfilProps {
+  onClose: () => void;
+}
+
+export const Perfil: React.FC<PerfilProps> = ({ onClose }) => {
   const [showAlterarCampo, setShowAlterarCampo] = useState(false);
   const [novoEmail, setNovoEmail] = useState("");
   const [email, setEmail] = useState("marcos.fernando@email.com");
@@ -31,20 +36,31 @@ export const Perfil: React.FC = () => {
   };
 
   const handleSair = () => {
-    window.location.href = "login.html";
+    window.location.href = "/";
   };
 
+  const [isOpen, setIsOpen] = useState(true);
+
+  const handleClose = () => {
+    setIsOpen(false);
+    onClose();
+  };
+
+  if (!isOpen) {
+    return null; // Isso faz com que o componente não seja renderizado
+  }
+
+
   return (
-    <div className={styles.perfilPopup} style={{ display: "block", position: "static" }}>
-      <div className={styles.perfilPopupHeader}>
-        <div className={styles.perfilPopupAvatar}>
-          <i className="fas fa-user"></i>
-        </div>
-        <div>
-          <div className={styles.perfilPopupNome}>Marcos Fernando</div>
-          <div className={styles.perfilPopupEmail}>{email}</div>
-        </div>
+    <div className={`${styles.perfilPopup} ${(showAlterarCampo || showSucesso) ? styles.perfilPopupExpandido : ""}`}>      <div className={styles.perfilPopupHeader}>
+      <div className={styles.perfilPopupAvatar}>
+        <i className="fas fa-user"></i><Icon.XLg className={styles.iconX} onClick={handleClose} />
       </div>
+      <div>
+        <div className={styles.perfilPopupNome}>Marcos Fernando</div>
+        <div className={styles.perfilPopupEmail}>{email}</div>
+      </div>
+    </div>
       <hr style={{ border: "0.1vw solid #ccc", margin: "0.8vw 0 0 0" }} />
       {showSucesso && (
         <div className={styles.perfilPopupSucesso}>
@@ -106,3 +122,51 @@ export const Perfil: React.FC = () => {
     </div>
   );
 };
+
+// import { useState } from 'react';
+// import styles from './Perfil.module.css';
+// import * as Icon from 'react-bootstrap-icons';
+
+// export function Perfil({ onClose }: { onClose: () => void }) {
+
+//     const [isOpen, setIsOpen] = useState(true);
+
+//     const handleClose = () => {
+//         setIsOpen(false);
+//         onClose();
+//     };
+
+//     if (!isOpen) {
+//         return null; // Isso faz com que o componente não seja renderizado
+//     }
+
+
+
+//     return (
+//         <>
+//                 <div className={styles.container}>
+
+//                     <div className={styles.faleConosco}>
+//                         <form>
+//                             <h1>Fale conosco</h1> <Icon.XLg className={styles.iconX} onClick={handleClose}/>
+//                             <hr/>
+//                             <p>Tire suas dúvidas, envie a sua mensagem e nós responderemos o mais breve possível. Obrigado!</p>
+//                             <input className={styles.input}
+//                             required
+//                             placeholder=" Nome da Empresa:" />
+//                             <input className={styles.input}
+//                             required type='tel'
+//                             placeholder="CNPJ/CPF:" />
+//                             <input className={styles.input}
+//                             required type='email'
+//                             placeholder=" E-mail:" />
+//                             <textarea className={styles.inputMensagem}
+//                             required
+//                             placeholder=" Sua Mensagem:"></textarea>
+//                             <button type="submit" className={styles.botaoEnviar}>Enviar</button>
+//                         </form>
+//                     </div >
+//                 </div >
+//         </>
+//     )
+// }

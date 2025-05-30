@@ -10,6 +10,7 @@ import { useNavigate } from "react-router";
 import { EsqueciSenha } from "../EsqueciSenha/EsqueciSenha";
 import { RenovarSenha } from "../EsqueciSenha/RenovarSenha";
 import { FaUserCircle } from 'react-icons/fa';
+import { Perfil } from "../Perfil/Perfil";
 
 export function NavBar() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -142,6 +143,8 @@ export function NavBarGeral() {
     const [showFaleConosco, setShowFaleConosco] = useState(false);
     const [isOpen, setIsOpen] = useState(true);
     const navigate = useNavigate();
+    const [showPerfil, setShowPerfil] = useState(false);
+
 
     const handleClose = () => {
         setIsOpen(false);
@@ -178,19 +181,24 @@ export function NavBarGeral() {
                             </li>
 
                             <li>
-                                 <FaUserCircle size={40} className={Styles.icon} />
-                            </li>
-                            <li>
                                 <a href={"/controle"} className={Styles.servico}>
                                     Serviços
                                 </a>
                             </li>
+
+                            <li>
+                                 <FaUserCircle size={40} className={Styles.icon}
+                                  onClick={() => setShowPerfil(true)} />
+                            </li>
+
                             <Icon.BoxArrowRight className={Styles.iconSaida} onClick={handleClose} />
                         </ul>
                     </div>
                 </nav>
             </header >
             {showFaleConosco && <Faleconosco onClose={() => setShowFaleConosco(false)} />}
+            {showPerfil && <Perfil onClose={() => setShowPerfil(false)} />}
+
         </>
     );
 }
