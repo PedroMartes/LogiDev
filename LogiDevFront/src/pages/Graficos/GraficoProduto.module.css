@@ -31,7 +31,7 @@
     overflow-x: auto;
 }
 
-/* Telas grandes */
+
 @media (min-width: 1600px) {
     .grafico {
         max-width: 1600px;
@@ -43,7 +43,7 @@
     }
 }
 
-/* Tablets e notebooks */
+
 @media (max-width: 1100px) {
     .grafico {
         width: 98vw;
@@ -58,7 +58,7 @@
     }
 }
 
-/* Celulares grandes e médios */
+
 @media (max-width: 800px) {
     .grafico {
         width: 99vw;
@@ -76,7 +76,7 @@
     }
 }
 
-/* Celulares pequenos, ex: 466px */
+
 @media (max-width: 500px) {
     .grafico {
         width: 99vw;
