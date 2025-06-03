@@ -10,7 +10,7 @@
   border: 0.15vw solid #ccc;
   border-radius: 0.5vw;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  /* font-family: "Poppins", sans-serif; */
 }
 
 /* Título azul */
@@ -111,7 +111,7 @@
 
 .cancelButton,
 .saveButton {
-  font-family: 'Montserrat', Arial, sans-serif;
+  /* font-family: 'Montserrat', Arial, sans-serif; */
   font-weight: 500;
   font-size: 1vw;
   border: none;

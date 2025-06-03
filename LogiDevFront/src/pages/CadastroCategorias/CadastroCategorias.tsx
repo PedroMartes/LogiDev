@@ -9,8 +9,9 @@ import { FooterGeral } from '../../components/Footer/Footer';
 export const CadastroCategorias: React.FC = () => {
   const [nome, setNome] = useState('');
   const [descricao, setDescricao] = useState('');
-   const location = useLocation();
-   const navigate = useNavigate();
+  const [showSuccess, setShowSuccess] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   React.useEffect(() => {
     if (location.state?.categoria && location.state?.nifConfirmado) {
@@ -18,7 +19,7 @@ export const CadastroCategorias: React.FC = () => {
       const cadastrar = async () => {
         try {
           await axios.post('http://localhost:8080/categorias/create', location.state.categoria);
-          alert('Categoria cadastrada com sucesso!');
+          setShowSuccess(true);
           setNome('');
           setDescricao('');
         } catch (error) {
@@ -36,7 +37,7 @@ export const CadastroCategorias: React.FC = () => {
 
     try {
       await axios.post('http://localhost:8080/categorias/create', categoria);
-      alert('Categoria cadastrada com sucesso!');
+      setShowSuccess(true);
       setNome('');
       setDescricao('');
     } catch (error) {
@@ -80,6 +81,14 @@ export const CadastroCategorias: React.FC = () => {
           </a>
         </div>
       </div>
+      {showSuccess && (
+        <div className={styles.successOverlay}>
+          <div className={styles.successModal}>
+            <h2>Categoria cadastrada com sucesso!</h2>
+            <button onClick={() => setShowSuccess(false)} className={styles.closeButton}>OK</button>
+          </div>
+        </div>
+      )}
       <FooterGeral/>
     </>
   );
