@@ -4,23 +4,23 @@ import styles from './historico.module.css';
 import { NavBarGeral } from '../../components/NavBar/NavBar';
 import { Menu } from '../../components/Menu/Menu';
 import { FooterGeral } from '../../components/Footer/Footer';
-import { HistoricoCard } from '../../components/HistoricoCard/HistoricoCard';
+import { HistoricoCard } from '../../components/HistoricoCard/HistoricoCategoriasCard';
 import axios from 'axios';
 
-interface IHistoricoProduto {
+interface IHistoricoCategoria {
   id: number;
   nome: string;
   dataAlteracao: string;
   acao: string;
 }
 
-export function Historico() {
-  const [historico, setHistorico] = useState<IHistoricoProduto[]>([]);
+export function HistoricoCategorias() {
+  const [historico, setHistorico] = useState<IHistoricoCategoria[]>([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8080/historico_produtos")
+    axios.get("http://localhost:8080/historico_categorias")
       .then(response => setHistorico(response.data))
-      .catch(error => console.error("Erro ao buscar histórico:", error));
+      .catch(error => console.error("Erro ao buscar histórico de categorias:", error));
   }, []);
 
   return (
@@ -29,7 +29,7 @@ export function Historico() {
       <Menu />
       <div className={styles.pageContainer}>
         <div className={styles.historicoMain}>
-          <h2 className={styles.heading}>Histórico</h2>
+          <h2 className={styles.heading}>Histórico de Categorias</h2>
           <div className={styles.lista}>
             {historico.length > 0 ? (
               <ul style={{ listStyle: 'none', padding: 0 }}>
