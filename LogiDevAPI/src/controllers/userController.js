@@ -143,32 +143,23 @@ const userController = {
         }
     },
 
-   getUser: async (req, res) => {
-    try {
-        const userId = req.user.id; // id do usuário autenticado pelo JWT
+    getUser: async (req, res) => {
+        try {
 
-        const usuario = await prisma.usuarios.findUnique({
-            where: { id: userId }
-        });
+            const usuariosAchados = await prisma.usuarios.findMany()
 
-        if (!usuario) {
-            return res.status(404).json({
-                msg: "Usuário não encontrado"
-            });
+            return res.status(200).json({
+                msg: "Usuarios encontrados com sucesso",
+                usuariosAchados
+            })
+        } catch (error) {
+            console.log(error)
+            return res.status(500).json({
+                msg: "Internal server error"
+            })
         }
-
-        return res.status(200).json({
-            msg: "Usuário encontrado com sucesso",
-            usuario
-        });
-    } catch (error) {
-        console.log(error)
-        return res.status(500).json({
-            msg: "Internal server error"
-        })
     }
-},
 
-};
+}
 
 module.exports = userController;
