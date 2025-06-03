@@ -148,6 +148,7 @@ export function NavBarGeral() {
 
     const handleClose = () => {
         setIsOpen(false);
+         localStorage.removeItem('token');
         navigate("/"); // Chama a função de fechamento passada como prop
     };
 

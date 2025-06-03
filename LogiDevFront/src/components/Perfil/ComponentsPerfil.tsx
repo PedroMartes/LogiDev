@@ -1,19 +1,36 @@
-// src/components/componentsPerfil.tsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import styles from './componentsPerfil.module.css';
 
- export const ComponentsPerfil: React.FC = () => {
+export const ComponentsPerfil: React.FC = () => {
   const [isEditingEmail, setIsEditingEmail] = useState<boolean>(false);
-  const [email, setEmail] = useState<string>("marcos.fernando@email.com");
+  const [email, setEmail] = useState<string>('');
+  const [userName, setUserName] = useState<string>('');
   const [emailUpdated, setEmailUpdated] = useState<boolean>(false);
   const [showComponent, setShowComponent] = useState<boolean>(true);
 
-  // Se o usuário clicar em "Sair da conta", o componente não é renderizado.
+  useEffect(() => {
+    const fetchUserData = async () => {
+      const token = localStorage.getItem('token');
+      if (!token) return;
+      try {
+        const response = await axios.get('http://localhost:8080/usuarios/get', {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+        setUserName(response.data.nome); // Ajuste conforme o campo retornado pela sua API
+        setEmail(response.data.email);
+      } catch (error) {
+        // Trate o erro, por exemplo, deslogando o usuário
+        setShowComponent(false);
+      }
+    };
+    fetchUserData();
+  }, []);
+
   if (!showComponent) return null;
 
   const handleEditClick = () => {
     setIsEditingEmail(true);
-    // Remove uma eventual mensagem de sucesso anterior
     setEmailUpdated(false);
   };
 
@@ -23,28 +40,26 @@ import styles from './componentsPerfil.module.css';
 
   const handleSendEmail = () => {
     // Aqui você pode implementar uma chamada de API para atualizar o e-mail.
-    // Neste exemplo, simulamos o envio e a confirmação instantânea.
     setIsEditingEmail(false);
     setEmailUpdated(true);
   };
 
   const handleLogout = () => {
-    // Remove o componente da tela.
+    localStorage.removeItem('token');
     setShowComponent(false);
+    // Você pode redirecionar para a página inicial se desejar
   };
 
   return (
     <div className={styles.profileComponent}>
       <div className={styles.profileHeader}>
         <img
-          src="/profile-icon.png" // Substitua pelo caminho do seu ícone ou importe a imagem
+          src="/profile-icon.png"
           alt="Profile Icon"
           className={styles.profileIcon}
         />
         <div className={styles.profileInfo}>
-          <h2 className={styles.userName}>Marcos Fernando</h2>
-
-          {/* Exibe o input de edição se estiver em modo de edição */}
+          <h2 className={styles.userName}>{userName}</h2>
           {isEditingEmail ? (
             <div className={styles.editEmail}>
               <input

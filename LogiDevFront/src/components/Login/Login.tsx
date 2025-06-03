@@ -22,19 +22,21 @@ export function Login({ onClose, onOpenCadastro, onOpenEsqueciSenha }: { onClose
     return null; // Isso faz com que o componente não seja renderizado
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    try {
-      // Envia email e senha para a API
-      await axios.post('http://localhost:8080/usuarios/login', {
-        email: email,
-        senha: senha
-      });
-      navigate("/controle/produtos");
-    } catch (error) {
-      setErro('Email ou senha estão incorretos');
-    }
-  };
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  try {
+    // Envia email e senha para a API
+    const response = await axios.post('http://localhost:8080/usuarios/login', {
+      email: email,
+      senha: senha
+    });
+    // Supondo que o token venha em response.data.token
+    localStorage.setItem('token', response.data.token);
+    navigate("/controle/produtos");
+  } catch (error) {
+    setErro('Email ou senha estão incorretos');
+  }
+};
   
   return (
     <>

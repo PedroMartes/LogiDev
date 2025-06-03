@@ -1,6 +1,7 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import styles from "./Perfil.module.css";
 import * as Icon from 'react-bootstrap-icons'
+import axios from "axios";
 
 interface PerfilProps {
   onClose: () => void;
@@ -9,9 +10,28 @@ interface PerfilProps {
 export const Perfil: React.FC<PerfilProps> = ({ onClose }) => {
   const [showAlterarCampo, setShowAlterarCampo] = useState(false);
   const [novoEmail, setNovoEmail] = useState("");
-  const [email, setEmail] = useState("marcos.fernando@email.com");
+  const [email, setEmail] = useState("");
+  const [userName, setUserName] = useState(""); // Novo estado para nome
   const [showSucesso, setShowSucesso] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      const token = localStorage.getItem('token');
+      if (!token) return;
+      try {
+        const response = await axios.get('http://localhost:8080/usuarios/get', {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+        setUserName(response.data.nome); // Ajuste conforme o campo retornado pela sua API
+        setEmail(response.data.email);
+      } catch (error) {
+        setUserName("Usuário");
+        setEmail("");
+      }
+    };
+    fetchUserData();
+  }, []);
 
   function isEmailValido(email: string) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -36,6 +56,7 @@ export const Perfil: React.FC<PerfilProps> = ({ onClose }) => {
   };
 
   const handleSair = () => {
+    localStorage.removeItem('token');
     window.location.href = "/";
   };
 
@@ -50,17 +71,18 @@ export const Perfil: React.FC<PerfilProps> = ({ onClose }) => {
     return null; // Isso faz com que o componente não seja renderizado
   }
 
-
   return (
-    <div className={`${styles.perfilPopup} ${(showAlterarCampo || showSucesso) ? styles.perfilPopupExpandido : ""}`}>      <div className={styles.perfilPopupHeader}>
-      <div className={styles.perfilPopupAvatar}>
-        <i className="fas fa-user"></i><Icon.XLg className={styles.iconX} onClick={handleClose} />
+    <div className={`${styles.perfilPopup} ${(showAlterarCampo || showSucesso) ? styles.perfilPopupExpandido : ""}`}>
+      <div className={styles.perfilPopupHeader}>
+        <div className={styles.perfilPopupAvatar}>
+          <i className="fas fa-user"></i>
+          <Icon.XLg className={styles.iconX} onClick={handleClose} />
+        </div>
+        <div>
+          <div className={styles.perfilPopupNome}>{userName}</div>
+          <div className={styles.perfilPopupEmail}>{email}</div>
+        </div>
       </div>
-      <div>
-        <div className={styles.perfilPopupNome}>Marcos Fernando</div>
-        <div className={styles.perfilPopupEmail}>{email}</div>
-      </div>
-    </div>
       <hr style={{ border: "0.1vw solid #ccc", margin: "0.8vw 0 0 0" }} />
       {showSucesso && (
         <div className={styles.perfilPopupSucesso}>
@@ -122,51 +144,3 @@ export const Perfil: React.FC<PerfilProps> = ({ onClose }) => {
     </div>
   );
 };
-
-// import { useState } from 'react';
-// import styles from './Perfil.module.css';
-// import * as Icon from 'react-bootstrap-icons';
-
-// export function Perfil({ onClose }: { onClose: () => void }) {
-
-//     const [isOpen, setIsOpen] = useState(true);
-
-//     const handleClose = () => {
-//         setIsOpen(false);
-//         onClose();
-//     };
-
-//     if (!isOpen) {
-//         return null; // Isso faz com que o componente não seja renderizado
-//     }
-
-
-
-//     return (
-//         <>
-//                 <div className={styles.container}>
-
-//                     <div className={styles.faleConosco}>
-//                         <form>
-//                             <h1>Fale conosco</h1> <Icon.XLg className={styles.iconX} onClick={handleClose}/>
-//                             <hr/>
-//                             <p>Tire suas dúvidas, envie a sua mensagem e nós responderemos o mais breve possível. Obrigado!</p>
-//                             <input className={styles.input}
-//                             required
-//                             placeholder=" Nome da Empresa:" />
-//                             <input className={styles.input}
-//                             required type='tel'
-//                             placeholder="CNPJ/CPF:" />
-//                             <input className={styles.input}
-//                             required type='email'
-//                             placeholder=" E-mail:" />
-//                             <textarea className={styles.inputMensagem}
-//                             required
-//                             placeholder=" Sua Mensagem:"></textarea>
-//                             <button type="submit" className={styles.botaoEnviar}>Enviar</button>
-//                         </form>
-//                     </div >
-//                 </div >
-//         </>
-//     )
-// }
