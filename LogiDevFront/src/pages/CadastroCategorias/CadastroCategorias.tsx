@@ -82,13 +82,13 @@ export const CadastroCategorias: React.FC = () => {
         </div>
       </div>
       {showSuccess && (
-        <div className={styles.successOverlay}>
-          <div className={styles.successModal}>
-            <h2>Categoria cadastrada com sucesso!</h2>
-            <button onClick={() => setShowSuccess(false)} className={styles.closeButton}>OK</button>
-          </div>
-        </div>
-      )}
+  <div className={styles.successOverlay}>
+    <div className={styles.successModal}>
+      <h2>Cadastro realizado com sucesso!</h2>
+      <button onClick={() => setShowSuccess(false)} className={styles.closeButton}>OK</button>
+    </div>
+  </div>
+)}
       <FooterGeral/>
     </>
   );

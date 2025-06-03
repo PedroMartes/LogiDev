@@ -177,19 +177,3 @@
   text-align: center;
   min-width: 300px;
 }
-
-.closeButton {
-  margin-top: 1.5rem;
-  padding: 0.5rem 2rem;
-  background: #067992;
-  color: #fff;
-  border: none;
-  border-radius: 0.5rem;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-.closeButton:hover {
-  background: #04596b;
-}
