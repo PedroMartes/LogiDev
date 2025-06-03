@@ -4,10 +4,10 @@ import { Home } from './pages/Home/Home'
 import { Page404 } from './pages/Pagina404/Pagina404'
 import { ControleProdutos } from './pages/Controle/ControleProduto'
 import { ControleCadastros } from './pages/ControleCadastros/ControleCadastros'
-import { GraficoProdutos} from './pages/Graficos/GraficoProdutos'
-import { CadastroProdutos  } from './pages/CadastroProdutos/CadastroProduto'
-import { CadastroFornecedores  } from './pages/CadastroFornecedores/CadastroFornecedores'
-import { CadastroCategorias  } from './pages/CadastroCategorias/CadastroCategorias'
+import { GraficoProdutos } from './pages/Graficos/GraficoProdutos'
+import { CadastroProdutos } from './pages/CadastroProdutos/CadastroProduto'
+import { CadastroFornecedores } from './pages/CadastroFornecedores/CadastroFornecedores'
+import { CadastroCategorias } from './pages/CadastroCategorias/CadastroCategorias'
 import GraficoFornecedores from './pages/Graficos/GraficoFornecedor'
 import { HistoricoProdutos } from './pages/Historico/HistoricoProdutos'
 import { HistoricoCategorias } from './pages/Historico/HistoricoCategorias'
@@ -21,41 +21,177 @@ import { Nif } from './pages/NIF/Nif'
 import { DetalheProduto } from './pages/DetalheProduto/DetalheProduto'
 import { DetalheCategoria } from './pages/DetalheCategoria/DetalheCategoria'
 import { DetalheFornecedor } from './pages/DetalheFornecedor/DetalheFornecedor'
+import { ProtectedRoute } from "./Routerprotect";
 
+
+// ...existing imports...
 
 const Router = () => {
 
     return (
         <div>
             <BrowserRouter>
-                <Routes>  
-                    <Route path='/detalhe/fornecedores/:id' element={<DetalheFornecedor />} />
-                    <Route path='/detalhe/categorias/:id' element={<DetalheCategoria />} />
-                    <Route path='/detalhe/produtos/:id' element={<DetalheProduto />} />
-                    <Route path='/cadastro/produtos' element={<CadastroProdutos />} />
-                    <Route path='/cadastro/fornecedores' element={<CadastroFornecedores />} />
-                    <Route path='/cadastro/categorias' element={<CadastroCategorias />} />
+                <Routes>
+                    {/* Rotas públicas */}
                     <Route path='/' element={<Home />} />
                     <Route path='/home' element={<Home />} />
                     <Route path='/sobre' element={<Sobre />} />
-                    <Route path='/controle/produtos' element={<ControleProdutos />} />
-                    <Route path='/controle/categorias' element={<ControleCategorias />} />
-                    <Route path='/controle/fornecedores' element={<ControleFornecedores />} />
-                    <Route path='/controle/cadastros' element={<ControleCadastros />} />
                     <Route path="*" element={<Page404 />} />
-                    <Route path='/controle/grafico/produtos' element={< GraficoProdutos />} />
-                    <Route path='/controle/grafico/fornecedores' element={< GraficoFornecedores />} />
-                    <Route path='/historico/produtos' element={< HistoricoProdutos />} />
-                    <Route path='/historico/fornecedores' element={< HistoricoFornecedores />} />
-                    <Route path='/historico/categorias' element={< HistoricoCategorias />} />
-                    <Route path='/curvaABC' element={< CurvaABC />} />
-                    <Route path='/alertas' element={< Alerta />} />
-                    <Route path='/alertas/novoAlerta' element={< NovoAlerta />} />
-                    <Route path='/controle/grafico/produtos' element={< GraficoProdutos />} />
-                    <Route path='/controle/grafico/fornecedores' element={< GraficoFornecedores />} />
-                    <Route path='/curvaABC' element={< CurvaABC />} />
-                    <Route path='/nif' element={< Nif />} />
 
+                    {/* Rotas protegidas */}
+                    <Route
+                        path="/detalhe/fornecedores/:id"
+                        element={
+                            <ProtectedRoute>
+                                <DetalheFornecedor />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path='/detalhe/categorias/:id'
+                        element={
+                            <ProtectedRoute>
+                                <DetalheCategoria />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path='/detalhe/produtos/:id'
+                        element={
+                            <ProtectedRoute>
+                                <DetalheProduto />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path='/cadastro/produtos'
+                        element={
+                            <ProtectedRoute>
+                                <CadastroProdutos />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path='/cadastro/fornecedores'
+                        element={
+                            <ProtectedRoute>
+                                <CadastroFornecedores />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path='/cadastro/categorias'
+                        element={
+                            <ProtectedRoute>
+                                <CadastroCategorias />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path='/controle/categorias'
+                        element={
+                            <ProtectedRoute>
+                                <ControleCategorias />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path='/controle/fornecedores'
+                        element={
+                            <ProtectedRoute>
+                                <ControleFornecedores />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path='/controle/cadastros'
+                        element={
+                            <ProtectedRoute>
+                                <ControleCadastros />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path='/controle/produtos'
+                        element={
+                            <ProtectedRoute>
+                                <ControleProdutos />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path='/controle/grafico/produtos'
+                        element={
+                            <ProtectedRoute>
+                                <GraficoProdutos />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path='/controle/grafico/fornecedores'
+                        element={
+                            <ProtectedRoute>
+                                <GraficoFornecedores />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path='/historico/produtos'
+                        element={
+                            <ProtectedRoute>
+                                <HistoricoProdutos />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path='/historico/fornecedores'
+                        element={
+                            <ProtectedRoute>
+                                <HistoricoFornecedores />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path='/historico/categorias'
+                        element={
+                            <ProtectedRoute>
+                                <HistoricoCategorias />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path='/curvaABC'
+                        element={
+                            <ProtectedRoute>
+                                <CurvaABC />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path='/alertas'
+                        element={
+                            <ProtectedRoute>
+                                <Alerta />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path='/alertas/novoAlerta'
+                        element={
+                            <ProtectedRoute>
+                                <NovoAlerta />
+                            </ProtectedRoute>
+                        }
+                    />
+                    <Route
+                        path='/nif'
+                        element={
+                            <ProtectedRoute>
+                                <Nif />
+                            </ProtectedRoute>
+                        }
+                    />
+                    {/* Página 404 protegida (opcional, pode deixar pública se preferir) */}
                 </Routes>
             </BrowserRouter>
         </div>
@@ -63,3 +199,4 @@ const Router = () => {
 }
 
 export default Router;
+

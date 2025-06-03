@@ -112,14 +112,14 @@
 /* Botões – Cancelar e Salvar Alterações */
 .cancelButton,
 .saveButton {
-  font-family: 'Montserrat', Arial, sans-serif;
-  font-weight: 500;
-  font-size: 1vw;
-  border: none;
-  border-radius: 2vw;
-  padding: 0.6vw 1.8vw;
-  cursor: pointer;
-  transition: background 0.2s;
+    /* font-family: 'Montserrat', Arial, sans-serif; */
+    font-weight: 500;
+    font-size: 1vw;
+    border: none;
+    border-radius: 2vw;
+    padding: 0.6vw 1.8vw;
+    cursor: pointer;
+    transition: background 0.2s;
 }
 
 .cancelButton {

@@ -43,7 +43,7 @@ const userController = {
         //token vai sobreviver po 1h
         //palavra secreta -> Winghslompson o maior do Brasil E de Cuba -> base64 -> V2luZ2hzbG9tcHNvbiBvIG1haW9yIGRvIEJyYXNpbCBFIGRlIEN1YmE=
         const token = jwt.sign(payload, 'V2luZ2hzbG9tcHNvbiBvIG1haW9yIGRvIEJyYXNpbCBFIGRlIEN1YmE=' , {
-            expiresIn: '1h' // Tempo de expiração do token
+            expiresIn: '1d' // Tempo de expiração do token
         })
 
         return res.status(200).json({
@@ -143,7 +143,7 @@ const userController = {
         }
     },
 
-    getAll: async (req, res) => {
+    getUser: async (req, res) => {
         try {
 
             const usuariosAchados = await prisma.usuarios.findMany()

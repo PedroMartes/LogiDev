@@ -25,5 +25,5 @@ function authenticate(req, res, next) {
     }
 }
 
-module.exports = { authenticate }
+module.exports = authenticate;
 // ...existing code...

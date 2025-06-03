@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import styles from './novoAlerta.module.css';
 import { NavBarGeral } from '../../components/NavBar/NavBar';
 import { Menu } from '../../components/Menu/Menu';
@@ -41,7 +42,7 @@ export const NovoAlerta: React.FC = () => {
     navigate('/alertas');
   };
 
-  const salvarAlerta = () => {
+  const salvarAlerta = async () => {
     const newErrors = {
       titulo: !titulo,
       descricao: !descricao,
@@ -53,7 +54,18 @@ export const NovoAlerta: React.FC = () => {
     // Se algum campo estiver vazio, não salva
     if (Object.values(newErrors).some(Boolean)) return;
 
-    setShowPopup(true);
+    try {
+      await axios.post('http://localhost:8080/alertas/create', {
+        titulo,
+        descricao,
+        consequencia,
+        acao
+      });
+      setShowPopup(true);
+    } catch (error) {
+      alert('Erro ao cadastrar alerta!');
+      console.error(error);
+    }
   };
 
   const fecharPopup = () => {
