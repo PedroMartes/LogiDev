@@ -15,23 +15,25 @@ export const Perfil: React.FC<PerfilProps> = ({ onClose }) => {
   const [showSucesso, setShowSucesso] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  useEffect(() => {
-    const fetchUserData = async () => {
-      const token = localStorage.getItem('token');
-      if (!token) return;
-      try {
-        const response = await axios.get('http://localhost:8080/usuarios/get', {
-          headers: { Authorization: `Bearer ${token}` }
-        });
-        setUserName(response.data.nome); // Ajuste conforme o campo retornado pela sua API
-        setEmail(response.data.email);
-      } catch (error) {
-        setUserName("Usuário");
-        setEmail("");
-      }
-    };
-    fetchUserData();
-  }, []);
+ useEffect(() => {
+  const fetchUserData = async () => {
+    const token = localStorage.getItem('token');
+    if (!token) return;
+
+    try {
+      const response = await axios.get('http://localhost:8080/usuarios/get', {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      console.log("Resposta da API:", response.data); // <-- Adicione esta linha
+      setUserName(response.data.usuario?.nome || "Usuário");
+      setEmail(response.data.usuario?.email || "");
+    } catch (error) {
+      setUserName("Usuário");
+      setEmail("");
+    }
+  };
+  fetchUserData();
+}, []);
 
   function isEmailValido(email: string) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
