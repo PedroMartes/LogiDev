@@ -90,3 +90,12 @@ model FornecedoresHistorico {
   dataAlteracao DateTime @default(now())
   acao          String
 }
+
+model Alertas {
+  id           Int      @id @default(autoincrement())
+  titulo       String
+  descricao    String
+  consequencia String
+  acao         String
+  checked      Boolean  @default(false)
+}
