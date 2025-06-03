@@ -47,7 +47,7 @@
 }
 
 /* Inputs e textareas com bordas arredondadas e foco aprimorado */
-.formGroup input,
+.formGroup .inputnomeCategoria,
 .formGroup textarea {
   padding: 12px;
   border: 1px solid #cccccc;
@@ -56,7 +56,7 @@
   transition: border-color 0.3s ease;
 }
 
-.formGroup input:focus,
+.formGroup .inputnomeCategoria:focus,
 .formGroup textarea:focus {
   border-color: #007bff;
   outline: none;
@@ -164,7 +164,7 @@
 }
 
 /* Inputs, textarea e select com border-radius */
-.infoTable input,
+.infoTable .inputnomeCategoria,
 .infoTable textarea,
 .infoTable select {
   width: 100%;
@@ -180,7 +180,7 @@
   resize: none;
 }
 
-.infoTable input:focus,
+.infoTable .inputnomeCategoria:focus,
 .infoTable textarea:focus,
 .infoTable select:focus {
   border-color: #168399;
@@ -279,7 +279,7 @@
     padding: 2vw 4vw;
   }
   
-  .infoTable input,
+  .infoTable .inputnomeCategoria,
   .infoTable textarea,
   .infoTable select {
     font-size: 3vw;

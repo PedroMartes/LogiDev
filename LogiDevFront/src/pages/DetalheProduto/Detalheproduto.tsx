@@ -153,7 +153,7 @@ export function DetalheProduto() {
                   <input
                     type="text"
                     value={produto.nome}
-                    onChange={e => handleInputChange("nome", e.target.value)}
+                    onChange={e => handleInputChange("nome", e.target.value)} className={styles.inputNomeProduto}
                   />
                 </td>
               </tr>

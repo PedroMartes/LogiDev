@@ -94,7 +94,7 @@
 }
 
 .inputSenha {
-      display: flex;
+    display: flex;
     align-items: center;
     margin: 2vh 0vh 3vh 9vh;
     border: 2px solid transparent;
@@ -214,3 +214,11 @@
 .example2 .iconContent a.filled, .example2 .iconContent2 a.filled, .example2 .iconContent3 a.filled {
     transition: all 0.3s ease-in-out;
 }
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  /* Centraliza verticalmente */
+  align-items: center;      /* Centraliza horizontalmente */
+  min-height: 100vh;        /* Ocupa a altura total da tela */
+}
+

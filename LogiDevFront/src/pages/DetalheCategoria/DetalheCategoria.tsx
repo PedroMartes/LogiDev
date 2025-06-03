@@ -74,7 +74,7 @@ export function DetalheCategoria() {
                   <input
                     type="text"
                     value={categoria.nome}
-                    onChange={e => handleInputChange("nome", e.target.value)}
+                    onChange={e => handleInputChange("nome", e.target.value)} className={styles.inputnomeCategoria}
                   />
                 </td>
               </tr>

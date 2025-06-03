@@ -64,7 +64,7 @@
 }
 
 /* Inputs, textarea e select com border-radius */
-.infoTable input,
+.infoTable .inputnomeProduto,
 .infoTable textarea,
 .infoTable select {
   width: 100%;
@@ -80,7 +80,7 @@
   resize: none;
 }
 
-.infoTable input:focus,
+.infoTable .inputnomeProduto:focus,
 .infoTable textarea:focus,
 .infoTable select:focus {
   border-color: #168399;
@@ -179,7 +179,7 @@
     padding: 2vw 4vw;
   }
   
-  .infoTable input,
+  .infoTable .inputnomeProduto,
   .infoTable textarea,
   .infoTable select {
     font-size: 3vw;

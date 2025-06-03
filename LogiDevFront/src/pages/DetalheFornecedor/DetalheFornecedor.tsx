@@ -78,7 +78,7 @@ export function DetalheFornecedor() {
                   <input
                     type="text"
                     value={fornecedor.nome}
-                    onChange={e => setFornecedor({ ...fornecedor, nome: e.target.value })}
+                    onChange={e => setFornecedor({ ...fornecedor, nome: e.target.value })} className={styles.inputnomeFornecedor}
                   />
                 </td>
               </tr>
