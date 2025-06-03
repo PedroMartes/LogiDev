@@ -156,6 +156,7 @@
 .example2 .iconContent a, .example2 .iconContent2 a, .example2 .iconContent3 a   {
     position: relative;
     overflow: hidden;
+    margin-top: 3vh;
     display: flex;
     justify-content: center;
     align-items: center;
