@@ -11,6 +11,9 @@ export const CadastroFornecedores: React.FC = () => {
   const [contato, setContato] = useState('');
   const [telefone, setTelefone] = useState('');
   const [email, setEmail] = useState('');
+  const [showError, setShowError] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('Erro ao cadastrar fornecedor!');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -19,19 +22,31 @@ export const CadastroFornecedores: React.FC = () => {
 
     try {
       await axios.post('http://localhost:8080/fornecedores/create', fornecedor);
-      alert('Fornecedor cadastrado com sucesso!');
+      setShowSuccess(true);
       setNome('');
       setContato('');
       setTelefone('');
       setEmail('');
-    } catch (error) {
-      alert('Erro ao cadastrar fornecedor!');
+      setTimeout(() => setShowSuccess(false), 3000);
+    } catch (error: any) {
+      // Verifica se o erro é de duplicidade (ajuste conforme sua API)
+      if (
+        error.response &&
+        (error.response.status === 409 ||
+          (typeof error.response.data === 'string' &&
+            error.response.data.toLowerCase().includes('já cadastrado')))
+      ) {
+        setErrorMsg('Fornecedor já cadastrado!');
+      } else {
+        setErrorMsg('Erro ao cadastrar fornecedor!');
+      }
+      setShowError(true);
+      setTimeout(() => setShowError(false), 5000);
       console.error(error);
     }
   };
 
- const navigate = useNavigate();
-
+  const navigate = useNavigate();
 
   return (
     <div>
@@ -93,6 +108,55 @@ export const CadastroFornecedores: React.FC = () => {
               Verificar no estoque &rarr;
             </a>
           </div>
+
+          {showError && (
+            <div className={styles.alertaErro}>
+              <div className={styles.alertaErroHeader}>
+                <span className={styles.alertaErroTitle}>Erro!!</span>
+                <button
+                  className={styles.alertaErroClose}
+                  onClick={() => setShowError(false)}
+                  aria-label="Fechar"
+                  type="button"
+                >
+                  ×
+                </button>
+              </div>
+              <div className={styles.alertaErroMsg}>{errorMsg}</div>
+              <button
+                className={styles.alertaErroOkBtn}
+                onClick={() => setShowError(false)}
+                type="button"
+              >
+                OK
+              </button>
+            </div>
+          )}
+
+          {showSuccess && (
+            <div className={styles.alertaErro}>
+              <div className={styles.alertaErroHeader}>
+                <span className={styles.alertaErroTitle}>Sucesso!</span>
+                <button
+                  className={styles.alertaErroClose}
+                  onClick={() => setShowSuccess(false)}
+                  aria-label="Fechar"
+                  type="button"
+                >
+                  ×
+                </button>
+              </div>
+              <div className={styles.alertaErroMsg}>Fornecedor cadastrado com sucesso!</div>
+              <button
+                className={styles.alertaErroOkBtn}
+                onClick={() => setShowSuccess(false)}
+                type="button"
+              >
+                OK
+              </button>
+            </div>
+          )}
+
         </div>
       </div>
       <FooterGeral/>

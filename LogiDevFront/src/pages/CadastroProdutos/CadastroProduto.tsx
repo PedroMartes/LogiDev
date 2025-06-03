@@ -1,4 +1,3 @@
-// CadastroProdutos.tsx
 import React, { useState, useEffect } from 'react';
 import styles from './CadastroProduto.module.css';
 import axios from 'axios';
@@ -26,6 +25,9 @@ export const CadastroProdutos: React.FC = () => {
   const [categoria, setCategoria] = useState('');
   const [fornecedores, setFornecedores] = useState<IFornecedor[]>([]);
   const [categorias, setCategorias] = useState<ICategoria[]>([]);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [showError, setShowError] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('Erro ao cadastrar produto!');
 
   useEffect(() => {
     axios
@@ -51,30 +53,41 @@ export const CadastroProdutos: React.FC = () => {
     };
 
     try {
-      console.log(produto);
       await axios.post('http://localhost:8080/produtos/create', produto);
-      alert('Produto cadastrado com sucesso!');
+      setShowSuccess(true);
       setNome('');
       setDescricao('');
       setPreco('');
       setQuantidade('');
       setFornecedor('');
       setCategoria('');
-    } catch (error) {
-      alert('Erro ao cadastrar produto!');
+      setTimeout(() => setShowSuccess(false), 3000);
+    } catch (error: any) {
+      if (
+        error.response &&
+        (error.response.status === 409 ||
+          (typeof error.response.data === 'string' &&
+            error.response.data.toLowerCase().includes('já cadastrado')))
+      ) {
+        setErrorMsg('Produto já cadastrado!');
+      } else {
+        setErrorMsg('Erro ao cadastrar produto!');
+      }
+      setShowError(true);
+      setTimeout(() => setShowError(false), 5000);
       console.error(error);
     }
   };
 
-   const navigate = useNavigate();
- 
-   const handleNif = () => {
-     navigate('/nif', { state: { from: '/cadastro/produtos' } }); // ou use window.location.pathname para pegar a página atual
-   };
+  const navigate = useNavigate();
+
+  const handleNif = () => {
+    navigate('/nif', { state: { from: '/cadastro/produtos' } });
+  };
+
   return (
     <>
       <div>
-
         <NavBarGeral />
         <Menu />
         <div className={styles.container}>
@@ -161,13 +174,64 @@ export const CadastroProdutos: React.FC = () => {
           </div>
 
           <div className={styles.verificarWrapper}>
-    <a href="/controle/produtos" className={styles.verificarEstoque}>
-      Verificar no estoque &rarr;
-    </a>
-  </div>
+            <a href="/controle/produtos" className={styles.verificarEstoque}>
+              Verificar no estoque &rarr;
+            </a>
+          </div>
+
+          {/* ALERTA DE ERRO */}
+          {showError && (
+            <div className={styles.alertaErro}>
+              <div className={styles.alertaErroHeader}>
+                <span className={styles.alertaErroTitle}>Erro!!</span>
+                <button
+                  className={styles.alertaErroClose}
+                  onClick={() => setShowError(false)}
+                  aria-label="Fechar"
+                  type="button"
+                >
+                  ×
+                </button>
+              </div>
+              <div className={styles.alertaErroMsg}>{errorMsg}</div>
+              <button
+                className={styles.alertaErroOkBtn}
+                onClick={() => setShowError(false)}
+                type="button"
+              >
+                OK
+              </button>
+            </div>
+          )}
+
+          {/* ALERTA DE SUCESSO */}
+          {showSuccess && (
+            <div className={styles.alertaErro}>
+              <div className={styles.alertaErroHeader}>
+                <span className={styles.alertaErroTitle}>Sucesso!</span>
+                <button
+                  className={styles.alertaErroClose}
+                  onClick={() => setShowSuccess(false)}
+                  aria-label="Fechar"
+                  type="button"
+                >
+                  ×
+                </button>
+              </div>
+              <div className={styles.alertaErroMsg}>Produto cadastrado com sucesso!</div>
+              <button
+                className={styles.alertaErroOkBtn}
+                onClick={() => setShowSuccess(false)}
+                type="button"
+              >
+                OK
+              </button>
+            </div>
+          )}
+
         </div>
       </div>
-      <FooterGeral/>
+      <FooterGeral />
     </>
   );
 };

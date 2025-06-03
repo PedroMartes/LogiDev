@@ -10,6 +10,8 @@ export const CadastroCategorias: React.FC = () => {
   const [nome, setNome] = useState('');
   const [descricao, setDescricao] = useState('');
   const [showSuccess, setShowSuccess] = useState(false);
+  const [showError, setShowError] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('Erro ao cadastrar categoria!');
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -22,8 +24,20 @@ export const CadastroCategorias: React.FC = () => {
           setShowSuccess(true);
           setNome('');
           setDescricao('');
-        } catch (error) {
-          alert('Erro ao cadastrar categoria!');
+          setTimeout(() => setShowSuccess(false), 3000);
+        } catch (error: any) {
+          if (
+            error.response &&
+            (error.response.status === 409 ||
+              (typeof error.response.data === 'string' &&
+                error.response.data.toLowerCase().includes('já cadastrado')))
+          ) {
+            setErrorMsg('Categoria já cadastrada!');
+          } else {
+            setErrorMsg('Erro ao cadastrar categoria!');
+          }
+          setShowError(true);
+          setTimeout(() => setShowError(false), 5000);
         }
       };
       cadastrar();
@@ -40,8 +54,20 @@ export const CadastroCategorias: React.FC = () => {
       setShowSuccess(true);
       setNome('');
       setDescricao('');
-    } catch (error) {
-      alert('Erro ao cadastrar categoria!');
+      setTimeout(() => setShowSuccess(false), 3000);
+    } catch (error: any) {
+      if (
+        error.response &&
+        (error.response.status === 409 ||
+          (typeof error.response.data === 'string' &&
+            error.response.data.toLowerCase().includes('já cadastrado')))
+      ) {
+        setErrorMsg('Categoria já cadastrada!');
+      } else {
+        setErrorMsg('Erro ao cadastrar categoria!');
+      }
+      setShowError(true);
+      setTimeout(() => setShowError(false), 5000);
     }
   };
 
@@ -81,14 +107,57 @@ export const CadastroCategorias: React.FC = () => {
           </a>
         </div>
       </div>
+
+      {/* ALERTA DE ERRO */}
+      {showError && (
+        <div className={styles.alertaErro}>
+          <div className={styles.alertaErroHeader}>
+            <span className={styles.alertaErroTitle}>Erro!!</span>
+            <button
+              className={styles.alertaErroClose}
+              onClick={() => setShowError(false)}
+              aria-label="Fechar"
+              type="button"
+            >
+              ×
+            </button>
+          </div>
+          <div className={styles.alertaErroMsg}>{errorMsg}</div>
+          <button
+            className={styles.alertaErroOkBtn}
+            onClick={() => setShowError(false)}
+            type="button"
+          >
+            OK
+          </button>
+        </div>
+      )}
+
+      {/* ALERTA DE SUCESSO */}
       {showSuccess && (
-  <div className={styles.successOverlay}>
-    <div className={styles.successModal}>
-      <h2>Cadastro realizado com sucesso!</h2>
-      <button onClick={() => setShowSuccess(false)} className={styles.closeButton}>OK</button>
-    </div>
-  </div>
-)}
+        <div className={styles.alertaErro}>
+          <div className={styles.alertaErroHeader}>
+            <span className={styles.alertaErroTitle}>Sucesso!</span>
+            <button
+              className={styles.alertaErroClose}
+              onClick={() => setShowSuccess(false)}
+              aria-label="Fechar"
+              type="button"
+            >
+              ×
+            </button>
+          </div>
+          <div className={styles.alertaErroMsg}>Categoria cadastrada com sucesso!</div>
+          <button
+            className={styles.alertaErroOkBtn}
+            onClick={() => setShowSuccess(false)}
+            type="button"
+          >
+            OK
+          </button>
+        </div>
+      )}
+
       <FooterGeral/>
     </>
   );
