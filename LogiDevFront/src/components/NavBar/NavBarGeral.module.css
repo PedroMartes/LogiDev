@@ -28,9 +28,9 @@ header {
   height: 40px;
   margin-left: 3vh;
   border-radius: 50%;
-    background-color: #b1b1b1;
-    color: whitesmoke;
-     cursor: pointer;
+  background-color: #b1b1b1; 
+  color: whitesmoke;
+  cursor: pointer;
 }
 
 .navbarList {

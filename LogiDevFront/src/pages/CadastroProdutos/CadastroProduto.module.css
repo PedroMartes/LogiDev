@@ -64,7 +64,6 @@ select,
   margin-top: 0.3em;
   color: #444;
   font-style: italic;
-  font-family: inherit;
   outline: none;
   box-shadow: none;
   justify-content: center;
@@ -79,9 +78,8 @@ select,
   justify-content: center;
   text-align: center;
   padding: 0.7em 1em;
-  width: 100%;         /* Ocupa a largura do card */
-  min-height: 6em;     /* Altura confortável */
-  /* max-width: 100%;      */
+  width: 100%;        
+  min-height: 6em;     
   outline: none;
   overflow: hidden;
   background-color: #fff;
@@ -91,7 +89,7 @@ select,
 }
 
 
-/* Centraliza o placeholder horizontalmente */
+
 .formGroup textarea::placeholder {
   color: #bdbdbd;
   text-align: left;
@@ -140,7 +138,7 @@ select:invalid,
   align-items: center;
   justify-content: flex-end;
   width: 100vw;
-  pointer-events: none; /* para não bloquear o card */
+  pointer-events: none; 
 }
 
 .verificarEstoque {
@@ -148,5 +146,5 @@ select:invalid,
   display: flex;
    align-items: center;
   text-decoration: underline;
-   pointer-events: auto; /* permite clicar no link */
-}
+   pointer-events: auto; 
+  }
