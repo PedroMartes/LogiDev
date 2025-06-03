@@ -5,6 +5,7 @@ import axios from 'axios';
 import { NavBarGeral } from '../../components/NavBar/NavBar';
 import { Menu } from '../../components/Menu/Menu';
 import { useNavigate } from 'react-router';
+import { FooterGeral } from '../../components/Footer/Footer';
 
 interface ICategoria {
   id: number;
@@ -166,6 +167,7 @@ export const CadastroProdutos: React.FC = () => {
   </div>
         </div>
       </div>
+      <FooterGeral/>
     </>
   );
 };
