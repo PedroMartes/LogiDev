@@ -143,6 +143,34 @@ const userController = {
         }
     },
 
+     updateEmail: async (req, res) => {
+        try {
+            const { id } = req.params;
+            const { email } = req.body;
+
+            if (!email) {
+                return res.status(400).json({
+                    msg: 'Novo e-mail é obrigatório'
+                });
+            }
+
+            const userAtualizado = await prisma.usuarios.update({
+                where: { id: Number(id) },
+                data: { email }
+            });
+
+            return res.status(200).json({
+                msg: 'E-mail atualizado com sucesso',
+                user: userAtualizado
+            });
+        } catch (error) {
+            console.log(error);
+            return res.status(500).json({
+                msg: 'Internal server error'
+            });
+        }
+    },
+
     getUser: async (req, res) => {
         try {
 
