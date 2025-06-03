@@ -40,16 +40,23 @@ const historicoProdutosRouter = require("./historicoProdutosRouter")
 router.use("/historico_produtos", historicoProdutosRouter)
 
 
-// Histórico de Produtos
+// Histórico de Categorias
 const historicoCategoriasRouter = require("./historicoCategoriasRouter")
 
 router.use("/historico_categorias", historicoCategoriasRouter)
 
 
-// Histórico de Produtos
+// Histórico de Fornecedores
 const historicoFornecedoresRouter = require("./historicoFornecedoresRouter")
 
 router.use("/historico_fornecedores", historicoFornecedoresRouter)
+
+
+
+const alertasRouter = require("./alertasRouter")
+
+router.use("/alertas", alertasRouter)
+
 
 
 module.exports = router

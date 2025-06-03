@@ -78,12 +78,20 @@ export function Cadastro({ onClose, onOpenLogin }: { onClose: () => void, onOpen
               required
             />
             <input
-              className={style.input}
-              placeholder="CNPJ/CPF:"
-              value={cpfcnpj}
-              onChange={e => setCpfCnpj(e.target.value.replace(/\D/g, ""))}
-               required
-            />
+  className={style.input}
+  placeholder="CNPJ/CPF:"
+  value={cpfcnpj}
+  onChange={e => {
+    const value = e.target.value.replace(/\D/g, "");
+    // Limita a 14 caracteres (tamanho máximo para CNPJ)
+    if (value.length <= 14) {
+      setCpfCnpj(value);
+    }
+  }}
+  minLength={11}  // tamanho mínimo para CPF
+  maxLength={14}  // tamanho máximo para CNPJ
+  required
+/>
             <input
             type='email'
               className={style.input}

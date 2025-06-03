@@ -68,7 +68,8 @@
 .userPicture img {
     width: 10vh;
     height: 10vh;
-    margin-top: 2vh;
+    margin-top: -3vh;
+    
 }
 
 .cardTitulo {
