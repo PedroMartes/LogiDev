@@ -20,6 +20,7 @@ export const Perfil: React.FC<PerfilProps> = ({ onClose }) => {
   const [email, setEmail] = useState("");
   const [userName, setUserName] = useState("");
   const [showSucesso, setShowSucesso] = useState(false);
+  const [usuarioLogado, setUsuarioLogado] = useState<Usuario | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -37,9 +38,11 @@ export const Perfil: React.FC<PerfilProps> = ({ onClose }) => {
         if (usuarioLogado) {
           setUserName(usuarioLogado.nome);
           setEmail(usuarioLogado.email);
+          setUsuarioLogado(usuarioLogado);
         } else {
           setUserName("Usuário");
           setEmail("");
+          setUsuarioLogado(null);
         }
       } catch (error) {
         setUserName("Usuário");
@@ -60,12 +63,27 @@ export const Perfil: React.FC<PerfilProps> = ({ onClose }) => {
     }, 100);
   };
 
-  const handleAlterarEmail = (e: React.FormEvent) => {
-    e.preventDefault();
+ const handleAlterarEmail = async (e: React.FormEvent) => {
+  e.preventDefault();
+  const token = localStorage.getItem('token');
+  const usuarioId = usuarioLogado?.id;
+if (!token || !usuarioId) return;
+
+  try {
+   await axios.put(
+  `http://localhost:8080/usuarios/update-email/${usuarioId}`,
+  { email: novoEmail },
+  { headers: { Authorization: `Bearer ${token}` } }
+);
     setEmail(novoEmail);
     setShowSucesso(true);
     setShowAlterarCampo(false);
-  };
+    localStorage.setItem('email', novoEmail); // Atualiza o localStorage também
+  } catch (error) {
+    console.error('Erro ao atualizar e-mail:', error);  
+    alert('Erro ao atualizar e-mail!');
+  }
+};
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNovoEmail(e.target.value);

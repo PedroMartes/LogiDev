@@ -15,9 +15,11 @@ router.get('/get', authenticate, userController.getUser);
 
 router.post("/cadastro", (req, res) => userController.create(req, res));
 
-router.delete("delete/:id", (req, res) => userController.delete(req, res));
+router.delete("/delete/:id", (req, res) => userController.delete(req, res));
 
-router.put("update/:id", (req, res) => userController.update(req, res));
+router.put("/update/:id", (req, res) => userController.update(req, res));
+
+router.put('/update-email/:id', userController.updateEmail);   
 
 module.exports = router;
  
