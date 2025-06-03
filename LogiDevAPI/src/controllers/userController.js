@@ -43,7 +43,7 @@ const userController = {
         //token vai sobreviver po 1h
         //palavra secreta -> Winghslompson o maior do Brasil E de Cuba -> base64 -> V2luZ2hzbG9tcHNvbiBvIG1haW9yIGRvIEJyYXNpbCBFIGRlIEN1YmE=
         const token = jwt.sign(payload, 'V2luZ2hzbG9tcHNvbiBvIG1haW9yIGRvIEJyYXNpbCBFIGRlIEN1YmE=' , {
-            expiresIn: '1h' // Tempo de expiração do token
+            expiresIn: '1d' // Tempo de expiração do token
         })
 
         return res.status(200).json({
@@ -143,23 +143,32 @@ const userController = {
         }
     },
 
-    getAll: async (req, res) => {
-        try {
+   getUser: async (req, res) => {
+    try {
+        const userId = req.user.id; // id do usuário autenticado pelo JWT
 
-            const usuariosAchados = await prisma.usuarios.findMany()
+        const usuario = await prisma.usuarios.findUnique({
+            where: { id: userId }
+        });
 
-            return res.status(200).json({
-                msg: "Usuarios encontrados com sucesso",
-                usuariosAchados
-            })
-        } catch (error) {
-            console.log(error)
-            return res.status(500).json({
-                msg: "Internal server error"
-            })
+        if (!usuario) {
+            return res.status(404).json({
+                msg: "Usuário não encontrado"
+            });
         }
-    }
 
-}
+        return res.status(200).json({
+            msg: "Usuário encontrado com sucesso",
+            usuario
+        });
+    } catch (error) {
+        console.log(error)
+        return res.status(500).json({
+            msg: "Internal server error"
+        })
+    }
+},
+
+};
 
 module.exports = userController;
