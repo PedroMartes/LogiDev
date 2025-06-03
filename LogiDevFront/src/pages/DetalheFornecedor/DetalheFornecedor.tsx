@@ -49,6 +49,7 @@ export function DetalheFornecedor() {
     try {
       await axios.put(`http://localhost:8080/fornecedores/update/${id}`, fornecedor);
       alert("Fornecedor atualizado com sucesso!");
+      navigate("/controle/fornecedores"); // Redireciona para a página de estoque de fornecedores
     } catch (error) {
       alert("Erro ao atualizar fornecedor!");
       console.error(error);
