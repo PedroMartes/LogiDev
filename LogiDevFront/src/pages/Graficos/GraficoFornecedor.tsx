@@ -4,6 +4,7 @@ import { Bar } from "react-chartjs-2";
 import { NavBarGeral } from "../../components/NavBar/NavBar";
 import style from "./GraficoProduto.module.css"
 import { Menu } from "../../components/Menu/Menu";
+import { FooterGeral } from "../../components/Footer/Footer";
 
 ChartJS.register(
   BarElement,
@@ -101,6 +102,7 @@ export const GraficoFornecedores = () => {
           />
         </div>
       </div>
+      <FooterGeral />
     </div>
   )
 }

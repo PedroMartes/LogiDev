@@ -3,6 +3,7 @@ import styles from "./FornecedorCard.module.css";
 import { Link } from "react-router-dom";
 import { MdDelete } from "react-icons/md";
 import { PiNotePencilFill } from "react-icons/pi";
+import { FooterGeral } from "../Footer/Footer";
 
 interface CardProps {
     id: number;
@@ -44,7 +45,7 @@ const FornecedorCard: React.FC<CardProps> = ({ id, nome, contato, telefone, emai
                     </Link>
                 </button>
             </div>
-
+            <FooterGeral />
         </>
     );
 }

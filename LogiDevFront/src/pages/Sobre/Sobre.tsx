@@ -4,7 +4,7 @@ import VisaoIcon from '../../assets/img/visao-icon.png'
 import ValoresIcon from '../../assets/img/valores-icon.png'
 import SobreImg from '../../assets/img/sobre.png'
 import { NavBar } from '../../components/NavBar/NavBar'
-import { FooterGeral } from '../../components/Footer/Footer'
+import { Footer } from '../../components/Footer/Footer'
 
 export function Sobre() {
     return (
@@ -61,7 +61,7 @@ export function Sobre() {
 
                 </div>
             </div>
-            <FooterGeral/>
+            <Footer/>
         </>
     )
 }
