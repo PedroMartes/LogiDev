@@ -91,7 +91,6 @@
     background-color: #F3F3F3;
     border-radius: 2em;
     transition: all 0.5s;
-    font-family: Arial, Helvetica, sans-serif;
     resize: none;
 }
 
@@ -105,7 +104,6 @@
 .botaoEnviar {
     display: block;
     margin: 1.5em auto;
-    /* Centraliza o botão */
     margin-top: 5vh;
     padding: 1em 3em;
     font-size: 2vh;

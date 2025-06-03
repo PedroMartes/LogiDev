@@ -30,7 +30,6 @@
     justify-content: center;
     align-items: flex-start; /* Alinha ao topo */
     color: white;
-    font-family: "montserrat", sans-serif;
     position: relative;
     height: 92vh; /* Mesma altura do container */
 }
@@ -80,14 +79,6 @@
     transform: all 0.3s ease-in-out;
 }
  
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-    font-size: 1rem;
-    font-family: "montserrat", sans-serif;
-}
 
 @media (height: 13vh) {
    
