@@ -112,7 +112,11 @@ export function Menu() {
                         </a>
                         <ul className={styles.submenu}>
                             <hr style={{ border: '1px solid #045a6e', margin: 0 }} />
-                            <li><a href="/historico" className={styles.submenuLink}>Histórico</a></li>
+                            <li><a href="/historico/produtos" className={styles.submenuLink}>Histórico de Produtos</a></li>
+                            <hr style={{ border: '1px solid #045a6e', margin: 0 }} />
+                            <li><a href="/historico/fornecedores" className={styles.submenuLink}>Histórico de Fornecedores</a></li>
+                            <hr style={{ border: '1px solid #045a6e', margin: 0 }} />
+                            <li><a href="/historico/categorias" className={styles.submenuLink}>Histórico de Categorias</a></li>
                             <hr style={{ border: '1px solid #045a6e', margin: 0 }} />
                             <li>
                                 <a href="/alertas" className={styles.submenuLink}>Alertas</a>

@@ -9,7 +9,9 @@ import { CadastroProdutos  } from './pages/CadastroProdutos/CadastroProduto'
 import { CadastroFornecedores  } from './pages/CadastroFornecedores/CadastroFornecedores'
 import { CadastroCategorias  } from './pages/CadastroCategorias/CadastroCategorias'
 import GraficoFornecedores from './pages/Graficos/GraficoFornecedor'
-import { Historico } from './pages/Historico/historico'
+import { HistoricoProdutos } from './pages/Historico/HistoricoProdutos'
+import { HistoricoCategorias } from './pages/Historico/HistoricoCategorias'
+import { HistoricoFornecedores } from './pages/Historico/HistoricoFornecedores'
 import CurvaABC from './pages/CurvaABC/CurvaABC'
 import { Alerta } from './pages/Alerta/alerta'
 import { NovoAlerta } from './pages/Alerta/novoAlerta'
@@ -43,13 +45,14 @@ const Router = () => {
                     <Route path="*" element={<Page404 />} />
                     <Route path='/controle/grafico/produtos' element={< GraficoProdutos />} />
                     <Route path='/controle/grafico/fornecedores' element={< GraficoFornecedores />} />
-                    <Route path='/historico' element={< Historico />} />
+                    <Route path='/historico/produtos' element={< HistoricoProdutos />} />
+                    <Route path='/historico/fornecedores' element={< HistoricoFornecedores />} />
+                    <Route path='/historico/categorias' element={< HistoricoCategorias />} />
                     <Route path='/curvaABC' element={< CurvaABC />} />
                     <Route path='/alertas' element={< Alerta />} />
                     <Route path='/alertas/novoAlerta' element={< NovoAlerta />} />
                     <Route path='/controle/grafico/produtos' element={< GraficoProdutos />} />
                     <Route path='/controle/grafico/fornecedores' element={< GraficoFornecedores />} />
-                    <Route path='/historico' element={< Historico />} />
                     <Route path='/curvaABC' element={< CurvaABC />} />
                     <Route path='/nif' element={< Nif />} />
 

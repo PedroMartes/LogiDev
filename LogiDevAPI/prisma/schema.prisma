@@ -71,3 +71,22 @@ model ProdutosHistorico {
   dataAlteracao DateTime @default(now())
   acao          String   // <-- novo campo para ação
 }
+model CategoriasHistorico {
+  id            Int      @id @default(autoincrement())
+  categoriaId   Int
+  nome          String
+  descricao     String
+  dataAlteracao DateTime @default(now())
+  acao          String
+}
+
+model FornecedoresHistorico {
+  id            Int      @id @default(autoincrement())
+  fornecedorId  Int
+  nome          String
+  contato       String
+  telefone      String
+  email         String
+  dataAlteracao DateTime @default(now())
+  acao          String
+}
