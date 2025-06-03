@@ -7,33 +7,47 @@ interface PerfilProps {
   onClose: () => void;
 }
 
+interface Usuario {
+  id: number;
+  nome: string;
+  email: string;
+  senha: string;
+}
+
 export const Perfil: React.FC<PerfilProps> = ({ onClose }) => {
   const [showAlterarCampo, setShowAlterarCampo] = useState(false);
   const [novoEmail, setNovoEmail] = useState("");
   const [email, setEmail] = useState("");
-  const [userName, setUserName] = useState(""); // Novo estado para nome
+  const [userName, setUserName] = useState("");
   const [showSucesso, setShowSucesso] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
- useEffect(() => {
-  const fetchUserData = async () => {
-    const token = localStorage.getItem('token');
-    if (!token) return;
+  useEffect(() => {
+    const fetchUserData = async () => {
+      const token = localStorage.getItem('token');
+      const emailLogado = localStorage.getItem('email');
+      if (!token || !emailLogado) return;
 
-    try {
-      const response = await axios.get('http://localhost:8080/usuarios/get', {
-        headers: { Authorization: `Bearer ${token}` }
-      });
-      console.log("Resposta da API:", response.data); // <-- Adicione esta linha
-      setUserName(response.data.usuario?.nome || "Usuário");
-      setEmail(response.data.usuario?.email || "");
-    } catch (error) {
-      setUserName("Usuário");
-      setEmail("");
-    }
-  };
-  fetchUserData();
-}, []);
+      try {
+        const response = await axios.get('http://localhost:8080/usuarios/get', {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+        const usuarios: Usuario[] = response.data.usuariosAchados;
+        const usuarioLogado = usuarios.find((u) => u.email === emailLogado);
+        if (usuarioLogado) {
+          setUserName(usuarioLogado.nome);
+          setEmail(usuarioLogado.email);
+        } else {
+          setUserName("Usuário");
+          setEmail("");
+        }
+      } catch (error) {
+        setUserName("Usuário");
+        setEmail("");
+      }
+    };
+    fetchUserData();
+  }, []);
 
   function isEmailValido(email: string) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -70,7 +84,7 @@ export const Perfil: React.FC<PerfilProps> = ({ onClose }) => {
   };
 
   if (!isOpen) {
-    return null; // Isso faz com que o componente não seja renderizado
+    return null;
   }
 
   return (
