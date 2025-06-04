@@ -1,5 +1,5 @@
 /* Container da tabela */
-.infoContainer {
+.infoContainerProduto {
   max-width: 90vw;
   margin: 2vw auto;
   padding: 1vw;
@@ -14,7 +14,7 @@
 }
 
 /* Título azul */
-.infoTitle {
+.infoTitleProduto {
   font-size: 2.2vw;
   font-weight: 500;
   color: #4a6a85;
@@ -27,7 +27,7 @@
 }
 
 /* Tabela de informações */
-.infoTable {
+.infoTableProduto {
   width: 85vw;
   max-width: 58vw;
   min-width: 16vw;
@@ -39,8 +39,8 @@
   margin: 0 auto;
 }
 
-.infoTable th,
-.infoTable td {
+.infoTableProduto th,
+.infoTableProduto td {
   font-size: 1.1vw;
   font-weight: 400;
   text-align: left;
@@ -48,7 +48,7 @@
   border-bottom: 0.08vw solid #eee;
 }
 
-.infoTable th {
+.infoTableProduto th {
   font-weight: 500;
   color: #202020;
   width: 14vw;
@@ -58,15 +58,18 @@
   background: none;
 }
 
-.infoTable tr:last-child th,
-.infoTable tr:last-child td {
+.infoTableProduto tr:last-child th,
+.infoTableProduto tr:last-child td {
   border-bottom: none;
 }
 
 /* Inputs, textarea e select com border-radius */
-.infoTable .inputnomeProduto,
-.infoTable textarea,
-.infoTable select {
+.infoTableProduto .inputnomeProduto,
+.infoTableProduto .inputDescricaoProduto,
+.infoTableProduto .inputPrecoProduto,
+.infoTableProduto .inputQuantidadeProduto,
+.infoTableProduto .inputCategoriaProduto,
+.infoTable .selectCadastroProdutos{
   width: 100%;
   background: #fff;
   border: 0.1vw solid #ccc;
@@ -80,14 +83,16 @@
   resize: none;
 }
 
-.infoTable .inputnomeProduto:focus,
-.infoTable textarea:focus,
-.infoTable select:focus {
+.infoTableProduto .inputnomeProduto:focus,
+.infoTableProduto .inputDescricaoProduto:focus,
+.infoTableProduto .inputPrecoProduto:focus,
+.infoTableProduto .inputQuantidadeProduto:focus,
+.infoTableProduto .inputCategoriaProduto:focus,
+.infoTable .selectCadastroProdutos:focus {
   border-color: #168399;
   box-shadow: 0 0 0.2vw #b2e4ef;
   background: #f3f7fa;
 }
-
 /* Lista de produtos associados (caso exista) */
 .produtoList {
   margin: 0;
@@ -100,7 +105,7 @@
 }
 
 /* Grupo de botões centralizado */
-.buttonGroup {
+.buttonGroupProduto {
   display: flex;
   justify-content: center;
   gap: 2vw;
@@ -110,8 +115,8 @@
 }
 
 /* Botões – Cancelar e Salvar Alterações */
-.cancelButton,
-.saveButton {
+.cancelButtonProduto,
+.saveButtonProduto {
     /* font-family: 'Montserrat', Arial, sans-serif; */
     font-weight: 500;
     font-size: 1vw;
@@ -122,26 +127,26 @@
     transition: background 0.2s;
 }
 
-.cancelButton {
+.cancelButtonProduto {
   background: #bbb;
   color: #222;
 }
 
-.cancelButton:hover {
+.cancelButtonProduto:hover {
   background: #999;
 }
 
-.saveButton {
+.saveButtonProduto {
   background: #168399;
   color: #fff;
 }
 
-.saveButton:hover {
+.saveButtonProduto:hover {
   background: #11697a;
 }
 
 /* Responsividade para telas menores */
-@media (max-width: 600px) {
+/* @media (max-width: 600px) {
   .infoContainer {
     max-width: 98vw;
     padding: 2vw 1vw;
@@ -187,4 +192,4 @@
     border-radius: 2vw;
     height: 6vw;
   }
-}
+} */

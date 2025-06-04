@@ -67,10 +67,10 @@ export function DetalheFornecedor() {
     <>
       <NavBarGeral />
       <Menu />
-      <div className={styles.infoContainer}>
-        <div className={styles.infoTitle}>Informações do Fornecedor</div>
+      <div className={styles.infoContainerFornecedor}>
+        <div className={styles.infoTitleFornecedor}>Informações do Fornecedor</div>
         <form onSubmit={handleSave}>
-          <table className={styles.infoTable}>
+          <table className={styles.infoTableFornecedor}>
             <tbody>
               <tr>
                 <th>Nome</th>
@@ -88,7 +88,7 @@ export function DetalheFornecedor() {
                   <input
                     type="text"
                     value={fornecedor.contato}
-                    onChange={e => setFornecedor({ ...fornecedor, contato: e.target.value })}
+                    onChange={e => setFornecedor({ ...fornecedor, contato: e.target.value })} className={styles.inputContatoFornecedor}
                   />
                 </td>
               </tr>
@@ -98,7 +98,7 @@ export function DetalheFornecedor() {
                   <input
                     type="text"
                     value={fornecedor.telefone}
-                    onChange={e => setFornecedor({ ...fornecedor, telefone: e.target.value })}
+                    onChange={e => setFornecedor({ ...fornecedor, telefone: e.target.value })} className={styles.inputTelefoneFornecedor}
                   />
                 </td>
               </tr>
@@ -108,7 +108,7 @@ export function DetalheFornecedor() {
                   <input
                     type="email"
                     value={fornecedor.email}
-                    onChange={e => setFornecedor({ ...fornecedor, email: e.target.value })}
+                    onChange={e => setFornecedor({ ...fornecedor, email: e.target.value })}  className={styles.inputEmailFornecedor}
                   />
                 </td>
               </tr>
@@ -130,15 +130,15 @@ export function DetalheFornecedor() {
               </tr>
             </tbody>
           </table>
-          <div className={styles.buttonGroup}>
+          <div className={styles.buttonGroupFornecedor}>
             <button
               type="button"
-              className={styles.cancelButton}
+              className={styles.cancelButtonFornecedor}
               onClick={() => navigate(-1)}
             >
               Cancelar
             </button>
-            <button type="submit" className={styles.saveButton}>
+            <button type="submit" className={styles.saveButtonFornecedor}>
               Salvar Alterações
             </button>
           </div>

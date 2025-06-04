@@ -26,11 +26,16 @@ export const GraficoFornecedores = () => {
   const [produtos, setProdutos] = useState<IProduto[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/produtos/get")
-      .then(res => res.json())
-      .then(json => setProdutos(json))
-      .catch(error => console.log(error));
-  }, []);
+  const token = localStorage.getItem('token');
+  fetch("http://localhost:8080/produtos/get", {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  })
+    .then(res => res.json())
+    .then(json => setProdutos(json.produtos || json))
+    .catch(error => console.log(error));
+}, []);
 
   // Conta produtos por fornecedor
   const fornecedorCountMap: { [key: string]: { nome: string, count: number } } = {};

@@ -63,13 +63,13 @@ export function DetalheCategoria() {
     <>
       <NavBarGeral />
       <Menu />
-      <div className={styles.infoContainer}>
-        <div className={styles.infoTitle}>Informações da Categoria</div>
+      <div className={styles.infoContainerCategoria}>
+        <div className={styles.infoTitleCategoria}>Informações da Categoria</div>
         <form onSubmit={handleSave}>
-          <table className={styles.infoTable}>
+          <table className={styles.infoTableCategoria}>
             <tbody>
               <tr>
-                <th>Nome da categoria</th>
+                <th className={styles.nomeCategoria}>Nome da categoria</th>
                 <td>
                   <input
                     type="text"
@@ -84,23 +84,24 @@ export function DetalheCategoria() {
                   <textarea
                     value={categoria.descricao}
                     onChange={e =>
-                      handleInputChange("descricao", e.target.value)
+                      handleInputChange("descricao", e.target.value) 
                     }
+                    className={styles.inputDescricaoCategoria}
                     rows={2}
                   />
                 </td>
               </tr>
             </tbody>
           </table>
-          <div className={styles.buttonGroup}>
+          <div className={styles.buttonGroupCategoria}>
             <button
               type="button"
-              className={styles.cancelButton}
+              className={styles.cancelButtonCategoria}
               onClick={handleCancel}
             >
               Cancelar
             </button>
-            <button type="submit" className={styles.saveButton}>
+            <button type="submit" className={styles.saveButtonCategoria}>
               Salvar alterações
             </button>
           </div>

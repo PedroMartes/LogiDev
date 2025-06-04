@@ -1,4 +1,4 @@
-.container {
+.containerCadastroProdutos {
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -9,7 +9,7 @@
   position: relative;
 }
 
-.card {
+.cardCadastroProdutos {
   background: #ebebeb;
   border-radius: 2.2vh;
   padding: 2.5em 2em 2em 2em;
@@ -29,14 +29,14 @@
   font-weight: 500;
 }
 
-.form {
+.formCadastroProdutos {
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 1em;
 }
 
-.formRow {
+.formRowCadastroProdutos {
   display: flex;
   gap: 1em;
   justify-content: center;
@@ -44,21 +44,21 @@
   text-align: center;
 }
 
-.formGroup {
+.formGroupCadastroProdutos {
   display: flex;
   justify-content: center;
 }
 
-.halfFormGroup {
+.halfFormGroupCadastroProdutos {
   flex: 1;
   display: flex;
   flex-direction: column;
 }
 
-.halfFormGroup input,
-.formGroup input,
-select,
-.formGroup textarea {
+.halfFormGroupCadastroProdutos .inputCadastroProdutos,
+.formGroupCadastroProdutos .inputCadastroProdutos,
+.halfFormGroupCadastroProdutos .selectCadastroProdutos,
+.formGroupCadastroProdutos .selectCadastroProdutos{
   border: none;
   border-radius: 1.5vh;
   padding: 0.7em 1em;
@@ -75,7 +75,7 @@ select,
 
 }
 
-.formGroup textarea {
+.formGroupCadastroProdutos textarea {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -93,7 +93,7 @@ select,
 
 
 
-.formGroup textarea::placeholder {
+.formGroupCadastroProdutos textarea::placeholder {
   color: #bdbdbd;
   text-align: left;
   line-height: normal;
@@ -102,10 +102,10 @@ select,
   display: block;
 }
 
-.halfFormGroup input::placeholder,
-.formGroup input::placeholder,
-select:invalid,
-.formGroup textarea::placeholder {
+.halfFormGroupCadastroProdutos .inputCadastroProdutos::placeholder,
+.formGroupCadastroProdutos .inputCadastroProdutos::placeholder,
+.selectCadastroProdutos:invalid,
+.formGroupCadastroProdutos textarea::placeholder {
   color: #bdbdbd;
   text-align: center;
 }
@@ -115,7 +115,7 @@ select:invalid,
 }
 
 
-.button {
+.buttonCadastroProdutos {
   width: 100%;
   background: #178ca4;
   color: #fff;
@@ -129,11 +129,11 @@ select:invalid,
   transition: background 0.2s;
 }
 
-.button:hover {
+.buttonCadastroProdutos:hover {
   background: #11687d;
 }
 
-.verificarWrapper {
+.verificarWrapperCadastroProdutos {
   position: absolute;
   right: 4vw;
   top: 20em;
@@ -144,7 +144,7 @@ select:invalid,
   pointer-events: none;
 }
 
-.verificarEstoque {
+.verificarEstoqueCadastroProdutos {
   color: #11687d;
   display: flex;
   align-items: center;
@@ -227,7 +227,7 @@ select:invalid,
   background: #0e5a6e;
 }
 
-@keyframes fadeInScale {
+/* @keyframes fadeInScale {
   from {
     opacity: 0;
     transform: translate(-50%, -50%) scale(0.8);
@@ -236,4 +236,4 @@ select:invalid,
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
   }
-}
+} */

@@ -142,10 +142,10 @@ export function DetalheProduto() {
     <>
       <NavBarGeral />
       <Menu />
-      <div className={styles.infoContainer}>
-        <div className={styles.infoTitle}>Informações do Produto</div>
+      <div className={styles.infoContainerProduto}>
+        <div className={styles.infoTitleProduto}>Informações do Produto</div>
         <form onSubmit={handleSave}>
-          <table className={styles.infoTable}>
+          <table className={styles.infoTableProduto}>
             <tbody>
               <tr>
                 <th>Nome do produto:</th>
@@ -163,7 +163,7 @@ export function DetalheProduto() {
                   <input
                     type="text"
                     value={produto.descricao}
-                    onChange={e => handleInputChange("descricao", e.target.value)}
+                    onChange={e => handleInputChange("descricao", e.target.value)} className={styles.inputDescricaoProduto}
                   />
                 </td>
               </tr>
@@ -174,8 +174,8 @@ export function DetalheProduto() {
                     type="number"
                     step="0.01"
                     value={produto.preco}
-                    onChange={e => handleInputChange("preco", e.target.value)}
-                    className={styles.inputPreco}
+                    onChange={e => handleInputChange("preco", e.target.value)} 
+                    className={styles.inputPrecoProduto}
                   />
                 </td>
               </tr>
@@ -229,21 +229,21 @@ export function DetalheProduto() {
                   <input
                     type="number"
                     value={produto.quantidade}
-                    onChange={e => handleInputChange("quantidade", e.target.value)}
+                    onChange={e => handleInputChange("quantidade", e.target.value)} className={styles.inputQuantidadeProduto}
                   />
                 </td>
               </tr>
             </tbody>
           </table>
-          <div className={styles.buttonGroup}>
+          <div className={styles.buttonGroupProduto}>
             <button
               type="button"
-              className={styles.cancelButton}
+              className={styles.cancelButtonProduto}
               onClick={handleCancel}
             >
               Cancelar
             </button>
-            <button type="submit" className={styles.saveButton}>
+            <button type="submit" className={styles.saveButtonProduto}>
               Salvar alterações
             </button>
           </div>

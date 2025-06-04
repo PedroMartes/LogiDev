@@ -1,5 +1,5 @@
 /* Container da tabela */
-.infoContainer {
+.infoContainerFornecedor {
   max-width: 90vw;
   margin: 2vw auto;
   padding: 1vw;
@@ -14,7 +14,7 @@
 }
 
 /* Título azul */
-.infoTitle {
+.infoTitleFornecedor {
   font-size: 2.2vw;
   font-weight: 500;
   color: #4a6a85;
@@ -27,7 +27,7 @@
 }
 
 /* Tabela de informações */
-.infoTable {
+.infoTableFornecedor {
   width: 85vw;
   max-width: 58vw;
   min-width: 16vw;
@@ -39,8 +39,8 @@
   margin: 0 auto;
 }
 
-.infoTable th,
-.infoTable td {
+.infoTableFornecedor th,
+.infoTableFornecedor td {
   font-size: 1.1vw;
   font-weight: 400;
   text-align: left;
@@ -48,7 +48,7 @@
   border-bottom: 0.08vw solid #eee;
 }
 
-.infoTable th {
+.infoTableFornecedor th {
   font-weight: 500;
   color: #202020;
   width: 14vw;
@@ -58,14 +58,16 @@
   background: none;
 }
 
-.infoTable tr:last-child th,
-.infoTable tr:last-child td {
+.infoTableFornecedor tr:last-child th,
+.infoTableFornecedor tr:last-child td {
   border-bottom: none;
 }
 
 /* Inputs, textarea e select com border-radius */
-.infoTable .inputnomeFornecedor,
-.infoTable textarea,
+.infoTableFornecedor .inputnomeFornecedor,
+.infoTableFornecedor .inputContatoFornecedor,
+.infoTableFornecedor .inputTelefoneFornecedor,
+.infoTableFornecedor .inputEmailFornecedor,
 .infoTable select {
   width: 100%;
   background: #fff;
@@ -80,9 +82,11 @@
   resize: none;
 }
 
-.infoTable .inputnomeFornecedor:focus,
-.infoTable textarea:focus,
-.infoTable select:focus {
+.infoTableFornecedor .inputnomeFornecedor:focus,
+.infoTableFornecedor .inputContatoFornecedor:focus,
+.infoTableFornecedor .inputTelefoneFornecedor:focus,
+.infoTableFornecedor .inputEmailFornecedor:focus
+.infoTableFornecedor select:focus {
   border-color: #168399;
   box-shadow: 0 0 0.2vw #b2e4ef;
   background: #f3f7fa;
@@ -100,7 +104,7 @@
 }
 
 /* Grupo de botões centralizado */
-.buttonGroup {
+.buttonGroupFornecedor {
   display: flex;
   justify-content: center;
   gap: 2vw;
@@ -109,8 +113,8 @@
   margin-top: 1vw;
 }
 
-.cancelButton,
-.saveButton {
+.cancelButtonFornecedor,
+.saveButtonFornecedor {
   /* font-family: 'Montserrat', Arial, sans-serif; */
   font-weight: 500;
   font-size: 1vw;
@@ -121,25 +125,25 @@
   transition: background 0.2s;
 }
 
-.cancelButton {
+.cancelButtonFornecedor {
   background: #bbb;
   color: #222;
 }
 
-.cancelButton:hover {
+.cancelButtonFornecedor:hover {
   background: #999;
 }
 
-.saveButton {
+.saveButtonFornecedor {
   background: #168399;
   color: #fff;
 }
 
-.saveButton:hover {
+.saveButtonFornecedor:hover {
   background: #11697a;
 }
 
-@media (max-width: 600px) {
+/* @media (max-width: 600px) {
   .infoContainer {
     max-width: 98vw;
     padding: 2vw 1vw;
@@ -185,4 +189,4 @@
     border-radius: 2vw;
     height: 6vw;
   }
-}
+} */

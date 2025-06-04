@@ -1,105 +1,6 @@
-/* Container principal com fundo branco e bordas suaves */
-.container {
-  max-width: 960px;
-  margin: 50px auto;
-  padding: 30px;
-  background-color: #ffffff;
-  border: 1px solid #e0e0e0;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-
-/* Título principal com fonte mais marcante e espaçamento adequado */
-.title {
-  font-size: 2.5rem;
-  font-family: 'Montserrat', sans-serif;
-  text-align: center;
-  color: #222222;
-  margin-bottom: 15px;
-}
-
-/* Subtítulo com uma tipografia diferenciada */
-.pageSubtitle {
-  font-size: 1.75rem;
-  font-family: 'Montserrat', sans-serif;
-  text-align: center;
-  color: #555555;
-  margin-bottom: 30px;
-}
-
-/* Formulário com uma disposição mais arejada */
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-/* Agrupamento dos campos com labels em negrito */
-.formGroup {
-  display: flex;
-  flex-direction: column;
-}
-
-.formGroup label {
-  font-weight: bold;
-  margin-bottom: 8px;
-  color: #333333;
-}
-
-/* Inputs e textareas com bordas arredondadas e foco aprimorado */
-.formGroup .inputnomeCategoria,
-.formGroup textarea {
-  padding: 12px;
-  border: 1px solid #cccccc;
-  border-radius: 6px;
-  font-size: 1rem;
-  transition: border-color 0.3s ease;
-}
-
-.formGroup .inputnomeCategoria:focus,
-.formGroup textarea:focus {
-  border-color: #007bff;
-  outline: none;
-}
-
-/* Botões com uma disposição lado a lado e estilização refinada */
-.buttonGroup {
-  display: flex;
-  justify-content: flex-end;
-  gap: 15px;
-  margin-top: 20px;
-}
-
-.cancelButton,
-.saveButton {
-  padding: 12px 25px;
-  border: none;
-  border-radius: 6px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.cancelButton {
-  background-color: #f0f0f0;
-  color: #333333;
-}
-
-.cancelButton:hover {
-  background-color: #e0e0e0;
-}
-
-.saveButton {
-  background-color: #007bff;
-  color: #ffffff;
-}
-
-.saveButton:hover {
-  background-color: #0069d9;
-}
 
 /* Container da tabela */
-.infoContainer {
+.infoContainerCategoria {
   max-width: 65vw;
   margin: 2vw auto;
   padding: 1vw;
@@ -114,7 +15,7 @@
 }
 
 /* Título azul */
-.infoTitle {
+.infoTitleCategoria {
   font-size: 2.2vw;
   font-weight: 500;
   color: #4a6a85;
@@ -127,7 +28,7 @@
 }
 
 /* Tabela de informações */
-.infoTable {
+.infoTableCategoria {
   width: 65vw;
   max-width: 58vw;
   min-width: 16vw;
@@ -139,8 +40,8 @@
   margin: 0 auto;
 }
 
-.infoTable th,
-.infoTable td {
+.infoTableCategoria th,
+.infoTableCategoria td {
   font-size: 1.1vw;
   font-weight: 400;
   text-align: left;
@@ -148,7 +49,7 @@
   border-bottom: 0.08vw solid #eee;
 }
 
-.infoTable th {
+.infoTableCategoria th {
   font-weight: 500;
   color: #202020;
   width: 12vw;
@@ -164,9 +65,9 @@
 }
 
 /* Inputs, textarea e select com border-radius */
-.infoTable .inputnomeCategoria,
-.infoTable textarea,
-.infoTable select {
+.infoTableCategoria .inputnomeCategoria,
+.infoTableCategoria .inputDescricaoCategoria,
+.infoTableCategoria select {
   width: 100%;
   background: #fff;
   border: 0.1vw solid #ccc;
@@ -188,19 +89,8 @@
   background: #f3f7fa;
 }
 
-/* Lista de produtos associados (caso exista) */
-.produtoList {
-  margin: 0;
-  padding-left: 2vw;
-  font-size: 1vw;
-}
-
-.produtoList li {
-  margin-bottom: 0.3em;
-}
-
 /* Grupo de botões centralizado */
-.buttonGroup {
+.buttonGroupCategoria {
   display: flex;
   justify-content: center;
   gap: 2vw;
@@ -210,8 +100,8 @@
 }
 
 /* Botões – Cancelar e Salvar Alterações */
-.cancelButton,
-.saveButton {
+.cancelButtonCategoria,
+.saveButtonCategoria {
   font-family: 'Montserrat', Arial, sans-serif;
   font-weight: 550;
   font-size: 1vw;
@@ -222,26 +112,26 @@
   transition: background 0.2s;
 }
 
-.cancelButton {
+.cancelButtonCategoria {
   background: #bbb;
   color: #222;
 }
 
-.cancelButton:hover {
+.cancelButtonCategoria:hover {
   background: #999;
 }
 
-.saveButton {
+.saveButtonCategoria {
   background: #168399;
   color: #fff;
 }
 
-.saveButton:hover {
+.saveButtonCategoria:hover {
   background: #11697a;
 }
 
 /* Responsividade para telas menores */
-@media (max-width: 600px) {
+/* @media (max-width: 600px) {
   .infoContainer {
     max-width: 65vw;
     padding: 2vw 1vw;
@@ -287,4 +177,4 @@
     border-radius: 2vw;
     height: 6vw;
   }
-}
+} */

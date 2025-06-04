@@ -90,22 +90,22 @@ export const CadastroProdutos: React.FC = () => {
       <div>
         <NavBarGeral />
         <Menu />
-        <div className={styles.container}>
-          <div className={styles.card}>
+        <div className={styles.containerCadastroProdutos}>
+          <div className={styles.cardCadastroProdutos}>
             <h1 className={styles.cadastroProdutosTitle}>Cadastrar produto</h1>
-            <form onSubmit={handleSubmit} className={styles.form}>
-              <div className={styles.formGroup}>
+            <form onSubmit={handleSubmit} className={styles.formCadastroProdutos}>
+              <div className={styles.formGroupCadastroProdutos}>
                 <input
                   type="text"
                   id="nome"
                   value={nome}
                   onChange={(e) => setNome(e.target.value)}
                   placeholder="Nome do produto"
-                  required
+                  required className={styles.inputCadastroProdutos}
                 />
               </div>
-              <div className={styles.formRow}>
-                <div className={styles.halfFormGroup}>
+              <div className={styles.formRowCadastroProdutos}>
+                <div className={styles.halfFormGroupCadastroProdutos}>
                   <select
                     id="fornecedor"
                     value={fornecedor}
@@ -120,7 +120,7 @@ export const CadastroProdutos: React.FC = () => {
                     ))}
                   </select>
                 </div>
-                <div className={styles.halfFormGroup}>
+                <div className={styles.halfFormGroupCadastroProdutos}>
                   <select
                     id="categoria"
                     value={categoria}
@@ -136,45 +136,45 @@ export const CadastroProdutos: React.FC = () => {
                   </select>
                 </div>
               </div>
-              <div className={styles.formGroup}>
+              <div className={styles.formGroupCadastroProdutos}>
                 <textarea
                   id="descricao"
                   value={descricao}
                   onChange={(e) => setDescricao(e.target.value)}
-                  placeholder="Descrição"
+                  placeholder="Descrição" className={styles.inputCadastroProdutos}
                   required
                 />
               </div>
-              <div className={styles.formRow}>
-                <div className={styles.halfFormGroup}>
+              <div className={styles.formRowCadastroProdutos}>
+                <div className={styles.halfFormGroupCadastroProdutos}>
                   <input
                     type="number"
                     id="quantidade"
                     value={quantidade}
                     onChange={(e) => setQuantidade(e.target.value)}
                     placeholder="Quantidade"
-                    required
+                    required className={styles.inputCadastroProdutos}
                   />
                 </div>
-                <div className={styles.halfFormGroup}>
+                <div className={styles.halfFormGroupCadastroProdutos}>
                   <input
                     type="number"
                     id="preco"
                     value={preco}
                     onChange={(e) => setPreco(e.target.value)}
                     placeholder="preço unitário"
-                    required
+                    required className={styles.inputCadastroProdutos}
                   />
                 </div>
               </div>
-              <button type="submit" className={styles.button}>
+              <button type="submit" className={styles.buttonCadastroProdutos}>
                 Enviar
               </button>
             </form>
           </div>
 
-          <div className={styles.verificarWrapper}>
-            <a href="/controle/produtos" className={styles.verificarEstoque}>
+          <div className={styles.verificarWrapperCadastroProdutos}>
+            <a href="/controle/produtos" className={styles.verificarEstoqueCadastroProdutos}>
               Verificar no estoque &rarr;
             </a>
           </div>
