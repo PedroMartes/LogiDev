@@ -64,7 +64,7 @@
 }
 
 /* Inputs, textarea e select com border-radius */
-.infoTableProduto .inputnomeProduto,
+.infoTableProduto .inputNomeProduto,
 .infoTableProduto .inputDescricaoProduto,
 .infoTableProduto .inputPrecoProduto,
 .infoTableProduto .inputQuantidadeProduto,
@@ -83,7 +83,7 @@
   resize: none;
 }
 
-.infoTableProduto .inputnomeProduto:focus,
+.infoTableProduto .inputNomeProduto:focus,
 .infoTableProduto .inputDescricaoProduto:focus,
 .infoTableProduto .inputPrecoProduto:focus,
 .infoTableProduto .inputQuantidadeProduto:focus,
@@ -143,6 +143,25 @@
 
 .saveButtonProduto:hover {
   background: #11697a;
+}
+
+.infoTableProduto .selectCadastroProdutos {
+  width: 100%;
+  background: #fff;
+  border: 0.1vw solid #ccc;
+  border-radius: 0.7vw;
+  padding: 0.5vw 1vw;
+  font-size: 1vw;
+  color: #444;
+  outline: none;
+  transition: box-shadow 0.2s, border-color 0.2s;
+  box-sizing: border-box;
+}
+
+.infoTableProduto .selectCadastroProdutos:focus {
+  border-color: #168399;
+  box-shadow: 0 0 0.2vw #b2e4ef;
+  background: #f3f7fa;
 }
 
 /* Responsividade para telas menores */
