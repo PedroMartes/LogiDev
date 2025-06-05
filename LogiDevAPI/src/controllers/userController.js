@@ -187,8 +187,60 @@ const userController = {
                 msg: "Internal server error"
             })
         }
+    },
+
+verificaEmail: async (req, res) => {
+    try {
+        const { email } = req.body;
+        if (!email) {
+            return res.status(400).json({ exists: false, msg: "E-mail não informado" });
+        }
+        const usuario = await prisma.usuarios.findUnique({ where: { email } });
+        if (usuario) {
+            return res.json({ exists: true });
+        } else {
+            return res.json({ exists: false });
+        }
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({ msg: "Internal server error" });
+    }
+},
+
+   redefinirSenha: async (req, res) => {
+    const { email, novaSenha } = req.body;
+
+    if (!email || !novaSenha) {
+        return res.status(400).json({ msg: "E-mail e nova senha são obrigatórios." });
     }
 
+    try {
+        // Procura usuário pelo e-mail
+        const usuario = await prisma.usuarios.findUnique({
+            where: { email }
+        });
+
+        if (!usuario) {
+            return res.status(404).json({ msg: "Usuário não encontrado." });
+        }
+
+        // Criptografa a nova senha
+        const hashSenha = await bcrypt.hash(novaSenha, 10);
+
+        // Atualiza a senha
+        await prisma.usuarios.update({
+            where: { id: usuario.id },
+            data: {
+                senha: hashSenha
+            }
+        });
+
+        return res.status(200).json({ msg: "Senha redefinida com sucesso!" });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({ msg: "Erro ao redefinir senha." });
+    }
+}
 }
 
 module.exports = userController;

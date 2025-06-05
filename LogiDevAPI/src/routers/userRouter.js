@@ -13,7 +13,6 @@ router.post("/login", (req, res) => userController.login(req, res));
 // CRUD -> Create, Read, Update e Delete
 router.get('/get', authenticate, userController.getUser);
 
-
 router.post("/cadastro", (req, res) => userController.create(req, res));
 
 router.delete("/delete/:id", (req, res) => userController.delete(req, res));
@@ -22,5 +21,8 @@ router.put("/update/:id", (req, res) => userController.update(req, res));
 
 router.put('/update-email/:id', userController.updateEmail);   
 
+router.post('/verifica-email', userController.verificaEmail);
+
+router.post('/redefinir-senha', userController.redefinirSenha);
 module.exports = router;
  

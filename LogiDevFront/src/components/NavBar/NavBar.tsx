@@ -19,6 +19,7 @@ export function NavBar() {
     const [showCadastro, setShowCadastro] = useState(false);
     const [showEsqueciSenha, setShowEsqueciSenha] = useState(false);
     const [showRenovarSenha, setShowRenovarSenha] = useState(false);
+    const [emailRecuperacao, setEmailRecuperacao] = useState('');
 
     useEffect(() => {
         const handleScroll = () => {
@@ -120,18 +121,20 @@ export function NavBar() {
                         setShowEsqueciSenha(false);
                         setShowLogin(true);
                     }}
-                    onEnviar={() => {
-                        setShowEsqueciSenha(false);
-                        setShowRenovarSenha(true);
-                    }}
-                />
-            )}
+                     onEnviar={email => {
+            setEmailRecuperacao(email);
+            setShowEsqueciSenha(false);
+            setShowRenovarSenha(true);
+        }}
+                    />
+                )}
             {showRenovarSenha && (
                 <RenovarSenha
-                    onClose={() => {
-                        setShowRenovarSenha(false);
-                        setShowLogin(true);
-                    }}
+                onClose={() => {
+                    setShowRenovarSenha(false);
+                    setShowLogin(true);
+                }}
+                email={emailRecuperacao}
                 />
             )}
 
