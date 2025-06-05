@@ -5,11 +5,12 @@ import * as Icon from 'react-bootstrap-icons'
 import axios from 'axios';
 
 
-export function RenovarSenha({ onClose }: { onClose: () => void;}) {
+export function RenovarSenha({ onClose, email }: { onClose: () => void; email: string }) {
     const [showPassword, setShowPassword] = useState(false);
     const [isOpen, setIsOpen] = useState(true);
-    const [code, setCode] = useState('');
     const [error, setError] = useState('');
+    const [novaSenha, setNovaSenha] = useState('');
+    const [confirmarSenha, setConfirmarSenha] = useState('');
 
 
     const handleClose = () => {
@@ -21,18 +22,26 @@ export function RenovarSenha({ onClose }: { onClose: () => void;}) {
         return null; // Isso faz com que o componente não seja renderizado
     }
 
-     const handleValidate = async () => {
-    if (!code) {
-      setError('Por favor, insira o código enviado para o seu e-mail.');
-      return;
+    const handleValidate = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError('');
+    if (!novaSenha || !confirmarSenha) {
+        setError('Preencha ambos os campos de senha.');
+        return;
+    }
+    if (novaSenha !== confirmarSenha) {
+        setError('As senhas não coincidem.');
+        return;
     }
     try {
-      await axios.post('/api/auth/renovarSenha', { code });
-      // Se válido, redirecione para a página de nova senha
+        await axios.post('http://localhost:8080/usuarios/redefinir-senha', { email, novaSenha });
+        alert('Senha redefinida com sucesso!');
+        setIsOpen(false);
+        onClose();
     } catch (err) {
-      setError('Código inválido');
+        setError('Código inválido ou erro ao redefinir senha.');
     }
-  };
+};
 
     return (
         <>
@@ -49,11 +58,11 @@ export function RenovarSenha({ onClose }: { onClose: () => void;}) {
                         <input
                             className={style.input}
                             placeholder="Código:"
-                            value={code}
                             type='tel'
                             required
+                            minLength={6}
                             maxLength={6}
-                            onChange={e => setCode(e.target.value.replace(/\D/g, ""))}
+                            // onChange={e => setCode(e.target.value.replace(/\D/g, ""))}
                         />
 
                         {/* Campo de senha com ícone para mostrar/ocultar */}
@@ -62,6 +71,8 @@ export function RenovarSenha({ onClose }: { onClose: () => void;}) {
                                 type={showPassword ? 'text' : 'password'}
                                 className={style.input}
                                 placeholder="Senha Nova:"
+                                value={novaSenha}
+                                onChange={e => setNovaSenha(e.target.value)}
                             />
                             <span
                                 className={style.toggleIcon}
@@ -78,6 +89,8 @@ export function RenovarSenha({ onClose }: { onClose: () => void;}) {
                                 type={showPassword ? 'text' : 'password'}
                                 className={style.input}
                                 placeholder="Confirmar senha:"
+                                value={confirmarSenha}
+                                onChange={e => setConfirmarSenha(e.target.value)}
                             />
                             <span
                                 className={style.toggleIcon}
@@ -88,7 +101,7 @@ export function RenovarSenha({ onClose }: { onClose: () => void;}) {
                             </span>
                         </div>
                         {error && <p style={{ color: 'red' }}>{error}</p>}
-                        <button type="submit" className={style.botaoEnviar} onClick={onClose} >Redefinir</button>
+                        <button type="submit" className={style.botaoEnviar}>Redefinir</button>
                     </form>
 
 

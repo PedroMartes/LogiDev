@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import style from './EsqueciSenha.module.css';
 import * as Icon from 'react-bootstrap-icons';
+import axios from 'axios';
 
 export function EsqueciSenha({
   onClose,
@@ -11,6 +12,8 @@ export function EsqueciSenha({
 }) {
   const [isOpen, setIsOpen] = useState(true);
   const [email, setEmail] = useState('');
+  const [erro, setErro] = useState('');
+
 
   const handleClose = () => {
     setIsOpen(false);
@@ -21,14 +24,24 @@ export function EsqueciSenha({
     return null;
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (email) {
-      onEnviar(email); // Vai para o modal de renovar senha
+      try {
+        // Troque a URL para o endpoint que verifica se o e-mail existe
+        const response = await axios.post('http://localhost:8080/usuarios/verifica-email', { email });
+        if (response.data.exists) {
+          onEnviar(email); // E-mail existe, pode prosseguir
+        } else {
+           setErro('E-mail não cadastrado!');
+        }
+      } catch (error) {
+         setErro('Erro ao verificar e-mail!');
+      }
     }
   };
 
-  return (
+    return (
     <>
       <div className={style.container}>
         <div className={style.cadastro}>
@@ -39,6 +52,11 @@ export function EsqueciSenha({
             <p>
               Informe seu e-mail cadastrado e enviaremos um código para recuperação de senha.
             </p>
+            {erro && (
+              <div style={{ color: '#cd2727', textAlign: 'center', marginTop: '2vh' }}>
+                {erro}
+              </div>
+            )}
             <input
               required
               className={style.input}

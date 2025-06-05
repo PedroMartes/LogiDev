@@ -126,7 +126,11 @@ export function DetalheProduto() {
 
     try {
       const token = localStorage.getItem("token");
-      await axios.put(`http://localhost:8080/produtos/update/${id}`, updatedDetails, { headers: { Authorization: `Bearer  ${token}` } });
+    await axios.put(
+  `http://localhost:8080/produtos/update/${id}`,
+  updatedDetails,
+  { headers: { Authorization: `Bearer ${token}` } }
+);
       alert("Produto atualizado com sucesso!");
       navigate("/controle/produtos"); // Redireciona para a página de estoque de produtos
     } catch (error) {
