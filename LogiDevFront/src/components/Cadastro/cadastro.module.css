@@ -57,7 +57,7 @@
 .input {
     display: flex;
     align-items: center;
-    margin: 2vh 10vh 3vh 5vh;
+    margin: 2vh 10vh 3vh 8vh;
     border: 2px solid transparent;
     width: 20em;
     height: 3.5em;
@@ -85,12 +85,12 @@
 /* Novo estilo para o ícone do "olhinho" */
 .toggleIcon {
   position: absolute;
-  left: 13em;
+  left: 13.5em;
   top: 55%;          /* Centraliza verticalmente */
   transform: translateY(-50%);
   cursor: pointer;
   color: #46575a;    /* Valor compatível com o hover/foco dos seus inputs */
-  font-size: 1.5em;  /* Ajuste o tamanho conforme o desejado */
+  font-size: 1.3em;  /* Ajuste o tamanho conforme o desejado */
 }
 
 .inputSenha {
