@@ -96,7 +96,7 @@ const categoriasController = {
             });
 
             // Salva no histórico
-            await prisma.CategoriasHistorico.create({
+            await prisma.categoriasHistorico.create({
                 data: {
                     categoriaId: categoria.id,
                     nome: categoria.nome,

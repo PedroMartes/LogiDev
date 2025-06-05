@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 // Middleware -> Autenticação
 function authenticate(req, res, next) {
     // Capturando token da requisição
+     console.log("Authorization header:", req.headers.authorization); // <-- Adicione esta linha
     const authHeader = req.headers.authorization;
 
     if (!authHeader || !authHeader.startsWith("Bearer")) {
@@ -26,4 +27,3 @@ function authenticate(req, res, next) {
 }
 
 module.exports = authenticate;
-// ...existing code...

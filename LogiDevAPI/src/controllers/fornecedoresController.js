@@ -1,34 +1,54 @@
-const { PrismaClient } = require("@prisma/client");
+ const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient()
 
 const fornecedoresController = {
 
-    create: async (req, res) => {
-        try {
-            const { nome, contato, telefone, email } = req.body;
+create: async (req, res) => {
+    console.log("Recebida requisição para criar fornecedor:", req.body); 
+    try {
+        const { nome, contato, telefone, email } = req.body;
 
-            const fornecedor = await prisma.fornecedores.create({
-                data: { nome, contato, telefone, email }
+        // Verifica se já existe fornecedor com esse e-mail
+        const fornecedorExistente = await prisma.fornecedores.findUnique({
+            where: { email }
+        });
+
+        if (fornecedorExistente) {
+            return res.status(400).json({
+                msg: "Já existe um fornecedor com esse e-mail."
             });
-
-            // Salva no histórico
-            await prisma.fornecedoresHistorico.create({
-                data: {
-                    fornecedorId: fornecedor.id,
-                    nome: fornecedor.nome,
-                    contato: fornecedor.contato,
-                    telefone: fornecedor.telefone,
-                    email: fornecedor.email,
-                    acao: "create"
-                }
-            });
-
-            return res.status(201).json(fornecedor);
-        } catch (error) {
-            console.log("Erro ao criar fornecedor:", error)
         }
-    },
 
+        const fornecedor = await prisma.fornecedores.create({
+            data: { nome, contato, telefone, email }
+        });
+
+        console.log("Dados para histórico:", {
+    fornecedorId: fornecedor.id,
+    nome: fornecedor.nome,
+    contato: fornecedor.contato,
+    telefone: fornecedor.telefone,
+    email: fornecedor.email,
+    acao: "create"
+});
+
+        await prisma.fornecedoresHistorico.create({
+            data: {
+                fornecedorId: fornecedor.id,
+                nome: fornecedor.nome,
+                contato: fornecedor.contato,
+                telefone: fornecedor.telefone,
+                email: fornecedor.email,
+                acao: "create"
+            }
+        });
+
+        return res.status(201).json(fornecedor); // <-- Garante resposta ao frontend
+    } catch (error) {
+        console.log("Erro ao criar fornecedor:", error)
+        return res.status(500).json({ msg: "Erro interno ao criar fornecedor." });
+    }
+},
     getAll: async (req, res) => {
         try {
             const fornecedores = await prisma.fornecedores.findMany()
@@ -99,7 +119,7 @@ const fornecedoresController = {
             });
 
             // Salva no histórico
-            await prisma.FornecedoresHistorico.create({
+            await prisma.fornecedoresHistorico.create({
                 data: {
                     fornecedorId: fornecedor.id,
                     nome: fornecedor.nome,
@@ -110,9 +130,10 @@ const fornecedoresController = {
                 }
             });
 
-            return res.status(204).send()
+            return res.status(200).send()
         } catch (error) {
             console.log("Erro ao deletar fornecedor:", error)
+              return res.status(500).json({ msg: "Erro interno ao deletar fornecedor." });
         }
     }
 }

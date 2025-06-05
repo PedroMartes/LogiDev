@@ -48,6 +48,7 @@ const userController = {
 
         return res.status(200).json({
             token,
+            id: userEncontrado.id,
             msg: "Usuario autenticado com sucesso" 
         })
     },
@@ -72,7 +73,7 @@ const userController = {
 
             return res.status(201).json({
                 msg: "Usuario criado com sucesso",
-                userCriado
+                id: userCriado.id
             })
 
         } catch (error) {
