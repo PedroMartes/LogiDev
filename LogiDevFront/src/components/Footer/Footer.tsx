@@ -36,11 +36,11 @@ export function Footer() {
           </p>
           <p>
             <FiPhone className={styles.contactIcon} />
-            (11) 99999-9999
+            (11) 98965-4321
           </p>
           <p>
             <FiMapPin className={styles.contactIcon} />
-            Rua Exemplo, 123, São Paulo/SP
+            Rua Direita SENAI, 123, Cotia/SP
           </p>
         </div>
 
