@@ -3,7 +3,7 @@ import styles from './CadastroFornecedores.module.css';
 import axios from "axios";
 import { NavBarGeral } from '../../components/NavBar/NavBar';
 import { Menu } from '../../components/Menu/Menu';
-import { useNavigate } from 'react-router';
+// import { useNavigate } from 'react-router';
 import { FooterGeral } from '../../components/Footer/Footer';
 
 export const CadastroFornecedores: React.FC = () => {
@@ -16,37 +16,41 @@ export const CadastroFornecedores: React.FC = () => {
   const [errorMsg, setErrorMsg] = useState('Erro ao cadastrar fornecedor!');
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  e.preventDefault();
+    console.log("Enviando fornecedor...");
 
-    const fornecedor = { nome, contato, telefone, email };
+  const fornecedor = { nome, contato, telefone, email };
+  const token = localStorage.getItem('token');
 
-    try {
-      await axios.post('http://localhost:8080/fornecedores/create', fornecedor);
-      setShowSuccess(true);
-      setNome('');
-      setContato('');
-      setTelefone('');
-      setEmail('');
-      setTimeout(() => setShowSuccess(false), 3000);
-    } catch (error: any) {
-      // Verifica se o erro é de duplicidade (ajuste conforme sua API)
-      if (
-        error.response &&
-        (error.response.status === 409 ||
-          (typeof error.response.data === 'string' &&
-            error.response.data.toLowerCase().includes('já cadastrado')))
-      ) {
-        setErrorMsg('Fornecedor já cadastrado!');
-      } else {
-        setErrorMsg('Erro ao cadastrar fornecedor!');
-      }
-      setShowError(true);
-      setTimeout(() => setShowError(false), 5000);
-      console.error(error);
+  try {
+    const response = await axios.post(
+      'http://localhost:8080/fornecedores/create',
+      fornecedor,
+      { headers: { Authorization: `Bearer ${token}` } }
+    );
+    console.log("Resposta do backend:", response);
+    setShowSuccess(true);
+    setNome('');
+    setContato('');
+    setTelefone('');
+    setEmail('');
+    setTimeout(() => setShowSuccess(false), 3000);
+  } catch (error: any) {
+    if (
+      error.response &&
+      (error.response.status === 409 ||
+        (typeof error.response.data === 'string' &&
+          error.response.data.toLowerCase().includes('já cadastrado')))
+    ) {
+      setErrorMsg('Fornecedor já cadastrado!');
+    } else {
+      setErrorMsg('Erro ao cadastrar fornecedor!');
     }
-  };
-
-  const navigate = useNavigate();
+    setShowError(true);
+    setTimeout(() => setShowError(false), 5000);
+    console.error(error);
+  }
+};
 
   return (
     <div>

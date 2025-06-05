@@ -19,7 +19,8 @@ export function ControleFornecedores() {
     const [data, setData] = useState<IFornecedores[]>([]);
 
 useEffect(() => {
-  axios.get("http://localhost:8080/fornecedores/get")
+    const token = localStorage.getItem('token');
+    axios.get("http://localhost:8080/fornecedores/get", { headers: { Authorization: `Bearer ${token}` } })
       .then(response => setData(response.data))
       .catch(error => console.error("Erro ao buscar dados:", error));
 }, []);
@@ -27,7 +28,9 @@ useEffect(() => {
 const handleDelete = async (id: number) => {
   if (window.confirm("Tem certeza que deseja apagar este fornecedor?")) {
       try {
-          await axios.delete(`http://localhost:8080/fornecedores/delete/${id}`);
+            const token = localStorage.getItem('token');
+          await axios.delete(`http://localhost:8080/fornecedores/delete/${id}`, {
+              headers: { Authorization: `Bearer ${token}` }});
           setData(data.filter(fornecedor => fornecedor.id !== id));
       } catch (error) {
           alert("Erro ao apagar fornecedor!");

@@ -55,12 +55,15 @@ export const NovoAlerta: React.FC = () => {
     if (Object.values(newErrors).some(Boolean)) return;
 
     try {
+      const token = localStorage.getItem('token');
       await axios.post('http://localhost:8080/alertas/create', {
         titulo,
         descricao,
         consequencia,
         acao
-      });
+      }, {
+        headers: {
+          Authorization: `Bearer ${token}`}});
       setShowPopup(true);
     } catch (error) {
       alert('Erro ao cadastrar alerta!');

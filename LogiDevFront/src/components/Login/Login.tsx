@@ -22,22 +22,24 @@ export function Login({ onClose, onOpenCadastro, onOpenEsqueciSenha }: { onClose
     return null; // Isso faz com que o componente não seja renderizado
   }
 
-const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  try {
-    const response = await axios.post('http://localhost:8080/usuarios/login', {
-      email: email,
-      senha: senha
-    });
-    // Salva o token e o email do usuário logado
-    localStorage.setItem('token', response.data.token);
-    localStorage.setItem('email', email); // <-- Aqui você salva o email
-    navigate("/controle/produtos");
-  } catch (error) {
-    setErro('Email ou senha estão incorretos');
-  }
-};
-  
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post('http://localhost:8080/usuarios/login', {
+        email: email,
+        senha: senha
+      });
+      // Salva o token e o email do usuário logado
+      localStorage.setItem('token', response.data.token);
+      localStorage.setItem('email', email); // <-- Aqui você salva o email
+      localStorage.setItem('nome', response.data.nome);
+      localStorage.setItem('userId', String(response.data.id));
+      navigate("/controle/produtos");
+    } catch (error) {
+      setErro('Email ou senha estão incorretos');
+    }
+  };
+
   return (
     <>
       <div className={style.container}>
@@ -56,13 +58,13 @@ const handleSubmit = async (e: React.FormEvent) => {
               </div>
             )}
             <input
-             type='email'
+              type='email'
               className={style.input}
               placeholder="E-mail:"
               value={email}
               onChange={e => setEmail(e.target.value)}
               required
-              />
+            />
 
             {/* Campo de senha com ícone para mostrar/ocultar */}
             <div className={style.passwordWrapper}>
@@ -73,12 +75,12 @@ const handleSubmit = async (e: React.FormEvent) => {
                 value={senha}
                 onChange={e => setSenha(e.target.value)}
                 required
-                />
+              />
               <span
                 className={style.toggleIcon}
                 onClick={() => setShowPassword(!showPassword)}
                 aria-label={showPassword ? 'Ocultar senha' : 'Mostrar senha'}
-                >
+              >
                 {showPassword ? <FaEyeSlash /> : <FaEye />}
               </span>
             </div>

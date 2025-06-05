@@ -48,9 +48,12 @@ export const CadastroCategorias: React.FC = () => {
     e.preventDefault();
 
     const categoria = { nome, descricao };
+    const token = localStorage.getItem('token');
 
     try {
-      await axios.post('http://localhost:8080/categorias/create', categoria);
+      await axios.post('http://localhost:8080/categorias/create', categoria,
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
       setShowSuccess(true);
       setNome('');
       setDescricao('');

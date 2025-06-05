@@ -17,7 +17,8 @@ export function ControleCategorias() {
     const [data, setData] = useState<ICategorias[]>([]);
 
 useEffect(() => {
-  axios.get("http://localhost:8080/categorias/get")
+    const token = localStorage.getItem('token');
+  axios.get("http://localhost:8080/categorias/get", { headers: { Authorization: `Bearer ${token}` } })
       .then(response => setData(response.data))
       .catch(error => console.error("Erro ao buscar dados:", error));
 }, []);
@@ -25,7 +26,10 @@ useEffect(() => {
 const handleDelete = async (id: number) => {
   if (window.confirm("Tem certeza que deseja apagar este categoria?")) {
       try {
-          await axios.delete(`http://localhost:8080/categorias/delete/${id}`);
+        const token = localStorage.getItem('token');
+            await axios.delete(`http://localhost:8080/categorias/delete/${id}`, {
+                headers: { Authorization: `Bearer ${token}` }
+            });
           setData(data.filter(categoria => categoria.id !== id));
       } catch (error) {
           alert("Erro ao apagar categoria!");

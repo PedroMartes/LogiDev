@@ -32,12 +32,13 @@ export function DetalheFornecedor() {
 
   useEffect(() => {
     if (id) {
+      const token = localStorage.getItem("token");
       axios
-        .get(`http://localhost:8080/fornecedores/getUnique/${id}`)
+        .get(`http://localhost:8080/fornecedores/getUnique/${id}`, { headers: { Authorization: `Bearer ${token}` } })
         .then(response => setFornecedor(response.data))
         .catch(error => console.error("Erro ao buscar fornecedor:", error));
       axios
-        .get("http://localhost:8080/produtos/get")
+        .get("http://localhost:8080/produtos/get", { headers: { Authorization: `Bearer ${token}` } })
         .then(response => setProdutos(response.data))
         .catch(error => console.error("Erro ao buscar produtos:", error));
     }
@@ -47,7 +48,8 @@ export function DetalheFornecedor() {
     e.preventDefault();
     if (!fornecedor) return;
     try {
-      await axios.put(`http://localhost:8080/fornecedores/update/${id}`, fornecedor);
+      const token = localStorage.getItem("token");
+      await axios.put(`http://localhost:8080/fornecedores/update/${id}`, fornecedor, { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } });
       alert("Fornecedor atualizado com sucesso!");
       navigate("/controle/fornecedores"); // Redireciona para a página de estoque de fornecedores
     } catch (error) {

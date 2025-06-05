@@ -20,7 +20,8 @@ export function Alerta() {
   const [alertas, setAlertas] = useState<IAlerta[]>([]);
 
   useEffect(() => {
-    axios.get('http://localhost:8080/alertas/get')
+    const token = localStorage.getItem('token');
+    axios.get('http://localhost:8080/alertas/get', { headers: { Authorization: `Bearer ${token}` } })
       .then(response => setAlertas(response.data))
       .catch(error => console.error('Erro ao buscar alertas:', error));
   }, []);
@@ -31,7 +32,8 @@ export function Alerta() {
 
   const handleCheckAlerta = async (id: number) => {
     try {
-      await axios.delete(`http://localhost:8080/alertas/delete/${id}`);
+      const token = localStorage.getItem('token');
+      await axios.delete(`http://localhost:8080/alertas/delete/${id}`, { headers: { Authorization: `Bearer ${token}` } });
       setTimeout(() => {
         setAlertas(prev => prev.filter(alerta => alerta.id !== id));
       }, 700); // 700ms de delay

@@ -43,10 +43,11 @@ export function DetalheProduto() {
   useEffect(() => {
     async function fetchData() {
       try {
+        const token = localStorage.getItem("token");
         const [produtoRes, categoriasRes, fornecedoresRes] = await Promise.all([
-          axios.get(`http://localhost:8080/produtos/getUnique/${id}`),
-          axios.get("http://localhost:8080/categorias/get"),
-          axios.get("http://localhost:8080/fornecedores/get"),
+          axios.get(`http://localhost:8080/produtos/getUnique/${id}`, { headers: { Authorization: `Bearer ${token}` } }),
+          axios.get("http://localhost:8080/categorias/get",  { headers: { Authorization: `Bearer ${token}` } }),
+          axios.get("http://localhost:8080/fornecedores/get", { headers: { Authorization: `Bearer ${token}` } }),
         ]);
 
         const produtoData = produtoRes.data;
@@ -124,7 +125,8 @@ export function DetalheProduto() {
     };
 
     try {
-      await axios.put(`http://localhost:8080/produtos/update/${id}`, updatedDetails);
+      const token = localStorage.getItem("token");
+      await axios.put(`http://localhost:8080/produtos/update/${id}`, updatedDetails, { headers: { Authorization: `Bearer  ${token}` } });
       alert("Produto atualizado com sucesso!");
       navigate("/controle/produtos"); // Redireciona para a página de estoque de produtos
     } catch (error) {

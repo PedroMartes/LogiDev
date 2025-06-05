@@ -18,7 +18,9 @@ export function HistoricoCategorias() {
   const [historico, setHistorico] = useState<IHistoricoCategoria[]>([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8080/historico_categorias")
+    const token = localStorage.getItem('token');
+    axios
+      .get("http://localhost:8080/historico_categorias", { headers: { Authorization: `Bearer ${token}` } })
       .then(response => setHistorico(response.data))
       .catch(error => console.error("Erro ao buscar histórico de categorias:", error));
   }, []);

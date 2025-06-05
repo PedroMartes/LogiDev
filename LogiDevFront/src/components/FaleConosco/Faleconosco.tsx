@@ -10,7 +10,7 @@ export function Faleconosco({ onClose }: { onClose: () => void }) {
         setIsOpen(false);
         onClose();
     };
-
+    
     const handleCpfChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value.replace(/\D/g, "");
         // Apenas limita o máximo de caracteres (14)
@@ -18,16 +18,22 @@ export function Faleconosco({ onClose }: { onClose: () => void }) {
             setCpf(value);
         }
     };
-
+    
     if (!isOpen) {
         return null;
     }
-
+    const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    alert("Mensagem enviada com sucesso!");
+    setIsOpen(false);
+    onClose();
+};
+    
     return (
         <>
             <div className={style.container}>
                 <div className={style.faleConosco}>
-                    <form>
+                    <form onSubmit={handleSubmit}>
                         <h1>Fale conosco</h1> <Icon.XLg className={style.iconX} onClick={handleClose}/>
                         <hr/>
                         <p>Tire suas dúvidas, envie a sua mensagem e nós responderemos o mais breve possível. Obrigado!</p>

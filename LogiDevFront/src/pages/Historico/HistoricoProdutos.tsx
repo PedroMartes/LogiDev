@@ -18,7 +18,8 @@ export function HistoricoProdutos() {
   const [historico, setHistorico] = useState<IHistoricoProduto[]>([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8080/historico_produtos")
+    const token = localStorage.getItem('token');
+    axios.get("http://localhost:8080/historico_produtos", { headers: { Authorization: `Bearer ${token}` } })
       .then(response => setHistorico(response.data))
       .catch(error => console.error("Erro ao buscar histórico de produtos:", error));
   }, []);

@@ -33,21 +33,21 @@ export function Cadastro({ onClose, onOpenLogin }: { onClose: () => void, onOpen
       senha
     };
 
-    try {
-      console.log(usuario);
-      // Aqui você pode fazer a chamada para a API para cadastrar o usuário
-      await axios.post('http://localhost:8080/usuarios/cadastro', usuario);
-      alert('Usuário cadastrado com sucesso!');
-      setNome('');
-      setCpfCnpj('');
-      setEmail('');
-      setSenha('');
-      onOpenLogin(); // Chama a função de abertura do login APÓS o cadastro ser bem-sucedido
-    } catch (error) {
-      setErro('Erro ao cadastrar usuario. Verifique os dados e tente novamente.');
-      console.error(error);
-    }
-  };
+   try {
+    // Faz o cadastro e pega a resposta
+    const response = await axios.post('http://localhost:8080/usuarios/cadastro', usuario);
+    // Mostra o ID retornado pelo backend
+    alert(`Usuário cadastrado com sucesso! Seu nif é: ${response.data.id}`);
+    setNome('');
+    setCpfCnpj('');
+    setEmail('');
+    setSenha('');
+    onOpenLogin(); // Abre o login após o cadastro
+  } catch (error) {
+    setErro('Erro ao cadastrar usuario. Verifique os dados e tente novamente.');
+    console.error(error);
+  }
+};
 
   return (
     <>

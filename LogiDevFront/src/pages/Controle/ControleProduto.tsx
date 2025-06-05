@@ -26,7 +26,8 @@ export function ControleProdutos() {
     const [data, setData] = useState<IProduto[]>([]);
 
     useEffect(() => {
-        axios.get("http://localhost:8080/produtos/get")
+        const token = localStorage.getItem('token');
+        axios.get("http://localhost:8080/produtos/get", { headers: { Authorization: `Bearer ${token}` } })
             .then(response => setData(response.data))
             .catch(error => console.error("Erro ao buscar dados:", error));
     }, []);
@@ -34,7 +35,8 @@ export function ControleProdutos() {
     const handleDelete = async (id: number) => {
         if (window.confirm("Tem certeza que deseja apagar este produto?")) {
             try {
-                await axios.delete(`http://localhost:8080/produtos/delete/${id}`);
+                await axios.delete(`http://localhost:8080/produtos/delete/${id}`, {
+                    headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }});
                 setData(data.filter(produto => produto.id !== id));
             } catch (error) {
                 alert("Erro ao apagar produto!");

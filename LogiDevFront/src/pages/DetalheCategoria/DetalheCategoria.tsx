@@ -20,8 +20,9 @@ export function DetalheCategoria() {
   useEffect(() => {
     async function fetchData() {
       try {
+        const token = localStorage.getItem("token");
         const res = await axios.get(
-          `http://localhost:8080/categorias/getUnique/${id}`
+          `http://localhost:8080/categorias/getUnique/${id}`, { headers: { Authorization: `Bearer ${token}` } }
         );
         setCategoria(res.data);
       } catch (error) {
@@ -44,10 +45,10 @@ export function DetalheCategoria() {
     try {
       await axios.put(
         `http://localhost:8080/categorias/update/${id}`,
-        categoria
+        categoria, { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
       );
       alert("Categoria atualizada com sucesso!");
-      navigate("/categorias");
+      navigate("/controle/categorias");
     } catch (error) {
       alert("Erro ao atualizar categoria!");
     }

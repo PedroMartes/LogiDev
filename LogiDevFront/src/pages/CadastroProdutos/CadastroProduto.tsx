@@ -31,11 +31,11 @@ export const CadastroProdutos: React.FC = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/categorias/get")
+      .get("http://localhost:8080/categorias/get", { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } })
       .then(response => setCategorias(response.data))
       .catch(error => console.error("Erro ao buscar categorias:", error));
     axios
-      .get("http://localhost:8080/fornecedores/get")
+      .get("http://localhost:8080/fornecedores/get", { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } })
       .then(response => setFornecedores(response.data))
       .catch(error => console.error("Erro ao buscar fornecedores:", error));
   }, []);
@@ -51,9 +51,16 @@ export const CadastroProdutos: React.FC = () => {
       fornecedorId: Number(fornecedor),
       categoriaId: Number(categoria)
     };
+    const token = localStorage.getItem('token');
 
     try {
-      await axios.post('http://localhost:8080/produtos/create', produto);
+      await axios.post('http://localhost:8080/produtos/create', produto, 
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          }
+          }
+      );
       setShowSuccess(true);
       setNome('');
       setDescricao('');
