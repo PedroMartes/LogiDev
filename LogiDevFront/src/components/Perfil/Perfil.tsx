@@ -2,6 +2,8 @@ import React, { useRef, useState, useEffect } from "react";
 import styles from "./Perfil.module.css";
 import * as Icon from 'react-bootstrap-icons'
 import axios from "axios";
+import { FaUserCircle } from "react-icons/fa";
+
 
 interface PerfilProps {
   onClose: () => void;
@@ -108,10 +110,9 @@ if (!token || !usuarioId) return;
   return (
     <div className={`${styles.perfilPopup} ${(showAlterarCampo || showSucesso) ? styles.perfilPopupExpandido : ""}`}>
       <div className={styles.perfilPopupHeader}>
-        <div className={styles.perfilPopupAvatar}>
-          <i className="fas fa-user"></i>
-          <Icon.XLg className={styles.iconX} onClick={handleClose} />
-        </div>
+         <FaUserCircle size={40} className={styles.icon} />
+      
+        <Icon.XLg className={styles.iconX} onClick={handleClose} />
         <div>
           <div className={styles.perfilPopupNome}>{userName}</div>
           <div className={styles.perfilPopupEmail}>{email}</div>

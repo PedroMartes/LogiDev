@@ -136,7 +136,7 @@ export const CadastroCategorias: React.FC = () => {
         </div>
       )}
 
-      {/* ALERTA DE SUCESSO */}
+      */ALERTA DE SUCESSO/*
       {showSuccess && (
         <div className={styles.alertaErro}>
           <div className={styles.alertaErroHeader}>
