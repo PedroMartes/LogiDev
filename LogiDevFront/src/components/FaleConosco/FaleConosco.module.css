@@ -120,4 +120,58 @@
     background-color: #0c9bb5;
 }
 
+/* Adicione ao final do seu FaleConosco.module.css */
+
+.perfilPopupSucesso {
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+  background: #27c96e;
+  color: #fff;
+  border-radius: 0.5em;
+  font-size: 1em;
+  font-weight: 500;
+  margin: 1em 0 0 0;
+  padding: 0.7em 1.2em;
+  box-shadow: none;
+  position: static;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.perfilPopupErro {
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+  background: #c0392b;
+  color: #fff;
+  border-radius: 0.1em;
+  font-size: 1em;
+  font-weight: 500;
+  margin: 1em 0 0 0;
+  padding: 0.7em 1.2em;
+  box-shadow: none;
+  position: static;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.fecharSucesso {
+  margin-left: auto;
+  font-size: 1.3em;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  background: none;
+  border: none;
+  line-height: 1;
+  transition: color 0.2s;
+}
+.fecharSucesso:hover {
+  color: #eee;
+}
+
+
+
+
 
