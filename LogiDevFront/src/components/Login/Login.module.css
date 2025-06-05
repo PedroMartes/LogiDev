@@ -57,9 +57,9 @@
 .input {
     display: flex;
     align-items: center;
-    margin: 2vh 10vh 3vh 5vh;
+    margin: 2vh 10vh 3vh 10vh;
     border: 2px solid transparent;
-    width: 25em;
+    width: 20em;
     height: 3.5em;
     padding-left: 0.8em;
     outline: none;
