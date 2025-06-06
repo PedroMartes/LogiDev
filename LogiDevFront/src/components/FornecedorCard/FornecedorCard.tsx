@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "./FornecedorCard.module.css";
 import { Link } from "react-router-dom";
-import { MdDelete } from "react-icons/md";
 import { PiNotePencilFill } from "react-icons/pi";
 import { FooterGeral } from "../Footer/Footer";
+import { Ban } from "react-bootstrap-icons";
 
 interface CardProps {
     id: number;
@@ -35,8 +35,9 @@ const FornecedorCard: React.FC<CardProps> = ({ id, nome, contato, telefone, emai
                     </tbody>
 
                 </table>
+                <div className={styles.alteracoes}>
                 <button onClick={onDelete} className={styles.deleteButton}>
-                    <MdDelete className={styles.deleteIcon} />
+                    <Ban className={styles.deleteIcon} />
                 </button>
 
                 <button className={styles.editButton}>
@@ -44,6 +45,8 @@ const FornecedorCard: React.FC<CardProps> = ({ id, nome, contato, telefone, emai
                         <PiNotePencilFill className={styles.editIcon} />
                     </Link>
                 </button>
+
+                </div>
             </div>
             <FooterGeral />
         </>

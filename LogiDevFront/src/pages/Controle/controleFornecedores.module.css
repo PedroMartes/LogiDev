@@ -13,6 +13,13 @@
     font-weight: 100;
 
 }
+.controleTableContainer {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
 .controleTable {
     width: 100%;

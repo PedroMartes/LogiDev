@@ -52,37 +52,43 @@ const userController = {
             msg: "Usuario autenticado com sucesso" 
         })
     },
-    create: async (req, res) => {
-        try {
-            const { nome, email, senha, cpfcnpj } = req.body;
+   create: async (req, res) => {
+    try {
+        const { nome, email, senha, cpfcnpj } = req.body;
 
-            if (!nome || !email || !senha || !cpfcnpj) {
-                return res.status(400).json({
-                    msg: "Todos os campos são obrigatórios"
-                })
-            }
-
-            // Senha criptografada
-            const hashSenha = await bcrypt.hash(senha, 10)
-
-            const userCriado = await prisma.usuarios.create({
-                data: {
-                    nome, email, senha: hashSenha, cpfcnpj
-                }
-            })
-
-            return res.status(201).json({
-                msg: "Usuario criado com sucesso",
-                id: userCriado.id
-            })
-
-        } catch (error) {
-            console.log(error)
-            return res.status(500).json({
-                msg: "Internal server error",
+        if (!nome || !email || !senha || !cpfcnpj) {
+            return res.status(400).json({
+                msg: "Todos os campos são obrigatórios"
             })
         }
-    },
+
+        // Senha criptografada
+        const hashSenha = await bcrypt.hash(senha, 10)
+
+        const userCriado = await prisma.usuarios.create({
+            data: {
+                nome, email, senha: hashSenha, cpfcnpj
+            }
+        })
+
+        return res.status(201).json({
+            msg: "Usuario criado com sucesso",
+            id: userCriado.id
+        })
+
+    } catch (error) {
+        if (error.code === 'P2002') {
+            // Erro de campo único duplicado
+            return res.status(400).json({
+                msg: "Já existe um usuário com este e-mail ou CPF/CNPJ"
+            });
+        }
+        console.log(error)
+        return res.status(500).json({
+            msg: "Internal server error",
+        })
+    }
+},
 
     delete: async (req, res) => {
         try {

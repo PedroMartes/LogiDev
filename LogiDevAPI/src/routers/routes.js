@@ -29,10 +29,8 @@ router.use("/categorias", categoriasRouter)
 const fornecedoresRouter = require("./fornecedoresRouter")
 router.use("/fornecedores", fornecedoresRouter)
 
-
-
-
-
+const alertasRouter = require('./alertasRouter');
+router.use('/alertas', alertasRouter);
 
 // Histórico de Produtos
 const historicoProdutosRouter = require("./historicoProdutosRouter")

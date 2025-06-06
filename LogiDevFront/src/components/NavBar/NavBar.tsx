@@ -185,7 +185,7 @@ export function NavBarGeral() {
                             </li>
 
                             <li>
-                                <a href={"/controle"} className={Styles.servico}>
+                                <a href={"/controle/produtos"} className={Styles.servico}>
                                     Serviços
                                 </a>
                             </li>

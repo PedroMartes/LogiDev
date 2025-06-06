@@ -4,7 +4,7 @@ const alertasController = require("../controllers/alertasController");
 
 const router = Router();
 
-router.post("/create", (req, res) => alertasController.create(req, res));
+router.post("/create", alertasController.create);
 
 router.get("/get", (req, res) => alertasController.getAll(req, res));
 

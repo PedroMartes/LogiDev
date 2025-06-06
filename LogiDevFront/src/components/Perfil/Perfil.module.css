@@ -53,6 +53,7 @@
 .perfilPopupNome {
     font-size: 1.25em;
     font-weight: 600;
+    color: #333;
 }
 
 .perfilPopupEmail {
@@ -87,6 +88,7 @@
 .perfilPopupOpcao i {
     font-size: 1.3em;
     margin-right: 0.8vw;
+    color: #067992;
 }
 
 .perfilPopupAlterarCampo {
@@ -140,6 +142,7 @@
 .perfilPopupSair i {
     font-size: 1.3em;
     margin-right: 0.8vw;
+    color: #067992; /* Cor do ícone de sair */
 }
 
 .perfilPopupSucesso {

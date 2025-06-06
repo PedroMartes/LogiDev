@@ -73,6 +73,7 @@ export const NovoAlerta: React.FC = () => {
       setShowSuccess(true);
     } catch (error: any) {
       setErrorMsg('Erro ao cadastrar alerta!');
+      console.error(error);
       setShowError(true);
       setTimeout(() => setShowError(false), 4000);
       console.error(error);
