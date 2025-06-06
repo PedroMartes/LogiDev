@@ -1,5 +1,6 @@
 import React from "react";
 import styles from './HistoricoCard.module.css';
+import { FaRegUser } from "react-icons/fa";
 
 interface CardProps {
     nome: string;
@@ -8,7 +9,6 @@ interface CardProps {
 }
 
 export const HistoricoCard: React.FC<CardProps> = ({ nome, dataAtualizacao, acao }) => {
-    // Formata a data para exibição
     const dataFormatada = new Date(dataAtualizacao).toLocaleDateString('pt-BR', {
         day: '2-digit', month: '2-digit', year: 'numeric',
         hour: '2-digit', minute: '2-digit'
@@ -16,6 +16,9 @@ export const HistoricoCard: React.FC<CardProps> = ({ nome, dataAtualizacao, acao
 
     return (
         <div className={styles.cardHistorico}>
+            <div className={styles.perfilIconContainer}>
+                <FaRegUser size={32} color="#fff" />
+            </div>
             <h3 className={styles.tituloHistorico}>{nome}</h3>
             <p className={styles.dataHistorico}>Data da Última Atualização do Produto: {dataFormatada}</p>
             <p className={styles.acaoHistorico}>Ação Realizada: {acao}</p>
