@@ -186,7 +186,7 @@ export function NavBarGeral() {
 
                             <li>
                                 <a href={"/controle/produtos"} className={Styles.servico}>
-                                    Serviços
+                                    Estoque 
                                 </a>
                             </li>
 

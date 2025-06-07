@@ -1,6 +1,6 @@
 import React from "react";
 import styles from './HistoricoCard.module.css';
-import { FaRegUser } from "react-icons/fa";
+import { AiFillDropboxCircle } from "react-icons/ai";
 
 interface CardProps {
     nome: string;
@@ -14,14 +14,21 @@ export const HistoricoCard: React.FC<CardProps> = ({ nome, dataAtualizacao, acao
         hour: '2-digit', minute: '2-digit'
     });
 
+    function traduzirAcao(acao: string) {
+        if (acao === "create") return "Criar";
+        if (acao === "update") return "Atualização";
+        if (acao === "delete") return "Apagar";
+        return acao;
+    }
+
     return (
         <div className={styles.cardHistorico}>
             <div className={styles.perfilIconContainer}>
-                <FaRegUser size={32} color="#fff" />
+                <AiFillDropboxCircle size={32} color="#fff" />
             </div>
             <h3 className={styles.tituloHistorico}>{nome}</h3>
             <p className={styles.dataHistorico}>Data da Última Atualização do Produto: {dataFormatada}</p>
-            <p className={styles.acaoHistorico}>Ação Realizada: {acao}</p>
+            <p className={styles.acaoHistorico}>Ação Realizada:  {traduzirAcao(acao)}</p>
         </div>
     );
 };

@@ -3,6 +3,8 @@ import style from './cadastro.module.css';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import * as Icon from 'react-bootstrap-icons'
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export function Cadastro({ onClose, onOpenLogin }: { onClose: () => void, onOpenLogin: () => void }) {
   const [showPassword, setShowPassword] = useState(false);
@@ -11,21 +13,19 @@ export function Cadastro({ onClose, onOpenLogin }: { onClose: () => void, onOpen
   const [cpfcnpj, setCpfCnpj] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
-  const [erro, setErro] = useState('');
-
 
   const handleClose = () => {
     setIsOpen(false);
-    onClose(); // Chama a função de fechamento passada como prop
+    onClose();
   };
 
   if (!isOpen) {
-    return null; // Isso faz com que o componente não seja renderizado
+    return null;
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-  
+
     const usuario = {
       nome,
       cpfcnpj,
@@ -33,27 +33,26 @@ export function Cadastro({ onClose, onOpenLogin }: { onClose: () => void, onOpen
       senha
     };
 
-   try {
-    // Faz o cadastro e pega a resposta
-    const response = await axios.post('http://localhost:8080/usuarios/cadastro', usuario);
-    // Mostra o ID retornado pelo backend
-    alert(`Usuário cadastrado com sucesso! Seu nif é: ${response.data.id}`);
-    setNome('');
-    setCpfCnpj('');
-    setEmail('');
-    setSenha('');
-    onOpenLogin(); // Abre o login após o cadastro
-  } catch (error) {
-    setErro('Erro ao cadastrar usuario. Verifique os dados e tente novamente.');
-    console.error(error);
-  }
-};
+    try {
+      const response = await axios.post('http://localhost:8080/usuarios/cadastro', usuario);
+      toast.success(`Usuário cadastrado com sucesso! Seu nif é: ${response.data.id}`);
+      setNome('');
+      setCpfCnpj('');
+      setEmail('');
+      setSenha('');
+      setTimeout(() => {
+        onOpenLogin();
+      }, 7000);
+    } catch (error) {
+      toast.error('Erro ao cadastrar usuário. Verifique os dados e tente novamente.');
+      console.error(error);
+    }
+  };
 
   return (
     <>
       <div className={style.container}>
         <div className={style.cadastro}>
-
           <form onSubmit={handleSubmit}>
             <h1>Cadastrar</h1><Icon.XLg className={style.iconX} onClick={handleClose} />
             <hr />
@@ -61,15 +60,7 @@ export function Cadastro({ onClose, onOpenLogin }: { onClose: () => void, onOpen
               Preencha os campos abaixo com seus dados para criar sua conta e aproveitar
               todos os benefícios que oferecemos!
             </p>
-             {erro && (
-              <div style={{ color: '#cd2727', textAlign: 'center', marginTop: '2vh',  whiteSpace: 'normal',
-      maxWidth: '260px', // ajuste conforme o tamanho do seu modal
-      marginLeft: 'auto',
-      marginRight: 'auto',
-      wordBreak: 'break-word'}}>
-                {erro}
-              </div>
-            )}
+            
             <input
               className={style.input}
               placeholder=" Nome:"
@@ -78,30 +69,27 @@ export function Cadastro({ onClose, onOpenLogin }: { onClose: () => void, onOpen
               required
             />
             <input
-  className={style.input}
-  placeholder="CNPJ/CPF:"
-  value={cpfcnpj}
-  onChange={e => {
-    const value = e.target.value.replace(/\D/g, "");
-    // Limita a 14 caracteres (tamanho máximo para CNPJ)
-    if (value.length <= 14) {
-      setCpfCnpj(value);
-    }
-  }}
-  minLength={11}  // tamanho mínimo para CPF
-  maxLength={14}  // tamanho máximo para CNPJ
-  required
-/>
+              className={style.input}
+              placeholder="CPF:"
+              value={cpfcnpj}
+              onChange={e => {
+                const value = e.target.value.replace(/\D/g, "");
+                if (value.length <= 14) {
+                  setCpfCnpj(value);
+                }
+              }}
+              maxLength={11}
+              required
+            />
             <input
-            type='email'
+              type='email'
               className={style.input}
               placeholder=" E-mail:"
               value={email}
               onChange={e => setEmail(e.target.value)}
-               required
+              required
             />
 
-            {/* Campo de senha com ícone para mostrar/ocultar */}
             <div className={style.passwordWrapper}>
               <input
                 type={showPassword ? 'text' : 'password'}
@@ -109,7 +97,7 @@ export function Cadastro({ onClose, onOpenLogin }: { onClose: () => void, onOpen
                 placeholder="Senha:"
                 value={senha}
                 onChange={e => setSenha(e.target.value)}
-                 required
+                required
               />
               <span
                 className={style.toggleIcon}
@@ -154,6 +142,7 @@ export function Cadastro({ onClose, onOpenLogin }: { onClose: () => void, onOpen
           </ul>
         </div>
       </div>
+      <ToastContainer position="top-left" autoClose={4000} />
     </>
   );
 }
