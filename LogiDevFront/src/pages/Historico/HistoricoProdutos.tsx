@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { FaUserCircle } from 'react-icons/fa';
 import styles from './historico.module.css';
 import { NavBarGeral } from '../../components/NavBar/NavBar';
 import { Menu } from '../../components/Menu/Menu';

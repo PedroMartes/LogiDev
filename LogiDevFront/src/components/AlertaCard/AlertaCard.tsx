@@ -18,13 +18,14 @@ export const AlertaCard: React.FC<AlertaCardProps> = ({ titulo, itens, checked, 
             <li key={idx} className={styles.itemAlerta}>{item}</li>
           ))}
         </ul>
-        <div style={{ display: 'flex', justifyContent: 'center', marginTop: 18 }}>
-          <input
-            type="checkbox"
-            className={styles.checkAlerta}
-            checked={checked}
-            onChange={e => onCheckChange && onCheckChange(e.target.checked)}
-          />
+        <div className={styles.buttonAlertas}>
+          <button
+            type="button"
+            className={`${styles.botaoConcluido} ${checked ? styles.concluido : ""}`}
+            onClick={() => onCheckChange && onCheckChange(!checked)}
+            >
+            {checked ? "Concluído" : "Concluir"}
+          </button>
         </div>
       </div>
     </div>

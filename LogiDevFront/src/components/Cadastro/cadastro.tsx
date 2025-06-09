@@ -5,6 +5,7 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import * as Icon from 'react-bootstrap-icons'
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export function Cadastro({ onClose, onOpenLogin }: { onClose: () => void, onOpenLogin: () => void }) {
   const [showPassword, setShowPassword] = useState(false);
@@ -14,6 +15,7 @@ export function Cadastro({ onClose, onOpenLogin }: { onClose: () => void, onOpen
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [erro, setErro] = useState('');
+
 
   const handleClose = () => {
     setIsOpen(false);
@@ -36,6 +38,8 @@ export function Cadastro({ onClose, onOpenLogin }: { onClose: () => void, onOpen
 
     try {
       const response = await axios.post('http://localhost:8080/usuarios/cadastro', usuario);
+
+      toast.success(`Usuário cadastrado com sucesso! Seu nif é: ${response.data.id}`);
       setNome('');
       setCpfCnpj('');
       setEmail('');
@@ -47,8 +51,10 @@ export function Cadastro({ onClose, onOpenLogin }: { onClose: () => void, onOpen
         onOpenLogin();
       }, 9000); // Aguarda o toast sumir antes de abrir o login
     } catch (error) {
-      setErro('Erro ao cadastrar usuario. Verifique os dados e tente novamente.');
-      console.error(error);
+       toast.error('Erro ao cadastrar usuário. Verifique os dados e tente novamente.');
+      setTimeout(() => {
+        onOpenLogin();
+      }, 7000);
     }
   };
 
@@ -75,6 +81,7 @@ export function Cadastro({ onClose, onOpenLogin }: { onClose: () => void, onOpen
                 {erro}
               </div>
             )}
+            
             <input
               className={style.input}
               placeholder=" Nome:"
@@ -84,7 +91,8 @@ export function Cadastro({ onClose, onOpenLogin }: { onClose: () => void, onOpen
             />
             <input
               className={style.input}
-              placeholder="CNPJ/CPF:"
+              placeholder="CPF:"
+
               value={cpfcnpj}
               onChange={e => {
                 const value = e.target.value.replace(/\D/g, "");
@@ -93,7 +101,8 @@ export function Cadastro({ onClose, onOpenLogin }: { onClose: () => void, onOpen
                 }
               }}
               minLength={11}
-              maxLength={14}
+              maxLength={11}
+
               required
             />
             <input
@@ -155,7 +164,10 @@ export function Cadastro({ onClose, onOpenLogin }: { onClose: () => void, onOpen
           </ul>
         </div>
       </div>
+
       <ToastContainer  position="top-left"/>
+      <ToastContainer position="top-left" autoClose={4000} />
+
     </>
   );
 }

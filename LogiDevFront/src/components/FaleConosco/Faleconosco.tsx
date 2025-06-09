@@ -54,7 +54,7 @@ export function Faleconosco({ onClose }: { onClose: () => void }) {
                         <p>Tire suas dúvidas, envie a sua mensagem e nós responderemos o mais breve possível. Obrigado!</p>
                         <input className={style.input}
                         required                            
-                        placeholder=" Nome da Empresa:" />
+                        placeholder=" Nome:" />
                         <input className={style.input} 
                         required 
                         type='tel' 
@@ -62,7 +62,7 @@ export function Faleconosco({ onClose }: { onClose: () => void }) {
                         value={cpf}
                         minLength={11}
                         maxLength={14}
-                        placeholder="CNPJ/CPF:" />
+                        placeholder="CPF:" />
                         <input className={style.input}
                         required type='email'
                         placeholder=" E-mail:" />

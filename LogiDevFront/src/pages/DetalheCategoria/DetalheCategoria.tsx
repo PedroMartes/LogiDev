@@ -11,9 +11,22 @@ interface ICategoria {
   descricao: string;
 }
 
+interface IProduto {
+  id: number;
+  nome: string;
+  quantidade: number;
+  categoria: {
+    id: number;
+    nome: string;
+    // outros campos se necessário
+  };
+  // outros campos se necessário
+}
+
 export function DetalheCategoria() {
   const { id } = useParams<{ id: string }>();
   const [categoria, setCategoria] = useState<ICategoria | null>(null);
+  const [produtos, setProdutos] = useState<IProduto[]>([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
@@ -21,12 +34,24 @@ export function DetalheCategoria() {
     async function fetchData() {
       try {
         const token = localStorage.getItem("token");
+        // Busca categoria
         const res = await axios.get(
           `http://localhost:8080/categorias/getUnique/${id}`, { headers: { Authorization: `Bearer ${token}` } }
         );
         setCategoria(res.data);
+
+        // Busca todos os produtos
+        const resProdutos = await axios.get(
+          `http://localhost:8080/produtos/get`, { headers: { Authorization: `Bearer ${token}` } }
+        );
+        // Filtra produtos pela categoria
+        const produtosFiltrados = resProdutos.data.filter(
+          (prod: IProduto) => prod.categoria && prod.categoria.id === Number(id)
+        );
+        setProdutos(produtosFiltrados);
+
       } catch (error) {
-        alert("Erro ao carregar dados da categoria!");
+        alert("Erro ao carregar dados da categoria ou produtos!");
       } finally {
         setLoading(false);
       }
@@ -107,7 +132,9 @@ export function DetalheCategoria() {
             </button>
           </div>
         </form>
+        
       </div>
+
     </>
   );
 }

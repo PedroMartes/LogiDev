@@ -1,7 +1,7 @@
 
 /* Container da tabela */
 .infoContainerCategoria {
-  max-width: 65vw;
+  max-width: 70vw;
   margin: 2vw auto;
   padding: 1vw;
   display: flex;
@@ -129,6 +129,24 @@
 .saveButtonCategoria:hover {
   background: #11697a;
 }
+
+.produtosAssociadosContainer{
+  width: 100%;
+
+}
+
+.produtoList li {
+  width: 100%;
+  display: flex;
+  list-style: none;
+  margin-top: 1vw;
+  padding: 1%;
+  border-radius: 15px;
+  box-shadow: 0 0 0.7vw #9f9f9f;
+}
+
+
+
 
 /* Responsividade para telas menores */
 /* @media (max-width: 600px) {

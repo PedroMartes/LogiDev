@@ -110,26 +110,11 @@ export function DetalheFornecedor() {
                   <input
                     type="email"
                     value={fornecedor.email}
-                    onChange={e => setFornecedor({ ...fornecedor, email: e.target.value })}  className={styles.inputEmailFornecedor}
+                    onChange={e => setFornecedor({ ...fornecedor, email: e.target.value })} className={styles.inputEmailFornecedor}
                   />
                 </td>
               </tr>
-              <tr>
-                <th>Produtos Associados</th>
-                <td>
-                  {produtos && produtos.filter(prod => prod.fornecedor && prod.fornecedor.id === fornecedor.id).length > 0 ? (
-                    <ul className={styles.produtoList}>
-                      {produtos.filter(prod => prod.fornecedor && prod.fornecedor.id === fornecedor.id).map(prod => (
-                        <li key={prod.id}>
-                          {prod.nome} - Quantidade: {prod.quantidade}
-                        </li>
-                      ))}
-                    </ul>
-                  ) : (
-                    <span>Nenhum produto associado.</span>
-                  )}
-                </td>
-              </tr>
+
             </tbody>
           </table>
           <div className={styles.buttonGroupFornecedor}>
@@ -145,8 +130,24 @@ export function DetalheFornecedor() {
             </button>
           </div>
         </form>
+        <div className={styles.produtosAssociadosContainer}>
+          <div className={styles.produtosAssociadosTitle}>Produtos Associados:</div>
+          {produtos && produtos.filter(prod => prod.fornecedor && prod.fornecedor.id === fornecedor.id).length > 0 ? (
+            <ul className={styles.produtoList}>
+              {produtos
+                .filter(prod => prod.fornecedor && prod.fornecedor.id === fornecedor.id)
+                .map(prod => (
+                  <li key={prod.id}>
+                    {prod.nome} - Quantidade: {prod.quantidade}
+                  </li>
+                ))}
+            </ul>
+          ) : (
+            <span>Nenhum produto associado.</span>
+          )}
+        </div>
       </div>
-        <FooterGeral/>
+      <FooterGeral />
     </>
   );
 }
