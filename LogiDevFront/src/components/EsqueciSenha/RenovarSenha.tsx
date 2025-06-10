@@ -3,6 +3,8 @@ import style from './RenovarSenha.module.css';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import * as Icon from 'react-bootstrap-icons'
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 export function RenovarSenha({ onClose, email }: { onClose: () => void; email: string }) {
@@ -38,9 +40,12 @@ export function RenovarSenha({ onClose, email }: { onClose: () => void; email: s
     }
     try {
         await axios.post('http://localhost:8080/usuarios/redefinir-senha', { email, novaSenha });
-        alert('Senha redefinida com sucesso!');
+        toast.success('Senha redefinida com sucesso!');
+        setTimeout(() => {
         setIsOpen(false);
         onClose();
+        }
+        , 3000); // Aguarda 3 segundos antes de fechar
     } catch (err) {
         setError('Código inválido ou erro ao redefinir senha.');
     }
@@ -114,6 +119,9 @@ export function RenovarSenha({ onClose, email }: { onClose: () => void; email: s
 
                 </div>
             </div>
+            <ToastContainer
+                position="top-left"
+               />
         </>
     )
 }

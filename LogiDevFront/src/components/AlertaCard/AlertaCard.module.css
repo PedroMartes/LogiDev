@@ -49,13 +49,15 @@
 }
 
 .botaoConcluido {
-  background-color: #06925d;
+  background-color: #058353;
   color: #fff;
   border: none;
   border-radius: 8px;
-  padding: 1vw 1.5vw;
+  /* padding: 1vw 1vw; */
+  width: 70px;
+  height: 40px;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: bold;
 }
 
