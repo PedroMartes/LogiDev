@@ -14,8 +14,6 @@ export function Cadastro({ onClose, onOpenLogin }: { onClose: () => void, onOpen
   const [cpfcnpj, setCpfCnpj] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
-  const [erro, setErro] = useState('');
-
 
   const handleClose = () => {
     setIsOpen(false);
@@ -44,17 +42,12 @@ export function Cadastro({ onClose, onOpenLogin }: { onClose: () => void, onOpen
       setCpfCnpj('');
       setEmail('');
       setSenha('');
-      toast.success(`Usuário cadastrado com sucesso! Seu nif é: ${response.data.id}`, {
-        autoClose: 9000 // Toast fecha em 3 segundos
-      });
       setTimeout(() => {
         onOpenLogin();
-      }, 9000); // Aguarda o toast sumir antes de abrir o login
+      }, 6000); // Aguarda o toast sumir antes de abrir o login
     } catch (error) {
-       toast.error('Erro ao cadastrar usuário. Verifique os dados e tente novamente.');
-      setTimeout(() => {
-        onOpenLogin();
-      }, 7000);
+      toast.error('Erro ao cadastrar usuário. Verifique os dados e tente novamente.');
+      setSenha(''); // Limpa apenas o campo de senha
     }
   };
 
@@ -70,18 +63,7 @@ export function Cadastro({ onClose, onOpenLogin }: { onClose: () => void, onOpen
               Preencha os campos abaixo com seus dados para criar sua conta e aproveitar
               todos os benefícios que oferecemos!
             </p>
-            {erro && (
-              <div style={{
-                color: '#cd2727', textAlign: 'center', marginTop: '2vh', whiteSpace: 'normal',
-                maxWidth: '260px',
-                marginLeft: 'auto',
-                marginRight: 'auto',
-                wordBreak: 'break-word'
-              }}>
-                {erro}
-              </div>
-            )}
-            
+
             <input
               className={style.input}
               placeholder=" Nome:"
@@ -165,9 +147,7 @@ export function Cadastro({ onClose, onOpenLogin }: { onClose: () => void, onOpen
         </div>
       </div>
 
-      <ToastContainer  position="top-left"/>
-      <ToastContainer position="top-left" autoClose={4000} />
-
+      <ToastContainer position="top-left" />
     </>
   );
 }

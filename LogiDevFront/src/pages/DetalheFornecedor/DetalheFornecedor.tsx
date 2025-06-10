@@ -29,6 +29,9 @@ export function DetalheFornecedor() {
   const [fornecedor, setFornecedor] = useState<IFornecedor | null>(null);
   const [produtos, setProdutos] = useState<IProduto[]>([]);
   const navigate = useNavigate();
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [showError, setShowError] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("Erro ao atualizar fornecedor!");
 
   useEffect(() => {
     if (id) {
@@ -49,11 +52,11 @@ export function DetalheFornecedor() {
     if (!fornecedor) return;
     try {
       const token = localStorage.getItem("token");
-      await axios.put(`http://localhost:8080/fornecedores/update/${id}`, fornecedor, { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } });
-      alert("Fornecedor atualizado com sucesso!");
-      navigate("/controle/fornecedores"); // Redireciona para a página de estoque de fornecedores
+      await axios.put(`http://localhost:8080/fornecedores/update/${id}`, fornecedor, { headers: { Authorization: `Bearer ${token}` } });
+      setShowSuccess(true);
     } catch (error) {
-      alert("Erro ao atualizar fornecedor!");
+      setErrorMsg("Erro ao atualizar fornecedor!");
+      setShowError(true);
       console.error(error);
     }
   };
@@ -146,8 +149,59 @@ export function DetalheFornecedor() {
             <span>Nenhum produto associado.</span>
           )}
         </div>
+         {/* ALERTA DE ERRO */}
+        {showError && (
+          <div className={styles.alertaErro}>
+            <div className={styles.alertaErroHeader}>
+              <span className={styles.alertaErroTitle}>Erro!!</span>
+              <button
+                className={styles.alertaErroClose}
+                onClick={() => setShowError(false)}
+                aria-label="Fechar"
+                type="button"
+              >
+                ×
+              </button>
+            </div>
+            <div className={styles.alertaErroMsg}>{errorMsg}</div>
+            <button
+              className={styles.alertaErroOkBtn}
+              onClick={() => setShowError(false)}
+              type="button"
+            >
+              OK
+            </button>
+          </div>
+        )}
+
+        {/* ALERTA DE SUCESSO */}
+        {showSuccess && (
+          <div className={styles.alertaErro}>
+            <div className={styles.alertaErroHeader}>
+              <span className={styles.alertaErroTitle}>Sucesso!</span>
+              <button
+                className={styles.alertaErroClose}
+                onClick={() => setShowSuccess(false)}
+                aria-label="Fechar"
+                type="button"
+              >
+                ×
+              </button>
+            </div>
+            <div className={styles.alertaErroMsg}>Produto atualizado com sucesso!</div>
+            <button
+              className={styles.alertaErroOkBtn}
+              onClick={() => {
+                setShowSuccess(false);
+                navigate("/controle/fornecedores");
+              }}
+              type="button"
+            >
+              OK
+            </button>
+          </div>
+        )}
       </div>
-      <FooterGeral />
     </>
   );
 }

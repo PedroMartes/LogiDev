@@ -39,6 +39,9 @@ export function DetalheProduto() {
   const [fornecedores, setFornecedores] = useState<IFornecedor[]>([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [showError, setShowError] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("Erro ao atualizar produto!");
 
   useEffect(() => {
     async function fetchData() {
@@ -46,7 +49,7 @@ export function DetalheProduto() {
         const token = localStorage.getItem("token");
         const [produtoRes, categoriasRes, fornecedoresRes] = await Promise.all([
           axios.get(`http://localhost:8080/produtos/getUnique/${id}`, { headers: { Authorization: `Bearer ${token}` } }),
-          axios.get("http://localhost:8080/categorias/get",  { headers: { Authorization: `Bearer ${token}` } }),
+          axios.get("http://localhost:8080/categorias/get", { headers: { Authorization: `Bearer ${token}` } }),
           axios.get("http://localhost:8080/fornecedores/get", { headers: { Authorization: `Bearer ${token}` } }),
         ]);
 
@@ -69,11 +72,14 @@ export function DetalheProduto() {
           produtoData.fornecedor.id = Number(produtoData.fornecedor.id);
         }
 
+
         setProduto(produtoData);
         setCategorias(categoriasRes.data);
         setFornecedores(fornecedoresRes.data);
+
       } catch (error) {
-        alert("Erro ao carregar dados do produto!");
+        setErrorMsg("Erro ao carregar dados do produto!");
+        setShowError(true);
       } finally {
         setLoading(false);
       }
@@ -110,7 +116,8 @@ export function DetalheProduto() {
       fornecedorId = Number((produto as any).fornecedorId);
     }
     if (!categoriaId || !fornecedorId) {
-      alert("Não foi possível determinar categoria ou fornecedor válidos!");
+      setErrorMsg("Não foi possível determinar categoria ou fornecedor válidos!");
+      setShowError(true);
       return;
     }
 
@@ -126,15 +133,15 @@ export function DetalheProduto() {
 
     try {
       const token = localStorage.getItem("token");
-    await axios.put(
-  `http://localhost:8080/produtos/update/${id}`,
-  updatedDetails,
-  { headers: { Authorization: `Bearer ${token}` } }
-);
-      alert("Produto atualizado com sucesso!");
-      navigate("/controle/produtos"); // Redireciona para a página de estoque de produtos
+      await axios.put(
+        `http://localhost:8080/produtos/update/${id}`,
+        updatedDetails,
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+      setShowSuccess(true);
     } catch (error) {
-      alert("Erro ao atualizar produto!");
+      setErrorMsg("Erro ao atualizar produto!");
+      setShowError(true);
     }
   };
 
@@ -180,7 +187,7 @@ export function DetalheProduto() {
                     type="number"
                     step="0.01"
                     value={produto.preco}
-                    onChange={e => handleInputChange("preco", e.target.value)} 
+                    onChange={e => handleInputChange("preco", e.target.value)}
                     className={styles.inputPrecoProduto}
                   />
                 </td>
@@ -254,6 +261,60 @@ export function DetalheProduto() {
             </button>
           </div>
         </form>
+
+        {/* ALERTA DE ERRO */}
+        {showError && (
+          <div className={styles.alertaErro}>
+            <div className={styles.alertaErroHeader}>
+              <span className={styles.alertaErroTitle}>Erro!!</span>
+              <button
+                className={styles.alertaErroClose}
+                onClick={() => setShowError(false)}
+                aria-label="Fechar"
+                type="button"
+              >
+                ×
+              </button>
+            </div>
+            <div className={styles.alertaErroMsg}>{errorMsg}</div>
+            <button
+              className={styles.alertaErroOkBtn}
+              onClick={() => setShowError(false)}
+              type="button"
+            >
+              OK
+            </button>
+          </div>
+        )}
+
+        {/* ALERTA DE SUCESSO */}
+        {showSuccess && (
+          <div className={styles.alertaErro}>
+            <div className={styles.alertaErroHeader}>
+              <span className={styles.alertaErroTitle}>Sucesso!</span>
+              <button
+                className={styles.alertaErroClose}
+                onClick={() => setShowSuccess(false)}
+                aria-label="Fechar"
+                type="button"
+              >
+                ×
+              </button>
+            </div>
+            <div className={styles.alertaErroMsg}>Produto atualizado com sucesso!</div>
+            <button
+              className={styles.alertaErroOkBtn}
+              onClick={() => {
+                setShowSuccess(false);
+                navigate("/controle/produtos");
+              }}
+              type="button"
+            >
+              OK
+            </button>
+          </div>
+        )}
+
       </div>
     </>
   );

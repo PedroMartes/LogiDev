@@ -35,6 +35,10 @@
 .tableProductCard {
     border-collapse: collapse;
     background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5.2vh;
 }
  
 .tableData {

@@ -43,8 +43,11 @@ export function ControleFornecedores() {
         <>
             <NavBarGeral />
             <Menu />
+             <div className={styles.mainTitleContainer}>
+
             <h1 className={styles.mainTitle}>Controle de Estoque</h1>
             <h2 className={styles.mainSubtitle}>Fornecedores</h2>
+             </div>
 
             <div className={styles.controleTabeMain}>
                 <div className={styles.controleTableContainer}>

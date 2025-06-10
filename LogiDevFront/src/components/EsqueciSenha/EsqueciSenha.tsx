@@ -2,6 +2,8 @@ import { useState } from 'react';
 import style from './EsqueciSenha.module.css';
 import * as Icon from 'react-bootstrap-icons';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export function EsqueciSenha({
   onClose,
@@ -12,7 +14,7 @@ export function EsqueciSenha({
 }) {
   const [isOpen, setIsOpen] = useState(true);
   const [email, setEmail] = useState('');
-  const [erro, setErro] = useState('');
+  
 
 
   const handleClose = () => {
@@ -33,10 +35,10 @@ export function EsqueciSenha({
         if (response.data.exists) {
           onEnviar(email); // E-mail existe, pode prosseguir
         } else {
-           setErro('E-mail não cadastrado!');
+           toast.error('E-mail não cadastrado!');
         }
       } catch (error) {
-         setErro('Erro ao verificar e-mail!');
+         toast.error('Erro ao verificar e-mail!');
       }
     }
   };
@@ -52,11 +54,7 @@ export function EsqueciSenha({
             <p>
               Informe seu e-mail cadastrado e enviaremos um código para recuperação de senha.
             </p>
-            {erro && (
-              <div style={{ color: '#cd2727', textAlign: 'center', marginTop: '2vh' }}>
-                {erro}
-              </div>
-            )}
+            
             <input
               required
               className={style.input}
@@ -72,6 +70,7 @@ export function EsqueciSenha({
           </div>
         </div>
       </div>
+       <ToastContainer position="top-left" />
     </>
   );
 }

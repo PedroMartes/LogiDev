@@ -4,6 +4,8 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import * as Icon from 'react-bootstrap-icons'
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export function Login({ onClose, onOpenCadastro, onOpenEsqueciSenha }: { onClose: () => void; onOpenCadastro: () => void; onOpenEsqueciSenha?: () => void; }) {
   const [showPassword, setShowPassword] = useState(false);
@@ -11,7 +13,6 @@ export function Login({ onClose, onOpenCadastro, onOpenEsqueciSenha }: { onClose
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const navigate = useNavigate();
-  const [erro, setErro] = useState('');
 
   const handleClose = () => {
     setIsOpen(false);
@@ -36,7 +37,7 @@ export function Login({ onClose, onOpenCadastro, onOpenEsqueciSenha }: { onClose
       localStorage.setItem('userId', String(response.data.id));
       navigate("/controle/produtos");
     } catch (error) {
-      setErro('Email ou senha estão incorretos');
+      toast.error('Email ou senha estão incorretos');
     }
   };
 
@@ -52,11 +53,6 @@ export function Login({ onClose, onOpenCadastro, onOpenEsqueciSenha }: { onClose
               Entre na sua conta e tenha uma experiência
               feita especialmente para você.
             </p>
-            {erro && (
-              <div style={{ color: '#cd2727', textAlign: 'center', marginTop: '2vh' }}>
-                {erro}
-              </div>
-            )}
             <input
               type='email'
               className={style.input}
@@ -126,6 +122,7 @@ export function Login({ onClose, onOpenCadastro, onOpenEsqueciSenha }: { onClose
           </ul>
         </div>
       </div>
+      <ToastContainer position="top-left" />
     </>
   )
 }

@@ -6,7 +6,10 @@ import axios from 'axios';
 
 
 export function RenovarSenha({ onClose, email }: { onClose: () => void; email: string }) {
-    const [showPassword, setShowPassword] = useState(false);
+    // const [showPassword, setShowPassword] = useState(false);
+    const [showNovaSenha, setShowNovaSenha] = useState(false);
+    const [showConfirmarSenha, setShowConfirmarSenha] = useState(false);
+
     const [isOpen, setIsOpen] = useState(true);
     const [error, setError] = useState('');
     const [novaSenha, setNovaSenha] = useState('');
@@ -68,7 +71,7 @@ export function RenovarSenha({ onClose, email }: { onClose: () => void; email: s
                         {/* Campo de senha com ícone para mostrar/ocultar */}
                         <div className={style.passwordWrapper}>
                             <input
-                                type={showPassword ? 'text' : 'password'}
+                                type={showNovaSenha? 'text' : 'password'}
                                 className={style.input}
                                 placeholder="Senha Nova:"
                                 value={novaSenha}
@@ -76,17 +79,17 @@ export function RenovarSenha({ onClose, email }: { onClose: () => void; email: s
                             />
                             <span
                                 className={style.toggleIcon}
-                                onClick={() => setShowPassword(!showPassword)}
-                                aria-label={showPassword ? 'Ocultar senha' : 'Mostrar senha'}
+                                onClick={() => setShowNovaSenha(!showNovaSenha)}
+                                aria-label={showNovaSenha? 'Ocultar senha' : 'Mostrar senha'}
                             >
-                                {showPassword ? <FaEyeSlash /> : <FaEye />}
+                                {showNovaSenha ? <FaEyeSlash /> : <FaEye />}
                             </span>
                         </div>
 
                         {/* Campo de senha com ícone para mostrar/ocultar */}
                         <div className={style.passwordWrapper}>
                             <input
-                                type={showPassword ? 'text' : 'password'}
+                                type={showConfirmarSenha ? 'text' : 'password'}
                                 className={style.input}
                                 placeholder="Confirmar senha:"
                                 value={confirmarSenha}
@@ -94,10 +97,10 @@ export function RenovarSenha({ onClose, email }: { onClose: () => void; email: s
                             />
                             <span
                                 className={style.toggleIcon}
-                                onClick={() => setShowPassword(!showPassword)}
-                                aria-label={showPassword ? 'Ocultar senha' : 'Mostrar senha'}
+                                onClick={() => setShowConfirmarSenha(!showConfirmarSenha)}
+                                aria-label={showConfirmarSenha ? 'Ocultar senha' : 'Mostrar senha'}
                             >
-                                {showPassword ? <FaEyeSlash /> : <FaEye />}
+                                {showConfirmarSenha ? <FaEyeSlash /> : <FaEye />}
                             </span>
                         </div>
                         {error && <p style={{ color: 'red' }}>{error}</p>}

@@ -25,10 +25,10 @@ export const HistoricoCard: React.FC<CardProps> = ({ nome, dataAtualizacao, acao
     return (
         <div className={styles.cardHistorico}>
             <div className={styles.perfilIconContainer}>
-                <FaRegUser size={32} color="#fff" />
+                <FaRegUser className={styles.IconUser} size={32} color="#fff" />
             </div>
             <h3 className={styles.tituloHistorico}>{nome}</h3>
-            <p className={styles.dataHistorico}>Data da Última Atualização do Fornecedor: {dataFormatada}</p>
+            <p className={styles.dataHistorico}>Última alteração: {dataFormatada}</p>
             <p className={styles.acaoHistorico}>Ação Realizada:  {traduzirAcao(acao)}</p>
         </div>
     );

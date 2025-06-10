@@ -35,6 +35,7 @@
   min-width: 120px;
   text-align: center;
   margin: 0;
+  margin-right: 14vh;
 }
 
 /* Ação centralizada e azul */
@@ -48,7 +49,7 @@
   min-width: 120px;
   text-align: center;
   margin: 0;
-  margin-left: 4vh;
+  margin-left: 14vh;
 }
 
 /* Data preta e centralizada */
@@ -85,10 +86,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 18px;
+  margin-right: 1vh;
+}
+.IconUser {
+  width: 24px;
+  height: 24px;
+  color: #fff;
 }
 
-@media (max-width: 900px) {
+/* @media (max-width: 900px) {
   .linhaHistorico {
     flex-direction: column;
     align-items: center;
@@ -98,4 +104,4 @@
   .cardHistorico {
     padding: 16px 0;
   }
-}
+} */

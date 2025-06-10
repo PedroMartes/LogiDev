@@ -12,7 +12,7 @@ interface CardProps {
     onDelete: () => void;
 }
 
-const FornecedorCard: React.FC<CardProps> = ({ id, nome, contato, telefone, email, onDelete }) => {
+const FornecedorCard: React.FC<CardProps> = ({ id, nome, contato, telefone, email }) => {
 
     return (
 

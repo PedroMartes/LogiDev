@@ -29,6 +29,9 @@ export function DetalheCategoria() {
   const [produtos, setProdutos] = useState<IProduto[]>([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+  const [showSuccess, setShowSuccess] = useState(false);
+    const [showError, setShowError] = useState(false);
+    const [errorMsg, setErrorMsg] = useState("Erro ao atualizar produto!");
 
   useEffect(() => {
     async function fetchData() {
@@ -51,7 +54,9 @@ export function DetalheCategoria() {
         setProdutos(produtosFiltrados);
 
       } catch (error) {
-        alert("Erro ao carregar dados da categoria ou produtos!");
+        console.error("Erro ao buscar dados:", error);
+        setErrorMsg("Erro ao buscar dados da categoria!");
+        setShowError(true);
       } finally {
         setLoading(false);
       }
@@ -72,10 +77,10 @@ export function DetalheCategoria() {
         `http://localhost:8080/categorias/update/${id}`,
         categoria, { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
       );
-      alert("Categoria atualizada com sucesso!");
-      navigate("/controle/categorias");
+     setShowSuccess(true);
     } catch (error) {
-      alert("Erro ao atualizar categoria!");
+      setErrorMsg("Erro ao atualizar categoria!");
+      setShowError(true);
     }
   };
 
@@ -132,8 +137,60 @@ export function DetalheCategoria() {
             </button>
           </div>
         </form>
-        
+
       </div>
+           {/* ALERTA DE ERRO */}
+        {showError && (
+          <div className={styles.alertaErro}>
+            <div className={styles.alertaErroHeader}>
+              <span className={styles.alertaErroTitle}>Erro!!</span>
+              <button
+                className={styles.alertaErroClose}
+                onClick={() => setShowError(false)}
+                aria-label="Fechar"
+                type="button"
+              >
+                ×
+              </button>
+            </div>
+            <div className={styles.alertaErroMsg}>{errorMsg}</div>
+            <button
+              className={styles.alertaErroOkBtn}
+              onClick={() => setShowError(false)}
+              type="button"
+            >
+              OK
+            </button>
+          </div>
+        )}
+
+        {/* ALERTA DE SUCESSO */}
+        {showSuccess && (
+          <div className={styles.alertaErro}>
+            <div className={styles.alertaErroHeader}>
+              <span className={styles.alertaErroTitle}>Sucesso!</span>
+              <button
+                className={styles.alertaErroClose}
+                onClick={() => setShowSuccess(false)}
+                aria-label="Fechar"
+                type="button"
+              >
+                ×
+              </button>
+            </div>
+            <div className={styles.alertaErroMsg}>Produto atualizado com sucesso!</div>
+            <button
+              className={styles.alertaErroOkBtn}
+              onClick={() => {
+                setShowSuccess(false);
+                navigate("/controle/categorias");
+              }}
+              type="button"
+            >
+              OK
+            </button>
+          </div>
+        )} 
 
     </>
   );
