@@ -1,10 +1,12 @@
+/* Reset básico para garantir que margin, padding e box-sizing sejam consistentes */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
 }
 
+/* Footer geral */
 .footer {
   background-color: #e9e8e8;
   padding: 2.5rem 1.25rem;
@@ -15,6 +17,15 @@
   box-sizing: border-box;
 }
 
+/* Container que centraliza todo o conteúdo do footer */
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  /* opcionalmente, adicione padding horizontal */
+  padding: 0 1rem;
+}
+
+/* Logo e seu container */
 .logoWrapper {
   display: flex;
   align-items: center;
@@ -36,18 +47,19 @@
 
 .siteName {
   font-size: 2rem;
-  color: #000000;
+  color: #000;
   margin: 0;
   cursor: pointer;
 }
 
 .tagline {
   font-size: 1rem;
-  color: #000000;
+  color: #000;
   margin-top: 0.3125rem;
   cursor: pointer;
 }
 
+/* Container principal com colunas */
 .container {
   max-width: 75rem;
   margin: 0 auto;
@@ -60,6 +72,7 @@
   width: 100%;
 }
 
+/* Cada coluna */
 .column {
   flex: 1;
   min-width: 15.625rem;
@@ -107,12 +120,14 @@
   color: #666;
 }
 
+/* Área de créditos */
 .copy {
   margin-top: 1.25rem;
   padding-top: 1.25rem;
   font-size: 0.875rem;
 }
 
+/* Ícones e redes */
 .contactIcon {
   margin-right: 0.5rem;
 }
@@ -121,10 +136,8 @@
   list-style: none;
   padding: 0;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
-  justify-content:flex-start ;
-  
 }
 
 .socialList li {
@@ -140,6 +153,8 @@
 .socialIcon:hover {
   color: #085399;
 }
+
+/* Responsividade */
 
 /* Telas muito grandes */
 @media (min-width: 1600px) {
@@ -177,7 +192,7 @@
   }
 }
 
-/* Celulares grandes e pequenos */
+/* Celulares */
 @media (max-width: 700px) {
   .footer {
     padding: 1.5rem 0.5rem;
