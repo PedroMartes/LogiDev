@@ -1,14 +1,15 @@
-.container {
- display: flex;
+.containerCadastroProdutos {
+  display: flex;
   justify-content: center;
   align-items: flex-start;
-  width: 100%; /* ocupa toda a largura da tela */
+  width: 100%;
+  /* ocupa toda a largura da tela */
   min-height: 100vh;
   background: #fff;
   position: relative;
 }
 
-.card {
+.cardCadastroProdutos {
   background: #ebebeb;
   border-radius: 2.2vh;
   padding: 2.5em 2em 2em 2em;
@@ -27,35 +28,37 @@
   margin-bottom: 1em;
   font-weight: 500;
 }
-.form {
+
+.formCadastroProdutos {
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 1em;
 }
 
-.formRow {
+.formRowCadastroProdutos {
   display: flex;
   gap: 1em;
   justify-content: center;
   align-items: center;
   text-align: center;
 }
-.formGroup {
+
+.formGroupCadastroProdutos {
   display: flex;
   justify-content: center;
 }
 
-.halfFormGroup {
+.halfFormGroupCadastroProdutos {
   flex: 1;
   display: flex;
   flex-direction: column;
 }
 
-.halfFormGroup input,
-.formGroup input,
-select,
-.formGroup textarea {
+.halfFormGroupCadastroProdutos .inputCadastroProdutos,
+.formGroupCadastroProdutos .inputCadastroProdutos,
+.halfFormGroupCadastroProdutos .selectCadastroProdutos,
+.formGroupCadastroProdutos .selectCadastroProdutos{
   border: none;
   border-radius: 1.5vh;
   padding: 0.7em 1em;
@@ -64,24 +67,22 @@ select,
   margin-top: 0.3em;
   color: #444;
   font-style: italic;
-  font-family: inherit;
   outline: none;
   box-shadow: none;
   justify-content: center;
   align-items: center;
   text-align: center;
-  
+  width: 100%;
 }
 
-.formGroup textarea {
+.formGroupCadastroProdutos textarea {
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   padding: 0.7em 1em;
-  width: 100%;         /* Ocupa a largura do card */
-  min-height: 6em;     /* Altura confortável */
-  /* max-width: 100%;      */
+  width: 100%;
+  min-height: 6em;
   outline: none;
   overflow: hidden;
   background-color: #fff;
@@ -91,8 +92,8 @@ select,
 }
 
 
-/* Centraliza o placeholder horizontalmente */
-.formGroup textarea::placeholder {
+
+.formGroupCadastroProdutos textarea::placeholder {
   color: #bdbdbd;
   text-align: left;
   line-height: normal;
@@ -101,20 +102,20 @@ select,
   display: block;
 }
 
-.halfFormGroup input::placeholder,
-.formGroup input::placeholder,
-select:invalid,
-.formGroup textarea::placeholder {
+.halfFormGroupCadastroProdutos .inputCadastroProdutos::placeholder,
+.formGroupCadastroProdutos .inputCadastroProdutos::placeholder,
+.selectCadastroProdutos:invalid,
+.formGroupCadastroProdutos textarea::placeholder {
   color: #bdbdbd;
   text-align: center;
 }
 
 .idCategoria {
- border-radius: 10vh;
+  border-radius: 10vh;
 }
 
 
-.button {
+.buttonCadastroProdutos {
   width: 100%;
   background: #178ca4;
   color: #fff;
@@ -128,11 +129,11 @@ select:invalid,
   transition: background 0.2s;
 }
 
-.button:hover {
+.buttonCadastroProdutos:hover {
   background: #11687d;
 }
 
-.verificarWrapper {
+.verificarWrapperCadastroProdutos {
   position: absolute;
   right: 4vw;
   top: 20em;
@@ -140,13 +141,99 @@ select:invalid,
   align-items: center;
   justify-content: flex-end;
   width: 100vw;
-  pointer-events: none; /* para não bloquear o card */
+  pointer-events: none;
 }
 
-.verificarEstoque {
-  color:#11687d ;
+.verificarEstoqueCadastroProdutos {
+  color: #11687d;
   display: flex;
-   align-items: center;
+  align-items: center;
   text-decoration: underline;
-   pointer-events: auto; /* permite clicar no link */
+  pointer-events: auto;
 }
+
+/* ...existing code... */
+
+.alertaErro {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 320px;
+  max-width: 90vw;
+  background: #fff;
+  color: #222;
+  border-radius: 22px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  z-index: 9999;
+  padding: 2.2rem 2.5rem 1.5rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  animation: fadeInScale 0.3s;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.alertaErroHeader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.7rem;
+}
+
+.alertaErroTitle {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #222;
+  margin: 0;
+}
+
+.alertaErroClose {
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  color: #666;
+  cursor: pointer;
+  margin-left: 1rem;
+  line-height: 1;
+  transition: color 0.2s;
+}
+.alertaErroClose:hover {
+  color: #c0392b;
+}
+
+.alertaErroMsg {
+  font-size: 1.08rem;
+  color: #222;
+  margin-bottom: 1.5rem;
+  margin-top: 0.2rem;
+}
+
+.alertaErroOkBtn {
+  align-self: center;
+  background: #178ca4;
+  color: #fff;
+  border: none;
+  border-radius: 1.5em;
+  padding: 0.5em 2.5em;
+  font-size: 1.1em;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 0.5em;
+  transition: background 0.2s;
+}
+.alertaErroOkBtn:hover {
+  background: #0e5a6e;
+}
+
+/* @keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+} */

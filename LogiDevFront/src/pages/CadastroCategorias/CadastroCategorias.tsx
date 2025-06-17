@@ -9,7 +9,15 @@ import { FooterGeral } from '../../components/Footer/Footer';
 export const CadastroCategorias: React.FC = () => {
   const [nome, setNome] = useState('');
   const [descricao, setDescricao] = useState('');
+<<<<<<< HEAD
    const location = useLocation();
+=======
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [showError, setShowError] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('Erro ao cadastrar categoria!');
+  const location = useLocation();
+  const navigate = useNavigate();
+>>>>>>> dev
 
   React.useEffect(() => {
     if (location.state?.categoria && location.state?.nifConfirmado) {
@@ -17,11 +25,23 @@ export const CadastroCategorias: React.FC = () => {
       const cadastrar = async () => {
         try {
           await axios.post('http://localhost:8080/categorias/create', location.state.categoria);
-          alert('Categoria cadastrada com sucesso!');
+          setShowSuccess(true);
           setNome('');
           setDescricao('');
-        } catch (error) {
-          alert('Erro ao cadastrar categoria!');
+          setTimeout(() => setShowSuccess(false), 3000);
+        } catch (error: any) {
+          if (
+            error.response &&
+            (error.response.status === 409 ||
+              (typeof error.response.data === 'string' &&
+                error.response.data.toLowerCase().includes('já cadastrado')))
+          ) {
+            setErrorMsg('Categoria já cadastrada!');
+          } else {
+            setErrorMsg('Erro ao cadastrar categoria!');
+          }
+          setShowError(true);
+          setTimeout(() => setShowError(false), 5000);
         }
       };
       cadastrar();
@@ -32,14 +52,29 @@ export const CadastroCategorias: React.FC = () => {
     e.preventDefault();
 
     const categoria = { nome, descricao };
+    const token = localStorage.getItem('token');
 
     try {
-      await axios.post('http://localhost:8080/categorias/create', categoria);
-      alert('Categoria cadastrada com sucesso!');
+      await axios.post('http://localhost:8080/categorias/create', categoria,
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+      setShowSuccess(true);
       setNome('');
       setDescricao('');
-    } catch (error) {
-      alert('Erro ao cadastrar categoria!');
+      setTimeout(() => setShowSuccess(false), 3000);
+    } catch (error: any) {
+      if (
+        error.response &&
+        (error.response.status === 409 ||
+          (typeof error.response.data === 'string' &&
+            error.response.data.toLowerCase().includes('já cadastrado')))
+      ) {
+        setErrorMsg('Categoria já cadastrada!');
+      } else {
+        setErrorMsg('Erro ao cadastrar categoria!');
+      }
+      setShowError(true);
+      setTimeout(() => setShowError(false), 5000);
     }
   };
 
@@ -79,6 +114,56 @@ export const CadastroCategorias: React.FC = () => {
           </a>
         </div>
       </div>
+
+      {/* ALERTA DE ERRO */}
+      {showError && (
+        <div className={styles.alertaErro}>
+          <div className={styles.alertaErroHeader}>
+            <span className={styles.alertaErroTitle}>Erro!!</span>
+            <button
+              className={styles.alertaErroClose}
+              onClick={() => setShowError(false)}
+              aria-label="Fechar"
+              type="button"
+            >
+              ×
+            </button>
+          </div>
+          <div className={styles.alertaErroMsg}>{errorMsg}</div>
+          <button
+            className={styles.alertaErroOkBtn}
+            onClick={() => setShowError(false)}
+            type="button"
+          >
+            OK
+          </button>
+        </div>
+      )}
+
+      {showSuccess && (
+        <div className={styles.alertaErro}>
+          <div className={styles.alertaErroHeader}>
+            <span className={styles.alertaErroTitle}>Sucesso!</span>
+            <button
+              className={styles.alertaErroClose}
+              onClick={() => setShowSuccess(false)}
+              aria-label="Fechar"
+              type="button"
+            >
+              ×
+            </button>
+          </div>
+          <div className={styles.alertaErroMsg}>Categoria cadastrada com sucesso!</div>
+          <button
+            className={styles.alertaErroOkBtn}
+            onClick={() => setShowSuccess(false)}
+            type="button"
+          >
+            OK
+          </button>
+        </div>
+      )}
+
       <FooterGeral/>
     </>
   );

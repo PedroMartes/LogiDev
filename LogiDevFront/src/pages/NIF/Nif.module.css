@@ -1,9 +1,9 @@
 .contentWrapper {
   width: 100%;
-  max-width: 44rem;           
-  min-height: 45vh;           
-  margin: 20vh auto 20rem;  
-  padding: 2.5rem 1.7rem;     
+  max-width: 44rem;
+  min-height: 45vh;
+  margin: 20vh auto 20rem;
+  padding: 2.5rem 1.7rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,6 +11,7 @@
   background-color: #E8E8E8;
   box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.09);
   justify-content: center;
+  box-sizing: border-box;
 }
 
 .card {
@@ -18,61 +19,62 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 
 .identificationTitle {
-  font-size: 1.5rem;          
+  font-size: 1.5rem;
   color: #2c6777;
-  margin-bottom: 1.5rem;      
+  margin-bottom: 1.5rem;
   font-weight: 400;
   text-align: center;
 }
 
 .identificationBox {
   background: whitesmoke;
-  padding: 1.5rem;           
+  padding: 1.5rem;
   border-radius: 0.9rem;
   width: 100%;
-  max-width: 27rem;           
+  max-width: 27rem;
   text-align: center;
-  margin-bottom: 1.2rem;      
+  margin-bottom: 1.2rem;
   position: relative;
+  box-sizing: border-box;
 }
 
 .inputLabel {
   font-weight: 400;
-  font-size: 1.15rem;         
+  font-size: 1.15rem;
   color: #444;
   display: flex;
   justify-content: center;
-  margin-bottom: 0.9rem;     
+  margin-bottom: 0.9rem;
   text-align: left;
 }
 
 .inputText {
   margin: 0 auto 1rem;
-  padding: 0.8rem 1rem;       
-  width: 65%;              
+  padding: 0.8rem 1rem;
+  width: 65%;
   border-radius: 0.5rem;
-  font-size: 1.15rem;         
+  font-size: 1.15rem;
   border: 1px solid #ccc;
   background-color: #e8e7e7;
   display: block;
+  box-sizing: border-box;
 }
 
 .confirmButton {
   background: #067992;
   color: #fff;
   border: none;
-  padding: 0.9rem 0;          
-  width: 65%;                
+  padding: 0.9rem 0;
+  width: 65%;
   border-radius: 0.8rem;
   cursor: pointer;
-  font-size: 1.15rem;        
+  font-size: 1.15rem;
   font-weight: 400;
   transition: background-color 0.3s;
-  margin-top: 0.6rem;         
+  margin-top: 0.6rem;
 }
 
 .confirmButton:hover {
@@ -83,11 +85,13 @@
   position: fixed;
   bottom: 1.3rem;
   right: 1.3rem;
+  width: 30vh;
   background: #ebebeb;
   color: #000;
-  padding: 0.8rem 1.3rem;     
+  padding: 0.8rem 1.3rem;
+  margin-right: 10vh;
   border-radius: 0.6rem;
-  font-size: 1.05rem;         
+  font-size: 1.05rem;
   z-index: 9999;
   display: flex;
   align-items: center;
@@ -108,22 +112,95 @@
 .notificationContent {
   text-align: center;
   font-weight: 300;
-  font-size: 1.05rem;         
+  font-size: 1.05rem;
+ 
+  
 }
 
 .permissaoNotificacao {
   font-weight: 400;
-  margin-bottom: 0.7vh;
+  margin-bottom: 2vh;
   color: #25d316;
-  font-size: 1.3vh;           
+  font-size: 2.8vh;
+  text-align: center;
 }
 
 .nomeNif {
   font-weight: 400;
   margin-bottom: 0.5vh;
-  font-size: 1.2vh;           
+  font-size: 2.2vh;
 }
 
 .dataNotificacao {
-  font-size: 1.2vh;           
+  font-size: 2.5vh;
+  text-align: center;
+}
+
+/* RESPONSIVO */
+@media (max-width: 900px) {
+  .contentWrapper {
+    max-width: 98vw;
+    padding: 1.5rem 1vw;
+    margin: 10vh auto 10rem;
+  }
+  .identificationBox {
+    max-width: 95vw;
+    padding: 1.2rem 1vw;
+  }
+  .inputText,
+  .confirmButton {
+    width: 90%;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .contentWrapper {
+    max-width: 99vw;
+    padding: 1rem 0.5rem;
+    margin: 5vh auto 5rem;
+    border-radius: 0.7rem;
+  }
+  .identificationTitle {
+    font-size: 1.1rem;
+  }
+  .identificationBox {
+    max-width: 99vw;
+    padding: 1rem 0.5rem;
+    border-radius: 0.5rem;
+  }
+  .inputLabel {
+    font-size: 1rem;
+  }
+  .inputText,
+  .confirmButton {
+    width: 98%;
+    font-size: 0.98rem;
+    padding: 0.7rem 0.7rem;
+  }
+  .floatingNotification {
+    right: 0.5rem;
+    left: 0.5rem;
+    bottom: 0.5rem;
+    width: auto;
+    max-width: 95vw;
+    font-size: 0.95rem;
+    padding: 0.7rem 0.7rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .contentWrapper {
+    padding: 0.5rem 0.1rem;
+    margin: 2vh auto 2rem;
+  }
+  .identificationBox {
+    padding: 0.5rem 0.1rem;
+  }
+  .inputText,
+  .confirmButton {
+    width: 99%;
+    font-size: 0.92rem;
+    padding: 0.5rem 0.5rem;
+  }
 }

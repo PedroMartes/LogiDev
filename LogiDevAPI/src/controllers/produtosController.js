@@ -5,14 +5,27 @@ const produtosController = {
 
     create: async (req, res) => {
         try {
-
             const { nome, descricao, preco, quantidade, categoriaId, fornecedorId } = req.body
 
-            const produtos = await prisma.produtos.create({
+            const produto = await prisma.produtos.create({
                 data: { nome, descricao, preco: parseFloat(preco), quantidade, categoriaId, fornecedorId }
             })
 
-            return res.status(201).json(produtos);
+            // Salva no histórico
+            await prisma.produtosHistorico.create({
+                data: {
+                    produtoId: produto.id,
+                    nome: produto.nome,
+                    descricao: produto.descricao,
+                    preco: produto.preco,
+                    quantidade: produto.quantidade,
+                    categoriaId: produto.categoriaId,
+                    fornecedorId: produto.fornecedorId,
+                    acao: "create"
+                }
+            });
+
+            return res.status(201).json(produto);
 
         } catch (error) {
             console.log("Erro ao criar produto:", error)
@@ -30,7 +43,6 @@ const produtosController = {
                         select: { nome: true, id: true }
                     },
                 },
-
             })
 
             return res.json(produtos)
@@ -38,7 +50,6 @@ const produtosController = {
         } catch (error) {
             console.log("Erro ao buscar produtos:", error)
         }
-
     },
 
     getUnique: async (req, res) => {
@@ -55,7 +66,6 @@ const produtosController = {
                         select: { nome: true }
                     },
                 },
-
             })
 
             if (!produto) {
@@ -82,6 +92,23 @@ const produtosController = {
                 return res.status(400).json({ error: "Categoria ou Fornecedor inválido." });
             }
 
+            // Busca o produto atual antes de atualizar
+            const produtoAtual = await prisma.produtos.findUnique({ where: { id: Number(id) } });
+
+            // Salva no histórico
+            await prisma.produtosHistorico.create({
+                data: {
+                    produtoId: produtoAtual.id,
+                    nome: produtoAtual.nome,
+                    descricao: produtoAtual.descricao,
+                    preco: produtoAtual.preco,
+                    quantidade: produtoAtual.quantidade,
+                    categoriaId: produtoAtual.categoriaId,
+                    fornecedorId: produtoAtual.fornecedorId,
+                    acao: "update"
+                }
+            });
+
             const produto = await prisma.produtos.update({
                 where: { id: Number(id) },
                 data: { nome, descricao, preco: parseFloat(preco), quantidade, categoriaId, fornecedorId }
@@ -97,12 +124,28 @@ const produtosController = {
 
     delete: async (req, res) => {
         try {
-
             const { id } = req.params
+
+            // Busca o produto antes de deletar
+            const produto = await prisma.produtos.findUnique({ where: { id: Number(id) } });
 
             await prisma.produtos.delete({
                 where: { id: Number(id) }
             })
+
+            // Salva no histórico
+            await prisma.produtosHistorico.create({
+                data: {
+                    produtoId: produto.id,
+                    nome: produto.nome,
+                    descricao: produto.descricao,
+                    preco: produto.preco,
+                    quantidade: produto.quantidade,
+                    categoriaId: produto.categoriaId,
+                    fornecedorId: produto.fornecedorId,
+                    acao: "delete"
+                }
+            });
 
             return res.status(204).send()
 

@@ -4,8 +4,10 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import * as Icon from 'react-bootstrap-icons'
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-export function Login({ onClose, onOpenCadastro, onOpenEsqueciSenha}: { onClose: () => void; onOpenCadastro: () => void; onOpenEsqueciSenha?: () => void; }) {
+export function Login({ onClose, onOpenCadastro, onOpenEsqueciSenha }: { onClose: () => void; onOpenCadastro: () => void; onOpenEsqueciSenha?: () => void; }) {
   const [showPassword, setShowPassword] = useState(false);
   const [isOpen, setIsOpen] = useState(true);
   const [email, setEmail] = useState('');
@@ -24,14 +26,18 @@ export function Login({ onClose, onOpenCadastro, onOpenEsqueciSenha}: { onClose:
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      // Envia email e senha para a API
-      await axios.post('http://localhost:8080/usuarios/login', {
+      const response = await axios.post('http://localhost:8080/usuarios/login', {
         email: email,
         senha: senha
       });
+      // Salva o token e o email do usuário logado
+      localStorage.setItem('token', response.data.token);
+      localStorage.setItem('email', email); // <-- Aqui você salva o email
+      localStorage.setItem('nome', response.data.nome);
+      localStorage.setItem('userId', String(response.data.id));
       navigate("/controle/produtos");
     } catch (error) {
-      alert('Email ou senha incorretos');
+      toast.error('Email ou senha estão incorretos');
     }
   };
 
@@ -48,6 +54,7 @@ export function Login({ onClose, onOpenCadastro, onOpenEsqueciSenha}: { onClose:
               feita especialmente para você.
             </p>
             <input
+              type='email'
               className={style.input}
               placeholder="E-mail:"
               value={email}
@@ -115,6 +122,7 @@ export function Login({ onClose, onOpenCadastro, onOpenEsqueciSenha}: { onClose:
           </ul>
         </div>
       </div>
+      <ToastContainer position="top-left" />
     </>
   )
 }

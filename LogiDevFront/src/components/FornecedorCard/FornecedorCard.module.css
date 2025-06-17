@@ -1,12 +1,19 @@
 .controleTableContainer {
     display: flex;
-    width: 90%;
+    width: 100%;
+    /* justify-content: center;
+    align-items: center; */
     margin: 0 auto;
 }
 
 .tableFornecedorCard {
     border-collapse: collapse;
     background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 18.2vh;
+
 }
  
 .tableData {
@@ -41,8 +48,14 @@
 }
 
 .deleteIcon, .editIcon {
-    width: 3vh;
-    height: 3vh;
+    width: 3.5vh;
+    height: 3.5vh;
     color: #067992;
     pointer-events: none;
+    background-color: #fff;
+}
+
+.alteracoes {
+    display: flex;
+    padding: 0;
 }

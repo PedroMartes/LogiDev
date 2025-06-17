@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./FornecedorCard.module.css";
 import { Link } from "react-router-dom";
-import { MdDelete } from "react-icons/md";
 import { PiNotePencilFill } from "react-icons/pi";
 
 interface CardProps {
@@ -13,7 +12,7 @@ interface CardProps {
     onDelete: () => void;
 }
 
-const FornecedorCard: React.FC<CardProps> = ({ id, nome, contato, telefone, email, onDelete }) => {
+const FornecedorCard: React.FC<CardProps> = ({ id, nome, contato, telefone, email }) => {
 
     return (
 
@@ -34,17 +33,16 @@ const FornecedorCard: React.FC<CardProps> = ({ id, nome, contato, telefone, emai
                     </tbody>
 
                 </table>
-                <button onClick={onDelete} className={styles.deleteButton}>
-                    <MdDelete className={styles.deleteIcon} />
-                </button>
+                <div className={styles.alteracoes}>
 
                 <button className={styles.editButton}>
                     <Link to={`/detalhe/fornecedores/${id}`}>
                         <PiNotePencilFill className={styles.editIcon} />
                     </Link>
                 </button>
-            </div>
 
+                </div>
+            </div>
         </>
     );
 }

@@ -58,3 +58,44 @@ model Usuarios {
   resetCode    String?
   codeExpiry   DateTime?
 }
+
+model ProdutosHistorico {
+  id            Int      @id @default(autoincrement())
+  produtoId     Int
+  nome          String
+  descricao     String
+  preco         Float
+  quantidade    Int
+  categoriaId   Int
+  fornecedorId  Int
+  dataAlteracao DateTime @default(now())
+  acao          String   // <-- novo campo para ação
+}
+model CategoriasHistorico {
+  id            Int      @id @default(autoincrement())
+  categoriaId   Int
+  nome          String
+  descricao     String
+  dataAlteracao DateTime @default(now())
+  acao          String
+}
+
+model FornecedoresHistorico {
+  id            Int      @id @default(autoincrement())
+  fornecedorId  Int
+  nome          String
+  contato       String
+  telefone      String
+  email         String
+  dataAlteracao DateTime @default(now())
+  acao          String
+}
+
+model Alertas {
+  id           Int      @id @default(autoincrement())
+  titulo       String
+  descricao    String
+  consequencia String
+  acao         String
+  checked      Boolean  @default(false)
+}

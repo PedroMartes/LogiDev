@@ -1,6 +1,7 @@
 import { NavBarGeral } from '../../components/NavBar/NavBar';
 import { Menu } from '../../components/Menu/Menu';
 import style from './CurvaABC.module.css';
+import { Footer } from '../../components/Footer/Footer';
 
 export default function CurvaABC() {
   return (
@@ -82,6 +83,7 @@ export default function CurvaABC() {
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 }

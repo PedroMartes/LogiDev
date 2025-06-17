@@ -6,6 +6,12 @@
 
 .tableFornecedorCard {
     border-collapse: collapse;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 7.5vh;
+
 }
  
 .tableData {

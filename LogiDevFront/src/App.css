@@ -1,8 +1,19 @@
 
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Helvetica Neue', Arial, sans-serif;  
+  font-family: 'Georgia', serif; 
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
-  will-change: filter;
+  will-change: filter
+  ;
   transition: filter 300ms;
 }
 .logo:hover {
@@ -10,11 +21,6 @@
 }
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
-}
-html, body, #root {
-  height: 100%;
-  margin: 0;
-  padding: 0;
 }
 
 .app-layout {
@@ -49,4 +55,3 @@ html, body, #root {
 .read-the-docs {
   color: #888;
 }
-

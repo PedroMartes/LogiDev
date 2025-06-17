@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import styles from './novoAlerta.module.css';
 import { NavBarGeral } from '../../components/NavBar/NavBar';
 import { Menu } from '../../components/Menu/Menu';
@@ -12,7 +13,10 @@ export const NovoAlerta: React.FC = () => {
   const [acao, setAcao] = useState('');
   const [showPopup, setShowPopup] = useState(false);
 
-  // Estados para erros de cada campo
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [showError, setShowError] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('Erro ao cadastrar alerta!');
+
   const [errors, setErrors] = useState({
     titulo: false,
     descricao: false,
@@ -41,7 +45,7 @@ export const NovoAlerta: React.FC = () => {
     navigate('/alertas');
   };
 
-  const salvarAlerta = () => {
+  const salvarAlerta = async () => {
     const newErrors = {
       titulo: !titulo,
       descricao: !descricao,
@@ -53,7 +57,27 @@ export const NovoAlerta: React.FC = () => {
     // Se algum campo estiver vazio, não salva
     if (Object.values(newErrors).some(Boolean)) return;
 
-    setShowPopup(true);
+    try {
+      const token = localStorage.getItem('token');
+      await axios.post('http://localhost:8080/alertas/create', {
+        titulo,
+        descricao,
+        consequencia,
+        acao
+      }, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+
+      setShowSuccess(true);
+    } catch (error: any) {
+      setErrorMsg('Erro ao cadastrar alerta!');
+      console.error(error);
+      setShowError(true);
+      setTimeout(() => setShowError(false), 4000);
+      console.error(error);
+    }
   };
 
   const fecharPopup = () => {
@@ -61,9 +85,14 @@ export const NovoAlerta: React.FC = () => {
     navigate('/alertas');
   };
 
+  // Função para fechar o alerta de sucesso e redirecionar
+  const fecharAlertaSucesso = () => {
+    setShowSuccess(false);
+    navigate('/alertas');
+  };
+
   return (
     <div>
-
       <NavBarGeral />
       <Menu />
       <div className={styles.ContainerNovoAlerta}>
@@ -92,7 +121,6 @@ export const NovoAlerta: React.FC = () => {
               {errors.titulo && (
                 <div className={styles.inputErrorMsg}>
                   <span className={styles.inputErrorIcon}>
-                    {/* SVG X vermelho */}
                     <svg width="18" height="18" viewBox="0 0 18 18" style={{ verticalAlign: 'middle' }}>
                       <circle cx="9" cy="9" r="9" fill="#e53935" />
                       <path d="M6 6L12 12M12 6L6 12" stroke="#fff" strokeWidth="2" strokeLinecap="round" />
@@ -214,26 +242,58 @@ export const NovoAlerta: React.FC = () => {
           </div>
         </div>
 
-        {showPopup && (
-          <div className={styles.popupOverlay}>
-            <div className={styles.popupBox}>
-              <button className={styles.popupClose} onClick={fecharPopup} title="Fechar">×</button>
-              <div className={styles.popupIcon}>
-                {/* SVG check preto */}
-                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                  <circle cx="20" cy="20" r="20" fill="#0d730d" />
-                  <path d="M12 21.5L18 27.5L28 15.5" stroke="#fff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </div>
-              <h3 className={styles.popupTitle}>Alerta adicionado com sucesso!</h3>
-              <button className={styles.popupButton} onClick={fecharPopup}>
-                Ok
+        {/* ALERTA DE ERRO */}
+        {showError && (
+          <div className={styles.alertaErro}>
+            <div className={styles.alertaErroHeader}>
+              <span className={styles.alertaErroTitle}>Erro!!</span>
+              <button
+                className={styles.alertaErroClose}
+                onClick={() => setShowError(false)}
+                aria-label="Fechar"
+                type="button"
+              >
+                ×
               </button>
             </div>
+            <div className={styles.alertaErroMsg}>{errorMsg}</div>
+            <button
+              className={styles.alertaErroOkBtn}
+              onClick={() => setShowError(false)}
+              type="button"
+            >
+              OK
+            </button>
           </div>
         )}
+
+        {/* ALERTA DE SUCESSO */}
+        {showSuccess && (
+          <div className={styles.alertaErro}>
+            <div className={styles.alertaErroHeader}>
+              <span className={styles.alertaErroTitle}>Sucesso!</span>
+              <button
+                className={styles.alertaErroClose}
+                onClick={fecharAlertaSucesso}
+                aria-label="Fechar"
+                type="button"
+              >
+                ×
+              </button>
+            </div>
+            <div className={styles.alertaErroMsg}>Alerta adicionado com sucesso!</div>
+            <button
+              className={styles.alertaErroOkBtn}
+              onClick={fecharAlertaSucesso}
+              type="button"
+            >
+              OK
+            </button>
+          </div>
+        )}
+
       </div>
-      <FooterGeral/>
+      <FooterGeral />
     </div>
   );
 };

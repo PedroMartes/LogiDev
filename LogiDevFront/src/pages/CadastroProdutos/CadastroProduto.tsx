@@ -1,9 +1,13 @@
-// CadastroProdutos.tsx
 import React, { useState, useEffect } from 'react';
 import styles from './CadastroProduto.module.css';
 import axios from 'axios';
 import { NavBarGeral } from '../../components/NavBar/NavBar';
 import { Menu } from '../../components/Menu/Menu';
+<<<<<<< HEAD
+=======
+import { useNavigate } from 'react-router';
+import { FooterGeral } from '../../components/Footer/Footer';
+>>>>>>> dev
 
 interface ICategoria {
   id: number;
@@ -24,14 +28,17 @@ export const CadastroProdutos: React.FC = () => {
   const [categoria, setCategoria] = useState('');
   const [fornecedores, setFornecedores] = useState<IFornecedor[]>([]);
   const [categorias, setCategorias] = useState<ICategoria[]>([]);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [showError, setShowError] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('Erro ao cadastrar produto!');
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/categorias/get")
+      .get("http://localhost:8080/categorias/get", { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } })
       .then(response => setCategorias(response.data))
       .catch(error => console.error("Erro ao buscar categorias:", error));
     axios
-      .get("http://localhost:8080/fornecedores/get")
+      .get("http://localhost:8080/fornecedores/get", { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } })
       .then(response => setFornecedores(response.data))
       .catch(error => console.error("Erro ao buscar fornecedores:", error));
   }, []);
@@ -47,45 +54,71 @@ export const CadastroProdutos: React.FC = () => {
       fornecedorId: Number(fornecedor),
       categoriaId: Number(categoria)
     };
+    const token = localStorage.getItem('token');
 
     try {
-      console.log(produto);
-      await axios.post('http://localhost:8080/produtos/create', produto);
-      alert('Produto cadastrado com sucesso!');
+      await axios.post('http://localhost:8080/produtos/create', produto, 
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          }
+          }
+      );
+      setShowSuccess(true);
       setNome('');
       setDescricao('');
       setPreco('');
       setQuantidade('');
       setFornecedor('');
       setCategoria('');
-    } catch (error) {
-      alert('Erro ao cadastrar produto!');
+      setTimeout(() => setShowSuccess(false), 3000);
+    } catch (error: any) {
+      if (
+        error.response &&
+        (error.response.status === 409 ||
+          (typeof error.response.data === 'string' &&
+            error.response.data.toLowerCase().includes('já cadastrado')))
+      ) {
+        setErrorMsg('Produto já cadastrado!');
+      } else {
+        setErrorMsg('Erro ao cadastrar produto!');
+      }
+      setShowError(true);
+      setTimeout(() => setShowError(false), 5000);
       console.error(error);
     }
   };
 
+<<<<<<< HEAD
+=======
+  const navigate = useNavigate();
+
+  const handleNif = () => {
+    navigate('/nif', { state: { from: '/cadastro/produtos' } });
+  };
+
+>>>>>>> dev
   return (
     <>
       <div>
-
         <NavBarGeral />
         <Menu />
-        <div className={styles.container}>
-          <div className={styles.card}>
+        <div className={styles.containerCadastroProdutos}>
+          <div className={styles.cardCadastroProdutos}>
             <h1 className={styles.cadastroProdutosTitle}>Cadastrar produto</h1>
-            <form onSubmit={handleSubmit} className={styles.form}>
-              <div className={styles.formGroup}>
+            <form onSubmit={handleSubmit} className={styles.formCadastroProdutos}>
+              <div className={styles.formGroupCadastroProdutos}>
                 <input
                   type="text"
                   id="nome"
                   value={nome}
                   onChange={(e) => setNome(e.target.value)}
                   placeholder="Nome do produto"
-                  required
+                  required className={styles.inputCadastroProdutos}
                 />
               </div>
-              <div className={styles.formRow}>
-                <div className={styles.halfFormGroup}>
+              <div className={styles.formRowCadastroProdutos}>
+                <div className={styles.halfFormGroupCadastroProdutos}>
                   <select
                     id="fornecedor"
                     value={fornecedor}
@@ -100,7 +133,7 @@ export const CadastroProdutos: React.FC = () => {
                     ))}
                   </select>
                 </div>
-                <div className={styles.halfFormGroup}>
+                <div className={styles.halfFormGroupCadastroProdutos}>
                   <select
                     id="categoria"
                     value={categoria}
@@ -116,50 +149,102 @@ export const CadastroProdutos: React.FC = () => {
                   </select>
                 </div>
               </div>
-              <div className={styles.formGroup}>
+              <div className={styles.formGroupCadastroProdutos}>
                 <textarea
                   id="descricao"
                   value={descricao}
                   onChange={(e) => setDescricao(e.target.value)}
-                  placeholder="Descrição"
+                  placeholder="Descrição" className={styles.inputCadastroProdutos}
                   required
                 />
               </div>
-              <div className={styles.formRow}>
-                <div className={styles.halfFormGroup}>
+              <div className={styles.formRowCadastroProdutos}>
+                <div className={styles.halfFormGroupCadastroProdutos}>
                   <input
                     type="number"
                     id="quantidade"
                     value={quantidade}
                     onChange={(e) => setQuantidade(e.target.value)}
                     placeholder="Quantidade"
-                    required
+                    required className={styles.inputCadastroProdutos}
                   />
                 </div>
-                <div className={styles.halfFormGroup}>
+                <div className={styles.halfFormGroupCadastroProdutos}>
                   <input
                     type="number"
                     id="preco"
                     value={preco}
                     onChange={(e) => setPreco(e.target.value)}
                     placeholder="preço unitário"
-                    required
+                    required className={styles.inputCadastroProdutos}
                   />
                 </div>
               </div>
-              <button type="submit" className={styles.button}>
+              <button type="submit" className={styles.buttonCadastroProdutos}>
                 Enviar
               </button>
             </form>
           </div>
 
-          <div className={styles.verificarWrapper}>
-    <a href="/controle/produtos" className={styles.verificarEstoque}>
-      Verificar no estoque &rarr;
-    </a>
-  </div>
+          <div className={styles.verificarWrapperCadastroProdutos}>
+            <a href="/controle/produtos" className={styles.verificarEstoqueCadastroProdutos}>
+              Verificar no estoque &rarr;
+            </a>
+          </div>
+
+          {/* ALERTA DE ERRO */}
+          {showError && (
+            <div className={styles.alertaErro}>
+              <div className={styles.alertaErroHeader}>
+                <span className={styles.alertaErroTitle}>Erro!!</span>
+                <button
+                  className={styles.alertaErroClose}
+                  onClick={() => setShowError(false)}
+                  aria-label="Fechar"
+                  type="button"
+                >
+                  ×
+                </button>
+              </div>
+              <div className={styles.alertaErroMsg}>{errorMsg}</div>
+              <button
+                className={styles.alertaErroOkBtn}
+                onClick={() => setShowError(false)}
+                type="button"
+              >
+                OK
+              </button>
+            </div>
+          )}
+
+          {/* ALERTA DE SUCESSO */}
+          {showSuccess && (
+            <div className={styles.alertaErro}>
+              <div className={styles.alertaErroHeader}>
+                <span className={styles.alertaErroTitle}>Sucesso!</span>
+                <button
+                  className={styles.alertaErroClose}
+                  onClick={() => setShowSuccess(false)}
+                  aria-label="Fechar"
+                  type="button"
+                >
+                  ×
+                </button>
+              </div>
+              <div className={styles.alertaErroMsg}>Produto cadastrado com sucesso!</div>
+              <button
+                className={styles.alertaErroOkBtn}
+                onClick={() => setShowSuccess(false)}
+                type="button"
+              >
+                OK
+              </button>
+            </div>
+          )}
+
         </div>
       </div>
+      <FooterGeral />
     </>
   );
 };

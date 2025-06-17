@@ -1,0 +1,107 @@
+.cardHistorico {
+  display: flex;
+  border-radius: 16px;
+  padding: 40px 0;
+  background: #fff;
+  margin: 25px auto;
+  width: 90%;
+  max-width: 950px;
+  min-width: 10vh;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+/* Linha interna para alinhar tudo em linha e centralizar */
+.linhaHistorico {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 32px;
+  padding: 0 24px;
+  text-align: center;
+}
+
+/* Nome azul e centralizado */
+.tituloHistorico {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25rem;
+  color: #067992;
+  font-weight: 600;
+  min-width: 120px;
+  text-align: center;
+  margin: 0;
+  margin-right: 14vh;
+}
+
+/* Ação centralizada e azul */
+.acaoHistorico {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #067992;
+  font-weight: 500;
+  font-size: 1.08rem;
+  min-width: 120px;
+  text-align: center;
+  margin: 0;
+  margin-left: 14vh;
+}
+
+/* Data preta e centralizada */
+.dataHistorico {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #222;
+  font-weight: 500;
+  font-size: 1.08rem;
+  min-width: 60px;
+  text-align: center;
+  margin: 0;
+}
+
+/* Outros campos centralizados */
+.nifHistorico,
+.produtoHistorico {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #888;
+  font-size: 1.08rem;
+  min-width: 120px;
+  text-align: center;
+  margin: 0;
+}
+
+.perfilIconContainer {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #0b5c6c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1vh;
+}
+.IconUser {
+  width: 24px;
+  height: 24px;
+  color: #fff;
+}
+
+/* @media (max-width: 900px) {
+  .linhaHistorico {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 0 8px;
+  }
+  .cardHistorico {
+    padding: 16px 0;
+  }
+} */

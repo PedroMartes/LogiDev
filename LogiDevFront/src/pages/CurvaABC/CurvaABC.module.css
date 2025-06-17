@@ -4,26 +4,30 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
-    
+    min-height: 100vh;
+    box-sizing: border-box;
+    width: 100%;
 }
 
 .curvaAbcContainer {
     margin-top: 1vh;
     background-color: #eeeeeec5;
-    padding: 5vh;
-    gap: 5vh;
-    border-radius: 3vh;
-    box-shadow: 5vh rgba(0, 0, 0, 0.05);
+    padding: 4vh 2vw;
+    gap: 4vh;
+    border-radius: 2.5vh;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
     text-align: center;
-    width: 150vh;
-    height: 90vh;
+    width: 90vw;
+    max-width: 1500px;
+    min-width: 260px;
+    height: auto;
     position: relative;
     z-index: 1;
+    box-sizing: border-box;
 }
 
 .curvaAbcTitle {
-    font-size: 3vh;
+    font-size: clamp(1.3rem, 2.5vw, 2.5rem);
     color: #343a40;
     margin-top: 0;
     margin-bottom: 10px;
@@ -31,7 +35,7 @@
 }
 
 .curvaSubtitle {
-    font-size: 20px;
+    font-size: clamp(1rem, 2vw, 1.5rem);
     color: #6c757d;
     margin-bottom: 30px;
 }
@@ -41,33 +45,39 @@
     justify-content: center;
     gap: 3vh;
     flex-wrap: wrap;
-    height: 50vh;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
 }
 
 .curvaCard {
     background-color: #fff;
     border-radius: 8px;
-    padding: 10px;
+    padding: 2vw 2vw 1vw 2vw;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    flex: 1;
+    flex: 1 1 320px;
     display: flex;
     flex-direction: column;
     text-align: left;
-    min-width: 250px;
+    min-width: 220px;
     max-width: 350px;
+    height: auto;
+    margin-top: 4vh;
+    box-sizing: border-box;
 }
 
 .curvaCardHeader {
     display: flex;
     align-items: center;
-    margin-bottom: 105px;
+    margin-bottom: 2vw;
 }
 
 .curvaCardHeader h3 {
-    font-size: 22px;
+    font-size: clamp(1rem, 2vw, 1.4rem);
     color: #067992;
     font-weight: 500;
     padding-left: 1vh;
+    white-space: nowrap;
 }
 
 .curvaBadge {
@@ -76,26 +86,29 @@
     font-size: 11px;
     font-weight: 500;
     color: #212529;
-    margin-left: 10vh;
+    margin-left: 5vw;
 }
 
 .curvaBadge.curvaAltaPrioridade {
     background-color: #ff0000;
+    margin-left: 7vw;
 }
 
 .curvaBadge.curvaMediaPrioridade {
     background-color: #ffc800;
+    margin-left: 7vw;
 }
 
 .curvaBadge.curvaBaixaPrioridade {
     background-color: #00da33;
+    margin-left: 7vw;
 }
 
 .curvaDescription {
-    font-size: 20px;
+    font-size: clamp(1rem, 2vw, 1.25rem);
     color: #000;
-    margin-top: 7vh;
-    margin-bottom: 5vh;
+    margin-top: 4vh;
+    margin-bottom: 3vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -103,7 +116,7 @@
 }
 
 .curvaHighlight {
-    font-size: 20px;
+    font-size: clamp(1rem, 2vw, 1.25rem);
     font-weight: 500;
     color: #067992;
     margin-bottom: 15px;
@@ -113,7 +126,7 @@
 }
 
 .curvaExampleItem {
-    font-size: 18px;
+    font-size: clamp(0.95rem, 1.8vw, 1.13rem);
     color: #6c757d;
     display: flex;
     justify-content: center;
@@ -141,51 +154,116 @@
 .curvaStatsItem .curvaCount,
 .curvaStatsItem .curvaPercentage {
     display: block;
-    font-size: 35px;
+    font-size: clamp(1.2rem, 4vw, 2.2rem);
     font-weight: 700;
 }
 
 .curvaStatsItem .curvaLabel {
-    font-size: 17px;
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
     color: #000000;
 }
 
 .curvaArrow {
-    font-size: 40px;
+    font-size: clamp(1.2rem, 4vw, 2.5rem);
     font-weight: bold;
     color: #067992;
 }
 
-/* Remova o media query que força coluna! */
-/* Se quiser responsividade, pode ajustar para telas muito pequenas: */
-@media (max-width: 600px) {
-    .curvaCardsWrapper {
-        flex-direction: column;
-        gap: 2vh;
-        height: auto;
+/* Telas muito grandes */
+@media (min-width: 1600px) {
+    .curvaAbcContainer {
+        max-width: 1800px;
+        padding: 6vh 10vw;
     }
     .curvaCard {
-        max-width: 100%;
-        min-width: 0;
+        max-width: 400px;
+        min-width: 320px;
+    }
+    .curvaAbcTitle {
+        font-size: 3.5vh;
+    }
+    .curvaSubtitle {
+        font-size: 24px;
     }
 }
 
-/* Ajustes de fonte para telas pequenas */
-@media (max-width: 768px) {
+/* Tablets e notebooks */
+@media (max-width: 1100px) {
+    .curvaAbcContainer {
+        width: 98vw;
+        max-width: 98vw;
+        padding: 3vh 1vw;
+    }
+    .curvaCardsWrapper {
+        gap: 2vh;
+    }
+    .curvaCard {
+        max-width: 95vw;
+    }
+}
+
+/* Celulares grandes e médios */
+@media (max-width: 800px) {
+    .curvaAbcContainer {
+        width: 99vw;
+        max-width: 99vw;
+        padding: 2vh 1vw;
+    }
+    .curvaCardsWrapper {
+        flex-direction: column;
+        gap: 2vh;
+        align-items: center;
+    }
+    .curvaCard {
+        max-width: 98vw;
+        min-width: 0;
+        width: 98vw;
+        margin-top: 2vh;
+        height: auto;
+        padding: 4vw 2vw;
+    }
+    .curvaBadge,
+    .curvaBadge.curvaAltaPrioridade,
+    .curvaBadge.curvaMediaPrioridade,
+    .curvaBadge.curvaBaixaPrioridade {
+        margin-left: 2vw;
+    }
+}
+
+/* Celulares pequenos, ex: 466px */
+@media (max-width: 500px) {
+    .curvaAbcContainer {
+        padding: 1vh 0.5vw;
+        border-radius: 1.5vh;
+    }
+    .curvaCard {
+        padding: 2vw 1vw;
+        min-width: 0;
+        max-width: 99vw;
+    }
     .curvaAbcTitle {
-        font-size: 24px;
+        font-size: 1.1rem;
     }
     .curvaSubtitle {
-        font-size: 14px;
+        font-size: 0.95rem;
     }
     .curvaCardHeader h3 {
-        font-size: 18px;
+        font-size: 1rem;
     }
     .curvaStatsItem .curvaCount,
     .curvaStatsItem .curvaPercentage {
-        font-size: 24px;
+        font-size: 1.1rem;
     }
     .curvaArrow {
-        font-size: 20px;
+        font-size: 1.1rem;
+    }
+    .curvaDescription,
+    .curvaHighlight,
+    .curvaExampleItem {
+        font-size: 0.95rem;
+    }
+    .curvaCardFooter {
+        flex-direction: column;
+        gap: 1vh;
     }
 }

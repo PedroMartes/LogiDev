@@ -4,6 +4,7 @@ import { Bar } from "react-chartjs-2";
 import { NavBarGeral } from "../../components/NavBar/NavBar";
 import style from "./GraficoProduto.module.css"
 import { Menu } from "../../components/Menu/Menu";
+import { FooterGeral } from "../../components/Footer/Footer";
 
 ChartJS.register(
   BarElement,
@@ -35,27 +36,27 @@ export const GraficoProdutos = () => {
   const url = `${baseUrl}`;
   const proxyUrl = "https://cors-anywhere.herokuapp.com/";
 
-  useEffect(() => {
-    const fetchCoins = async () => {
-      await fetch(`${baseUrl}`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*",
-          "Access-Control-Allow-Methods": "GET"
-        }
-      }).then((res) => {
-        res.json().then((json) => {
-          console.log(json)
-          setChart(json)
-        })
-      }).catch(error => {
-        console.log(error);
-
+useEffect(() => {
+  const fetchProdutos = async () => {
+    const token = localStorage.getItem('token');
+    await fetch(baseUrl, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}` // Adicione o token aqui
+      }
+    })
+      .then((res) => res.json())
+      .then((json) => {
+        // Se sua API retorna { produtos: [...] }
+        setChart(json.produtos || json);
       })
-    }
-    fetchCoins()
-  }, [baseUrl, url, proxyUrl])
+      .catch(error => {
+        console.log(error);
+      });
+  };
+  fetchProdutos();
+}, [baseUrl, url, proxyUrl]);
 
   console.log(chart)
 
@@ -118,6 +119,7 @@ export const GraficoProdutos = () => {
           />
       </div>
     </div>
+    <FooterGeral/>
           </div>
   )
 }

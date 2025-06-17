@@ -46,7 +46,6 @@
     border-radius: 1vh;
     text-align: center;
     color: #fff;
-    font-family: Arial, Helvetica, sans-serif;
     transition: all 0.3s ease;
     flex-wrap: wrap;
     box-shadow: 1vh 2vh 5vh lightgrey;
@@ -61,8 +60,7 @@
     text-decoration: none;
     font-weight: 400;
     font-size: 2.3vh;
-    padding-top: 3vh; 
-    font-family: inherit;    
+    padding-top: 3vh;    
 }
  
 .userPicture img {

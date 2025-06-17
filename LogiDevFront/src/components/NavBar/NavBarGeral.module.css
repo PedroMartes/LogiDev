@@ -23,6 +23,16 @@ header {
     display: flex;
 }
 
+.icon {
+  width: 40px;
+  height: 40px;
+  margin-left: 3vh;
+  border-radius: 50%;
+  background-color: #b1b1b1; 
+  color: whitesmoke;
+  cursor: pointer;
+}
+
 .navbarList {
     text-decoration: none;
     list-style: none;
@@ -45,7 +55,7 @@ header {
     font-size: 4vh;
     color: #067992;
     margin-right: -15vh;
-    margin-left: 14vh;
+    margin-left: 4vh;
     cursor: pointer;
 }
   .contato:hover {

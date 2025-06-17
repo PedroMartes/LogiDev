@@ -9,6 +9,8 @@ import * as Icon from 'react-bootstrap-icons'
 import { useNavigate } from "react-router";
 import { EsqueciSenha } from "../EsqueciSenha/EsqueciSenha";
 import { RenovarSenha } from "../EsqueciSenha/RenovarSenha";
+import { FaUserCircle } from 'react-icons/fa';
+import { Perfil } from "../Perfil/Perfil";
 
 export function NavBar() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -17,6 +19,7 @@ export function NavBar() {
     const [showCadastro, setShowCadastro] = useState(false);
     const [showEsqueciSenha, setShowEsqueciSenha] = useState(false);
     const [showRenovarSenha, setShowRenovarSenha] = useState(false);
+    const [emailRecuperacao, setEmailRecuperacao] = useState('');
 
     useEffect(() => {
         const handleScroll = () => {
@@ -118,19 +121,28 @@ export function NavBar() {
                         setShowEsqueciSenha(false);
                         setShowLogin(true);
                     }}
-                    onEnviar={() => {
-                        setShowEsqueciSenha(false);
-                        setShowRenovarSenha(true);
-                    }}
-                />
-            )}
+                     onEnviar={email => {
+            setEmailRecuperacao(email);
+            setShowEsqueciSenha(false);
+            setShowRenovarSenha(true);
+        }}
+                    />
+                )}
             {showRenovarSenha && (
                 <RenovarSenha
+<<<<<<< HEAD
                     email={''} // Passe o email correto do usuário aqui
                     onClose={() => {
                         setShowRenovarSenha(false);
                         setShowLogin(true);
                     }}
+=======
+                onClose={() => {
+                    setShowRenovarSenha(false);
+                    setShowLogin(true);
+                }}
+                email={emailRecuperacao}
+>>>>>>> dev
                 />
             )}
 
@@ -142,9 +154,12 @@ export function NavBarGeral() {
     const [showFaleConosco, setShowFaleConosco] = useState(false);
     const [isOpen, setIsOpen] = useState(true);
     const navigate = useNavigate();
+    const [showPerfil, setShowPerfil] = useState(false);
+
 
     const handleClose = () => {
         setIsOpen(false);
+         localStorage.removeItem('token');
         navigate("/"); // Chama a função de fechamento passada como prop
     };
 
@@ -176,17 +191,26 @@ export function NavBarGeral() {
                                     Contato
                                 </a>
                             </li>
+
                             <li>
-                                <a href={"/controle"} className={Styles.servico}>
-                                    Serviços
+                                <a href={"/controle/produtos"} className={Styles.servico}>
+                                    Estoque 
                                 </a>
                             </li>
+
+                            <li>
+                                 <FaUserCircle size={40} className={Styles.icon}
+                                  onClick={() => setShowPerfil(true)} />
+                            </li>
+
                             <Icon.BoxArrowRight className={Styles.iconSaida} onClick={handleClose} />
                         </ul>
                     </div>
                 </nav>
             </header >
             {showFaleConosco && <Faleconosco onClose={() => setShowFaleConosco(false)} />}
+            {showPerfil && <Perfil onClose={() => setShowPerfil(false)} />}
+
         </>
     );
 }

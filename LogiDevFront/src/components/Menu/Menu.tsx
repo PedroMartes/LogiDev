@@ -107,12 +107,16 @@ export function Menu() {
                                 handleMenuClick(2);
                             }}
                         >
-                            Relatórios
+                            Históricos
                             <img src={setaParaBaixo} alt="Seta para baixo" className={styles.menuIcon} />
                         </a>
                         <ul className={styles.submenu}>
                             <hr style={{ border: '1px solid #045a6e', margin: 0 }} />
-                            <li><a href="/historico" className={styles.submenuLink}>Histórico</a></li>
+                            <li><a href="/historico/produtos" className={styles.submenuLink}>Produtos</a></li>
+                            <hr style={{ border: '1px solid #045a6e', margin: 0 }} />
+                            <li><a href="/historico/fornecedores" className={styles.submenuLink}>Fornecedores</a></li>
+                            <hr style={{ border: '1px solid #045a6e', margin: 0 }} />
+                            <li><a href="/historico/categorias" className={styles.submenuLink}>Categorias</a></li>
                             <hr style={{ border: '1px solid #045a6e', margin: 0 }} />
                             <li>
                                 <a href="/alertas" className={styles.submenuLink}>Alertas</a>

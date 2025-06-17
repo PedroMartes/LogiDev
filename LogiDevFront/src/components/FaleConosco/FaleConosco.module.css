@@ -1,0 +1,176 @@
+
+.contato {
+    color: #085399;
+}
+
+.faleConosco {
+    background-color: rgb(233, 232, 232);
+    width: 25%;
+    float: right;
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    height: 100%;
+    z-index: 1000;
+    position: fixed;
+}
+.faleConosco h1 {
+    font-size: 5vh;
+    font-weight: 450;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    padding-top: 4vh;
+    height: 13vh;
+    color: #067992;
+
+}
+
+.iconX {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 2vh 2vh;
+    cursor: pointer;
+    color: #000;
+    font-size: 2.5vh;
+}
+
+.faleConosco hr {
+    background-color: rgb(255, 255, 255);
+    height: 0.1vh;
+    border: none;
+}
+
+.faleConosco p {
+    padding: 1vh;
+    margin-left: 5vh;
+    margin-right: 2vh;
+    font-size: 2vh;
+    margin-top: 2vh;
+    margin-bottom: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input {
+    display: flex;
+    align-items: center;
+    margin: 2vh 10vh 3vh 8vh;
+    border: 2px solid transparent;
+    width: 20em;
+    height: 3.5em;
+    padding-left: 0.8em;
+    outline: none;
+    overflow: hidden;
+    background-color: #F3F3F3;
+    border-radius: 2em;
+    transition: all 0.5s;
+    resize: none;
+}
+
+.input:hover,
+.input:focus {
+     border: 2px solid #0c9bb5;
+    box-shadow: 0vh 0vh 0vh 1vh rgb(74, 157, 236, 20%);
+    background-color: white;
+   
+}
+
+.inputMensagem {
+    display: flex;
+    align-items: center;
+    margin: 2vh 10vh 3vh 8vh;
+    border: 2px solid transparent;
+    width: 20em;
+    height: 10em;
+    padding: 1em;
+    outline: none;
+    overflow: hidden;
+    background-color: #F3F3F3;
+    border-radius: 2em;
+    transition: all 0.5s;
+    resize: none;
+}
+
+.inputMensagem:hover,
+.inputMensagem:focus {
+    border: 2px solid #0c9bb5;
+    box-shadow: 0vh 0vh 0vh 1vh rgb(74, 157, 236, 20%);
+    background-color: white;
+}
+
+.botaoEnviar {
+    display: block;
+    margin: 1.5em auto;
+    margin-top: 5vh;
+    padding: 1em 3em;
+    font-size: 2vh;
+    font-weight: 500;
+    color: white;
+    background-color: #067992;
+    border: none;
+    border-radius: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.botaoEnviar:hover {
+    background-color: #0c9bb5;
+}
+
+/* Adicione ao final do seu FaleConosco.module.css */
+
+.perfilPopupSucesso {
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+  background: #27c96e;
+  color: #fff;
+  font-size: 1em;
+  font-weight: 500;
+  margin: 1em 0 0 0;
+  padding: 0.7em 1.2em;
+  box-shadow: none;
+  position: static;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.perfilPopupErro {
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+  background: #c0392b;
+  color: #fff;
+  border-radius: 0.1em;
+  font-size: 1em;
+  font-weight: 500;
+  margin: 1em 0 0 0;
+  padding: 0.7em 1.2em;
+  box-shadow: none;
+  position: static;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.fecharSucesso {
+  margin-left: auto;
+  font-size: 1.3em;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  background: none;
+  border: none;
+  line-height: 1;
+  transition: color 0.2s;
+}
+.fecharSucesso:hover {
+  color: #eee;
+}
+
+
+
+
+

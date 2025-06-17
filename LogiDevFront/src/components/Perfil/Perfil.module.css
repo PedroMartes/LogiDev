@@ -1,27 +1,39 @@
 .perfilPopup {
-    display: none;
-    position: absolute;
-    top: 6vw;
-    right: 4vw;
-    width: 22vw;
-    max-width: 96vw;
-    min-width: 15em;
-    background: #ededed;
+    top: 20vw;
+    right: 20vw;
     border-radius: 1.2vw;
     box-shadow: 0 0.15vw 1.2vw #0002;
+    background-color: #ededed;
+    width: 25%;
+    float: right;
+    position: absolute;
+    top: 14%;
+    right: 0%;
+    height: 37%;
     z-index: 1000;
-    font-family: 'Montserrat', Arial, sans-serif;
-    transition: height 0.2s;
 }
-
 .perfilPopup.active {
     display: block;
+}
+.perfilPopupExpandido {
+    height: 53% !important;    /* ou outro valor maior */
+    min-height: 350px;
+    transition: height 0.3s;
 }
 
 .perfilPopupHeader {
     display: flex;
     align-items: center;
     padding: 2vw 2.2vw 0 2.2vw;
+}
+.icon {
+  width: 4vw;
+  height: 4vw;
+  margin-right: 1.5vh;
+  border-radius: 50%;
+  background-color: #b1b1b1; 
+  color: #ededed;
+  
 }
 
 .perfilPopupAvatar {
@@ -41,6 +53,7 @@
 .perfilPopupNome {
     font-size: 1.25em;
     font-weight: 600;
+    color: #333;
 }
 
 .perfilPopupEmail {
@@ -75,6 +88,7 @@
 .perfilPopupOpcao i {
     font-size: 1.3em;
     margin-right: 0.8vw;
+    color: #067992;
 }
 
 .perfilPopupAlterarCampo {
@@ -128,6 +142,7 @@
 .perfilPopupSair i {
     font-size: 1.3em;
     margin-right: 0.8vw;
+    color: #067992; /* Cor do ícone de sair */
 }
 
 .perfilPopupSucesso {
@@ -140,7 +155,6 @@
     border-radius: 0 0 0 0;
     margin: 0 0 0.7vw 0;
     position: relative;
-    font-family: 'Montserrat', Arial, sans-serif;
     min-height: 2.5vw;
     gap: 1.2vw;
 }
@@ -212,3 +226,13 @@
     cursor: not-allowed;
     color: #eee;
 }
+.iconX {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 2vh 2vh;
+    cursor: pointer;
+    color: #000;
+    font-size: 2.5vh;
+}
+
